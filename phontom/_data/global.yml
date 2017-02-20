@@ -1,0 +1,14 @@
+# Site Settings
+title: "Hello. This is header"
+description: "This is description"
+url: 'https://adrian83.github.io/phantom/' # the base hostname & protocol for your site
+nav: "false"
+footer_text: '© 2016 Jami Gibbs'
+twitter: 'nnnnnnnnnn'
+github: 'nnnnnnnnnn'
+medium: 'blog.nnnnnnnnnn.com'
+
+# Admin Settings
+admin_name: 'nnn'
+admin_email: 'nnn'
+google_analytics: "nnn" # Update with your own tracking ID
