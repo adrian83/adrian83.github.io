@@ -1,6 +1,7 @@
 ---
 title: "Decorators in Python"
 date: 2018-06-03
+draft: true
 categories:
 - python
 - decorator

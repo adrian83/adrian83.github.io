@@ -1,6 +1,7 @@
 ---
 title: "Converting between numeric types in Haskell"
 date: 2018-06-05
+draft: true
 categories:
 - haskell
 tags:
