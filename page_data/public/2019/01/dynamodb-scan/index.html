@@ -1,0 +1,694 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.53 with theme Tranquilpeak 0.4.3-BETA">
+    <title>DynamoDB Scan</title>
+    <meta name="author" content="Adrian Brzoza">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://adrian83.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="When working with AWS DynamoDB I sometimes have to modify each document in table. Most of the times executing update statement is just not enough and i have to programmatically access each document and modify it.">
+    <meta property="og:description" content="When working with AWS DynamoDB I sometimes have to modify each document in table. Most of the times executing update statement is just not enough and i have to programmatically access each document and modify it.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="DynamoDB Scan">
+    <meta property="og:url" content="/2019/01/dynamodb-scan/">
+    <meta property="og:site_name" content="Adrian Brzoza">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Adrian Brzoza">
+    <meta name="twitter:description" content="When working with AWS DynamoDB I sometimes have to modify each document in table. Most of the times executing update statement is just not enough and i have to programmatically access each document and modify it.">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://adrian83.github.io/data/photo.jpg">
+    
+
+    
+      <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/f/fd/DynamoDB.png">
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://adrian83.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://adrian83.github.io/">Adrian Brzoza</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://adrian83.github.io/about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://adrian83.github.io/data/photo.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://adrian83.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://adrian83.github.io/data/photo.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Adrian Brzoza</h4>
+        
+          <h5 class="sidebar-profile-bio">Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner. Beginner runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://adrian83.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://adrian83.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://adrian83.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://adrian83.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://adrian83.github.io/about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/adrian83" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://adrian83.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      DynamoDB Scan
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-01-13T00:00:00Z">
+        
+  January 13, 2019
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://adrian83.github.io/categories/dynamodb">dynamodb</a>, 
+    
+      <a class="category-link" href="https://adrian83.github.io/categories/aws">aws</a>, 
+    
+      <a class="category-link" href="https://adrian83.github.io/categories/python">python</a>, 
+    
+      <a class="category-link" href="https://adrian83.github.io/categories/generator">generator</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>When working with AWS DynamoDB I sometimes have to modify each document in table. Most of the times executing update statement is just not enough and i have to programmatically access each document and modify it.</p>
+
+<p>Getting all documents can be achieved by executing <code>scan</code> operation on table. Each execution of <code>scan</code> method will return max 1MB of data so for most tables multiple calls are needed.</p>
+
+<p>Python script presented below simplifies iterating through given DynamoDB table. We can basically treat DynamoDB table as a Python sequence. What is worth noting is that every next part of the sequence is fetched lazyly that is after all previous elements were processed. This lazines decreases probability of working with stale items.</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight python language-python">
+  <figcaption>
+    
+      <span>table_scan.py</span><a href="https://github.com/adrian83/playground-python/blob/master/dynamodb-scan/table_scan.py" target="_blank" rel="external">table_scan.py</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-python"><code class="python">import boto3
+
+lastEvalKeyLabel = &#34;LastEvaluatedKey&#34;
+itemsLabel = &#34;Items&#34;
+
+dynamoDB = &#34;dynamodb&#34;
+region = &#34;eu-west-1&#34;
+
+tableName = &#34;USERS-DEV&#34;
+
+
+def scan_all(table):
+
+    lastEvaluatedKey = None
+
+    while True:
+
+        scanResp = table.scan() if not lastEvaluatedKey \
+            else table.scan(ExclusiveStartKey=lastEvaluatedKey)
+
+        items = scanResp[itemsLabel]
+        if not items:
+            print(&#34;No more items to process&#34;)
+            break
+
+        print(&#34;Scan fetched {0} items&#34;.format(len(items)))
+
+        for item in items:
+            yield item
+
+        if lastEvalKeyLabel in scanResp:
+            lastEvaluatedKey = scanResp[lastEvalKeyLabel]
+        else:
+            print(&#34;No more items to process&#34;)
+            break
+
+    print(&#34;End of scanning&#34;)
+
+
+if __name__ == &#34;__main__&#34;:
+
+    dynamoDB = boto3.resource(dynamoDB, region_name=region)
+    table = dynamoDB.Table(tableName)
+
+    count = 0
+    for item in scan_all(table):
+        # processing items goes here
+        count &#43;= 1
+
+    print(&#34;Items processed: {0}&#34;.format(count))</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>Presented script produces logs (below) which matches data from table summary (also below).</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight bash language-bash">
+  <figcaption>
+    
+      <span>output.sh</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-bash"><code class="bash">[adrian@adrian-pc decorators]$ python table_scan.py
+Scan fetched 5386 items
+Scan fetched 4508 items
+No more items to process
+End of scanning
+Items processed: 9894</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<pre><code>Last increase time    ...
+Storage size (in bytes) 1.85 MB
+Item count  9,894
+Region  EU West (Ireland)
+Amazon Resource Name (ARN)  arn:aws:dynamodb:eu-west-1:...
+</code></pre>
+
+<h2 id="summary">Summary</h2>
+
+<p>Presented script is an example of how single language feature can not only simplify code but also make it safer (decreases probability of working with stale items).</p>
+
+<h4 id="sources">Sources</h4>
+
+<ol>
+<li><a href="https://wiki.python.org/moin/Generators">Python Generators</a></li>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html">DynamoDB Scan</a></li>
+</ol>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://adrian83.github.io/tags/dynamodb/">dynamodb</a>
+
+  <a class="tag tag--primary tag--small" href="https://adrian83.github.io/tags/aws/">aws</a>
+
+  <a class="tag tag--primary tag--small" href="https://adrian83.github.io/tags/python/">python</a>
+
+  <a class="tag tag--primary tag--small" href="https://adrian83.github.io/tags/generator/">generator</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://adrian83.github.io/2019/01/decorators-in-python/" data-tooltip="Decorators in Python">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 Adrian Brzoza. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://adrian83.github.io/2019/01/decorators-in-python/" data-tooltip="Decorators in Python">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://adrian83.github.io/data/photo.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Adrian Brzoza</h4>
+    
+      <div id="about-card-bio">Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner. Beginner runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Software Engineer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Poland
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://adrian83.github.io/2019/01/dynamodb-scan/">
+                <h3 class="media-heading">DynamoDB Scan</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>When working with AWS DynamoDB I sometimes have to modify each document in table. Most of the times executing update statement is just not enough and i have to programmatically access each document and modify it.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://adrian83.github.io/2019/01/decorators-in-python/">
+                <h3 class="media-heading">Decorators in Python</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Decorators are one of my favorite Python features.
+By using them we can alter functions and methods. From decorator we have access to method / function arguments as well as returned value. We don&rsquo;t even have to execute decorated function.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         2 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://adrian83.github.io/images/cover-v1.2.0.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://adrian83.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/adrian83.github.io\/2019\/01\/dynamodb-scan\/';
+          
+            this.page.identifier = '\/2019\/01\/dynamodb-scan\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

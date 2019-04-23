@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Decorators on Adrian Brzoza</title>
+    <link>https://adrian83.github.io/tags/decorators/</link>
+    <description>Recent content in Decorators on Adrian Brzoza</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://adrian83.github.io/tags/decorators/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Decorators in Python</title>
+      <link>https://adrian83.github.io/2019/01/decorators-in-python/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/2019/01/decorators-in-python/</guid>
+      <description>&lt;p&gt;Decorators are one of my favorite Python features.
+By using them we can alter functions and methods. From decorator we have access to method / function arguments as well as returned value. We don&amp;rsquo;t even have to execute decorated function.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

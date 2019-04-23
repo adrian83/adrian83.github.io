@@ -1,10 +1,11 @@
 ---
 title: "About"
-date: 2018-07-30T21:56:56+02:00
-draft: false
-showPagination: false
+date: 2019-04-23T17:48:02+02:00
+draft: true
+type: page
+menu: "main"
+weight: 50
+
 ---
-
-
 
 Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner. Beginner runner.

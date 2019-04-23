@@ -1,0 +1,918 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.53 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Decorators in Python</title>
+    <meta name="author" content="Adrian Brzoza">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://adrian83.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="Decorators are one of my favorite Python features.
+By using them we can alter functions and methods. From decorator we have access to method / function arguments as well as returned value. We don&rsquo;t even have to execute decorated function.">
+    <meta property="og:description" content="Decorators are one of my favorite Python features.
+By using them we can alter functions and methods. From decorator we have access to method / function arguments as well as returned value. We don&rsquo;t even have to execute decorated function.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Decorators in Python">
+    <meta property="og:url" content="/2019/01/decorators-in-python/">
+    <meta property="og:site_name" content="Adrian Brzoza">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Adrian Brzoza">
+    <meta name="twitter:description" content="Decorators are one of my favorite Python features.
+By using them we can alter functions and methods. From decorator we have access to method / function arguments as well as returned value. We don&rsquo;t even have to execute decorated function.">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://adrian83.github.io/data/photo.jpg">
+    
+
+    
+      <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg">
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://adrian83.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://adrian83.github.io/">Adrian Brzoza</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://adrian83.github.io/about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://adrian83.github.io/data/photo.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://adrian83.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://adrian83.github.io/data/photo.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Adrian Brzoza</h4>
+        
+          <h5 class="sidebar-profile-bio">Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner. Beginner runner.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://adrian83.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://adrian83.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://adrian83.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://adrian83.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://adrian83.github.io/about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/adrian83" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://adrian83.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Decorators in Python
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-01-12T00:00:00Z">
+        
+  January 12, 2019
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://adrian83.github.io/categories/python">python</a>, 
+    
+      <a class="category-link" href="https://adrian83.github.io/categories/decorator">decorator</a>, 
+    
+      <a class="category-link" href="https://adrian83.github.io/categories/decorators">decorators</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Decorators are one of my favorite Python features.
+By using them we can alter functions and methods. From decorator we have access to method / function arguments as well as returned value. We don&rsquo;t even have to execute decorated function.</p>
+
+<p>Decorators can be implemented in two ways: as a function or as a class. Both types of decorators offer almost the same functionality.</p>
+
+<p>First let&rsquo;s see code that will be used in all examples:
+(1) Function that will return text information about wrapped function (name and given parameters). This function will be used internally by every presented decorator.
+(2) Function that will be &lsquo;decorated&rsquo; by every presented decorator.</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight python language-python">
+  <figcaption>
+    
+      <span>base.py</span><a href="https://github.com/adrian83/playground-python/blob/master/decorators/base.py" target="_blank" rel="external">base.py</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-python"><code class="python">import types
+import time
+
+info_format = &#34;Executing &#39;{0}&#39; with params: {1} {2}&#34;
+
+# (1)
+def func_invocation_info(call, *args, **kwargs):
+    nameable = call if isinstance(call, types.FunctionType) else call.__class__
+    argsStr = &#34;, &#34;.join(args)
+    kwargsStr = &#34;, &#34;.join([&#34;{0}={1}&#34;.format(k, v) for k, v in kwargs.items()])
+    return info_format.format(nameable.__name__, argsStr, kwargsStr)
+
+# (2)
+def introduce(first_name, last_name, **info):
+    print(&#34;First name: {0}&#34;.format(first_name))
+    print(&#34;Last name: {0}&#34;.format(last_name))
+    for key, value in info.items():
+        print(&#34;{0}: {1}&#34;.format(key, value))</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="function-as-a-decorator">Function as a Decorator</h3>
+
+<p>Below you can find two different decorators:
+(1) Simplest decorator .
+(2) Decorator with parameters.</p>
+
+<p>You can also see example (3) of using many decorators on a single function. Execution ordering is quite intuitive - from top to bottom. What is worth noting is the fact that &lsquo;upper&rsquo; decorator is actualy decorating the other one and not the function.</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight python language-python">
+  <figcaption>
+    
+      <span>decorator_func.py</span><a href="https://github.com/adrian83/playground-python/blob/master/decorators/decorator_func.py" target="_blank" rel="external">decorator_func.py</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-python"><code class="python">from base import func_invocation_info, introduce
+
+# (1)
+def log(func):
+    def wrapper(*args, **kwargs):
+        print(func_invocation_info(func, *args, **kwargs))
+        return func(*args, **kwargs)
+    return wrapper
+
+
+@log
+def introduce_1(first_name, last_name, **info):
+    print(&#34;PERSONAL DATA&#34;)
+    introduce(first_name, last_name, **info)
+    print(&#34;&#34;)
+
+
+introduce_1(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)
+
+# (2)
+def log2(level, file_name):
+    def wrapper1(func):
+        def wrapper2(*args, **kwargs):
+            info = func_invocation_info(func, *args, **kwargs)
+            print(&#34;[{0}] [{1}] {2}&#34;.format(level, file_name, info))
+            return func(*args, **kwargs)
+        return wrapper2
+    return wrapper1
+
+
+@log2(&#34;INFO&#34;, &#34;decorators_func.py&#34;)
+def introduce_2(first_name, last_name, **info):
+    print(&#34;PERSONAL DATA&#34;)
+    introduce(first_name, last_name, **info)
+    print(&#34;&#34;)
+
+
+introduce_2(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)
+
+
+# (3)
+@log2(&#34;INFO&#34;, &#34;decorators_func.py&#34;)
+@log
+def introduce_3(first_name, last_name, **info):
+    print(&#34;PERSONAL DATA&#34;)
+    introduce(first_name, last_name, **info)
+    print(&#34;&#34;)
+
+
+introduce_3(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight bash language-bash">
+  <figcaption>
+    
+      <span>output.sh</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-bash"><code class="bash">[adrian@adrian-pc decorators]$ python decorator_func.py 
+Executing &#39;introduce_1&#39; with params: William, Shakespeare Father=John Shakespeare, Mother=Mary Arden
+PERSONAL DATA
+First name: William
+Last name: Shakespeare
+Father: John Shakespeare
+Mother: Mary Arden
+
+[INFO] [decorators_func.py] Executing &#39;introduce_2&#39; with params: William, Shakespeare Father=John Shakespeare, Mother=Mary Arden
+PERSONAL DATA
+First name: William
+Last name: Shakespeare
+Father: John Shakespeare
+Mother: Mary Arden
+
+[INFO] [decorators_func.py] Executing &#39;wrapper&#39; with params: William, Shakespeare Father=John Shakespeare, Mother=Mary Arden
+Executing &#39;introduce_3&#39; with params: William, Shakespeare Father=John Shakespeare, Mother=Mary Arden
+PERSONAL DATA
+First name: William
+Last name: Shakespeare
+Father: John Shakespeare
+Mother: Mary Arden</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="class-as-a-decorator">Class as a Decorator</h3>
+
+<p>Below you can find two different decorators:
+(1) Simplest decorator.
+(2) Decorator with parameters.</p>
+
+<p>You can also see example (3) of using many decorators on a single function. Execution ordering is quite intuitive - from top to bottom. What is worth noting is the fact that &lsquo;upper&rsquo; decorator is actualy decorating the other one and not the function.</p>
+
+
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+
+
+<figure class="highlight python language-python">
+  <figcaption>
+    
+      <span>decorator_class.py</span><a href="https://github.com/adrian83/playground-python/blob/master/decorators/decorator_class.py" target="_blank" rel="external">decorator_class.py</a>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-python"><code class="python">from base import func_invocation_info, introduce
+
+# (1)
+class Log:
+
+    def __init__(self, func):
+        self.func = func
+
+    def __call__(self, *args, **kwargs):
+        print(func_invocation_info(self.func, *args, **kwargs))
+        return self.func(*args, **kwargs)
+
+
+@Log
+def introduce_1(first_name, last_name, **info):
+    print(&#34;PERSONAL DATA&#34;)
+    introduce(first_name, last_name, **info)
+    print(&#34;&#34;)
+
+
+introduce_1(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)
+
+# (2)
+class Log2:
+
+    def __init__(self, level, file_name):
+        self.level = level
+        self.file_name = file_name
+
+    def __call__(self, func):
+        def wrapper(*args, **kwargs):
+            info = func_invocation_info(func, *args, **kwargs)
+            print(&#34;[{0}] [{1}] {2}&#34;.format(self.level, self.file_name, info))
+            return func(*args, **kwargs)
+        return wrapper
+
+
+@Log2(&#34;INFO&#34;, &#34;decorators_class.py&#34;)
+def introduce_2(first_name, last_name, **info):
+    print(&#34;PERSONAL DATA&#34;)
+    introduce(first_name, last_name, **info)
+    print(&#34;&#34;)
+
+
+introduce_2(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)
+
+# (3)
+@Log2(&#34;INFO&#34;, &#34;decorators_class.py&#34;)
+@Log
+def introduce_3(first_name, last_name, **info):
+    print(&#34;PERSONAL DATA&#34;)
+    introduce(first_name, last_name, **info)
+    print(&#34;&#34;)
+
+
+introduce_3(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+
+<figure class="highlight bash language-bash">
+  <figcaption>
+    
+      <span>output.sh</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-bash"><code class="bash">[adrian@adrian-pc decorators]$ python decorator_class.py 
+Executing &#39;introduce_1&#39; with params: William, Shakespeare Father=John Shakespeare, Mother=Mary Arden
+PERSONAL DATA
+First name: William
+Last name: Shakespeare
+Father: John Shakespeare
+Mother: Mary Arden
+
+[INFO] [decorators_class.py] Executing &#39;introduce_2&#39; with params: William, Shakespeare Father=John Shakespeare, Mother=Mary Arden
+PERSONAL DATA
+First name: William
+Last name: Shakespeare
+Father: John Shakespeare
+Mother: Mary Arden
+
+[INFO] [decorators_class.py] Executing &#39;Log&#39; with params: William, Shakespeare Father=John Shakespeare, Mother=Mary Arden
+Executing &#39;introduce_3&#39; with params: William, Shakespeare Father=John Shakespeare, Mother=Mary Arden
+PERSONAL DATA
+First name: William
+Last name: Shakespeare
+Father: John Shakespeare
+Mother: Mary Arden</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h2 id="summary">Summary</h2>
+
+<p>Decorators are very useful Python feature which is used heavily in almost all Python frameworks as well as in Python standard library (@classmethod, @staticmethod). That&rsquo;s why it is very important to understand how to create and use them.</p>
+
+<h4 id="sources">Sources</h4>
+
+<ol>
+<li><a href="https://wiki.python.org/moin/PythonDecorators">Python Decorators</a></li>
+</ol>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://adrian83.github.io/tags/python/">python</a>
+
+  <a class="tag tag--primary tag--small" href="https://adrian83.github.io/tags/decorator/">decorator</a>
+
+  <a class="tag tag--primary tag--small" href="https://adrian83.github.io/tags/decorators/">decorators</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://adrian83.github.io/2019/01/dynamodb-scan/" data-tooltip="DynamoDB Scan">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 Adrian Brzoza. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://adrian83.github.io/2019/01/dynamodb-scan/" data-tooltip="DynamoDB Scan">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://adrian83.github.io/data/photo.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Adrian Brzoza</h4>
+    
+      <div id="about-card-bio">Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner. Beginner runner.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Software Engineer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Poland
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://adrian83.github.io/2019/01/dynamodb-scan/">
+                <h3 class="media-heading">DynamoDB Scan</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>When working with AWS DynamoDB I sometimes have to modify each document in table. Most of the times executing update statement is just not enough and i have to programmatically access each document and modify it.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://adrian83.github.io/2019/01/decorators-in-python/">
+                <h3 class="media-heading">Decorators in Python</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Decorators are one of my favorite Python features.
+By using them we can alter functions and methods. From decorator we have access to method / function arguments as well as returned value. We don&rsquo;t even have to execute decorated function.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         2 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://adrian83.github.io/images/cover-v1.2.0.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://adrian83.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/adrian83.github.io\/2019\/01\/decorators-in-python\/';
+          
+            this.page.identifier = '\/2019\/01\/decorators-in-python\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

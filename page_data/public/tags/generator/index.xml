@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Generator on Adrian Brzoza</title>
+    <link>https://adrian83.github.io/tags/generator/</link>
+    <description>Recent content in Generator on Adrian Brzoza</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://adrian83.github.io/tags/generator/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DynamoDB Scan</title>
+      <link>https://adrian83.github.io/2019/01/dynamodb-scan/</link>
+      <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/2019/01/dynamodb-scan/</guid>
+      <description>&lt;p&gt;When working with AWS DynamoDB I sometimes have to modify each document in table. Most of the times executing update statement is just not enough and i have to programmatically access each document and modify it.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
