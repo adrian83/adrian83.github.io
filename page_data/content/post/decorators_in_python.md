@@ -25,7 +25,7 @@ First let's see code that will be used in all examples:
 (2) Function that will be 'decorated' by every presented decorator.
 
 
-{{< codeblock "base.py" "python" "https://github.com/adrian83/playground-python/blob/master/decorators/base.py" "base.py" >}}
+ "base.py" "python" "https://github.com/adrian83/playground-python/blob/master/decorators/base.py" "base.py" 
 
 import types
 import time
@@ -46,7 +46,7 @@ def introduce(first_name, last_name, **info):
     for key, value in info.items():
         print("{0}: {1}".format(key, value))
 
-{{< /codeblock >}}
+
 
 
 ### Function as a Decorator
@@ -58,7 +58,7 @@ Below you can find two different decorators:
 You can also see example (3) of using many decorators on a single function. Execution ordering is quite intuitive - from top to bottom. What is worth noting is the fact that 'upper' decorator is actualy decorating the other one and not the function.
 
 
-{{< codeblock "decorator_func.py" "python" "https://github.com/adrian83/playground-python/blob/master/decorators/decorator_func.py" "decorator_func.py" >}}
+"decorator_func.py" "python" "https://github.com/adrian83/playground-python/blob/master/decorators/decorator_func.py" "decorator_func.py" 
 
 from base import func_invocation_info, introduce
 
@@ -114,11 +114,11 @@ def introduce_3(first_name, last_name, **info):
 introduce_3("William", "Shakespeare", Father="John Shakespeare",
             Mother="Mary Arden")
 
-{{< /codeblock >}}
 
 
 
-{{< codeblock "output.sh" "bash" >}}
+
+"output.sh" "bash" 
 
 [adrian@adrian-pc decorators]$ python decorator_func.py 
 Executing 'introduce_1' with params: William, Shakespeare Father=John Shakespeare, Mother=Mary Arden
@@ -143,7 +143,6 @@ Last name: Shakespeare
 Father: John Shakespeare
 Mother: Mary Arden
 
-{{< /codeblock >}}
 
 
 
@@ -157,7 +156,7 @@ Below you can find two different decorators:
 You can also see example (3) of using many decorators on a single function. Execution ordering is quite intuitive - from top to bottom. What is worth noting is the fact that 'upper' decorator is actualy decorating the other one and not the function.
 
 
-{{< codeblock "decorator_class.py" "python" "https://github.com/adrian83/playground-python/blob/master/decorators/decorator_class.py" "decorator_class.py" >}}
+"decorator_class.py" "python" "https://github.com/adrian83/playground-python/blob/master/decorators/decorator_class.py" "decorator_class.py" 
 
 from base import func_invocation_info, introduce
 
@@ -219,10 +218,10 @@ def introduce_3(first_name, last_name, **info):
 introduce_3("William", "Shakespeare", Father="John Shakespeare",
             Mother="Mary Arden")
 
-{{< /codeblock >}}
 
 
-{{< codeblock "output.sh" "bash" >}}
+
+"output.sh" "bash" 
 
 [adrian@adrian-pc decorators]$ python decorator_class.py 
 Executing 'introduce_1' with params: William, Shakespeare Father=John Shakespeare, Mother=Mary Arden
@@ -247,7 +246,7 @@ Last name: Shakespeare
 Father: John Shakespeare
 Mother: Mary Arden
 
-{{< /codeblock >}}
+
 
 
 
