@@ -16,7 +16,7 @@ canonifyurls = true
   archive = "archives"
 
 [author]
-  name = "Adrian Brzoza"
+  name = "Adrian"
   bio = "Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner. Beginner runner."
   job = "Software Engineer"
   location = "Poland"

@@ -1,7 +1,6 @@
 ---
 title: "About"
 date: 2019-04-23T17:48:02+02:00
-draft: true
 type: page
 menu: "main"
 weight: 50

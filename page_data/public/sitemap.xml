@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://adrian83.github.io/page/about/</loc>
+    <lastmod>2019-04-23T17:48:02+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://adrian83.github.io/</loc>
+    <lastmod>2019-04-23T17:48:02+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/page/</loc>
+    <lastmod>2019-04-23T17:48:02+02:00</lastmod>
     <priority>0</priority>
   </url>
   
