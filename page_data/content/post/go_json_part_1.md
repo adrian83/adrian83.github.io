@@ -1,6 +1,6 @@
 ---
 title: "Working with JSON in GO - Part 1"
-date: 2019-05-15
+date: 2019-06-05
 draft: false
 tags:
 - go
@@ -8,18 +8,16 @@ tags:
 - json
 ---
 
-If you want an easy way to transform Go structure into JSON representation or vice versa you can use json tags for straightforward transformation or implement one simple method to gain more controll over the process.
+If you want an easy way to transform Go structure into JSON representation or vice versa you can use JSON tags for straightforward transformation or implement one simple method to gain more controll over the process.
 <!--more-->
 
+<br/>
 
 #### Introduction
 
 Changing JSON into structures or structures into JSON is (at least for me) very frequent task and thus it should be relatively easy. Below you can see two most commonly used ways to transform structures to and from JSON.
 
-
-
-
-
+<br/>
 
 #### Marshall (basic)
 
@@ -73,7 +71,7 @@ Output:
 }
 ```
 
-
+<br/>
 
 #### Unmarshall (basic)
 
@@ -121,6 +119,7 @@ Output
 FirstName: John, LastName: Smith, Married: false
 ```
 
+<br/>
 
 #### Marshall
 
@@ -193,8 +192,7 @@ Output:
 }
 ```
 
-
-
+<br/>
 
 #### Unmarshall
 
@@ -267,14 +265,14 @@ Output:
 FirstName: John, LastName: Smith, Married: true
 ```
 
-
-
+<br/>
 
 #### Summary
 
-Yes I know the code is definitly not the shortes example of JSON marshallig / unmarshalling but it has other advantages like full controll over the process. 
+Examples presented above give you the quick tour of how to work with JSON in Go. First two examples show how we can in few lines turn JSON into Go structure and the other way around. And next two show how with a little bit of additional work you can take full controll over the transformation.
+Yes I know that this is probably not the shortest example of JSON marshallig / unmarshalling you've seen in your life, but at least it's readable and not sprinkled with magic.
 
-
+<br/>
 
 #### Sources
 1. [Go programming language](https://golang.org/)
