@@ -1,67 +1,57 @@
+baseurl = "https://adrian83.github.io/"
+title = "adrian"
+theme = "hugo-coder"
+languagecode = "en"
+defaultcontentlanguage = "en"
 
-baseURL = "https://adrian83.github.io/"
-languageCode = "en-us"
-defaultContentLanguage = "en-us"
-title = "Adrian"
-theme = "hugo-theme-minos"
-paginate = 10
+paginate = 20
 canonifyurls = true
 
-[permalinks]
-  post = "/:year/:month/:slug/"
+pygmentsstyle = "bw"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
 
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-  archive = "archives"
-
-[author]
-  name = "Adrian"
-  bio = "Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner. Beginner runner."
-  job = "Software Engineer"
-  location = "Poland"
-  picture = "https://adrian83.github.io/data/photo.jpg"
-
-
-# Menu Configuration
-[[menu.main]]
-  weight = 1
-  identifier = "home"
-  name = "Home"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-home\"></i>"
-  url = "/"
-[[menu.main]]
-  weight = 3
-  identifier = "tags"
-  name = "Tags"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-tags\"></i>"
-  url = "/tags"
-[[menu.main]]
-  weight = 6
-  identifier = "github"
-  name = "GitHub"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
-  url = "https://github.com/adrian83"
-
-
-
+disqusShortname = "yourdiscussshortname"
 
 [params]
-  smartToc = true
-  syntaxHighlighter = "highlight.js"
-  clearReading = true
-  hierarchicalCategories = true
-  description = "My blog"
+    author = "Adrian Brzoza"
+    info = "Software Engineer"
+    description = "Adrian Brzoza's personal website"
+    keywords = "blog,developer,personal"
+    avatarurl = "data/photo.jpg"
 
+    favicon_32 = "/img/favicon-32x32.png"
+    favicon_16 = "/img/favicon-16x16.png"
 
-  coverImage = "cover-v1.2.0.jpg"
+    footercontent = "Enter a text here."
 
-  imageGallery = true
+    hidecredits = false
+    hidecopyright = false
 
-  thumbnailImage = true
+    rtl = false
 
-  thumbnailImagePosition = "bottom"
+    math = true
+    custom_css = ["css/custom.css"]
 
-  autoThumbnailImage = true
+# Social links
+[[params.social]]
+    name = "Github"
+    icon = "fab fa-github fa-2x"
+    weight = 1
+    url = "https://github.com/johndoe/"
+[[params.social]]
+    name = "Linkedin"
+    icon = "fab fa-linkedin fa-2x"
+    weight = 2
+    url = "https://gitlab.com/johndoe/"
+[[params.social]]
+    name = "Twitter"
+    icon = "fab fa-twitter fa-2x"
+    weight = 3
+    url = "https://twitter.com/johndoe/"
 
-
+# Menu links
+[[menu.main]]
+    name = "Blog"
+    weight = 1
+    url  = "/post/"
