@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pages on Adrian</title>
+    <title>Pages on adrian</title>
     <link>https://adrian83.github.io/page/</link>
-    <description>Recent content in Pages on Adrian</description>
+    <description>Recent content in Pages on adrian</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Tue, 23 Apr 2019 17:48:02 +0200</lastBuildDate>
     
 	<atom:link href="https://adrian83.github.io/page/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <pubDate>Tue, 23 Apr 2019 17:48:02 +0200</pubDate>
       
       <guid>https://adrian83.github.io/page/about/</guid>
-      <description>Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner. Beginner runner.</description>
+      <description>Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner.</description>
     </item>
     
   </channel>
