@@ -18,7 +18,7 @@ disqusShortname = "yourdiscussshortname"
     info = "Software Engineer"
     description = "Adrian Brzoza's personal website"
     keywords = "blog,developer,personal"
-    avatarurl = "data/photo.jpg"
+    avatarurl = "https://adrian83.github.io/data/photo.jpg"
 
     favicon_32 = "/img/favicon-32x32.png"
     favicon_16 = "/img/favicon-16x16.png"
@@ -38,17 +38,17 @@ disqusShortname = "yourdiscussshortname"
     name = "Github"
     icon = "fab fa-github fa-2x"
     weight = 1
-    url = "https://github.com/johndoe/"
+    url = "https://github.com/adrian83/"
 [[params.social]]
     name = "Linkedin"
     icon = "fab fa-linkedin fa-2x"
     weight = 2
-    url = "https://gitlab.com/johndoe/"
+    url = "https://linkedin.com/in/adrianbrzoza"
 [[params.social]]
     name = "Twitter"
     icon = "fab fa-twitter fa-2x"
     weight = 3
-    url = "https://twitter.com/johndoe/"
+    url = "https://twitter.com/adrianb1983/"
 
 # Menu links
 [[menu.main]]

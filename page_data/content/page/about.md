@@ -8,4 +8,4 @@ hidden: true
 
 ---
 
-Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner. Beginner runner.
+Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner.
