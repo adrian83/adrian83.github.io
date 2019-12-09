@@ -20,8 +20,8 @@ disqusShortname = "yourdiscussshortname"
     keywords = "blog,developer,personal"
     avatarurl = "https://adrian83.github.io/data/photo.jpg"
 
-    # favicon_32 = "/img/favicon-32x32.png"
-    # favicon_16 = "/img/favicon-16x16.png"
+    favicon_32 = "https://github.githubassets.com/favicon.ico"
+    favicon_16 = "https://github.githubassets.com/favicon.ico"
 
     footercontent = ""
 
