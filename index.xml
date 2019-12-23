@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>adrian</title>
@@ -6,7 +6,7 @@
     <description>Recent content on adrian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adrian83.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -21,12 +21,25 @@
     </item>
     
     <item>
+      <title>Running Dashboard in Minikube</title>
+      <link>https://adrian83.github.io/post/minikube-dashboard/</link>
+      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/post/minikube-dashboard/</guid>
+      <description>To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps. Make sure your Minikube cluster is started by running k8s-samples.
+If it is not running start it with minikube start.
+Create file dashboard-adminuser.yaml with content:
+apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubernetes-dashboard Create file dashboard-clusterrolebinding.yaml with content:
+apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.k8s.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kubernetes-dashboard Apply both files by executing:</description>
+    </item>
+    
+    <item>
       <title>Just a test</title>
       <link>https://adrian83.github.io/post/test/</link>
       <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/post/test/</guid>
-      <description> TEST </description>
+      <description>TEST </description>
     </item>
     
   </channel>
