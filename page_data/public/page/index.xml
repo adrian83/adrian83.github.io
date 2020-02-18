@@ -26,10 +26,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/architect/</guid>
-      <description>AWS Certified Solutions Architect - Professional 
+      <description> AWS Certified Solutions Architect - Professional 
 Exam guide
-Topics:
-1. IAM</description>
+
+Core Services:
+ IAM S3  </description>
     </item>
     
     <item>
@@ -39,7 +40,29 @@ Topics:
       
       <guid>https://adrian83.github.io/page/architect/001_iam/</guid>
       <description>IAM &amp;lt;&amp;lt; Back
-Content</description>
+Best practices:
+ Lock away your AWS Account Root Access Keys.
+ Create individual IAM Users.
+ Configure strong pasword policy for your users.
+ Rotate credentials regularly.
+ Remove unnecessary credentials.
+ Enable Multi-Factor Authentication (MFA) for priviliged users.
+ Use Groups to assign permissions to IAM Users.
+ Use AWS Defined Policies to assign permissions whenever possible.
+ Use Policy Conditions for Extra security.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/002_s3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/002_s3/</guid>
+      <description> S3 &amp;lt;&amp;lt; Back
+Main features:
+ Durability (99.999999999%) Availability (99.99%) Scalability Reliability Fast Inexpensiv Secure Flexible Storage Management Easy interface for data Easy integration  Use cases:
+ Data backup Data archiving Disaster recovery  TODO: Review S3 documentation Recap:
+ Object storage vs block storage Data consitency model Versioning Cross-Region Replication Storage classes Bucket policy and access controll list Events Logging  </description>
     </item>
     
     <item>
