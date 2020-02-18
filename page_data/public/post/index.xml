@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on adrian</title>
@@ -30,7 +30,7 @@ apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name
       <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/post/test/</guid>
-      <description>TEST </description>
+      <description> TEST </description>
     </item>
     
   </channel>

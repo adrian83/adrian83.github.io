@@ -54,7 +54,7 @@ Apply both files by executing:
 Install Dashboard:  
 `kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml`
 
-Run Dashboard:  
+Run kubectl in a reverse proxy mode (it handles locating the apiserver and authenticating):
 `kubectl proxy`
 
 Open dashboard:  

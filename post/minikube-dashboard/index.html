@@ -25,8 +25,8 @@ apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubern
 apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.k8s.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kubernetes-dashboard Apply both files by executing:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adrian83.github.io/post/minikube-dashboard/" />
-<meta property="article:published_time" content="2019-12-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-12-22T00:00:00+00:00" />
+<meta property="article:published_time" content="2019-12-22T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-12-22T00:00:00&#43;00:00"/>
 
 
     
@@ -61,7 +61,7 @@ apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.60.1" />
+    <meta name="generator" content="Hugo 0.55.4" />
   </head>
 
   
@@ -109,17 +109,21 @@ apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name
       <h1>Running Dashboard in Minikube</h1>
     </header>
 
-    <h3 id="to-install-and-access-kubernetes-web-ui-called-dashboard-you-need-to-go-through-few-simple-steps">To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps.</h3>
-<p>Make sure your Minikube cluster is started by running <code>k8s-samples</code>.<br>
+    
+
+<h3 id="to-install-and-access-kubernetes-web-ui-called-dashboard-you-need-to-go-through-few-simple-steps">To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps.</h3>
+
+<p>Make sure your Minikube cluster is started by running <code>k8s-samples</code>.<br />
 If it is not running start it with <code>minikube start</code>.</p>
+
 <p>Create file <code>dashboard-adminuser.yaml</code> with content:</p>
-<pre><code>apiVersion: v1
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: admin-user
-  namespace: kubernetes-dashboard
-</code></pre><p>Create file <code>dashboard-clusterrolebinding.yaml</code> with content:</p>
-<pre><code>apiVersion: rbac.authorization.k8s.io/v1
+  namespace: kubernetes-dashboard</pre></div>
+<p>Create file <code>dashboard-clusterrolebinding.yaml</code> with content:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: admin-user
@@ -130,18 +134,23 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: admin-user
-  namespace: kubernetes-dashboard
-</code></pre><p>Apply both files by executing:<br>
-<code>kubectl apply -f dashboard-adminuser.yaml</code><br>
+  namespace: kubernetes-dashboard</pre></div>
+<p>Apply both files by executing:<br />
+<code>kubectl apply -f dashboard-adminuser.yaml</code><br />
 <code>kubectl apply -f dashboard-clusterrolebinding.yaml</code></p>
-<p>Install Dashboard:<br>
+
+<p>Install Dashboard:<br />
 <code>kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml</code></p>
-<p>Run Dashboard:<br>
+
+<p>Run kubectl in a reverse proxy mode (it handles locating the apiserver and authenticating):
 <code>kubectl proxy</code></p>
-<p>Open dashboard:<br>
+
+<p>Open dashboard:<br />
 <code>http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/.</code></p>
-<p>Obtain token by executing:<br>
+
+<p>Obtain token by executing:<br />
 <code>kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')</code></p>
+
 <p>Use token contained in response, to sign in.</p>
 
   </article>
@@ -153,7 +162,7 @@ subjects:
       <footer class="footer">
   <section class="container">
     
-     © 2019
+     © 2020
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.

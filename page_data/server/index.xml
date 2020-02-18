@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>adrian</title>
+    <link>https://adrian83.github.io/</link>
+    <description>Recent content on adrian</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://adrian83.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://adrian83.github.io/page/about/</link>
+      <pubDate>Tue, 23 Apr 2019 17:48:02 +0200</pubDate>
+      
+      <guid>https://adrian83.github.io/page/about/</guid>
+      <description>Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner.</description>
+    </item>
+    
+    <item>
+      <title>Running Dashboard in Minikube</title>
+      <link>https://adrian83.github.io/post/minikube-dashboard/</link>
+      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/post/minikube-dashboard/</guid>
+      <description>To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps. Make sure your Minikube cluster is started by running k8s-samples.
+If it is not running start it with minikube start.
+Create file dashboard-adminuser.yaml with content:
+apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubernetes-dashboard Create file dashboard-clusterrolebinding.yaml with content:
+apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.k8s.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kubernetes-dashboard Apply both files by executing:</description>
+    </item>
+    
+    <item>
+      <title>Just a test</title>
+      <link>https://adrian83.github.io/post/test/</link>
+      <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/post/test/</guid>
+      <description> TEST </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/</guid>
+      <description>AWS Certified Solutions Architect - Professional 
+   Domain % of Examination     1. Design for Organizational Complexity 12.5%   2. Design for New Solutions 31%   3. Migration Planning 15%   4. Cost Control 12.5%   5. Continuous Improvement for Existing Solutions 29%   TOTAL 100%    
+Domain 1: Design for Organizational Complexity 
+1.1. Determine cross-account authentication and access strategy for complex organizations (for example, an organization with varying compliance requirements, multiple business units, and varying scalability requirements).</description>
+    </item>
+    
+  </channel>
+</rss>
