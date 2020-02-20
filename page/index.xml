@@ -30,7 +30,7 @@
 Exam guide
 
 Core Services:
- IAM S3  </description>
+ IAM S3 EC2 EBS Auto Scaling ELB  </description>
     </item>
     
     <item>
@@ -39,7 +39,7 @@ Core Services:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/architect/001_iam/</guid>
-      <description>IAM &amp;lt;&amp;lt; Back
+      <description>IAM Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; S3 &amp;gt;&amp;gt;
 Best practices:
  Lock away your AWS Account Root Access Keys.
  Create individual IAM Users.
@@ -58,11 +58,68 @@ Best practices:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/architect/002_s3/</guid>
-      <description> S3 &amp;lt;&amp;lt; Back
+      <description>S3 &amp;lt;&amp;lt; IAM &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; EC2 &amp;gt;&amp;gt;
+Whitepaper 
 Main features:
  Durability (99.999999999%) Availability (99.99%) Scalability Reliability Fast Inexpensiv Secure Flexible Storage Management Easy interface for data Easy integration  Use cases:
  Data backup Data archiving Disaster recovery  TODO: Review S3 documentation Recap:
- Object storage vs block storage Data consitency model Versioning Cross-Region Replication Storage classes Bucket policy and access controll list Events Logging  </description>
+ Cross-Region Replication Storage classes Bucket policy and access controll list Events Logging  Types of Cloud Storage There are three types of cloud storage: Object, File, and Block.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/003_ec2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/003_ec2/</guid>
+      <description>EC2 (Elastic Compute Cloud) &amp;lt;&amp;lt; S3 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; EBS &amp;gt;&amp;gt;
+Purchase options:
+ On demand Spot Reserved Scheduled  Dedicated host - ?
+Dedicated instance - ?
+Instance store - ?
+Key pair - ?
+Elastic IP address - ?
+AMI - ?
+&amp;lt;&amp;lt; S3 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; EBS &amp;gt;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/004_ebs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/004_ebs/</guid>
+      <description>EBS (Elastic Block Store) &amp;lt;&amp;lt; EC2 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Auto Scaling &amp;gt;&amp;gt;
+EBS is a persisten block storage volumes which can be used (attached) by EC2. Volumes can be detached and attached between EC2 instances.
+Volumes:
+ Magnetic HDD - throughput optimized
+ General purpose SSD - IO (read / write) optimized, max iops per volume is 16 000
+ Provisioned IOPS SSD - low latency, high throughput, max iops per volume is 64 000  Snapshot is a point in time backup (stored in s3) of the data from EBS volume.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/005_autoscaling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/005_autoscaling/</guid>
+      <description>Auto Scaling &amp;lt;&amp;lt; EBS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ELB &amp;gt;&amp;gt;
+AWS Auto Scaling monitors your applications and automatically adjusts capacity to maintain steady, predictable performance at the lowest possible cost.
+Components:
+ Launch Configuration
+ Auto Scaling Group
+ Scaling Options  Termination logic:
+&amp;lt;&amp;lt; EBS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ELB &amp;gt;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/006_elb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/006_elb/</guid>
+      <description>ELB (Elastic Load Balancing) &amp;lt;&amp;lt; Auto Scaling &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ?? &amp;gt;&amp;gt;
+Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant.</description>
     </item>
     
     <item>
