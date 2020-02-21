@@ -13,4 +13,5 @@ Core Services:
 4. [EBS](/page/architect/004_ebs)
 5. [Auto Scaling](/page/architect/005_autoscaling)
 6. [ELB](/page/architect/006_elb)
-
+7. [Cloudwatch](/page/architect/007_cloudwatch)
+8. [VPC](/page/architect/008_vpc)

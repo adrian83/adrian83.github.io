@@ -18,7 +18,7 @@ tags:
 ### To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps.
 
 
-Make sure your Minikube cluster is started by running `k8s-samples`.  
+Make sure your Minikube cluster is started by running `minikube status`.  
 If it is not running start it with `minikube start`.
 
 Create file `dashboard-adminuser.yaml` with content:
