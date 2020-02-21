@@ -11,26 +11,26 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="ELB (Elastic Load Balancing) &lt;&lt; Auto Scaling &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Menu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cloudwatch &gt;&gt;
-Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant."/>
+<meta name="twitter:description" content="VPC (Virtual PrivateCloud) Documentation &lt;&lt; Cloudwatch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Menu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ?? &gt;&gt;
+Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 in your VPC for secure and easy access to resources and applications."/>
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="ELB (Elastic Load Balancing) &lt;&lt; Auto Scaling &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Menu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cloudwatch &gt;&gt;
-Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant." />
+<meta property="og:description" content="VPC (Virtual PrivateCloud) Documentation &lt;&lt; Cloudwatch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Menu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ?? &gt;&gt;
+Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 in your VPC for secure and easy access to resources and applications." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://adrian83.github.io/page/architect/006_elb/" />
+<meta property="og:url" content="https://adrian83.github.io/page/architect/008_vpc/" />
 
 
 
     
-      <base href="https://adrian83.github.io/page/architect/006_elb/">
+      <base href="https://adrian83.github.io/page/architect/008_vpc/">
     
     <title>
    · adrian
 </title>
 
     
-      <link rel="canonical" href="https://adrian83.github.io/page/architect/006_elb/">
+      <link rel="canonical" href="https://adrian83.github.io/page/architect/008_vpc/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -104,31 +104,42 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
 
     
 
-<h2 id="elb-elastic-load-balancing">ELB (Elastic Load Balancing)</h2>
+<h2 id="vpc-virtual-privatecloud">VPC (Virtual PrivateCloud)</h2>
 
-<p><a href="https://adrian83.github.io/page/architect/005_autoscaling">&lt;&lt; Auto Scaling</a>
+<h3 id="documentation-https-docs-aws-amazon-com-vpc-latest-adminguide-introduction-html"><a href="https://docs.aws.amazon.com/vpc/latest/adminguide/Introduction.html">Documentation</a></h3>
+
+<p><a href="https://adrian83.github.io/page/architect/007_cloudwatch">&lt;&lt; Cloudwatch</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://adrian83.github.io/page/architect">Menu</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://adrian83.github.io/page/architect/007_cloudwatch">Cloudwatch &gt;&gt;</a></p>
+<a href="https://adrian83.github.io/page/architect/008_vpc">?? &gt;&gt;</a></p>
 
-<p>Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant.</p>
+<p>Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 in your VPC for secure and easy access to resources and applications.</p>
 
-<p>Types:</p>
+<p>You can easily customize the network configuration of your Amazon VPC. For example, you can create a public-facing subnet for your web servers that have access to the internet. You can also place your backend systems, such as databases or application servers, in a private-facing subnet with no internet access. You can use multiple layers of security, including security groups and network access control lists, to help control access to Amazon EC2 instances in each subnet.</p>
+
+<p>Topics:</p>
 
 <ol>
-<li>Application Load Balancer</li>
-<li>Network Load Balancer</li>
-<li>Classic Load Balancer</li>
+<li>Customer Gateway</li>
+<li>Elastic Network Adapter</li>
+<li>Endpoints</li>
+<li>Internet Gateway</li>
+<li>Router</li>
+<li>Virtual Private Gateway</li>
+<li>Elastic Private Interface (ENI)</li>
+<li>NAT Gateway</li>
+<li>Flow Logs</li>
+<li>Network Access Control List (NACL)</li>
+<li>VPN Connecton</li>
+<li>Peering</li>
 </ol>
 
-<p>Cross-Zone Load Balancing - ?</p>
-
-<p><a href="https://adrian83.github.io/page/architect/005_autoscaling">&lt;&lt; Auto Scaling</a>
+<p><a href="https://adrian83.github.io/page/architect/007_cloudwatch">&lt;&lt; Cloudwatch</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://adrian83.github.io/page/architect">Menu</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://adrian83.github.io/page/architect/007_cloudwatch">Cloudwatch &gt;&gt;</a></p>
+<a href="https://adrian83.github.io/page/architect/008_vpc">?? &gt;&gt;</a></p>
 
   </article>
 </section>

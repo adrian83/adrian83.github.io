@@ -11,14 +11,14 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Running Dashboard in Minikube"/>
-<meta name="twitter:description" content="To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps. Make sure your Minikube cluster is started by running k8s-samples.
+<meta name="twitter:description" content="To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps. Make sure your Minikube cluster is started by running minikube status.
 If it is not running start it with minikube start.
 Create file dashboard-adminuser.yaml with content:
 apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubernetes-dashboard Create file dashboard-clusterrolebinding.yaml with content:
 apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.k8s.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kubernetes-dashboard Apply both files by executing:"/>
 
     <meta property="og:title" content="Running Dashboard in Minikube" />
-<meta property="og:description" content="To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps. Make sure your Minikube cluster is started by running k8s-samples.
+<meta property="og:description" content="To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps. Make sure your Minikube cluster is started by running minikube status.
 If it is not running start it with minikube start.
 Create file dashboard-adminuser.yaml with content:
 apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubernetes-dashboard Create file dashboard-clusterrolebinding.yaml with content:
@@ -113,7 +113,7 @@ apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name
 
 <h3 id="to-install-and-access-kubernetes-web-ui-called-dashboard-you-need-to-go-through-few-simple-steps">To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps.</h3>
 
-<p>Make sure your Minikube cluster is started by running <code>k8s-samples</code>.<br />
+<p>Make sure your Minikube cluster is started by running <code>minikube status</code>.<br />
 If it is not running start it with <code>minikube start</code>.</p>
 
 <p>Create file <code>dashboard-adminuser.yaml</code> with content:</p>
