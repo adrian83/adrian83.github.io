@@ -22,10 +22,10 @@
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/</link>
+      <link>https://adrian83.github.io/page/aws_architect/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/</guid>
       <description> AWS Certified Solutions Architect - Professional 
 Exam guide
 
@@ -35,11 +35,11 @@ Core Services:
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/001_iam/</link>
+      <link>https://adrian83.github.io/page/aws_architect/001_iam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/001_iam/</guid>
-      <description>IAM Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; S3 &amp;gt;&amp;gt;
+      <guid>https://adrian83.github.io/page/aws_architect/001_iam/</guid>
+      <description>IAM Documentation Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; S3 &amp;gt;&amp;gt;
 Best practices:
  Lock away your AWS Account Root Access Keys.
  Create individual IAM Users.
@@ -54,10 +54,10 @@ Best practices:
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/002_s3/</link>
+      <link>https://adrian83.github.io/page/aws_architect/002_s3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/002_s3/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/002_s3/</guid>
       <description>S3 &amp;lt;&amp;lt; IAM &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; EC2 &amp;gt;&amp;gt;
 Whitepaper 
 Main features:
@@ -68,10 +68,10 @@ Main features:
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/003_ec2/</link>
+      <link>https://adrian83.github.io/page/aws_architect/003_ec2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/003_ec2/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/003_ec2/</guid>
       <description>EC2 (Elastic Compute Cloud) &amp;lt;&amp;lt; S3 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; EBS &amp;gt;&amp;gt;
 Purchase options:
  On demand Spot Reserved Scheduled  Dedicated host - ?
@@ -85,10 +85,10 @@ AMI - ?
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/004_ebs/</link>
+      <link>https://adrian83.github.io/page/aws_architect/004_ebs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/004_ebs/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/004_ebs/</guid>
       <description>EBS (Elastic Block Store) &amp;lt;&amp;lt; EC2 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Auto Scaling &amp;gt;&amp;gt;
 EBS is a persisten block storage volumes which can be used (attached) by EC2. Volumes can be detached and attached between EC2 instances.
 Volumes:
@@ -99,10 +99,10 @@ Volumes:
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/005_autoscaling/</link>
+      <link>https://adrian83.github.io/page/aws_architect/005_autoscaling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/005_autoscaling/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/005_autoscaling/</guid>
       <description>Auto Scaling &amp;lt;&amp;lt; EBS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ELB &amp;gt;&amp;gt;
 AWS Auto Scaling monitors your applications and automatically adjusts capacity to maintain steady, predictable performance at the lowest possible cost.
 Components:
@@ -114,84 +114,102 @@ Components:
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/006_elb/</link>
+      <link>https://adrian83.github.io/page/aws_architect/006_elb/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/006_elb/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/006_elb/</guid>
       <description>ELB (Elastic Load Balancing) &amp;lt;&amp;lt; Auto Scaling &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Cloudwatch &amp;gt;&amp;gt;
 Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/007_cloudwatch/</link>
+      <link>https://adrian83.github.io/page/aws_architect/007_cloudwatch/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/007_cloudwatch/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/007_cloudwatch/</guid>
       <description>Cloudwatch &amp;lt;&amp;lt; ELB &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; VPC &amp;gt;&amp;gt;
 Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/008_vpc/</link>
+      <link>https://adrian83.github.io/page/aws_architect/008_vpc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/008_vpc/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/008_vpc/</guid>
       <description>VPC (Virtual Private Cloud) Documentation &amp;lt;&amp;lt; Cloudwatch &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RDS &amp;gt;&amp;gt;
 Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/009_rds/</link>
+      <link>https://adrian83.github.io/page/aws_architect/009_rds/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/009_rds/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/009_rds/</guid>
       <description>RDS (Relational Database Service) Documentation &amp;lt;&amp;lt; VPC &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DynamoDB &amp;gt;&amp;gt;
 &amp;lt;&amp;lt; VPC &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DynamoDB &amp;gt;&amp;gt;</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/010_dynamodb/</link>
+      <link>https://adrian83.github.io/page/aws_architect/010_dynamodb/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/010_dynamodb/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/010_dynamodb/</guid>
       <description>DynamoDB Documentation &amp;lt;&amp;lt; RDS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Aurora &amp;gt;&amp;gt;
 &amp;lt;&amp;lt; RDS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Aurora &amp;gt;&amp;gt;</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/011_aurora/</link>
+      <link>https://adrian83.github.io/page/aws_architect/011_aurora/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/011_aurora/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/011_aurora/</guid>
       <description>Aurora Documentation &amp;lt;&amp;lt; DynamoDB &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RedShift &amp;gt;&amp;gt;
 &amp;lt;&amp;lt; DynamoDB &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RedShift &amp;gt;&amp;gt;</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/012_redshift/</link>
+      <link>https://adrian83.github.io/page/aws_architect/012_redshift/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/012_redshift/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/012_redshift/</guid>
       <description>RedShift Documentation 1 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Documentation 2 &amp;lt;&amp;lt; Aurora &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ?? &amp;gt;&amp;gt;
 &amp;lt;&amp;lt; Aurora &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ?? &amp;gt;&amp;gt;</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/page/architect/900_exam/</link>
+      <link>https://adrian83.github.io/page/aws_architect/900_exam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/page/architect/900_exam/</guid>
+      <guid>https://adrian83.github.io/page/aws_architect/900_exam/</guid>
       <description>Exam Guide &amp;lt;&amp;lt; Back
    Domain % of Examination     1. Design for Organizational Complexity 12.5%   2. Design for New Solutions 31%   3. Migration Planning 15%   4. Cost Control 12.5%   5. Continuous Improvement for Existing Solutions 29%   TOTAL 100%    
 Domain 1: Design for Organizational Complexity 
 1.1. Determine cross-account authentication and access strategy for complex organizations (for example, an organization with varying compliance requirements, multiple business units, and varying scalability requirements).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/gcp_developer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/gcp_developer/</guid>
+      <description> Professional Cloud Developer Documentation  Designing highly scalable, available, and reliable cloud-native applications  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/gcp_developer/001_guide_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/gcp_developer/001_guide_1/</guid>
+      <description>1. Designing highly scalable, available, and reliable cloud-native applications  Designing performant applications and APIs. Considerations include:   Infrastructure as a Service vs. Container as a Service vs. Platform as a Service (e.g., autoscaling implications) Portability vs. platform-specific design Evaluating different services and technologies Operating system versions and base runtimes of services Geographic distribution of Google Cloud services Microservices Defining a key structure for high write applications using Cloud Storage, Cloud Bigtable, Cloud Spanner, or Cloud SQL Session management Deploying and securing an API with cloud endpoints Loosely coupled applications using asynchronous Cloud Pub/Sub events Health checks Google-recommended practices and documentation   Designing secure applications.</description>
     </item>
     
   </channel>
