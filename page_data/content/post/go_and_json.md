@@ -87,7 +87,6 @@ func main() {
 	jsonBts := []byte(`{"name":"John","birthDate":"1993-11-04T23:00:00Z"}`)
 
 	var user User
-
 	if err := json.Unmarshal(jsonBts, &user); err != nil {
 		panic(err)
 	}

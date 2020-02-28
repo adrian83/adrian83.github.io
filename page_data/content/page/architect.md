@@ -15,3 +15,7 @@ Core Services:
 6. [ELB](/page/architect/006_elb)
 7. [Cloudwatch](/page/architect/007_cloudwatch)
 8. [VPC](/page/architect/008_vpc)
+8. [RDS](/page/architect/009_rds)
+8. [DynamoDB](/page/architect/010_dynamodb)
+8. [Aurora](/page/architect/011_aurora)
+8. [Redshift](/page/architect/012_redshift)

@@ -21,7 +21,7 @@ tags:
 Make sure your Minikube cluster is started by running `minikube status`.  
 If it is not running start it with `minikube start`.
 
-Create file `dashboard-adminuser.yaml` with content:
+First we have to define user, that will have permission to access Dashboard. For that create file `dashboard-adminuser.yaml` with content:
 ```
 apiVersion: v1
 kind: ServiceAccount
@@ -30,7 +30,7 @@ metadata:
   namespace: kubernetes-dashboard
 ```
 
-Create file `dashboard-clusterrolebinding.yaml` with content:
+Next we need to bind previously defined user to role, which will allow accessing dashboard. For that create file `dashboard-clusterrolebinding.yaml` with content:
 ```
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
