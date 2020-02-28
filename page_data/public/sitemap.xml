@@ -147,6 +147,26 @@
   </url>
   
   <url>
+    <loc>https://adrian83.github.io/page/architect/009_rds/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/page/architect/010_dynamodb/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/page/architect/011_aurora/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/page/architect/012_redshift/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://adrian83.github.io/page/architect/900_exam/</loc>
     <priority>0</priority>
   </url>

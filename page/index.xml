@@ -30,7 +30,7 @@
 Exam guide
 
 Core Services:
- IAM S3 EC2 EBS Auto Scaling ELB Cloudwatch VPC  </description>
+ IAM S3 EC2 EBS Auto Scaling ELB Cloudwatch VPC RDS DynamoDB Aurora Redshift  </description>
     </item>
     
     <item>
@@ -138,8 +138,48 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/architect/008_vpc/</guid>
-      <description>VPC (Virtual PrivateCloud) Documentation &amp;lt;&amp;lt; Cloudwatch &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ?? &amp;gt;&amp;gt;
-Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 in your VPC for secure and easy access to resources and applications.</description>
+      <description>VPC (Virtual Private Cloud) Documentation &amp;lt;&amp;lt; Cloudwatch &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RDS &amp;gt;&amp;gt;
+Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/009_rds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/009_rds/</guid>
+      <description>RDS (Relational Database Service) Documentation &amp;lt;&amp;lt; VPC &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DynamoDB &amp;gt;&amp;gt;
+&amp;lt;&amp;lt; VPC &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DynamoDB &amp;gt;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/010_dynamodb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/010_dynamodb/</guid>
+      <description>DynamoDB Documentation &amp;lt;&amp;lt; RDS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Aurora &amp;gt;&amp;gt;
+&amp;lt;&amp;lt; RDS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Aurora &amp;gt;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/011_aurora/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/011_aurora/</guid>
+      <description>Aurora Documentation &amp;lt;&amp;lt; DynamoDB &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RedShift &amp;gt;&amp;gt;
+&amp;lt;&amp;lt; DynamoDB &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RedShift &amp;gt;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/012_redshift/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/012_redshift/</guid>
+      <description>RedShift Documentation 1 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Documentation 2 &amp;lt;&amp;lt; Aurora &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ?? &amp;gt;&amp;gt;
+&amp;lt;&amp;lt; Aurora &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ?? &amp;gt;&amp;gt;</description>
     </item>
     
     <item>

@@ -19,9 +19,8 @@
       <guid>https://adrian83.github.io/post/minikube-dashboard/</guid>
       <description>To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps. Make sure your Minikube cluster is started by running minikube status.
 If it is not running start it with minikube start.
-Create file dashboard-adminuser.yaml with content:
-apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubernetes-dashboard Create file dashboard-clusterrolebinding.yaml with content:
-apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.k8s.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kubernetes-dashboard Apply both files by executing:</description>
+First we have to define user, that will have permission to access Dashboard. For that create file dashboard-adminuser.yaml with content:
+apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubernetes-dashboard Next we need to bind previously defined user to role, which will allow accessing dashboard.</description>
     </item>
     
     <item>

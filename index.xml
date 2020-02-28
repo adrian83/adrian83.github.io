@@ -28,9 +28,8 @@
       <guid>https://adrian83.github.io/post/minikube-dashboard/</guid>
       <description>To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps. Make sure your Minikube cluster is started by running minikube status.
 If it is not running start it with minikube start.
-Create file dashboard-adminuser.yaml with content:
-apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubernetes-dashboard Create file dashboard-clusterrolebinding.yaml with content:
-apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.k8s.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kubernetes-dashboard Apply both files by executing:</description>
+First we have to define user, that will have permission to access Dashboard. For that create file dashboard-adminuser.yaml with content:
+apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubernetes-dashboard Next we need to bind previously defined user to role, which will allow accessing dashboard.</description>
     </item>
     
     <item>
@@ -52,7 +51,7 @@ apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name
 Exam guide
 
 Core Services:
- IAM S3 EC2 EBS Auto Scaling ELB Cloudwatch VPC  </description>
+ IAM S3 EC2 EBS Auto Scaling ELB Cloudwatch VPC RDS DynamoDB Aurora Redshift  </description>
     </item>
     
     <item>
@@ -160,8 +159,48 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/architect/008_vpc/</guid>
-      <description>VPC (Virtual PrivateCloud) Documentation &amp;lt;&amp;lt; Cloudwatch &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ?? &amp;gt;&amp;gt;
-Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 in your VPC for secure and easy access to resources and applications.</description>
+      <description>VPC (Virtual Private Cloud) Documentation &amp;lt;&amp;lt; Cloudwatch &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RDS &amp;gt;&amp;gt;
+Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/009_rds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/009_rds/</guid>
+      <description>RDS (Relational Database Service) Documentation &amp;lt;&amp;lt; VPC &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DynamoDB &amp;gt;&amp;gt;
+&amp;lt;&amp;lt; VPC &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DynamoDB &amp;gt;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/010_dynamodb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/010_dynamodb/</guid>
+      <description>DynamoDB Documentation &amp;lt;&amp;lt; RDS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Aurora &amp;gt;&amp;gt;
+&amp;lt;&amp;lt; RDS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Aurora &amp;gt;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/011_aurora/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/011_aurora/</guid>
+      <description>Aurora Documentation &amp;lt;&amp;lt; DynamoDB &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RedShift &amp;gt;&amp;gt;
+&amp;lt;&amp;lt; DynamoDB &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RedShift &amp;gt;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/architect/012_redshift/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/architect/012_redshift/</guid>
+      <description>RedShift Documentation 1 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Documentation 2 &amp;lt;&amp;lt; Aurora &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ?? &amp;gt;&amp;gt;
+&amp;lt;&amp;lt; Aurora &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ?? &amp;gt;&amp;gt;</description>
     </item>
     
     <item>
