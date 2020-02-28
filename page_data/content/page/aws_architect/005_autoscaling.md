@@ -2,11 +2,11 @@
 
 
 
-[<< EBS](/page/architect/004_ebs)
+[<< EBS](/page/aws_architect/004_ebs)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[Menu](/page/architect)
+[Menu](/page/aws_architect)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[ELB >>](/page/architect/006_elb)
+[ELB >>](/page/aws_architect/006_elb)
 
 AWS Auto Scaling monitors your applications and automatically adjusts capacity to maintain steady, predictable performance at the lowest possible cost. 
 
@@ -28,8 +28,8 @@ Termination logic:
 
 
 
-[<< EBS](/page/architect/004_ebs)
+[<< EBS](/page/aws_architect/004_ebs)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[Menu](/page/architect)
+[Menu](/page/aws_architect)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[ELB >>](/page/architect/006_elb)
+[ELB >>](/page/aws_architect/006_elb)

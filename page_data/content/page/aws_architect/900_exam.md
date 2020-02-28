@@ -1,6 +1,6 @@
 ## Exam Guide
 
-[<< Back](/page/architect)
+[<< Back](/page/aws_architect)
 
 
 
