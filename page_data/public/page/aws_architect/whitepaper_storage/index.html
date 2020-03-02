@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Adrian Brzoza">
+    <meta name="description" content="Adrian Brzoza&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="AWS Storage Services Overview Back to main page
+A Look at Storage Services Offered by AWS Amazon Web Services (AWS) provides low-cost data storage with high durability and availability. AWS offers storage choices for backup, archiving, and disaster recovery use cases and provides block, file, and object storage. In this whitepaper, we examine the following AWS Cloud storage services and features.
+   Type Description     Amazon Simple Storage Service (Amazon S3) A service that provides scalable and highly durable object storage in the cloud."/>
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="AWS Storage Services Overview Back to main page
+A Look at Storage Services Offered by AWS Amazon Web Services (AWS) provides low-cost data storage with high durability and availability. AWS offers storage choices for backup, archiving, and disaster recovery use cases and provides block, file, and object storage. In this whitepaper, we examine the following AWS Cloud storage services and features.
+   Type Description     Amazon Simple Storage Service (Amazon S3) A service that provides scalable and highly durable object storage in the cloud." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adrian83.github.io/page/aws_architect/whitepaper_storage/" />
+
+
+
+    
+      <base href="https://adrian83.github.io/page/aws_architect/whitepaper_storage/">
+    
+    <title>
+   · adrian
+</title>
+
+    
+      <link rel="canonical" href="https://adrian83.github.io/page/aws_architect/whitepaper_storage/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://adrian83.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.55.4" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://adrian83.github.io/">
+      adrian
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/post/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/categories/">Categories</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/tags/">Tags</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/page/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1></h1>
+    </header>
+
+    
+
+<h1 id="aws-storage-services-overview">AWS Storage Services Overview</h1>
+
+<p><a href="https://adrian83.github.io/page/aws_architect">Back to main page</a></p>
+
+<h2 id="a-look-at-storage-services-offered-by-aws">A Look at Storage Services Offered by AWS</h2>
+
+<p>Amazon Web Services (AWS) provides low-cost data storage with high durability
+and availability. AWS offers storage choices for backup, archiving, and disaster
+recovery use cases and provides block, file, and object storage. In this whitepaper,
+we examine the following AWS Cloud storage services and features.</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Amazon Simple Storage Service (Amazon S3)</td>
+<td>A service that provides scalable and highly durable object storage in the cloud.</td>
+</tr>
+
+<tr>
+<td>Amazon Glacier</td>
+<td>A service that provides low-cost highly durable archive storage in the cloud.</td>
+</tr>
+
+<tr>
+<td>Amazon Elastic File System (Amazon EFS)</td>
+<td>A service that provides scalable network file storage for Amazon EC2 instances.</td>
+</tr>
+
+<tr>
+<td>Amazon Elastic Block Store (Amazon EBS)</td>
+<td>A service that provides block storage volumes for Amazon EC2 instances.</td>
+</tr>
+
+<tr>
+<td>Amazon EC2 Instance Storage</td>
+<td>Temporary block storage volumes for Amazon EC2 instances.</td>
+</tr>
+
+<tr>
+<td>AWS Storage Gateway</td>
+<td>An on-premises storage appliance that integrates with cloud storage.</td>
+</tr>
+
+<tr>
+<td>AWS Snowball</td>
+<td>A service that transports large amounts of data to and from the cloud.</td>
+</tr>
+
+<tr>
+<td>Amazon CloudFront</td>
+<td>A service that provides a global content delivery network (CDN).</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="s3-simple-storage-service">S3 (Simple Storage Service)</h3>
+
+<p>Amazon Simple Storage Service (Amazon S3) provides developers and IT teams secure, durable, highly scalable object storage at a very low cost.1 You can store and retrieve any amount of data, at any time, from anywhere on the web through a simple web service interface. You can write, read, and delete objects containing from zero to 5 TB of data. Amazon S3 is highly scalable, allowing concurrent read or write access to data by many separate clients or application threads. Amazon S3 offers a range of storage classes designed for different use cases including the following:</p>
+
+<ul>
+<li>Amazon S3 Standard, for general-purpose storage of frequently accessed data</li>
+<li>Amazon S3 Standard-Infrequent Access (Standard-IA), for long-lived, but less frequently accessed data</li>
+<li>Amazon Glacier, for low-cost archival data</li>
+</ul>
+
+<h5 id="use-patterns">Use Patterns</h5>
+
+<ol>
+<li>Amazon S3 is used to store and distribute static web content and media.</li>
+<li>Amazon S3 is used to host entire static websites. Amazon S3 provides a low-cost, highly available, and highly scalable solution, including storage for static HTML files, images, videos, and client-side scripts in formats such as JavaScript.</li>
+<li>Amazon S3 is used as a data store for computation and large-scale analytics, such as financial transaction analysis, clickstream analytics, and media transcoding.</li>
+<li>Amazon S3 is often used as a highly durable, scalable, and secure solution for backup and archiving of critical data.</li>
+</ol>
+
+<p>The following table presents some storage needs for which you should consider other AWS storage options.</p>
+
+<table>
+<thead>
+<tr>
+<th>Storage Need</th>
+<th>Solution</th>
+<th>AWS Services</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>File system</td>
+<td>Amazon S3 uses a flat namespace and isn’t meant to serve as a standalone, POSIX-compliant file system. Instead, consider using Amazon EFS as a file system.</td>
+<td><a href="http://aws.amazon.com/efs/">EFS</a></td>
+</tr>
+
+<tr>
+<td>Structured data with query</td>
+<td>Amazon S3 doesn’t offer query capabilities to retrieve specific objects. When you use Amazon S3 you need to know the exact bucket name and key for the files you want to retrieve from the service. Amazon S3 can’t be used as a database or search engine by itself. Instead, you can pair Amazon S3 with Amazon DynamoDB, Amazon CloudSearch, or Amazon Relational Database Service (Amazon RDS) to index and query metadata about Amazon S3 buckets and objects.</td>
+<td><a href="http://aws.amazon.com/dynamodb/">DynamoDB</a>, <a href="http://aws.amazon.com/rds/">RDS</a>, <a href="http://aws.amazon.com/cloudsearch/">CloudSearch</a></td>
+</tr>
+
+<tr>
+<td>Rapidly changing data</td>
+<td>Data that must be updated very frequently might be better served by storage solutions that take into account read and write latencies, such as Amazon EBS volumes, Amazon RDS, Amazon DynamoDB, Amazon EFS, or relational databases running on Amazon EC2.</td>
+<td><a href="https://aws.amazon.com/ebs/">EBS</a>, <a href="http://aws.amazon.com/efs/">EFS</a>, <a href="http://aws.amazon.com/dynamodb/">DynamoDB</a>, <a href="http://aws.amazon.com/rds/">RDS</a></td>
+</tr>
+
+<tr>
+<td>Archival data</td>
+<td>Data that requires encrypted archival storage with infrequent read access with a long recovery time objective (RTO) can be stored in Amazon Glacier more cost-effectively.</td>
+<td><a href="http://aws.amazon.com/glacier/">Glacier</a></td>
+</tr>
+
+<tr>
+<td>Dynamic website hosting</td>
+<td>Although Amazon S3 is ideal for static content websites, dynamic websites that depend on database interaction or use server-side scripting should be hosted on Amazon EC2 or Amazon EFS.</td>
+<td><a href="http://aws.amazon.com/ec2/">EC2</a>, <a href="http://aws.amazon.com/efs/">EFS</a></td>
+</tr>
+
+<tr>
+<td>Rapidly changing data</td>
+<td>Data that must be updated very frequently might be better served by a storage solution with lower read/write latencies, such as Amazon EBS, Amazon RDS, Amazon EFS, Amazon DynamoDB, or relational databases running on Amazon EC2.</td>
+<td><a href="https://aws.amazon.com/ebs/">EBS</a>, <a href="http://aws.amazon.com/rds/">RDS</a>, <a href="http://aws.amazon.com/efs/">EFS</a>, <a href="http://aws.amazon.com/dynamodb/">DynamoDB</a>, <a href="http://aws.amazon.com/ec2/">EC2</a></td>
+</tr>
+
+<tr>
+<td>Immediate access</td>
+<td>Data stored in Amazon Glacier is not available immediately. Retrieval jobs typically require 3–5 hours to complete, so if you need immediate access to your object data, Amazon S3 is a better choice</td>
+<td><a href="http://aws.amazon.com/s3/">S3</a></td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="performence">Performence</h5>
+
+<p>In scenarios where you use Amazon S3 from the same Region, access to Amazon S3 from Amazon EC2 is designed to be fast.</p>
+
+<p>If you access Amazon S3 using multiple threads, multiple applications, or multiple clients concurrently, total Amazon S3 aggregate throughput typically scales to rates that far exceed what any single server can generate or consume.</p>
+
+<p>To improve the upload performance of large objects (typically over 100 MB), Amazon S3 offers a multipart upload command to upload a single object as a set of parts. After all parts of your object are uploaded, Amazon S3 assembles these parts and creates the object. Using multipart upload, you can get improved throughput and quick recovery from any network issues. Another benefit of using multipart upload is that you can upload multiple parts of a single object in parallel and restart the upload of smaller parts instead of restarting the upload of the entire large object.</p>
+
+<p>Amazon S3 Transfer Acceleration enables fast, easy, and secure transfer of files over long distances between your client and your Amazon S3 bucket. It leverages Amazon CloudFront globally distributed edge locations to route traffic to your Amazon S3 bucket over an Amazon-optimized network path. To get started with Amazon S3 Transfer Acceleration you first must enable it on an Amazon S3 bucket. Then modify your Amazon S3 PUT and GET requests to use the s3-accelerate endpoint domain name (&lt; bucketname &gt;.s3-accelerate.amazonaws.com). The Amazon S3 bucket can still be accessed using the regular endpoint. Some customers have measured performance improvements in excess of 500 percent when performing intercontinental uploads.</p>
+
+<h5 id="durability-and-availability">Durability and Availability</h5>
+
+<p>Amazon S3 Standard storage and Standard-IA storage provide high levels of data durability and availability by automatically and synchronously storing your data across both multiple devices and multiple facilities within your selected geographical region. Error correction is built-in, and there are no single points of failure. Amazon S3 is designed to sustain the concurrent loss of data in two facilities, making it very well suited to serve as the primary data storage for mission-critical data. In fact, Amazon S3 is designed for 99.999999999 percent (11 nines) durability per object and 99.99 percent availability over a one-year period.</p>
+
+<p>Additionally, you have a choice of enabling cross-region replication on each Amazon S3 bucket. Once enabled, cross-region replication automatically copies objects across buckets in different AWS Regions asynchronously, providing 11 nines of durability and 4 nines of availability on both the source and destination Amazon S3 objects.</p>
+
+<h5 id="security">Security</h5>
+
+<p>You can manage access to Amazon S3 by granting other AWS accounts and users permission to perform the resource operations by writing an access policy.</p>
+
+<p>You can protect Amazon S3 data at rest by using server-side encryption, in which you request Amazon S3 to encrypt your object before it’s written to disks in data centers and decrypt it when you download the object or by using client-side encryption, in which you encrypt your data on the client side and upload the encrypted data to Amazon S3. You can protect the data in transit by using Secure Sockets Layer (SSL) or client-side encryption.</p>
+
+<p>You can use versioning to preserve, retrieve, and restore every version of every object stored in your Amazon S3 bucket. With versioning, you can easily recover from both unintended user actions and application failures. Additionally, you can add an optional layer of security by enabling Multi-Factor Authentication (MFA) Delete for a bucket.7 With this option enabled for a bucket, two forms of authentication are required to change the versioning state of the bucket or to permanently delete an object version: valid AWS account credentials plus a sixdigit code (a single-use, time-based password) from a physical or virtual token device.</p>
+
+<p>To track requests for access to your bucket, you can enable access logging. Each access log record provides details about a single access request, such as the requester, bucket name, request time, request action, response status, and error code, if any. Access log information can be useful in security and access audits. It can also help you learn about your customer base and understand your Amazon S3 bill.</p>
+
+<h5 id="interfaces">Interfaces</h5>
+
+<p>Amazon S3 provides:</p>
+
+<ol>
+<li>Standards-based REST web service application program interfaces (APIs) for both management and data operations.</li>
+<li>Higher-level toolkit or software development kit (SDK) that wraps the underlying REST API.</li>
+<li>Integrated AWS Command Line Interface (AWS CLI) also provides a set of high-level, Linux-like Amazon S3 file commands for common operations, such as ls, cp, mv, sync, and so on</li>
+</ol>
+
+<p>Additionally, you can use the Amazon S3 notification feature to receive notifications when certain events happen in your bucket. Currently, Amazon S3 can publish events when an object is uploaded or when an object is deleted.</p>
+
+<p>Notifications can be issued to Amazon Simple Notification Service (SNS) topics, Amazon Simple Queue Service (SQS) queues, and AWS Lambda functions.</p>
+
+<h5 id="cost-model">Cost Model</h5>
+
+<p>With Amazon S3, you pay only for the storage you actually use. Amazon S3 Standard has three pricing components: storage (per GB per month), data transfer in or out (per GB per month), and requests (per thousand requests per month). There are Data Transfer IN and OUT fees if you enable Amazon S3 Transfer Acceleration on a bucket and the transfer performance is faster than regular Amazon S3 transfer.</p>
+
+<p><a href="https://adrian83.github.io/page/aws_architect">Back to main page</a></p>
+
+<h3 id="amazon-glacier">Amazon Glacier</h3>
+
+<p>Amazon Glacier is an extremely low-cost storage service that provides highly secure, durable, and flexible storage for data archiving and online backup.14 With Amazon Glacier, you can reliably store your data for as little as $0.007 per gigabyte per month. Amazon Glacier enables you to offload the administrative burdens of operating and scaling storage to AWS so that you don’t have to worry about capacity planning, hardware provisioning, data replication, hardware failure detection and repair, or time-consuming hardware migrations.</p>
+
+<p>You store data in Amazon Glacier as archives. An archive can represent a single file, or you can combine several files to be uploaded as a single archive.</p>
+
+<p>Retrieving archives from Amazon Glacier requires the initiation of a job. You organize your archives in vaults.</p>
+
+<p>Amazon Glacier is designed for use with other Amazon web services. You can seamlessly move data between Amazon Glacier and Amazon S3 using S3 data lifecycle policies.</p>
+
+<h5 id="use-patterns-1">Use Patterns</h5>
+
+<p>Organizations are using Amazon Glacier to support a number of use cases. These use cases include archiving offsite enterprise information, media assets, and research and scientific data, and also performing digital preservation and magnetic tape replacement.</p>
+
+<p>Amazon Glacier doesn’t suit all storage situations. The following table presents a few storage needs for which you should consider other AWS storage options.</p>
+
+<table>
+<thead>
+<tr>
+<th>Storage Need</th>
+<th>Solution</th>
+<th>AWS Services</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Rapidly changing data</td>
+<td>Data that must be updated very frequently might be better served by a storage solution with lower read/write latencies, such as Amazon EBS, Amazon RDS, Amazon EFS, Amazon DynamoDB, or relational databases running on Amazon EC2.</td>
+<td><a href="https://aws.amazon.com/ebs/">EBS</a>, <a href="http://aws.amazon.com/rds/">RDS</a>, <a href="http://aws.amazon.com/efs/">EFS</a>, <a href="http://aws.amazon.com/dynamodb/">DynamoDB</a>, <a href="http://aws.amazon.com/ec2/">EC2</a></td>
+</tr>
+
+<tr>
+<td>Immediate access</td>
+<td>Data stored in Amazon Glacier is not available immediately. Retrieval jobs typically require 3–5 hours to complete, so if you need immediate access to your object data, Amazon S3 is a better choice</td>
+<td><a href="http://aws.amazon.com/s3/">S3</a></td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="performance">Performance</h5>
+
+<p>Amazon Glacier is a low-cost storage service designed to store data that is infrequently accessed and long-lived. Amazon Glacier retrieval jobs typically complete in 3 to 5 hours.</p>
+
+<p>You can improve the upload experience for larger archives by using multipart upload for archives up to about 40 TB (the single archive limit). You can upload separate parts of a large archive independently, in any order and in parallel, to improve the upload experience for larger archives. You can even perform range retrievals on archives stored in Amazon Glacier by specifying a range or portion of the archive. Specifying a range of bytes for a retrieval can help control bandwidth costs, manage your data downloads, and retrieve a targeted part of a large archive.</p>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

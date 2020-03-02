@@ -172,6 +172,11 @@
   </url>
   
   <url>
+    <loc>https://adrian83.github.io/page/aws_architect/whitepaper_storage/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://adrian83.github.io/page/gcp_developer/</loc>
     <priority>0</priority>
   </url>
