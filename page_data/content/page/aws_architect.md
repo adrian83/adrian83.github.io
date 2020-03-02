@@ -1,11 +1,13 @@
 # AWS Certified Solutions Architect - Professional
 <br/>
 
-[Exam guide](/page/aws_architect/900_exam)
+## [Exam guide](/page/aws_architect/900_exam)
 
-<br/>
+## WHITEPAPERS
+1. [AWS Storage Services Overview - A Look at Storage Services Offered by AWS](/page/aws_architect/whitepaper_storage)
 
-Core Services:  
+
+## Core Services:  
 
 1. [IAM](/page/aws_architect/001_iam)
 2. [S3](/page/aws_architect/002_s3)
