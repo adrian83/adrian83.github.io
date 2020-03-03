@@ -335,6 +335,24 @@ we examine the following AWS Cloud storage services and features.</p>
 
 <p>You can improve the upload experience for larger archives by using multipart upload for archives up to about 40 TB (the single archive limit). You can upload separate parts of a large archive independently, in any order and in parallel, to improve the upload experience for larger archives. You can even perform range retrievals on archives stored in Amazon Glacier by specifying a range or portion of the archive. Specifying a range of bytes for a retrieval can help control bandwidth costs, manage your data downloads, and retrieve a targeted part of a large archive.</p>
 
+<h5 id="durability-and-availability-1">Durability and Availability</h5>
+
+<p>Amazon Glacier is designed to provide average annual durability of 99.999999999 percent (11 nines) for an archive. The service redundantly stores data in multiple facilities and on multiple devices within each facility. To increase durability, Amazon Glacier synchronously stores your data across multiple facilities before returning SUCCESS on uploading an archive.</p>
+
+<h5 id="scalability-and-elasticity">Scalability and Elasticity</h5>
+
+<p>Amazon Glacier scales to meet growing and often unpredictable storage requirements. A single archive is limited to 40 TB in size, but there is no limit to the total amount of data you can store in the service.</p>
+
+<h5 id="security-1">Security</h5>
+
+<p>By default, only you can access your Amazon Glacier data. If other people need to access your data, you can set up data access control in Amazon Glacier by using the AWS Identity and Access Management (IAM) service. To do so, simply create an IAM policy that specifies which account users have rights to operations on a given vault.</p>
+
+<p>Amazon Glacier uses server-side encryption to encrypt all data at rest. Amazon Glacier handles key management and key protection for you by using one of the strongest block ciphers available, 256-bit Advanced Encryption Standard (AES256). Customers who want to manage their own keys can encrypt data prior to uploading it.</p>
+
+<p>Amazon Glacier allows you to lock vaults where long-term records retention is mandated by regulations or compliance rules. You can set compliance controls on individual Amazon Glacier vaults and enforce these by using lockable policies.</p>
+
+<p>To help monitor data access, Amazon Glacier is integrated with AWS CloudTrail, allowing any API calls made to Amazon Glacier in your AWS account to be captured and stored in log files that are delivered to an Amazon S3 bucket that you specify.</p>
+
   </article>
 </section>
 
