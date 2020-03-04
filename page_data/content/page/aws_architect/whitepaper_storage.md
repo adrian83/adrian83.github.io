@@ -143,3 +143,79 @@ Amazon Glacier uses server-side encryption to encrypt all data at rest. Amazon G
 Amazon Glacier allows you to lock vaults where long-term records retention is mandated by regulations or compliance rules. You can set compliance controls on individual Amazon Glacier vaults and enforce these by using lockable policies.
 
 To help monitor data access, Amazon Glacier is integrated with AWS CloudTrail, allowing any API calls made to Amazon Glacier in your AWS account to be captured and stored in log files that are delivered to an Amazon S3 bucket that you specify.
+
+##### Interfaces
+
+Amazon Galcier provides:
+
+1. Standards-based REST web service application program interfaces (APIs) for both management and data operations.
+2. Higher-level toolkit or software development kit (SDK) that wraps the underlying REST API.
+3. Integrated AWS Command Line Interface (AWS CLI)
+
+Second, Amazon Glacier can be used as a storage class in Amazon S3 by using object lifecycle management that provides automatic, policy-driven archiving from Amazon S3 to Amazon Glacier. You simply set one or more lifecycle rules for an Amazon S3 bucket, defining what objects should be transitioned to Amazon Glacier and when. You can specify an absolute or relative time period (including 0 days) after which the specified Amazon S3 objects should be transitioned to Amazon Glacier. The Amazon S3 API includes a RESTORE operation. The retrieval process from Amazon Glacier using RESTORE takes three to five hours, the same as other Amazon Glacier retrievals.
+
+##### Cost Model
+
+With Amazon Glacier, you pay only for what you use and there is no minimum fee. In normal use, Amazon Glacier has three pricing components: storage (per GB per month), data transfer out (per GB per month), and requests (per thousand UPLOAD and RETRIEVAL requests per month).
+
+[Back to main page](/page/aws_architect)
+
+
+### Amazon EFS (Elastic File System)
+
+Amazon Elastic File System (Amazon EFS) delivers a simple, scalable, elastic, highly available, and highly durable network file system as a service to EC2 instances.
+Amazon EFS is designed to provide a highly scalable network file system that can grow to petabytes, which allows massively parallel access from EC2 instances to your data within a Region. It is also highly available and highly durable because it stores data and metadata across multiple Availability Zones in a Region.
+
+To understand Amazon EFS, it is best to examine the different components that allow EC2 instances access to EFS file systems. You can create one or more EFS file systems within an AWS Region. Each file system is accessed by EC2 instances via mount targets, which are created per Availability Zone. You create one mount target per Availability Zone in the VPC you create using Amazon Virtual Private Cloud. Traffic flow between Amazon EFS and EC2 instances is controlled using security groups associated with the EC2 instance and the EFS mount targets. Access to EFS file system objects (files and directories) is controlled using standard Unix-style read/write/execute permissions based on user and group IDs
+
+##### Usage Patterns
+
+Amazon EFS is designed to meet the needs of multi-threaded applications and applications that concurrently access data from multiple EC2 instances and that require substantial levels of aggregate throughput and input/output operations per second (IOPS). Its distributed design enables high levels of availability, durability, and scalability, which results in a small latency overhead for each file operation. Because of this per-operation overhead, overall throughput generally increases as the average input/output (I/O) size increases since the overhead is amortized over a larger amount of data. This makes Amazon EFS ideal for growing datasets consisting of larger files that need both high performance and multi-client access.
+
+Amazon EFS supports highly parallelized workloads and is designed to meet the performance needs of big data and analytics, media processing, content management, web serving, and home directories. 
+
+Amazon EFS doesn’t suit all storage situations. The following table presents some storage needs for which you should consider other AWS storage options.
+
+| Storage Need | Solution | AWS Services      |
+| ------------ | -------- | ----------------- |
+| Archival data | Data that requires encrypted archival storage with infrequent read access with a long recovery time objective (RTO) can be stored in Amazon Glacier more cost-effectively. | [Glacier](http://aws.amazon.com/glacier/) | 
+| Relational database storage | In most cases, relational databases require storage that is mounted, accessed, and locked by a single node (EC2 instance, etc.). When running relational databases on AWS, look at leveraging Amazon RDS or Amazon EC2 with Amazon EBS PIOPS volumes. | [EBS](https://aws.amazon.com/ebs/), [RDS](http://aws.amazon.com/rds/), [EC2](http://aws.amazon.com/ec2/) |
+| Temporary storage | Consider using local instance store volumes for needs such as scratch disks, buffers, queues, and caches. | [EC2 Local Instance Store](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) |
+
+##### Performance
+
+Amazon EFS file systems are distributed across an unconstrained number of storage servers, enabling file systems to grow elastically to petabyte-scale and allowing massively parallel access from EC2 instances within a Region. This distributed data storage design means that multi-threaded applications and applications that concurrently access data from multiple EC2 instances can drive substantial levels of aggregate throughput and IOPS.
+
+There are two different performance modes available for Amazon EFS: General Purpose and Max I/O. General Purpose performance mode is the default mode and is appropriate for most file systems. However, if your overall Amazon EFS workload will exceed 7,000 file operations per second per file system, we recommend the files system use Max I/O performance mode. Max I/O performance mode is optimized for applications where tens, hundreds, or thousands of EC2 instances are accessing the file system. With this mode, file systems scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for file operations.
+
+Due to the spiky nature of file-based workloads, Amazon EFS is optimized to burst at high-throughput levels for short periods of time, while delivering low levels of throughput the rest of the time. A credit system determines when an Amazon EFS file system can burst. Over time, each file system earns burst credits at a baseline rate, determined by the size of the file system, and uses these credits whenever it reads or writes data. A file system can drive throughput continuously at its baseline rate. It accumulates credits during periods of inactivity or when throughput is below its baseline rate. These accumulated burst credits allow a file system to drive throughput above its baseline rate. The file system can continue to drive throughput above its baseline rate as long as it has a positive burst credit balance. You can see the burst credit balance for a file system by viewing the BurstCreditBalance metric in Amazon CloudWatch. 
+
+##### Durability and Availability
+
+Amazon EFS is designed to be highly durable and highly available. Each Amazon EFS file system object (such as a directory, file, or link) is redundantly stored across multiple Availability Zones within a Region. Amazon EFS is designed to be as highly durable and available as Amazon S3.
+
+##### Scalability and Elasticity
+
+Amazon EFS automatically scales your file system storage capacity up or down as you add or remove files without disrupting your applications, giving you just the storage you need, when you need it, and while eliminating time-consuming administration tasks associated with traditional storage management (such as planning, buying, provisioning, and monitoring). Your EFS file system can grow from an empty file system to multiple petabytes automatically, and there is no provisioning, allocating, or administration.
+
+##### Security
+
+There are three levels of access control to consider when planning your EFS file system security: 
+
+1. IAM permissions for API calls 
+2. Security groups for EC2 instances and mount targets 
+3. and Network File System-level users, groups, and permissions
+
+##### Interfaces
+
+Amazon offers a network protocol-based HTTP (RFC 2616) API for managing Amazon EFS, as well as supporting for EFS operations within the AWS SDKs and the AWS CLI. The API actions and EFS operations are used to create, delete, and describe file systems; create, delete, and describe mount targets; create, delete, and describe tags; and describe and modify mount target security groups.
+
+##### Cost Model
+
+This highly durable, highly available architecture is built into the pricing model, and you only pay for the amount of storage you put into your file system. As files are added, your EFS file system dynamically grows, and you only pay for the amount of storage you use. As files are removed, your EFS file system dynamically shrinks, and you stop paying for the data you deleted. There are no charges for bandwidth or requests, and there are no minimum commitments or up-front fees.
+
+[Back to main page](/page/aws_architect)
+
+### Amazon EBS (Elastic Block Store)
+
+
