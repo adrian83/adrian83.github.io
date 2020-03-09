@@ -37,19 +37,13 @@
   </url>
   
   <url>
-    <loc>https://adrian83.github.io/categories/dashboard/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://adrian83.github.io/tags/dashboard/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://adrian83.github.io/categories/k8s/</loc>
+    <loc>https://adrian83.github.io/categories/dashboard/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -61,7 +55,7 @@
   </url>
   
   <url>
-    <loc>https://adrian83.github.io/categories/kubernetes/</loc>
+    <loc>https://adrian83.github.io/categories/k8s/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -73,13 +67,19 @@
   </url>
   
   <url>
-    <loc>https://adrian83.github.io/categories/minikube/</loc>
+    <loc>https://adrian83.github.io/categories/kubernetes/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/tags/minikube/</loc>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/categories/minikube/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -168,6 +168,11 @@
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/900_exam/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/page/aws_architect/whitepaper_hosting_webapps/</loc>
     <priority>0</priority>
   </url>
   

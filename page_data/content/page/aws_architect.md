@@ -5,6 +5,7 @@
 
 ## WHITEPAPERS
 1. [AWS Storage Services Overview - A Look at Storage Services Offered by AWS](/page/aws_architect/whitepaper_storage)
+2. [Web Application Hosting in the AWS Cloud](/page/aws_architect/whitepaper_hosting_webapps)
 
 
 ## Core Services:  

@@ -1,5 +1,7 @@
 # AWS Storage Services Overview
 
+[Official documentation](https://d0.awsstatic.com/whitepapers/Storage/AWS%20Storage%20Services%20Whitepaper-v9.pdf)  
+
 [Back to main page](/page/aws_architect)
 
 ## A Look at Storage Services Offered by AWS
@@ -218,4 +220,156 @@ This highly durable, highly available architecture is built into the pricing mod
 
 ### Amazon EBS (Elastic Block Store)
 
+Amazon Elastic Block Store (Amazon EBS) volumes provide durable block-level storage for use with EC2 instances.28 Amazon EBS volumes are network-attached storage that persists independently from the running life of a single EC2 instance. After an EBS volume is attached to an EC2 instance, you can use the EBS volume like a physical hard drive, typically by formatting it with the file system of your choice and using the file I/O interface provided by the instance operating system. Most Amazon Machine Images (AMIs) are backed by Amazon EBS, and use an EBS volume to boot EC2 instances. You can also attach multiple EBS volumes to a single EC2 instance. Note, however, that any single EBS volume can be attached to only one EC2 instance at any time.
+
+EBS also provides the ability to create point-in-time snapshots of volumes, which are stored in Amazon S3. These snapshots can be used as the starting point for new EBS volumes and to protect data for long-term durability. The same snapshot can be used to instantiate as many volumes as you want. These snapshots can be copied across AWS Regions, making it easier to leverage multiple AWS Regions for geographical expansion, data center migration, and disaster recovery. Sizes for EBS volumes range from 1 GiB to 16 TiB, depending on the volume type, and are allocated in 1 GiB increments.
+
+##### Usage Patterns
+Amazon EBS is meant for data that changes relatively frequently and needs to persist beyond the life of EC2 instance. Amazon EBS is well-suited for use as the primary storage for a database or file system, or for any application or instance (operating system) that requires direct access to raw block-level storage. Amazon EBS provides a range of options that allow you to optimize storage performance and cost for your workload. These options are divided into two major categories:
+
+1. Solid-state drive (SSD)-backed storage for transactional workloads such as databases and boot volumes (performance depends primarily on IOPS) 
+    - SSD-Backed Provisioned IOPS (io1) 
+        - I/O-intensive NoSQL and relational databases
+        - Volume Size: 4 GiB – 16 TiB
+        - Max IOPS per Volume: 20,000
+        - Max Throughput per Volume: 320 MiB/s
+        - Max IOPS per Instance: 65,000
+        - Max Throughput per Instance: 1,250 MiB/s
+        - Dominant Performance Attribute: IOPS
+    - SSD-Backed General Purpose (gp2) 
+        - Boot volumes, low-latency interactive apps, dev & test
+        - Volume Size: 1 GiB – 16 TiB
+        - Max IOPS per Volume: 10,000
+        - Max Throughput per Volume: 160 MiB/s
+        - Max IOPS per Instance: 65,000
+        - Max Throughput per Instance: 1,250 MiB/s
+        - Dominant Performance Attribute: IOPS
+2. Hard disk drive (HDD)-backed storage for throughput-intensive workloads such as big data, data warehouse, and log processing (performance depends primarily on MB/s).
+    - HDD-Backed Throughput Optimized (st1)
+        - Big data, data warehouse, log processing
+        - Volume Size: 500 GiB – 16 TiB
+        - Max IOPS per Volume: 500
+        - Max Throughput per Volume: 500 MiB/s
+        - Max IOPS per Instance: 65,000
+        - Max Throughput per Instance: 1,250 MiB/s
+        - Dominant Performance Attribute: MiB/s
+    - HDD-Backed Cold (sc1)
+        - Colder data requiring fewer scans per day
+        - Volume Size: 500 GiB – 16 TiB
+        - Max IOPS per Volume: 250
+        - Max Throughput per Volume: 250 MiB/s
+        - Max IOPS per Instance: 65,000
+        - Max Throughput per Instance: 1,250 MiB/s
+        - Dominant Performance Attribute: MiB/s
+
+
+Amazon EBS doesn’t suit all storage situations. The following table presents some storage needs for which you should consider other AWS storage options.
+
+| Storage Need | Solution | AWS Services      |
+| ------------ | -------- | ----------------- |
+| Temporary storage | Consider using local instance store volumes for needs such as scratch disks, buffers, queues, and caches. | [EC2 Local Instance Store](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) |
+| Multi-instance storage | Amazon EBS volumes can only be attached to one EC2 instance at a time. If you need multiple EC2 instances accessing volume data at the same time, consider using Amazon EFS as a file system. | [EFS](http://aws.amazon.com/efs/) |
+| Highly durable storage | If you need very highly durable storage, use S3 or Amazon EFS. Amazon S3 Standard storage is designed for 99.999999999 percent (11 nines) annual durability per object. You can even decide to take a snapshot of the EBS volumes. Such a snapshot then gets saved in Amazon S3, thus providing you the durability of Amazon S3. For more information on EBS durability, see the Durability and Availability section. EFS is designed for high durability and high availability, with data stored in multiple Availability Zones within an AWS Region. | [EFS](http://aws.amazon.com/efs/), [S3](http://aws.amazon.com/s3/) |
+| Static data or web content | If your data doesn’t change that often, Amazon S3 might represent a more cost-effective and scalable solution for storing this fixed information. Also, web content served out of Amazon EBS requires a web server running on Amazon EC2; in contrast, you can deliver web content directly out of Amazon S3 or from multiple EC2 instances using Amazon EFS. | [EFS](http://aws.amazon.com/efs/), [S3](http://aws.amazon.com/s3/) |
+
+##### Performance
+
+As described previously, Amazon EBS provides a range of volume types that are divided into two major categories: SSD-backed storage volumes and HDD-backed storage volumes. SSD-backed storage volumes offer great price/performance characteristics for random small block workloads, such as transactional applications, whereas HDD-backed storage volumes offer the best price/performance characteristics for large block sequential workloads. You can attach and stripe data across multiple volumes of any type to increase the I/O performance available to your Amazon EC2 applications. The following table presents the storage characteristics of the current generation volume types.
+
+Because all EBS volumes are network-attached devices, other network I/O performed by an EC2 instance, as well as the total load on the shared network, can affect the performance of individual EBS volumes. To enable your EC2 instances to maximize the performance of EBS volumes, you can launch selected EC2 instance types as EBS-optimized instances. Most of the latest generation EC2 instances are EBS-optimized by default. EBS-optimized instances deliver dedicated throughput between Amazon EC2 and Amazon EBS, with speeds between 500 Mbps and 10,000 Mbps depending on the instance type. When attached to EBS-optimized instances, provisioned IOPS volumes are designed to deliver within 10 percent of the provisioned IOPS performance 99.9 percent of the time within a given year. Newly created EBS volumes receive their maximum performance the moment they are available, and they don’t require initialization (formerly known as prewarming). However, you must initialize the storage blocks on volumes that were restored from snapshots before you can access the block.
+
+##### Durability and Availability
+
+Amazon EBS volumes are designed to be highly available and reliable. EBS volume data is replicated across multiple servers in a single Availability Zone to prevent the loss of data from the failure of any single component. Taking snapshots of your EBS volumes increases the durability of the data stored on your EBS volumes. EBS snapshots are incremental, point-in-time backups, containing only the data blocks changed since the last snapshot. EBS volumes are designed for an annual failure rate (AFR) of between 0.1 and 0.2 percent, where failure refers to a complete or partial loss of the volume, depending on the size and performance of the volume. This means, if you have 1,000 EBS volumes over the course of a year, you can expect unrecoverable failures with 1 or 2 of your volumes. This AFR makes EBS volumes 20 times more reliable than typical commodity disk drives, which fail with an AFR of around 4 percent. Despite these very low EBS AFR numbers, we still recommend that you create snapshots of your EBS volumes to improve the durability of your data. The Amazon EBS snapshot feature makes it easy to take application-consistent backups of your data.
+
+##### Scalability and Elasticity
+
+Using the AWS Management Console or the Amazon EBS API, you can easily and rapidly provision and release EBS volumes to scale in and out with your total storage demands.
+
+The simplest approach is to create and attach a new EBS volume and begin using it together with your existing ones. However, if you need to expand the size of a single EBS volume, you can effectively resize a volume using a snapshot:
+
+1. Detach the original EBS volume.
+2. Create a snapshot of the original EBS volume’s data in Amazon S3.
+3. Create a new EBS volume from the snapshot but specify a larger size than the original volume.
+4. Attach the new, larger volume to your EC2 instance in place of the original. (In many cases, an OS-level utility must also be used to expand the file system.)
+5. Delete the original EBS volume.
+
+##### Security
+
+IAM enables access control for your EBS volumes, allowing you to specify who can access which EBS volumes.
+
+EBS encryption enables data-at-rest and data-in-motion security. It offers seamless encryption of both EBS boot volumes and data volumes as well as snapshots, eliminating the need to build and manage a secure key management infrastructure. These encryption keys are Amazon-managed or keys that you create and manage using the AWS Key Management Service (AWS KMS). Datain-motion security occurs on the servers that host EC2 instances, providing encryption of data as it moves between EC2 instances and EBS volumes.
+
+##### Interfaces
+
+Amazon offers a REST management API for Amazon EBS, as well as support for Amazon EBS operations within both the AWS SDKs and the AWS CLI.
+
+##### Cost Model
+
+As with other AWS services, with Amazon EBS you pay only for what you provision, in increments down to 1 GB. In contrast, hard disks come in fixed sizes and you pay for the entire size of the disk regardless of the amount you use or allocate. Amazon EBS pricing has three components: provisioned storage, I/O requests, and snapshot storage. Amazon EBS General Purpose (SSD), Throughput Optimized (HDD), and Cold (HDD) volumes are charged per GBmonth of provisioned storage. Amazon EBS Provisioned IOPS (SSD) volumes are charged per GB-month of provisioned storage and per provisioned IOPS-month. For all volume types, Amazon EBS snapshots are charged per GB-month of data stored. An Amazon EBS snapshot copy is charged for the data transferred between Regions and for the standard Amazon EBS snapshot charges in the destination Region.
+
+[Back to main page](/page/aws_architect)
+
+### Amazon EC2 Instance Storage
+
+Amazon EC2 instance store volumes (also called ephemeral drives) provide temporary block-level storage for many EC2 instance types. This storage consists of a preconfigured and pre-attached block of disk storage on the same physical server that hosts the EC2 instance for which the block provides storage. The amount of the disk storage provided varies by EC2 instance type. In the EC2 instance families that provide instance storage, larger instances tend to provide both more and larger instance store volumes.
+
+AWS offers two EC2 instance families that are purposely built for storage-centric
+workloads: 
+
+1. SSD-Backed Storage-optimized (i2) - NoSQL databases, like Cassandra and MongoDB, scale out transactional databases, data warehousing, Hadoop, and cluster file systems.
+2. HDD-Backed Dense-storage (d2) - Massively Parallel Processing (MPP) data warehousing, MapReduce and Hadoop distributed computing, distributed file systems, network file systems, log or data-processing applications
+
+##### Usage Patterns
+
+In general, EC2 local instance store volumes are ideal for temporary storage of information that is continually changing, such as buffers, caches, scratch data, and other temporary content, or for data that is replicated across a fleet of instances, such as a load-balanced pool of web servers. EC2 instance storage is well-suited for this purpose. It consists of the virtual machine’s boot device (for instance store AMIs only), plus one or more additional volumes that are dedicated to the EC2 instance (for both Amazon EBS AMIs and instance store AMIs). This storage can only be used from a single EC2 instance during that instance's lifetime. Note that, unlike EBS volumes, instance store volumes cannot be detached or attached to another instance.
+
+EC2 instance store volumes don’t suit all storage situations. The following table presents some storage needs for which you should consider other AWS storage options.
+
+| Storage Need | Solution | AWS Services      |
+| ------------ | -------- | ----------------- |
+| Persistent storage | If you need persistent virtual disk storage similar to a physical disk drive for files or other data that must persist longer than the lifetime of a single EC2 instance, EBS volumes, Amazon EFS file systems, or Amazon S3 are more appropriate. | [EC2](http://aws.amazon.com/ec2/), [EBS](https://aws.amazon.com/ebs/), [EFS](http://aws.amazon.com/efs/), [S3](http://aws.amazon.com/s3/) |
+| Relational database storage | In most cases, relational databases require storage that persists beyond the lifetime of a single EC2 instance, making EBS volumes the natural choice. | [EC2](http://aws.amazon.com/ec2/), [EBS](https://aws.amazon.com/ebs/) |
+| Shared storage | Instance store volumes are dedicated to a single EC2 instance and can’t be shared with other systems or users. If you need storage that can be detached from one instance and attached to a different instance, or if you need the ability to share data easily, Amazon EFS, Amazon S3, or Amazon EBS are better choices. | [EFS](http://aws.amazon.com/efs/), [S3](http://aws.amazon.com/s3/), [EBS](https://aws.amazon.com/ebs/) |
+| Snapshots | If you need the convenience, long-term durability, availability, and the ability to share point-in-time disk snapshots, EBS volumes are a better choice. | [EBS](https://aws.amazon.com/ebs/) |
+
+##### Performance
+
+The instance store volumes that are not SSD-based in most EC2 instance families have performance characteristics similar to standard EBS volumes. Because the EC2 instance virtual machine and the local instance store volumes are located on the same physical server, interaction with this storage is very fast, particularly for sequential access. To increase aggregate IOPS, or to improve sequential disk throughput, multiple instance store volumes can be grouped together using RAID 0 (disk striping) software. Because the bandwidth of the disks is not limited by the network, aggregate sequential throughput for multiple instance volumes can be higher than for the same number of EBS volumes.
+
+If you require high disk performance, we recommend that you prewarm your drives by writing once to every drive location before production use. The i2, r3, and hi1 instance types use direct-attached SSD backing that provides maximum performance at launch time without prewarming.
+
+##### Durability and Availability
+
+Amazon EC2 local instance store volumes are not intended to be used as durable disk storage. Unlike Amazon EBS volume data, data on instance store volumes persists only during the life of the associated EC2 instance. 
+
+##### Scalability and Elasticity
+
+The number and storage capacity of Amazon EC2 local instance store volumes are fixed and defined by the instance type.
+
+##### Security
+
+IAM helps you securely control which users can perform operations such as launch and termination of EC2 instances in your account, and instance store volumes can only be mounted and accessed by the EC2 instances they belong to. Also, when you stop or terminate an instance, the applications and data in its instance store are erased, so no other instance can have access to the instance store in the future.
+
+##### Interfaces
+
+There is no separate management API for EC2 instance store volumes. Instead, instance store volumes are specified using the block device mapping feature of the Amazon EC2 API and the AWS Management Console. You cannot create or destroy instance store volumes, but you can control whether or not they are exposed to the EC2 instance and what device name is mapped to for each volume.
+
+##### Cost Model
+
+The cost of an EC2 instance includes any local instance store volumes, if the instance type provides them. 
+
+### AWS Storage Gateway
+
+AWS Storage Gateway connects an on-premises software appliance with cloudbased storage to provide seamless and secure storage integration between an organization’s on-premises IT environment and the AWS storage infrastructure. The service enables you to securely store data in the AWS Cloud for scalable and cost-effective storage. AWS Storage Gateway supports industrystandard storage protocols that work with your existing applications. It provides low-latency performance by maintaining frequently accessed data on-premises while securely storing all of your data encrypted in Amazon S3 or Amazon Glacier. For disaster recovery scenarios, AWS Storage Gateway, together with Amazon EC2, can serve as a cloud-hosted solution that mirrors your entire production environment.
+
+You can download the AWS Storage Gateway software appliance as a virtual machine (VM) image that you install on a host in your data center or as an EC2 instance. Once you’ve installed your gateway and associated it with your AWS account through the AWS activation process, you can use the AWS Management Console to create gateway-cached volumes, gateway-stored volumes, or a gateway-virtual tape library (VTL), each of which can be mounted as an iSCSI device by your on-premises applications.
+
+With gateway-cached volumes, you can use Amazon S3 to hold your primary data, while retaining some portion of it locally in a cache for frequently accessed data. Gateway-cached volumes minimize the need to scale your on-premises storage infrastructure while still providing your applications with low-latency access to their frequently accessed data. You can create storage volumes up to 32 TiB in size and mount them as iSCSI devices from your on-premises application servers. Each gateway configured for gateway-cached volumes can support up to 20 volumes and total volume storage of 150 TiB. Data written to these volumes is stored in Amazon S3, with only a cache of recently written and recently read data stored locally on your on-premises storage hardware.
+
+Gateway-stored volumes store your primary data locally, while asynchronously backing up that data to AWS. These volumes provide your on-premises applications with low-latency access to their entire datasets, while providing durable, off-site backups. You can create storage volumes up to 1 TiB in size and mount them as iSCSI devices from your on-premises application servers. Each gateway configured for gateway-stored volumes can support up to 12 volumes and total volume storage of 12 TiB. Data written to your gateway-stored volumes is stored on your on-premises storage hardware, and asynchronously backed up to Amazon S3 in the form of Amazon EBS snapshots.
+
+A gateway-VTL allows you to perform offline data archiving by presenting your existing backup application with an iSCSI-based virtual tape library consisting of a virtual media changer and virtual tape drives. You can create virtual tapes in your VTL by using the AWS Management Console, and you can size each virtual tape from 100 GiB to 2.5 TiB. A VTL can hold up to 1,500 virtual tapes, with a maximum aggregate capacity of 150 TiB. Once the virtual tapes are created, your backup application can discover them by using its standard media inventory procedure. Once created, tapes are available for immediate access and are stored in Amazon S3.
+
+Virtual tapes that you need to access frequently should be stored in a VTL. Data that you don't need to retrieve frequently can be archived to your virtual tape shelf (VTS), which is stored in Amazon Glacier, further reducing your storage costs.
 
