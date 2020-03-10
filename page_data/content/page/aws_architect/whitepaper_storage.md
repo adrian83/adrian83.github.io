@@ -359,6 +359,8 @@ There is no separate management API for EC2 instance store volumes. Instead, ins
 
 The cost of an EC2 instance includes any local instance store volumes, if the instance type provides them. 
 
+[Back to main page](/page/aws_architect)
+
 ### AWS Storage Gateway
 
 AWS Storage Gateway connects an on-premises software appliance with cloudbased storage to provide seamless and secure storage integration between an organization’s on-premises IT environment and the AWS storage infrastructure. The service enables you to securely store data in the AWS Cloud for scalable and cost-effective storage. AWS Storage Gateway supports industrystandard storage protocols that work with your existing applications. It provides low-latency performance by maintaining frequently accessed data on-premises while securely storing all of your data encrypted in Amazon S3 or Amazon Glacier. For disaster recovery scenarios, AWS Storage Gateway, together with Amazon EC2, can serve as a cloud-hosted solution that mirrors your entire production environment.
@@ -373,3 +375,43 @@ A gateway-VTL allows you to perform offline data archiving by presenting your ex
 
 Virtual tapes that you need to access frequently should be stored in a VTL. Data that you don't need to retrieve frequently can be archived to your virtual tape shelf (VTS), which is stored in Amazon Glacier, further reducing your storage costs.
 
+##### Usage Patterns
+
+Organizations are using AWS Storage Gateway to support a number of use cases. These use cases include corporate file sharing, enabling existing on-premises backup applications to store primary backups on Amazon S3, disaster recovery, and mirroring data to cloud-based compute resources and then later archiving it to Amazon Glacier.
+
+##### Performance
+
+Because the AWS Storage Gateway VM sits between your application, Amazon S3, and underlying on-premises storage, the performance you experience depends upon a number of factors. These factors include the speed and configuration of your underlying local disks, the network bandwidth between your iSCSI initiator and gateway VM, the amount of local storage allocated to the gateway VM, and the bandwidth between the gateway VM and Amazon S3. 
+
+AWS Storage Gateway efficiently uses your Internet bandwidth to speed up the upload of your on-premises application data to AWS. AWS Storage Gateway only uploads data that has changed, which minimizes the amount of data sent over the Internet. To further increase throughput and reduce your network costs, you can also use AWS Direct Connect to establish a dedicated network connection between your on-premises gateway and AWS.
+
+##### Durability and Availability
+
+AWS Storage Gateway durably stores your on-premises application data by uploading it to Amazon S3 or Amazon Glacier. Both of these AWS services store data in multiple facilities and on multiple devices within each facility, being designed to provide an average annual durability of 99.999999999 percent (11 nines). They also perform regular, systematic data integrity checks and are built to be automatically self-healing.
+
+##### Scalability and Elasticity
+
+In both gateway-cached and gateway-stored volume configurations, AWS Storage Gateway stores data in Amazon S3, which has been designed to offer a very high level of scalability and elasticity automatically. Unlike a typical file system that can encounter issues when storing large number of files in a directory, Amazon S3 supports a virtually unlimited number of files in any bucket. 
+
+In a gateway-VTL configuration, AWS Storage Gateway stores data in Amazon S3 or Amazon Glacier, providing a virtual tape infrastructure that scales seamlessly with your business needs and eliminates the operational burden of provisioning, scaling, and maintaining a physical tape infrastructure.
+
+##### Security
+
+IAM helps you provide security in controlling access to AWS Storage Gateway. With IAM, you can create multiple IAM users under your AWS account. The AWS Storage Gateway API enables a list of actions each IAM user can perform on AWS Storage Gateway.
+
+The AWS Storage Gateway encrypts all data in transit to and from AWS by using SSL. All volume and snapshot data stored in AWS using gateway-stored or gateway-cached volumes and all virtual tape data stored in AWS using a gatewayVTL is encrypted at rest using AES-256, a secure symmetric-key encryption standard using 256-bit encryption keys. Storage Gateway supports authentication between your gateway and iSCSI iniitiators by using Challenge-Handshake Authentication Protocol (CHAP).
+
+##### Interfaces
+
+AWS Storage Gateway provides:  
+
+1. AWS Management Console.
+2. Integrated AWS CLI provides a set of high-level, Linux-like commands for common operations of the AWS Storage Gateway service.
+3. AWS SDKs to develop applications that interact with AWS Storage Gateway
+
+##### Cost Model
+With AWS Storage Gateway, you pay only for what you use. AWS Storage Gateway has the following pricing components: gateway usage (per gateway per month), snapshot storage usage (per GB per month), volume storage usage (per GB per month), virtual tape shelf storage (per GB per month), virtual tape library storage (per GB per month), retrieval from virtual tape shelf (per GB), and data transfer out (per GB per month).
+
+[Back to main page](/page/aws_architect)
+
+### AWS Snowball
