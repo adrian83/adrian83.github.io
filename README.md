@@ -1,7 +1,7 @@
 # adrian83.github.io
 
 
-### downloadd theme (git submodule)
+### download theme (git submodule)
 1. `git submodule init`
 2. `git submodule update`
 

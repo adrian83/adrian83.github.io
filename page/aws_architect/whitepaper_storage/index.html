@@ -739,6 +739,98 @@ workloads:</p>
 
 <h3 id="aws-snowball">AWS Snowball</h3>
 
+<p>AWS Snowball accelerates moving large amounts of data into and out of AWS using secure Snowball appliances.51 The Snowball appliance is purpose-built for efficient data storage and transfer. All AWS Regions have 80 TB Snowballs while US Regions have both 50 TB and 80 TB models</p>
+
+<p>AWS transfers your data directly onto and off of Snowball storage devices using Amazon’s high-speed internal network and bypasses the Internet. For datasets of significant size, Snowball is often faster than Internet transfer and more cost effective than upgrading your connectivity. AWS Snowball supports importing data into and exporting data from Amazon S3 buckets.</p>
+
+<h5 id="usage-patterns-4">Usage Patterns</h5>
+
+<p>Snowball is ideal for transferring anywhere from terabytes to many petabytes of data in and out of the AWS Cloud securely. This is especially beneficial in cases where you don’t want to make expensive upgrades to your network infrastructure or in areas where high-speed Internet connections are not available or costprohibitive.</p>
+
+<p>Common use cases include cloud migration, disaster recovery, data center decommission, and content distribution. When you decommission a data center, many steps are involved to make sure valuable data is not lost, and Snowball can help ensure data is securely and cost-effectively transferred to AWS.</p>
+
+<h5 id="performance-5">Performance</h5>
+
+<p>The Snowball appliance is purpose-built for efficient data storage and transfer, including a high-speed, 10 Gbps network connection designed to minimize data transfer times, allowing you to transfer up to 80 TB of data from your data source to the appliance in 2.5 days, plus shipping time. In this case, the end-to-end time to transfer the data into AWS is approximately a week, including default shipping and handling time to AWS data centers. Copying 160 TB of data can be completed in the same amount of time by using two 80 TB Snowballs in parallel.</p>
+
+<h5 id="durability-and-availability-6">Durability and Availability</h5>
+
+<p>Once the data is imported to AWS, the durability and availability characteristics of the target storage applies. Amazon S3 is designed for 99.999999999 percent (11 nines) durability and 99.99 percent availability.</p>
+
+<h5 id="scalability-and-elasticity-5">Scalability and Elasticity</h5>
+
+<p>Each AWS Snowball appliance is capable of storing 50 TB or 80 TB of data. If you want to transfer more data than that, you can use multiple appliances. For Amazon S3, individual files are loaded as objects and can range up to 5 TB in size, but you can load any number of objects in Amazon S3. The aggregate total amount of data that can be imported is virtually unlimited.</p>
+
+<h5 id="security-6">Security</h5>
+
+<p>You can integrate Snowball with IAM to control which actions a user can perform. You can give the IAM users on your AWS account access to all Snowball actions or to a subset of them. Similarly, an IAM user that creates a Snowball job must have permissions to access the Amazon S3 buckets that will be used for the import operations.</p>
+
+<p>For Snowball, AWS KMS protects the encryption keys used to protect data on each Snowball appliance. All data loaded onto a Snowball appliance is encrypted using 256-bit encryption.</p>
+
+<p>Snowball is physically secured by using an industry- standard Trusted Platform Module (TPM) that uses a dedicated processor designed to detect any unauthorized modifications to the hardware, firmware, or software.</p>
+
+<p>Snowball is included in the AWS HIPAA compliance program so you can use Snowball to transfer large amounts of Protected Health Information (PHI) data into and out of AWS.</p>
+
+<h5 id="interfaces-6">Interfaces</h5>
+
+<p>There are two ways to get started with Snowball. You can create an import or export job using the AWS Snowball Management Console or you can use the Snowball Job Management API and integrate AWS Snowball as a part of your data management solution. The primary functions of the API are to create, list, and describe import and export jobs, and it uses a simple standards-based REST web services interface. For more details around using the Snowball Job Management API, see the API Reference documentation.</p>
+
+<p>You also have two ways to locally transfer data between a Snowball appliance and your on-premises data center. The Snowball client, available as a download from the AWS Import/Export Tools page, is a standalone terminal application that you run on your local workstation to do your data transfer.56 You use simple copy (cp) commands to transfer data, and handling errors and logs are written to your local workstation for troubleshooting and auditing. The second option to locally transfer data between a Snowball appliance and your on-premises data center is the Amazon S3 Adapter for Snowball, which is also available as a download from the AWS Import/Export Tools page. You can programmatically transfer data between your on-premises data center and a Snowball appliance using a subset of the Amazon S3 REST API commands. This allows you to have direct access to a Snowball appliance as if it were an Amazon S3 endpoint.</p>
+
+<h5 id="cost-model-6">Cost Model</h5>
+
+<p>With Snowball, as with most other AWS services, you pay only for what you use. Snowball has three pricing components: service fee (per job), extra day charges as required (the first 10 days of onsite usage are free), and data transfer. For the destination storage, the standard Amazon S3 storage pricing applies.</p>
+
+<p><a href="https://adrian83.github.io/page/aws_architect">Back to main page</a></p>
+
+<h3 id="amazon-cloudfront">Amazon CloudFront</h3>
+
+<p>Amazon CloudFront is a content-delivery web service that speeds up the distribution of your website’s dynamic, static, and streaming content by making it available from a global network of edge locations.58 When a user requests content that you’re serving with Amazon CloudFront, the user is routed to the edge location that provides the lowest latency (time delay), so content is delivered with better performance than if the user had accessed the content from a data center farther away. If the content is already in the edge location with the lowest latency, Amazon CloudFront delivers it immediately. If the content is not currently in that edge location, Amazon CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content. Amazon CloudFront caches content at edge locations for a period of time that you specify.</p>
+
+<p>Amazon CloudFront supports all files that can be served over HTTP. These files include dynamic web pages, such as HTML or PHP pages, and any popular static files that are a part of your web application, such as website images, audio, video, media files or software downloads. For on-demand media files, you can also choose to stream your content using Real-Time Messaging Protocol (RTMP) delivery. Amazon CloudFront also supports delivery of live media over HTTP.</p>
+
+<p>Amazon CloudFront is optimized to work with other Amazon web services, such as Amazon S3, Amazon EC2, Elastic Load Balancing, and Amazon Route 53.</p>
+
+<p>Amazon CloudFront also works seamlessly with any non-AWS origin servers that store the original, definitive versions of your files.</p>
+
+<h5 id="usage-patterns-5">Usage Patterns</h5>
+
+<p>CloudFront is ideal for distribution of frequently accessed static content that benefits from edge delivery, such as popular website images, videos, media files or software downloads. Amazon CloudFront can also be used to deliver dynamic web applications over HTTP. These applications can include static content, dynamic content, or a whole site with a mixture of the two. Amazon CloudFront is also commonly used to stream audio and video files to web browsers and mobile devices.</p>
+
+<p>If you need to remove an object from Amazon CloudFront edge-server caches before it expires, you can either invalidate the object or use object versioning to serve a different version of the object that has a different name.</p>
+
+<h5 id="performance-6">Performance</h5>
+
+<p>Amazon CloudFront is designed for low-latency and high-bandwidth delivery of content. Amazon CloudFront speeds up the distribution of your content by routing end users to the edge location that can best serve each end user’s request in a worldwide network of edge locations. Typically, requests are routed to the nearest Amazon CloudFront edge location in terms of latency.</p>
+
+<h5 id="durability-and-availability-7">Durability and Availability</h5>
+
+<p>Because a CDN is an edge cache, Amazon CloudFront does not provide durable storage. The origin server, such as Amazon S3 or a web server running on Amazon EC2, provides the durable file storage needed. Amazon CloudFront provides high availability by using a distributed global network of edge locations. Origin requests from the edge locations to AWS origin servers (for example, Amazon EC2, Amazon S3, and so on) are carried over network paths that Amazon constantly monitors and optimizes for both availability and performance. This edge network provides increased reliability and availability because there is no longer a central point of failure. Copies of your files are now held in edge locations around the world.</p>
+
+<h5 id="scalability-and-elasticity-6">Scalability and Elasticity</h5>
+
+<p>Amazon CloudFront uses multiple layers of caching at each edge location and collapses simultaneous requests for the same object before contacting your origin server. These optimizations further reduce the need to scale your origin infrastructure as your website becomes more popular.</p>
+
+<h5 id="security-7">Security</h5>
+
+<p>Amazon CloudFront is a very secure service to distribute your data. It integrates with IAM so that you can create users for your AWS account and specify which Amazon CloudFront actions a user (or a group of users) can perform in your AWS account.</p>
+
+<p>You can configure Amazon CloudFront to create log files that contain detailed information about every user request that Amazon CloudFront receives. These access logs are available for both web and RTMP distributions.62 Additionally, Amazon CloudFront integrates with Amazon CloudWatch metrics so that you can monitor your website or application.</p>
+
+<h5 id="interfaces-7">Interfaces</h5>
+
+<p>You can manage and configure Amazon CloudFront in several ways. The AWS Management Console provides an easy way to manage Amazon CloudFront and supports all features of the Amazon CloudFront API. For example, you can enable or disable distributions, configure CNAMEs, and enable end-user logging using the console. You can also use the Amazon CloudFront command line tools, the native REST API, or one of the supported SDKs.</p>
+
+<p>There is no data API for Amazon CloudFront and no command to preload data. Instead, data is automatically pulled into Amazon CloudFront edge locations on the first access of an object from that location.</p>
+
+<p>Clients access content from CloudFront edge locations either using HTTP or HTTPs from locations across the Internet; these protocols are configurable as part of a given CloudFront distribution.</p>
+
+<h5 id="cost-model-7">Cost Model</h5>
+
+<p>With Amazon CloudFront, there are no long-term contracts or required minimum monthly commitments—you pay only for as much content as you actually deliver through the service. Amazon CloudFront has two pricing components: regional data transfer out (per GB) and requests (per 10,000). As part of the Free Usage Tier, new AWS customers don’t get charged for 50 GB data transfer out and 2,000,000 HTTP and HTTPS requests each month for one year. Note that if you use an AWS service as the origin (for example, Amazon S3, Amazon EC2, Elastic Load Balancing, or others), data transferred from the origin to edge locations (i.e., Amazon CloudFront “origin fetches”) will be free of charge. For web distributions, data transfer out of Amazon CloudFront to your origin server will be billed at the “Regional Data Transfer Out of Origin” rates.</p>
+
+<p><a href="https://adrian83.github.io/page/aws_architect">Back to main page</a></p>
+
   </article>
 </section>
 

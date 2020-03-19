@@ -172,12 +172,22 @@
   </url>
   
   <url>
+    <loc>https://adrian83.github.io/page/aws_architect/whitepaper_fault_tolerant_apps/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://adrian83.github.io/page/aws_architect/whitepaper_hosting_webapps/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/whitepaper_storage/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/page/aws_architect/whitepaper_storage_options/</loc>
     <priority>0</priority>
   </url>
   

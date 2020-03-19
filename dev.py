@@ -8,7 +8,7 @@ import shutil
 page_data = "page_data"
 public = join(page_data, "public")
 current_dir = "adrian83.github.io"
-files = [".git", "data", "page_data", "dev.py", "README.md", ".gitignore"]
+files = [".git", "data", page_data, "dev.py", "README.md", ".gitignore"]
 
 def _remove(elem_path):
     if isfile(elem_path):
@@ -56,7 +56,7 @@ def printMenu():
     print("clean  - removes all old files")
     print("build  - builds new version")
     print("deploy - deploys new version ")
-    print("all    - cleans old version, builds and deploys new one, pushes everything to github")
+    print("all    - cleans old version, builds and deploys new one")
     print("\n")
 
 

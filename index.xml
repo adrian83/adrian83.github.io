@@ -48,7 +48,7 @@ apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubern
       
       <guid>https://adrian83.github.io/page/aws_architect/</guid>
       <description> AWS Certified Solutions Architect - Professional 
-Exam guide WHITEPAPERS  AWS Storage Services Overview - A Look at Storage Services Offered by AWS Web Application Hosting in the AWS Cloud  Core Services:  IAM S3 EC2 EBS Auto Scaling ELB Cloudwatch VPC RDS DynamoDB Aurora Redshift  </description>
+Exam guide WHITEPAPERS  AWS Storage Services Overview - A Look at Storage Services Offered by AWS Web Application Hosting in the AWS Cloud Storage Options in the AWS Cloud Building Fault-Tolerant Applications on AWS  Core Services:  IAM S3 EC2 EBS Auto Scaling ELB Cloudwatch VPC RDS DynamoDB Aurora Redshift  </description>
     </item>
     
     <item>
@@ -214,13 +214,25 @@ Domain 1: Design for Organizational Complexity
     
     <item>
       <title></title>
+      <link>https://adrian83.github.io/page/aws_architect/whitepaper_fault_tolerant_apps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/aws_architect/whitepaper_fault_tolerant_apps/</guid>
+      <description> Building Fault-Tolerant Applications on AWS Official documentation
+Back to main page
+Introduction </description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://adrian83.github.io/page/aws_architect/whitepaper_hosting_webapps/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/whitepaper_hosting_webapps/</guid>
-      <description> Web Application Hosting in the AWS Cloud Official documentation
+      <description>Web Application Hosting in the AWS Cloud Official documentation
 Back to main page
-An Overview of Traditional Web Hosting </description>
+An AWS Cloud Architecture for Web Hosting The following figure provides another look at that classic web application architecture and how it can leverage the AWS Cloud computing infrastructure.
+ Load Balancing with Elastic Load Balancing (ELB)/Application Load Balancer (ALB) – Allows you to spread load across multiple Availability Zones and Amazon EC2 Auto Scaling groups for redundancy and decoupling of services.</description>
     </item>
     
     <item>
@@ -233,6 +245,17 @@ An Overview of Traditional Web Hosting </description>
 Back to main page
 A Look at Storage Services Offered by AWS Amazon Web Services (AWS) provides low-cost data storage with high durability and availability. AWS offers storage choices for backup, archiving, and disaster recovery use cases and provides block, file, and object storage. In this whitepaper, we examine the following AWS Cloud storage services and features.
    Type Description     Amazon Simple Storage Service (Amazon S3) A service that provides scalable and highly durable object storage in the cloud.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/page/aws_architect/whitepaper_storage_options/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/page/aws_architect/whitepaper_storage_options/</guid>
+      <description> Storage Options in the AWS Cloud Official documentation
+Back to main page
+Introduction </description>
     </item>
     
     <item>
