@@ -8,7 +8,7 @@ import shutil
 page_data = "page_data"
 public = join(page_data, "public")
 current_dir = "adrian83.github.io"
-files = [".git", "data", page_data, "dev.py", "README.md", ".gitignore"]
+files = [".git", "data", page_data, "dev.py", "README.md", ".gitignore", ".gitmodules"]
 
 def _remove(elem_path):
     if isfile(elem_path):
