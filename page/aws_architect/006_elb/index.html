@@ -11,11 +11,11 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="ELB (Elastic Load Balancing) &lt;&lt; Auto Scaling &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Menu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cloudwatch &gt;&gt;
+<meta name="twitter:description" content="ELB (Elastic Load Balancing) &laquo; Auto Scaling Menu Cloudwatch &raquo;
 Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant."/>
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="ELB (Elastic Load Balancing) &lt;&lt; Auto Scaling &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Menu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cloudwatch &gt;&gt;
+<meta property="og:description" content="ELB (Elastic Load Balancing) &laquo; Auto Scaling Menu Cloudwatch &raquo;
 Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adrian83.github.io/page/aws_architect/006_elb/" />
@@ -33,14 +33,14 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
       <link rel="canonical" href="https://adrian83.github.io/page/aws_architect/006_elb/">
     
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
 
     
       
       
-      <link rel="stylesheet" href="https://adrian83.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://adrian83.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -50,11 +50,13 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
     
 
     
+
     
+
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.55.4" />
+    <meta name="generator" content="Hugo 0.66.0" />
   </head>
 
   
@@ -66,6 +68,7 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
     <a class="navigation-title" href="https://adrian83.github.io/">
       adrian
     </a>
+    
     <input type="checkbox" id="menu-toggle" />
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
@@ -90,6 +93,7 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
       
       
     </ul>
+    
   </section>
 </nav>
 
@@ -102,33 +106,25 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
       <h1></h1>
     </header>
 
-    
-
-<h2 id="elb-elastic-load-balancing">ELB (Elastic Load Balancing)</h2>
-
-<p><a href="https://adrian83.github.io/page/aws_architect/005_autoscaling">&lt;&lt; Auto Scaling</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <h2 id="elb-elastic-load-balancing">ELB (Elastic Load Balancing)</h2>
+<p><a href="https://adrian83.github.io/page/aws_architect/005_autoscaling">&laquo; Auto Scaling</a>
+     
 <a href="https://adrian83.github.io/page/aws_architect">Menu</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://adrian83.github.io/page/aws_architect/007_cloudwatch">Cloudwatch &gt;&gt;</a></p>
-
+     
+<a href="https://adrian83.github.io/page/aws_architect/007_cloudwatch">Cloudwatch &raquo;</a></p>
 <p>Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant.</p>
-
 <p>Types:</p>
-
 <ol>
 <li>Application Load Balancer</li>
 <li>Network Load Balancer</li>
 <li>Classic Load Balancer</li>
 </ol>
-
 <p>Cross-Zone Load Balancing - ?</p>
-
-<p><a href="https://adrian83.github.io/page/aws_architect/005_autoscaling">&lt;&lt; Auto Scaling</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p><a href="https://adrian83.github.io/page/aws_architect/005_autoscaling">&laquo; Auto Scaling</a>
+     
 <a href="https://adrian83.github.io/page/aws_architect">Menu</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://adrian83.github.io/page/aws_architect/007_cloudwatch">Cloudwatch &gt;&gt;</a></p>
+     
+<a href="https://adrian83.github.io/page/aws_architect/007_cloudwatch">Cloudwatch &raquo;</a></p>
 
   </article>
 </section>
@@ -139,7 +135,12 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
       <footer class="footer">
   <section class="container">
     
-     © 2020
+    
+      
+        © 2020
+      
+       Adrian Brzoza 
+    
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -149,6 +150,8 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
 </footer>
 
     </main>
+
+    
 
     
 

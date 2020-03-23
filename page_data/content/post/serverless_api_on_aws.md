@@ -22,11 +22,11 @@ tags:
 
 ### Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management.
 
-The full source code with instructions how to run and test it can be found [here](https://github.com/adrian83/aws-samples/tree/master/004-serverless-api-demo).
+The full source code with instructions, how to run and test it, can be found [here](https://github.com/adrian83/aws-samples/tree/master/004-serverless-api-demo).
 
 ### Database
 
-Since we are building serverless application we need to choose database which we won't hve to manage. One of such services in AWS Cloud is DynamoDB and this service I will use. 
+Since we are building serverless application it is important to choose proper Database. The most important requirements is that we don't have to manage any server and that the database will scale regarding the traffic. DynamoDB fulfills both of thoses requirements, and thus it makes perfect sense to use it. 
 
 Lets look at the definition of DynamoDB table:
 
@@ -52,7 +52,7 @@ There are basically three important information in this definition:
 
 ### Permissions
 
-Before we go to the Lambda Functions lets look at permissions we need to add to those functions so that they can access DynamoDB table defined above.
+Before we go to the Lambda Functions ,let's look at permissions, that we need to add to those functions, so that they can access DynamoDB table defined above.
 
 ```
   UserLambdaRole:
@@ -88,16 +88,16 @@ Before we go to the Lambda Functions lets look at permissions we need to add to 
 
 This resource contains information about: 
 
-- what kind of service ('lambda.amazonaws.com') can use this Role
+- type of service ('lambda.amazonaws.com'), that can use (assume) this Role
 - policies which are bound to this role:
-  - first allows to executing every operation on DynamoDB table defined previously   
-  - second allows to write logs into CloudWatch service  
+  - first one allows to execute every operation on DynamoDB table defined previously   
+  - second one allows to write logs into CloudWatch service  
 
 ### Functions
 
-Writing lambda code can be done in almost any programming language thanks to [](), but if you want to interact with other AWS services it's much easer writing code in one of languages that have official AWS SDK.
+Writing lambda code can be done in almost any programming language thanks to possibility of defining [Custom AWS Lambda Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html), but if you want to interact with other AWS services it's much easer writing code in one of languages that have official AWS SDK.
 
-If code executed by lambda will be rather short you can decide to inline it inside your CloudFormation script. 
+If the code executed by Lambda will be rather short, you can decide to inline it inside your CloudFormation script. 
 
 Let's look at sample lambda definition:
 
@@ -139,14 +139,14 @@ Let's look at sample lambda definition:
             return {"statusCode": 201, "body": json.dumps({'id':userId, 'firstName':body['firstName'], 'lastName':body['lastName']})}
 ```
 
-Let's take a look at properties tahat we have to define for all our lambda functions:
+Let's take a look at properties that we have to define for all our Lambda functions:
 
 - 'FunctionName' name of the function
 - 'Role' permissions for the lambda function
-- 'Handler' name of the funcion () that will be called when LAmbda will be executed
-- 'Runtime' defines programming language and it's version in which lambda is written
-- 'Timeout' max duration of the lambda in seconds
-- 'MemorySize' describes how powerfull will be the hardware (not only memory but also cpu) that will host your function
+- 'Handler' name of the funcion that will be called when Lambda will be executed
+- 'Runtime' defines runtime of the Lambda (programming language and it's version)
+- 'Timeout' max duration of the Lambda in seconds
+- 'MemorySize' describes how powerfull will be the hardware (not only memory but also cpu) running your function
 - 'Environment.Variables' variables that can be defined in CloudFormation and used in code
 - 'Code.ZipFile' code of our lambda function
 
@@ -157,10 +157,10 @@ Service in AWS that allows you to create API is called API Gateway.
 
 Curently you can create Gateways in two ways: 
 
-- by using resource with type AWS::ApiGateway::RestApi (and few others from AWS::ApiGateway::* namespace) which gives you way to configure everything 
+- by using resource with type AWS::ApiGateway::RestApi (and few others from AWS::ApiGateway::* namespace) which allows detailed configuration
 - by using resource with type AWS::Serverless::Api which simplifies API Gateway creation to single resource
 
-Integrating Lambdas with API gateway is quite easy and it looks something like this
+Integrating Lambdas with API gateway is quite easy and it looks something like this:
 
 ```
   UserAPIGateway:
@@ -203,7 +203,7 @@ As you can see every path and method pair is integrated with lambda function. Pl
 
 ### Permissions
 
-Each lamba runs with it's IAM Role in which we defined that it can use DynamoDB and CloudWatch (for logging) but there is no permission for Api Gateway. This short snippet below will make executing lambdas from API Gateway possible.
+Each Lambda runs with it's IAM Role in which we defined that it can use DynamoDB and CloudWatch (for logging) but there is no permission for API Gateway. This kind of permission is defined by resouce with type AWS::Lambda::Permission and it looks like this:
 
 
 ```

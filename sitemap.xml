@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -8,15 +8,58 @@
   </url>
   
   <url>
+    <loc>https://adrian83.github.io/</loc>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://adrian83.github.io/categories/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/tags/dashboard/</loc>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/categories/dashboard/</loc>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/tags/k8s/</loc>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/categories/k8s/</loc>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/tags/kubernetes/</loc>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/categories/kubernetes/</loc>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/tags/minikube/</loc>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/categories/minikube/</loc>
+    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/post/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -27,61 +70,6 @@
   <url>
     <loc>https://adrian83.github.io/tags/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/tags/dashboard/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/categories/dashboard/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/tags/k8s/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/categories/k8s/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/tags/kubernetes/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/categories/kubernetes/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/tags/minikube/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/categories/minikube/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -92,113 +80,99 @@
   <url>
     <loc>https://adrian83.github.io/tags/test/</loc>
     <lastmod>2019-11-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/</loc>
     <lastmod>2019-04-23T17:48:02+02:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/drafts/deploying_aws_vpc/</loc>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/001_iam/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/002_s3/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/003_ec2/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/004_ebs/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/005_autoscaling/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/006_elb/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/007_cloudwatch/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/008_vpc/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/009_rds/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/010_dynamodb/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/011_aurora/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/012_redshift/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/900_exam/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/whitepaper_fault_tolerant_apps/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/whitepaper_hosting_webapps/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/whitepaper_storage/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/aws_architect/whitepaper_storage_options/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/gcp_developer/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/page/gcp_developer/001_guide_1/</loc>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/drafts/</loc>
   </url>
   
 </urlset>

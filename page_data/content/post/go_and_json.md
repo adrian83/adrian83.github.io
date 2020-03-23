@@ -23,7 +23,7 @@ Below you can find four examples of how to work with JSON in Go.
 
 <br/>
 
-- ad 1. If both JSON and Go structures can be easily mapped to eachother such implementation of marshaling should sufice. 
+##### If both JSON and Go structures can be easily mapped to eachother such implementation of marshaling should sufice. 
 
 ```
 package main
@@ -66,7 +66,7 @@ Output:
 
 <br/>
 
-- ad 2. If both JSON and Go structures can be easily mapped to eachother such implementation of unmarshaling should sufice. 
+##### If both JSON and Go structures can be easily mapped to eachother such implementation of unmarshaling should sufice. 
 
 ```
 package main
@@ -106,7 +106,7 @@ Output:
 
 <br/>
 
-- ad 3. If custom transformation is needed between Go structures and JSON, implementing `MarshalJSON() ([]byte, error)` should be helpful. 
+##### If custom transformation is needed between Go structures and JSON, implementing `MarshalJSON() ([]byte, error)` should be helpful. 
 
 ```
 package main
@@ -164,7 +164,7 @@ Output:
 
 <br/>
 
-- ad 4. If custom transformation is needed between JSON and Go structures, implementing `UnmarshalJSON(data []byte) error` should be helpful. 
+##### If custom transformation is needed between JSON and Go structures, implementing `UnmarshalJSON(data []byte) error` should be helpful. 
 
 ```
 package main

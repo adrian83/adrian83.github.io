@@ -11,30 +11,14 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="IAM Documentation Menu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S3 &gt;&gt;
+<meta name="twitter:description" content="IAM Documentation Menu S3 &raquo;
 Best practices:
- Lock away your AWS Account Root Access Keys.
- Create individual IAM Users.
- Configure strong pasword policy for your users.
- Rotate credentials regularly.
- Remove unnecessary credentials.
- Enable Multi-Factor Authentication (MFA) for priviliged users.
- Use Groups to assign permissions to IAM Users.
- Use AWS Defined Policies to assign permissions whenever possible.
- Use Policy Conditions for Extra security."/>
+ Lock away your AWS Account Root Access Keys. Create individual IAM Users. Configure strong pasword policy for your users. Rotate credentials regularly. Remove unnecessary credentials. Enable Multi-Factor Authentication (MFA) for priviliged users. Use Groups to assign permissions to IAM Users. Use AWS Defined Policies to assign permissions whenever possible. Use Policy Conditions for Extra security. Grant least privilige. Use Access Levels to Review IAM Permissions."/>
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="IAM Documentation Menu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S3 &gt;&gt;
+<meta property="og:description" content="IAM Documentation Menu S3 &raquo;
 Best practices:
- Lock away your AWS Account Root Access Keys.
- Create individual IAM Users.
- Configure strong pasword policy for your users.
- Rotate credentials regularly.
- Remove unnecessary credentials.
- Enable Multi-Factor Authentication (MFA) for priviliged users.
- Use Groups to assign permissions to IAM Users.
- Use AWS Defined Policies to assign permissions whenever possible.
- Use Policy Conditions for Extra security." />
+ Lock away your AWS Account Root Access Keys. Create individual IAM Users. Configure strong pasword policy for your users. Rotate credentials regularly. Remove unnecessary credentials. Enable Multi-Factor Authentication (MFA) for priviliged users. Use Groups to assign permissions to IAM Users. Use AWS Defined Policies to assign permissions whenever possible. Use Policy Conditions for Extra security. Grant least privilige. Use Access Levels to Review IAM Permissions." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adrian83.github.io/page/aws_architect/001_iam/" />
 
@@ -51,14 +35,14 @@ Best practices:
       <link rel="canonical" href="https://adrian83.github.io/page/aws_architect/001_iam/">
     
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
 
     
       
       
-      <link rel="stylesheet" href="https://adrian83.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://adrian83.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -68,11 +52,13 @@ Best practices:
     
 
     
+
     
+
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.55.4" />
+    <meta name="generator" content="Hugo 0.66.0" />
   </head>
 
   
@@ -84,6 +70,7 @@ Best practices:
     <a class="navigation-title" href="https://adrian83.github.io/">
       adrian
     </a>
+    
     <input type="checkbox" id="menu-toggle" />
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
@@ -108,6 +95,7 @@ Best practices:
       
       
     </ul>
+    
   </section>
 </nav>
 
@@ -120,36 +108,29 @@ Best practices:
       <h1></h1>
     </header>
 
-    
-
-<h2 id="iam">IAM</h2>
-
-<h3 id="documentation-https-docs-aws-amazon-com-iam-latest-userguide-introduction-html"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html">Documentation</a></h3>
-
+    <h2 id="iam">IAM</h2>
+<h3 id="documentationhttpsdocsawsamazoncomiamlatestuserguideintroductionhtml"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html">Documentation</a></h3>
 <p><a href="https://adrian83.github.io/page/aws_architect">Menu</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://adrian83.github.io/page/aws_architect/002_s3">S3 &gt;&gt;</a></p>
-
+     
+<a href="https://adrian83.github.io/page/aws_architect/002_s3">S3 &raquo;</a></p>
 <p>Best practices:</p>
-
 <ol>
-<li>Lock away your AWS Account Root Access Keys.<br /></li>
-<li>Create individual IAM Users.<br /></li>
-<li>Configure strong pasword policy for your users.<br /></li>
-<li>Rotate credentials regularly.<br /></li>
-<li>Remove unnecessary credentials.<br /></li>
-<li>Enable Multi-Factor Authentication (MFA) for priviliged users.<br /></li>
-<li>Use Groups to assign permissions to IAM Users.<br /></li>
-<li>Use AWS Defined Policies to assign permissions whenever possible.<br /></li>
-<li>Use Policy Conditions for Extra security.<br /></li>
-<li>Grant least privilige.<br /></li>
-<li>Use Access Levels to Review IAM Permissions.<br /></li>
-<li>Monitor activity in your AWS account.<br /></li>
+<li>Lock away your AWS Account Root Access Keys.</li>
+<li>Create individual IAM Users.</li>
+<li>Configure strong pasword policy for your users.</li>
+<li>Rotate credentials regularly.</li>
+<li>Remove unnecessary credentials.</li>
+<li>Enable Multi-Factor Authentication (MFA) for priviliged users.</li>
+<li>Use Groups to assign permissions to IAM Users.</li>
+<li>Use AWS Defined Policies to assign permissions whenever possible.</li>
+<li>Use Policy Conditions for Extra security.</li>
+<li>Grant least privilige.</li>
+<li>Use Access Levels to Review IAM Permissions.</li>
+<li>Monitor activity in your AWS account.</li>
 </ol>
-
 <p><a href="https://adrian83.github.io/page/aws_architect">Menu</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://adrian83.github.io/page/aws_architect/002_s3">S3 &gt;&gt;</a></p>
+     
+<a href="https://adrian83.github.io/page/aws_architect/002_s3">S3 &raquo;</a></p>
 
   </article>
 </section>
@@ -160,7 +141,12 @@ Best practices:
       <footer class="footer">
   <section class="container">
     
-     © 2020
+    
+      
+        © 2020
+      
+       Adrian Brzoza 
+    
     
        · 
       Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
@@ -170,6 +156,8 @@ Best practices:
 </footer>
 
     </main>
+
+    
 
     
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>adrian</title>
@@ -38,7 +38,18 @@ apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubern
       <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/post/test/</guid>
-      <description> TEST </description>
+      <description>TEST </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://adrian83.github.io/drafts/deploying_aws_vpc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/drafts/deploying_aws_vpc/</guid>
+      <description>[adrian@adrian-pc vpc-infrastructure]$ [adrian@adrian-pc vpc-infrastructure]$ aws cloudformation package &amp;ndash;template-file main.yml &amp;ndash;s3-bucket cloudformation-deployments-bucket &amp;ndash;output-template-file packaged.yml
+Successfully packaged artifacts and wrote output template to file packaged.yml. Execute the following command to deploy the packaged template aws cloudformation deploy &amp;ndash;template-file /home/data/work/projects/aws-samples/vpc-infrastructure/packaged.yml &amp;ndash;stack-name [adrian@adrian-pc vpc-infrastructure]$ aws cloudformation deploy &amp;ndash;template-file /home/data/work/projects/aws-samples/fargate/packaged.yml &amp;ndash;stack-name fargate-demo &amp;ndash;capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM
+Waiting for changeset to be created.. Waiting for stack create/update to complete Successfully created/updated stack - fargate-demo</description>
     </item>
     
     <item>
@@ -47,8 +58,7 @@ apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubern
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/</guid>
-      <description> AWS Certified Solutions Architect - Professional 
-Exam guide WHITEPAPERS  AWS Storage Services Overview - A Look at Storage Services Offered by AWS Web Application Hosting in the AWS Cloud Storage Options in the AWS Cloud Building Fault-Tolerant Applications on AWS  Core Services:  IAM S3 EC2 EBS Auto Scaling ELB Cloudwatch VPC RDS DynamoDB Aurora Redshift  </description>
+      <description>AWS Certified Solutions Architect - Professional Exam guide WHITEPAPERS  AWS Storage Services Overview - A Look at Storage Services Offered by AWS Web Application Hosting in the AWS Cloud Storage Options in the AWS Cloud Building Fault-Tolerant Applications on AWS  Core Services:  IAM S3 EC2 EBS Auto Scaling ELB Cloudwatch VPC RDS DynamoDB Aurora Redshift  </description>
     </item>
     
     <item>
@@ -57,17 +67,9 @@ Exam guide WHITEPAPERS  AWS Storage Services Overview - A Look at Storage Servic
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/001_iam/</guid>
-      <description>IAM Documentation Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; S3 &amp;gt;&amp;gt;
+      <description>IAM Documentation Menu S3 &amp;raquo;
 Best practices:
- Lock away your AWS Account Root Access Keys.
- Create individual IAM Users.
- Configure strong pasword policy for your users.
- Rotate credentials regularly.
- Remove unnecessary credentials.
- Enable Multi-Factor Authentication (MFA) for priviliged users.
- Use Groups to assign permissions to IAM Users.
- Use AWS Defined Policies to assign permissions whenever possible.
- Use Policy Conditions for Extra security.</description>
+ Lock away your AWS Account Root Access Keys. Create individual IAM Users. Configure strong pasword policy for your users. Rotate credentials regularly. Remove unnecessary credentials. Enable Multi-Factor Authentication (MFA) for priviliged users. Use Groups to assign permissions to IAM Users. Use AWS Defined Policies to assign permissions whenever possible. Use Policy Conditions for Extra security. Grant least privilige. Use Access Levels to Review IAM Permissions.</description>
     </item>
     
     <item>
@@ -76,9 +78,8 @@ Best practices:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/002_s3/</guid>
-      <description>S3 &amp;lt;&amp;lt; IAM &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; EC2 &amp;gt;&amp;gt;
-Whitepaper 
-Main features:
+      <description>S3 &amp;laquo; IAM Menu EC2 &amp;raquo;
+Whitepaper Main features:
  Durability (99.999999999%) Availability (99.99%) Scalability Reliability Fast Inexpensiv Secure Flexible Storage Management Easy interface for data Easy integration  Use cases:
  Data backup Data archiving Disaster recovery  TODO: Review S3 documentation Recap:
  Cross-Region Replication Storage classes Bucket policy and access controll list Events Logging  Types of Cloud Storage There are three types of cloud storage: Object, File, and Block.</description>
@@ -90,7 +91,7 @@ Main features:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/003_ec2/</guid>
-      <description>EC2 (Elastic Compute Cloud) &amp;lt;&amp;lt; S3 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; EBS &amp;gt;&amp;gt;
+      <description>EC2 (Elastic Compute Cloud) &amp;laquo; S3 Menu EBS &amp;raquo;
 Purchase options:
  On demand Spot Reserved Scheduled  Dedicated host - ?
 Dedicated instance - ?
@@ -98,7 +99,7 @@ Instance store - ?
 Key pair - ?
 Elastic IP address - ?
 AMI - ?
-&amp;lt;&amp;lt; S3 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; EBS &amp;gt;&amp;gt;</description>
+&amp;laquo; S3 Menu EBS &amp;raquo;</description>
     </item>
     
     <item>
@@ -107,12 +108,10 @@ AMI - ?
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/004_ebs/</guid>
-      <description>EBS (Elastic Block Store) &amp;lt;&amp;lt; EC2 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Auto Scaling &amp;gt;&amp;gt;
+      <description>EBS (Elastic Block Store) &amp;laquo; EC2 Menu Auto Scaling &amp;raquo;
 EBS is a persisten block storage volumes which can be used (attached) by EC2. Volumes can be detached and attached between EC2 instances.
 Volumes:
- Magnetic HDD - throughput optimized
- General purpose SSD - IO (read / write) optimized, max iops per volume is 16 000
- Provisioned IOPS SSD - low latency, high throughput, max iops per volume is 64 000  Snapshot is a point in time backup (stored in s3) of the data from EBS volume.</description>
+ Magnetic HDD - throughput optimized General purpose SSD - IO (read / write) optimized, max iops per volume is 16 000 Provisioned IOPS SSD - low latency, high throughput, max iops per volume is 64 000  Snapshot is a point in time backup (stored in s3) of the data from EBS volume.</description>
     </item>
     
     <item>
@@ -121,13 +120,11 @@ Volumes:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/005_autoscaling/</guid>
-      <description>Auto Scaling &amp;lt;&amp;lt; EBS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ELB &amp;gt;&amp;gt;
+      <description>Auto Scaling &amp;laquo; EBS Menu ELB &amp;raquo;
 AWS Auto Scaling monitors your applications and automatically adjusts capacity to maintain steady, predictable performance at the lowest possible cost.
 Components:
- Launch Configuration
- Auto Scaling Group
- Scaling Options  Termination logic:
-&amp;lt;&amp;lt; EBS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ELB &amp;gt;&amp;gt;</description>
+ Launch Configuration Auto Scaling Group Scaling Options  Termination logic:
+&amp;laquo; EBS Menu ELB &amp;raquo;</description>
     </item>
     
     <item>
@@ -136,7 +133,7 @@ Components:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/006_elb/</guid>
-      <description>ELB (Elastic Load Balancing) &amp;lt;&amp;lt; Auto Scaling &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Cloudwatch &amp;gt;&amp;gt;
+      <description>ELB (Elastic Load Balancing) &amp;laquo; Auto Scaling Menu Cloudwatch &amp;raquo;
 Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant.</description>
     </item>
     
@@ -146,7 +143,7 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/007_cloudwatch/</guid>
-      <description>Cloudwatch &amp;lt;&amp;lt; ELB &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; VPC &amp;gt;&amp;gt;
+      <description>Cloudwatch &amp;laquo; ELB Menu VPC &amp;raquo;
 Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant.</description>
     </item>
     
@@ -156,8 +153,8 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/008_vpc/</guid>
-      <description>VPC (Virtual Private Cloud) Documentation &amp;lt;&amp;lt; Cloudwatch &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RDS &amp;gt;&amp;gt;
-Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways.</description>
+      <description>VPC (Virtual Private Cloud) Documentation &amp;laquo; Cloudwatch Menu RDS &amp;raquo;
+Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 in your VPC for secure and easy access to resources and applications.</description>
     </item>
     
     <item>
@@ -166,8 +163,8 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolate
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/009_rds/</guid>
-      <description>RDS (Relational Database Service) Documentation &amp;lt;&amp;lt; VPC &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DynamoDB &amp;gt;&amp;gt;
-&amp;lt;&amp;lt; VPC &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DynamoDB &amp;gt;&amp;gt;</description>
+      <description>RDS (Relational Database Service) Documentation &amp;laquo; VPC Menu DynamoDB &amp;raquo;
+&amp;laquo; VPC Menu DynamoDB &amp;raquo;</description>
     </item>
     
     <item>
@@ -176,8 +173,8 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolate
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/010_dynamodb/</guid>
-      <description>DynamoDB Documentation &amp;lt;&amp;lt; RDS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Aurora &amp;gt;&amp;gt;
-&amp;lt;&amp;lt; RDS &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Aurora &amp;gt;&amp;gt;</description>
+      <description>DynamoDB Documentation &amp;laquo; RDS Menu Aurora &amp;raquo;
+&amp;laquo; RDS Menu Aurora &amp;raquo;</description>
     </item>
     
     <item>
@@ -186,8 +183,8 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolate
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/011_aurora/</guid>
-      <description>Aurora Documentation &amp;lt;&amp;lt; DynamoDB &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RedShift &amp;gt;&amp;gt;
-&amp;lt;&amp;lt; DynamoDB &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; RedShift &amp;gt;&amp;gt;</description>
+      <description>Aurora Documentation &amp;laquo; DynamoDB Menu RedShift &amp;raquo;
+&amp;laquo; DynamoDB Menu RedShift &amp;raquo;</description>
     </item>
     
     <item>
@@ -196,8 +193,8 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolate
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/012_redshift/</guid>
-      <description>RedShift Documentation 1 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Documentation 2 &amp;lt;&amp;lt; Aurora &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ?? &amp;gt;&amp;gt;
-&amp;lt;&amp;lt; Aurora &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Menu &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ?? &amp;gt;&amp;gt;</description>
+      <description>RedShift Documentation 1 Documentation 2 &amp;laquo; Aurora Menu ?? &amp;raquo;
+&amp;laquo; Aurora Menu ?? &amp;raquo;</description>
     </item>
     
     <item>
@@ -206,10 +203,8 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolate
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/900_exam/</guid>
-      <description>Exam Guide &amp;lt;&amp;lt; Back
-   Domain % of Examination     1. Design for Organizational Complexity 12.5%   2. Design for New Solutions 31%   3. Migration Planning 15%   4. Cost Control 12.5%   5. Continuous Improvement for Existing Solutions 29%   TOTAL 100%    
-Domain 1: Design for Organizational Complexity 
-1.1. Determine cross-account authentication and access strategy for complex organizations (for example, an organization with varying compliance requirements, multiple business units, and varying scalability requirements).</description>
+      <description>Exam Guide &amp;laquo; Back
+   Domain % of Examination     1. Design for Organizational Complexity 12.5%   2. Design for New Solutions 31%   3. Migration Planning 15%   4. Cost Control 12.5%   5. Continuous Improvement for Existing Solutions 29%   TOTAL 100%     Tutorial: Delegate Access Across AWS Accounts Using IAM Roles (User Guide) How to Enable Cross-Account Access to the AWS Management Console (AWS Security Blog) Providing Access to an IAM User in Another AWS Account That You Own (User Guide) Securely Accessing Customer AWS Accounts with Cross-Account IAM Roles (AWS Partner Network (APN) Blog)   AWS Single VPC Design (AWS Answers) One to Many: Evolving VPC Design (AWS Architecture Blog) Building a Modular and Scalable Virtual Network Architecture with Amazon VPC (VPC Quick Start)   AWS Multi-Account Security Strategy Managing AWS resources across multiple accounts and Regions using AWS Systems Manager Automation AWS Multiple Account Billing Strategy (AWS Answers)  </description>
     </item>
     
     <item>
@@ -218,7 +213,7 @@ Domain 1: Design for Organizational Complexity
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/whitepaper_fault_tolerant_apps/</guid>
-      <description> Building Fault-Tolerant Applications on AWS Official documentation
+      <description>Building Fault-Tolerant Applications on AWS Official documentation
 Back to main page
 Introduction </description>
     </item>
@@ -253,7 +248,7 @@ A Look at Storage Services Offered by AWS Amazon Web Services (AWS) provides low
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/whitepaper_storage_options/</guid>
-      <description> Storage Options in the AWS Cloud Official documentation
+      <description>Storage Options in the AWS Cloud Official documentation
 Back to main page
 Introduction </description>
     </item>
@@ -264,7 +259,7 @@ Introduction </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/gcp_developer/</guid>
-      <description> Professional Cloud Developer Documentation  Designing highly scalable, available, and reliable cloud-native applications  </description>
+      <description>Professional Cloud Developer Documentation  Designing highly scalable, available, and reliable cloud-native applications  </description>
     </item>
     
     <item>
@@ -273,7 +268,7 @@ Introduction </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/gcp_developer/001_guide_1/</guid>
-      <description>1. Designing highly scalable, available, and reliable cloud-native applications  Designing performant applications and APIs. Considerations include:   Infrastructure as a Service vs. Container as a Service vs. Platform as a Service (e.g., autoscaling implications) Portability vs. platform-specific design Evaluating different services and technologies Operating system versions and base runtimes of services Geographic distribution of Google Cloud services Microservices Defining a key structure for high write applications using Cloud Storage, Cloud Bigtable, Cloud Spanner, or Cloud SQL Session management Deploying and securing an API with cloud endpoints Loosely coupled applications using asynchronous Cloud Pub/Sub events Health checks Google-recommended practices and documentation   Designing secure applications.</description>
+      <description>1. Designing highly scalable, available, and reliable cloud-native applications  Designing performant applications and APIs. Considerations include:   Infrastructure as a Service vs. Container as a Service vs. Platform as a Service (e.g., autoscaling implications) Portability vs. platform-specific design Evaluating different services and technologies Operating system versions and base runtimes of services Geographic distribution of Google Cloud services Microservices Defining a key structure for high write applications using Cloud Storage, Cloud Bigtable, Cloud Spanner, or Cloud SQL Session management Deploying and securing an API with cloud endpoints Loosely coupled applications using asynchronous Cloud Pub/Sub events Health checks Google-recommended practices and documentation  Designing secure applications.</description>
     </item>
     
   </channel>
