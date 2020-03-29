@@ -1,7 +1,7 @@
 ---
 title: Go (Golang) and JSON   
 date: 2020-01-16
-draft: true
+draft: false
 categories:
 - Go
 - JSON
@@ -10,20 +10,15 @@ tags:
 - JSON
 ---
 
-Below you can find four examples of how to work with JSON in Go.
 
-1. Marshaling Go structures into JSON when coresponding fields have compatible types 
-2. Unmarshaling JSON into Go structures when coresponding fields have compatible types
-3. Marshaling Go structures into JSON with custom marshaling implementation 
-4. Unmarshaling JSON into Go structures with custom unmarshaling implementation 
+### Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language.
 
-<br/>
 
----  
+##### The simplest cases are, when JSON and Go structures are very similar and can be mapped without any additional manipulations.
 
-<br/>
 
-##### If both JSON and Go structures can be easily mapped to eachother such implementation of marshaling should sufice. 
+###### Marshaling Go structures into JSON, when corresponding fields have compatible types.
+
 
 ```
 package main
@@ -60,13 +55,8 @@ Output:
 {"name":"John","birthDate":"1993-11-04T23:00:00Z"}
 ```
 
-<br/>
 
----  
-
-<br/>
-
-##### If both JSON and Go structures can be easily mapped to eachother such implementation of unmarshaling should sufice. 
+###### Unmarshalling JSON into Go structures, when corresponding fields have compatible types.
 
 ```
 package main
@@ -100,13 +90,11 @@ Output:
 {John 1993-11-04 23:00:00 +0000 UTC}
 ```
 
-<br/>
+##### A bit more complex case is, when we have two incompatibe sides of transformation. Fortunately, we can implement our custom marshalling / unmarshalling by adding functions `MarshalJSON() ([]byte, error)` and `UnmarshalJSON(data []byte) error` to Go structure.
 
----  
 
-<br/>
 
-##### If custom transformation is needed between Go structures and JSON, implementing `MarshalJSON() ([]byte, error)` should be helpful. 
+###### Marshalling Go structures into JSON with custom implementation.
 
 ```
 package main
@@ -158,13 +146,9 @@ Output:
 {"name":"John","birthDate":"1993-11-04"}
 ```
 
-<br/>
 
----  
 
-<br/>
-
-##### If custom transformation is needed between JSON and Go structures, implementing `UnmarshalJSON(data []byte) error` should be helpful. 
+###### Unmarshalling JSON into Go structures with custom implementation.
 
 ```
 package main

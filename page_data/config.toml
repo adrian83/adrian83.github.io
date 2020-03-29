@@ -56,10 +56,6 @@ disqusShortname = "yourdiscussshortname"
     weight = 1
     url  = "/post/"
 [[menu.main]]
-    name = "Categories"
-    weight = 1
-    url  = "/categories/"
-[[menu.main]]
     name = "Tags"
     weight = 1
     url  = "/tags/"

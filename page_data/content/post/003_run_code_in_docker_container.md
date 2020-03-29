@@ -3,14 +3,23 @@ title: Run code in Docker container
 date: 2020-01-21
 draft: true
 categories:
-- tensorflow
 - docker
 - python
+- tensorflow
 tags:
-- tensorflow
 - docker
 - python
+- tensorflow
 ---
+
+### Running your code inside of Docker container can save you from installing, sometimes very complex tree of dependencies on your local computer.
+
+
+##### Basics
+
+
+
+
 
 Some time ago I was trying to run examples from Tensorflow tutorial. I've prepared virtual environment (with Virtualenv) but when downloading required dependecnies it occured that verion of python installed on my computer is unsopported by Tensorflow. I thought that updating python is too much. Fortunately Tensorflow team prepared Docker images that can be used to run scripts. 
 
