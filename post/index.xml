@@ -6,17 +6,26 @@
     <description>Recent content in Posts on adrian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adrian83.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Go (Golang) and JSON</title>
+      <link>https://adrian83.github.io/post/002_go_and_json/</link>
+      <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/post/002_go_and_json/</guid>
+      <description>Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. The simplest cases are, when JSON and Go structures are very similar and can be mapped without any additional manipulations. Marshaling Go structures into JSON, when corresponding fields have compatible types.</description>
+    </item>
+    
+    <item>
       <title>Running Dashboard in Minikube</title>
-      <link>https://adrian83.github.io/post/minikube-dashboard/</link>
+      <link>https://adrian83.github.io/post/001_minikube-dashboard/</link>
       <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/post/minikube-dashboard/</guid>
+      <guid>https://adrian83.github.io/post/001_minikube-dashboard/</guid>
       <description>To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps. Make sure your Minikube cluster is started by running minikube status.
 If it is not running start it with minikube start.
 First we have to define user, that will have permission to access Dashboard. For that create file dashboard-adminuser.yaml with content:

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on adrian</title>
+    <link>https://adrian83.github.io/tags/go/</link>
+    <description>Recent content in Go on adrian</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://adrian83.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go (Golang) and JSON</title>
+      <link>https://adrian83.github.io/post/002_go_and_json/</link>
+      <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/post/002_go_and_json/</guid>
+      <description>Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. The simplest cases are, when JSON and Go structures are very similar and can be mapped without any additional manipulations. Marshaling Go structures into JSON, when corresponding fields have compatible types.</description>
+    </item>
+    
+  </channel>
+</rss>

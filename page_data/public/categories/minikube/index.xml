@@ -13,10 +13,10 @@
     
     <item>
       <title>Running Dashboard in Minikube</title>
-      <link>https://adrian83.github.io/post/minikube-dashboard/</link>
+      <link>https://adrian83.github.io/post/001_minikube-dashboard/</link>
       <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://adrian83.github.io/post/minikube-dashboard/</guid>
+      <guid>https://adrian83.github.io/post/001_minikube-dashboard/</guid>
       <description>To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps. Make sure your Minikube cluster is started by running minikube status.
 If it is not running start it with minikube start.
 First we have to define user, that will have permission to access Dashboard. For that create file dashboard-adminuser.yaml with content:

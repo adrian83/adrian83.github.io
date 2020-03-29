@@ -6,10 +6,28 @@
     <description>Recent content in Categories on adrian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adrian83.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go</title>
+      <link>https://adrian83.github.io/categories/go/</link>
+      <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/categories/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JSON</title>
+      <link>https://adrian83.github.io/categories/json/</link>
+      <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/categories/json/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>dashboard</title>

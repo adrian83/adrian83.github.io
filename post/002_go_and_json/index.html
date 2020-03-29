@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Adrian Brzoza">
+    <meta name="description" content="Adrian Brzoza&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go (Golang) and JSON"/>
+<meta name="twitter:description" content="Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. The simplest cases are, when JSON and Go structures are very similar and can be mapped without any additional manipulations. Marshaling Go structures into JSON, when corresponding fields have compatible types."/>
+
+    <meta property="og:title" content="Go (Golang) and JSON" />
+<meta property="og:description" content="Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. The simplest cases are, when JSON and Go structures are very similar and can be mapped without any additional manipulations. Marshaling Go structures into JSON, when corresponding fields have compatible types." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adrian83.github.io/post/002_go_and_json/" />
+<meta property="article:published_time" content="2020-01-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-16T00:00:00+00:00" />
+
+
+    
+      <base href="https://adrian83.github.io/post/002_go_and_json/">
+    
+    <title>
+  Go (Golang) and JSON · adrian
+</title>
+
+    
+      <link rel="canonical" href="https://adrian83.github.io/post/002_go_and_json/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://adrian83.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.68.3" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://adrian83.github.io/">
+      adrian
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/post/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/tags/">Tags</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/page/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Go (Golang) and JSON</h1>
+    </header>
+
+    <h3 id="transforming-data-structures-into-json-and-the-other-way-around-is-something-that-is-done-quite-often-when-creating-apis-below-you-can-find-a-few-in-my-opinion-most-frequent-transformations-to-and-from-json-written-in-go-programming-language">Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language.</h3>
+<h5 id="the-simplest-cases-are-when-json-and-go-structures-are-very-similar-and-can-be-mapped-without-any-additional-manipulations">The simplest cases are, when JSON and Go structures are very similar and can be mapped without any additional manipulations.</h5>
+<h6 id="marshaling-go-structures-into-json-when-corresponding-fields-have-compatible-types">Marshaling Go structures into JSON, when corresponding fields have compatible types.</h6>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">package</span> main
+
+<span style="font-weight:bold">import</span> (
+	<span style="font-style:italic">&#34;encoding/json&#34;</span>
+	<span style="font-style:italic">&#34;fmt&#34;</span>
+	<span style="font-style:italic">&#34;time&#34;</span>
+)
+
+<span style="font-weight:bold">type</span> User <span style="font-weight:bold">struct</span> {
+	Name      <span style="">string</span>    <span style="font-style:italic">`json:&#34;name&#34;`</span>
+	BirthDate time.Time <span style="font-style:italic">`json:&#34;birthDate&#34;`</span>
+}
+
+<span style="font-weight:bold">func</span> main() {
+
+	user := User{
+		Name:      <span style="font-style:italic">&#34;John&#34;</span>,
+		BirthDate: time.Date(1993, time.November, 4, 23, 0, 0, 0, time.UTC),
+	}
+
+	bts, err := json.Marshal(&amp;user)
+	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
+		panic(err)
+	}
+
+	fmt.Println(string(bts))
+}
+</code></pre></div><p>Output:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">{&#34;name&#34;:&#34;John&#34;,&#34;birthDate&#34;:&#34;1993-11-04T23:00:00Z&#34;}
+</code></pre></div><h6 id="unmarshalling-json-into-go-structures-when-corresponding-fields-have-compatible-types">Unmarshalling JSON into Go structures, when corresponding fields have compatible types.</h6>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">package</span> main
+
+<span style="font-weight:bold">import</span> (
+	<span style="font-style:italic">&#34;encoding/json&#34;</span>
+	<span style="font-style:italic">&#34;fmt&#34;</span>
+	<span style="font-style:italic">&#34;time&#34;</span>
+)
+
+<span style="font-weight:bold">type</span> User <span style="font-weight:bold">struct</span> {
+	Name      <span style="">string</span>    <span style="font-style:italic">`json:&#34;name&#34;`</span>
+	BirthDate time.Time <span style="font-style:italic">`json:&#34;birthDate&#34;`</span>
+}
+
+<span style="font-weight:bold">func</span> main() {
+
+	jsonBts := []byte(<span style="font-style:italic">`{&#34;name&#34;:&#34;John&#34;,&#34;birthDate&#34;:&#34;1993-11-04T23:00:00Z&#34;}`</span>)
+
+	<span style="font-weight:bold">var</span> user User
+	<span style="font-weight:bold">if</span> err := json.Unmarshal(jsonBts, &amp;user); err != <span style="font-weight:bold">nil</span> {
+		panic(err)
+	}
+
+	fmt.Println(user)
+}
+</code></pre></div><p>Output:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">{John 1993-11-04 23:00:00 +0000 UTC}
+</code></pre></div><h5 id="a-bit-more-complex-case-is-when-we-have-two-incompatibe-sides-of-transformation-fortunately-we-can-implement-our-custom-marshalling--unmarshalling-by-adding-functions-marshaljson-byte-error-and-unmarshaljsondata-byte-error-to-go-structure">A bit more complex case is, when we have two incompatibe sides of transformation. Fortunately, we can implement our custom marshalling / unmarshalling by adding functions <code>MarshalJSON() ([]byte, error)</code> and <code>UnmarshalJSON(data []byte) error</code> to Go structure.</h5>
+<h6 id="marshalling-go-structures-into-json-with-custom-implementation">Marshalling Go structures into JSON with custom implementation.</h6>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">package</span> main
+
+<span style="font-weight:bold">import</span> (
+	<span style="font-style:italic">&#34;encoding/json&#34;</span>
+	<span style="font-style:italic">&#34;fmt&#34;</span>
+	<span style="font-style:italic">&#34;time&#34;</span>
+)
+
+<span style="font-weight:bold">const</span> dateLayout = <span style="font-style:italic">&#34;2006-01-02&#34;</span>
+
+<span style="font-weight:bold">type</span> User <span style="font-weight:bold">struct</span> {
+	Name      <span style="">string</span>    <span style="font-style:italic">`json:&#34;name&#34;`</span>
+	BirthDate time.Time <span style="font-style:italic">`json:&#34;birthDate&#34;`</span>
+}
+
+<span style="font-weight:bold">func</span> (u *User) MarshalJSON() ([]<span style="">byte</span>, <span style="">error</span>) {
+
+	userRepr := <span style="font-weight:bold">struct</span> {
+		Name      <span style="">string</span> <span style="font-style:italic">`json:&#34;name&#34;`</span>
+		BirthDate <span style="">string</span> <span style="font-style:italic">`json:&#34;birthDate&#34;`</span>
+	}{
+		Name:      u.Name,
+		BirthDate: u.BirthDate.Format(dateLayout),
+	}
+
+	<span style="font-weight:bold">return</span> json.Marshal(&amp;userRepr)
+}
+
+<span style="font-weight:bold">func</span> main() {
+
+	user := User{
+		Name:      <span style="font-style:italic">&#34;John&#34;</span>,
+		BirthDate: time.Date(1993, time.November, 4, 23, 0, 0, 0, time.UTC),
+	}
+
+	bts, err := json.Marshal(&amp;user)
+	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
+		panic(err)
+	}
+
+	fmt.Println(string(bts))
+}
+</code></pre></div><p>Output:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">{&#34;name&#34;:&#34;John&#34;,&#34;birthDate&#34;:&#34;1993-11-04&#34;}
+</code></pre></div><h6 id="unmarshalling-json-into-go-structures-with-custom-implementation">Unmarshalling JSON into Go structures with custom implementation.</h6>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">package</span> main
+
+<span style="font-weight:bold">import</span> (
+	<span style="font-style:italic">&#34;encoding/json&#34;</span>
+	<span style="font-style:italic">&#34;fmt&#34;</span>
+	<span style="font-style:italic">&#34;time&#34;</span>
+)
+
+<span style="font-weight:bold">const</span> dateLayout = <span style="font-style:italic">&#34;2006-01-02&#34;</span>
+
+<span style="font-weight:bold">type</span> User <span style="font-weight:bold">struct</span> {
+	Name      <span style="">string</span>    <span style="font-style:italic">`json:&#34;name&#34;`</span>
+	BirthDate time.Time <span style="font-style:italic">`json:&#34;birthDate&#34;`</span>
+}
+
+<span style="font-weight:bold">func</span> (u *User) UnmarshalJSON(data []<span style="">byte</span>) <span style="">error</span> {
+
+	<span style="font-weight:bold">type</span> userRepr <span style="font-weight:bold">struct</span> {
+		Name      <span style="">string</span> <span style="font-style:italic">`json:&#34;name&#34;`</span>
+		BirthDate <span style="">string</span> <span style="font-style:italic">`json:&#34;birthDate&#34;`</span>
+	}
+
+	<span style="font-weight:bold">var</span> user userRepr
+
+	<span style="font-weight:bold">if</span> err := json.Unmarshal(data, &amp;user); err != <span style="font-weight:bold">nil</span> {
+		<span style="font-weight:bold">return</span> err
+	}
+
+	t, err := time.Parse(dateLayout, user.BirthDate)
+	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
+		<span style="font-weight:bold">return</span> err
+	}
+
+	u.Name = user.Name
+	u.BirthDate = t
+
+	<span style="font-weight:bold">return</span> <span style="font-weight:bold">nil</span>
+}
+
+<span style="font-weight:bold">func</span> main() {
+
+	jsonBts := []byte(<span style="font-style:italic">`{&#34;name&#34;:&#34;John&#34;,&#34;birthDate&#34;:&#34;1993-11-04&#34;}`</span>)
+
+	<span style="font-weight:bold">var</span> user User
+
+	<span style="font-weight:bold">if</span> err := json.Unmarshal(jsonBts, &amp;user); err != <span style="font-weight:bold">nil</span> {
+		panic(err)
+	}
+
+	fmt.Println(user)
+}
+</code></pre></div><p>Output:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">{John 1993-11-04 00:00:00 +0000 UTC}
+</code></pre></div>
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+      
+        © 2020
+      
+       Adrian Brzoza 
+    
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+    
+
+  </body>
+
+</html>
