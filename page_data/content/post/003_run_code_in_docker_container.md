@@ -17,30 +17,23 @@ tags:
 
 ##### Basics
 
+If you ever saw the Docker tutorial you probably saw something like that:
 
+`docker run alpine echo 'hello world'`
 
+It prints 'hello world' somewhere at the end of the logged text.
 
+In similar way we can use other containers to execute code inside of them.
 
-Some time ago I was trying to run examples from Tensorflow tutorial. I've prepared virtual environment (with Virtualenv) but when downloading required dependecnies it occured that verion of python installed on my computer is unsopported by Tensorflow. I thought that updating python is too much. Fortunately Tensorflow team prepared Docker images that can be used to run scripts. 
+First let's look at the general command for running Docker containers:  
 
-
-First let's look at the generic form of the command for running Docker containers:  
 `$ docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]`
 
-Runnign simple script that will test if Tensorflow is installed properly would require executing this command:  
-`docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py`
+In next steps we will go through few steps that will allow you to run your applications / scripts in an interactive way inside of docker container.
 
-Let's explain what each element of this command means:  <br/>
+##### Example
 
-1. Options:
-    - `-it` - starts container in interactive mode (actually connection of `-i` and `-t`), in simple worlds it means that information from executed script will be printed on your terminal  
-    - `-rm` - cleans up the container and remove the file system   
-    - `-v` - mounts current directory to `/tmp` directory inside docker container  
-    - `-w` - setting working directory to `/tmp`  
-2. Image:  
-    -  `tensorflow/tensorflow` - latest version of Tensorflow image
-3. Command and arguments:
-    - `python ./test_installation.py`
+Some time ago I was trying to run examples from Tensorflow tutorial. I've prepared virtual environment (with Virtualenv) but when downloading required dependecnies it occured that verion of python installed on my computer is unsopported by Tensorflow. I thought that updating (or downgrading in my case) python is too much. Fortunately Tensorflow team prepared Docker images that can be used to run scripts. The image is called `tensorflow/tensorflow`.
 
 <br/>
 
@@ -56,6 +49,7 @@ tensorflow/tensorflow   latest   9bf93bf90865   2.469GB   64.19MB       2.405GB
 <br/>
 
 Testing Tensorflow installation (content of `test_installation.py`) can be anything that is using Tensorflow. In my case it is something like this:
+
 ```
 import tensorflow as tf
 
@@ -67,7 +61,34 @@ result = tf.add(tensor1, tensor2)
 print(result)
 ```
 
-<br/>
+Now we can try to run this script by executing this command:
+
+`docker run tensorflow/tensorflow ./test_installation.py`
+
+But of course it will fail because file `test_installation.py` is on our local hard drive and not inside of docker container.
+
+##### Read files from local hard drive
+
+
+`docker run -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py`
+
+    - `-v` - mounts current directory to `/tmp` directory inside docker container  
+    - `-w` - setting working directory to `/tmp`  
+
+This almost closes the subject but we can do two upgrades
+
+##### Interactive
+
+    - `-it` - starts container in interactive mode (actually connection of `-i` and `-t`), in simple worlds it means that information from executed script will be printed on your terminal  
+
+##### Reusable
+
+    - `-rm` - cleans up the container and remove the file system  
+
+
+`docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py`
+
+##### Result
 
 As a result I received some amount of logs and result of the executed script somewhere at the bottom of the output.
 ```

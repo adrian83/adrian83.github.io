@@ -99,7 +99,7 @@ Writing lambda code can be done in almost any programming language thanks to pos
 
 If the code executed by Lambda will be rather short, you can decide to inline it inside your CloudFormation script. 
 
-Let's look at sample lambda definition:
+Let's look at sample lambda definitions:
 
 ```
   CreateUserLambda:
@@ -158,7 +158,47 @@ Let's look at sample lambda definition:
               "statusCode": 201, 
               "body": json.dumps(user)
             }
+
+
+  DeleteUserLambda:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      FunctionName: 'user-delete'
+      Role: !GetAtt UserLambdaRole.Arn 
+      Handler: index.lambda_handler
+      Runtime: python3.6
+      Timeout: 25
+      MemorySize: 128
+      Environment:
+        Variables:
+          USERS_TABLE_NAME: !Ref UsersDynamoDBTable
+      Code:
+        ZipFile: |
+          from __future__ import print_function
+          import boto3
+          import os
+
+          def lambda_handler(event, context):
+            print("event: {0}".format(event))
+
+            users_table = os.environ['USERS_TABLE_NAME']
+            user_id = event['pathParameters']['userId']
+
+            dynamodb_client = boto3.client('dynamodb')
+            response = dynamodb_client.delete_item(
+              TableName=users_table, 
+              Key={'id': {'S': user_id}})
+
+            if response['ResponseMetadata']['HTTPStatusCode'] != 200:
+              print("cannot delete item: {0}".format(response))
+              return {"statusCode": 500, "body": "Internal server error: {0}".format(response)}
+
+            return {"statusCode": 200}
+
 ```
+
+
+
 
 Let's take a look at properties that we have to define for all our Lambda functions:
 
@@ -224,7 +264,7 @@ As you can see every path and method pair is integrated with lambda function. Pl
 
 ### Permissions
 
-Each Lambda runs with it's IAM Role in which we defined that it can use DynamoDB and CloudWatch (for logging) but there is no permission for API Gateway. This kind of permission is defined by resouce with type AWS::Lambda::Permission and it looks like this:
+Each Lambda runs with it's IAM Role in which we defined that it can use DynamoDB and CloudWatch (for logging) but there is no permission for API Gateway. This kind of permission is defined by resouce with type `AWS::Lambda::Permission` and it looks like this:
 
 
 ```
