@@ -6,7 +6,7 @@
     <description>Recent content on adrian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 16 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adrian83.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,16 @@
       
       <guid>https://adrian83.github.io/page/about/</guid>
       <description>Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner.</description>
+    </item>
+    
+    <item>
+      <title>Building Serverless API on AWS</title>
+      <link>https://adrian83.github.io/post/004_serverless_api_on_aws/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/post/004_serverless_api_on_aws/</guid>
+      <description>Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management. The full source code with instructions, how to run and test it, can be found here.
+Database Since we are building serverless application, it is important to choose proper Database. The most important requirements when choosing Database should be: no servers to manage and scaling regarding the traffic.</description>
     </item>
     
     <item>

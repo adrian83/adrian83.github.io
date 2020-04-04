@@ -69,16 +69,19 @@ But of course it will fail because file `test_installation.py` is on our local h
 
 ##### Read files from local hard drive
 
+Running scripts means that we have to mount directory with the script inside Docker container. For convinience we can also make this directory working directory. We can do that by adding two additional options:
 
-`docker run -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py`
+- `-v` - mounts current directory to `/tmp` directory inside docker container  
+- `-w` - setting working directory to `/tmp`  
 
-    - `-v` - mounts current directory to `/tmp` directory inside docker container  
-    - `-w` - setting working directory to `/tmp`  
-
-This almost closes the subject but we can do two upgrades
+Now running this command: `docker run -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py` should work but we can make two more improvement.
 
 ##### Interactive
 
+Probably in most cases we would like to see what is printed on our terminal. To achieve this we can add two additional options:
+
+- `-t`
+- `-i`
     - `-it` - starts container in interactive mode (actually connection of `-i` and `-t`), in simple worlds it means that information from executed script will be printed on your terminal  
 
 ##### Reusable

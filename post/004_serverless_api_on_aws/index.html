@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Adrian Brzoza">
+    <meta name="description" content="Adrian Brzoza&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Building Serverless API on AWS"/>
+<meta name="twitter:description" content="Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management. The full source code with instructions, how to run and test it, can be found here.
+Database Since we are building serverless application, it is important to choose proper Database. The most important requirements when choosing Database should be: no servers to manage and scaling regarding the traffic."/>
+
+    <meta property="og:title" content="Building Serverless API on AWS" />
+<meta property="og:description" content="Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management. The full source code with instructions, how to run and test it, can be found here.
+Database Since we are building serverless application, it is important to choose proper Database. The most important requirements when choosing Database should be: no servers to manage and scaling regarding the traffic." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adrian83.github.io/post/004_serverless_api_on_aws/" />
+<meta property="article:published_time" content="2020-03-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-15T00:00:00+00:00" />
+
+
+    
+      <base href="https://adrian83.github.io/post/004_serverless_api_on_aws/">
+    
+    <title>
+  Building Serverless API on AWS · adrian
+</title>
+
+    
+      <link rel="canonical" href="https://adrian83.github.io/post/004_serverless_api_on_aws/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://adrian83.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.68.3" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://adrian83.github.io/">
+      adrian
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/post/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/tags/">Tags</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/page/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Building Serverless API on AWS</h1>
+    </header>
+
+    <h3 id="writing-serverless-applications-on-aws-can-be-really-easy-below-you-can-find-description-of-how-to-build-simplified-crud-application-for-user-management">Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management.</h3>
+<p>The full source code with instructions, how to run and test it, can be found <a href="https://github.com/adrian83/aws-samples/tree/master/004-serverless-api-demo">here</a>.</p>
+<h3 id="database">Database</h3>
+<p>Since we are building serverless application, it is important to choose proper Database. The most important requirements when choosing Database should be: no servers to manage and scaling regarding the traffic. DynamoDB fulfills both of thoses requirements, and thus it makes perfect sense to use it.</p>
+<p>Lets look at the definition of DynamoDB table:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  UsersDynamoDBTable:
+    Type: &#39;AWS::DynamoDB::Table&#39;
+    Properties:
+      TableName: &#39;users&#39;
+      BillingMode: &#39;PAY_PER_REQUEST&#39;
+      AttributeDefinitions:
+        - AttributeName: &#39;id&#39;
+          AttributeType: &#39;S&#39;
+      KeySchema:
+        - AttributeName: &#39;id&#39;
+          KeyType: &#39;HASH&#39;
+</code></pre></div><p>There are basically three important information in this definition:</p>
+<ul>
+<li>name of the table</li>
+<li>billing mode (i want to pay only for what i use)</li>
+<li>key definition (every element in <code>KeySchema</code> needs to be defined in <code>AttributeDefinitions</code>)</li>
+</ul>
+<h3 id="permissions">Permissions</h3>
+<p>Before we go to the Lambda Functions, let&rsquo;s look at permissions (IAM Role), that we need to add to those functions, so that they can access DynamoDB table defined above.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  UserLambdaRole:
+    DependsOn: UsersDynamoDBTable
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+            - &#39;sts:AssumeRole&#39;
+            Principal:
+              Service:
+              - &#39;lambda.amazonaws.com&#39;
+      Policies:
+        - PolicyName: &#39;users-dynamodb-policy&#39;
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:*
+                Resource:
+                    - !GetAtt UsersDynamoDBTable.Arn 
+        - PolicyName: &#39;users-logs-policy&#39;
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:*
+                Resource:
+                  - &#34;arn:aws:logs:*:*:*&#34;
+</code></pre></div><p>This resource contains information about:</p>
+<ul>
+<li>type of service (&lsquo;lambda.amazonaws.com&rsquo;), that can use (assume) this Role</li>
+<li>policies which are bound to this role:
+<ul>
+<li>first one allows to execute every operation on DynamoDB table defined previously</li>
+<li>second one allows to write logs into CloudWatch service</li>
+</ul>
+</li>
+</ul>
+<h3 id="functions">Functions</h3>
+<p>Writing lambda code can be done in almost any programming language thanks to possibility of defining <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html">Custom AWS Lambda Runtimes</a>. However if you want to interact with other AWS services, it’s much easer to write code in language, that have <a href="https://aws.amazon.com/tools/">official AWS SDK</a>.</p>
+<p>If the code executed by Lambda will be rather short, you can decide to inline it inside your CloudFormation script.</p>
+<p>Let&rsquo;s look at sample lambda definitions:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  CreateUserLambda:
+    Type: &#34;AWS::Lambda::Function&#34;
+    Properties:
+      FunctionName: &#39;user-create&#39;
+      Role: !GetAtt UserLambdaRole.Arn 
+      Handler: index.lambda_handler
+      Runtime: python3.6
+      Timeout: 25
+      MemorySize: 128
+      Environment:
+        Variables:
+          USERS_TABLE_NAME: !Ref UsersDynamoDBTable
+      Code:
+        ZipFile: |
+          from __future__ import print_function
+          import boto3
+          import json
+          import os
+          import uuid
+
+          users_table = os.environ[&#39;USERS_TABLE_NAME&#39;]
+          dynamodb_client = boto3.client(&#39;dynamodb&#39;)
+
+          def lambda_handler(event, context):
+            print(&#34;event: {0}&#34;.format(event))
+
+            body = json.loads(event[&#39;body&#39;])
+
+            if &#39;firstName&#39; not in body or &#39;lastName&#39; not in body:
+              print(&#34;cannot persist user, invalid data: {0}&#34;.format(body))
+              return {&#34;statusCode&#34;: 400, &#34;body&#34;: &#34;Invalid input&#34;}
+
+            user_id = str(uuid.uuid4())
+            first_name = body[&#39;firstName&#39;]
+            last_name = body[&#39;lastName&#39;]
+
+            response = dynamodb_client.put_item(
+              TableName=users_table, 
+              Item={&#39;id&#39;: {&#39;S&#39;: user_id}, &#39;firstName&#39;: {&#39;S&#39;: first_name}, &#39;lastName&#39;: {&#39;S&#39;: last_name}})
+
+            if response[&#39;ResponseMetadata&#39;][&#39;HTTPStatusCode&#39;] != 200:
+              print(&#34;cannot put item: {0}&#34;.format(response))
+              return {&#34;statusCode&#34;: 500, &#34;body&#34;: &#34;Internal server error: {0}&#34;.format(response)}
+
+            user = {&#39;id&#39;: user_id, &#39;firstName&#39;: first_name, &#39;lastName&#39;: last_name}
+
+            return {
+              &#34;statusCode&#34;: 201, 
+              &#34;body&#34;: json.dumps(user)
+            }
+
+
+  DeleteUserLambda:
+    Type: &#34;AWS::Lambda::Function&#34;
+    Properties:
+      FunctionName: &#39;user-delete&#39;
+      Role: !GetAtt UserLambdaRole.Arn 
+      Handler: index.lambda_handler
+      Runtime: python3.6
+      Timeout: 25
+      MemorySize: 128
+      Environment:
+        Variables:
+          USERS_TABLE_NAME: !Ref UsersDynamoDBTable
+      Code:
+        ZipFile: |
+          from __future__ import print_function
+          import boto3
+          import os
+
+          users_table = os.environ[&#39;USERS_TABLE_NAME&#39;]
+          dynamodb_client = boto3.client(&#39;dynamodb&#39;)
+
+          def lambda_handler(event, context):
+            print(&#34;event: {0}&#34;.format(event))
+
+            user_id = event[&#39;pathParameters&#39;][&#39;userId&#39;]
+
+            response = dynamodb_client.delete_item(
+              TableName=users_table, 
+              Key={&#39;id&#39;: {&#39;S&#39;: user_id}})
+
+            if response[&#39;ResponseMetadata&#39;][&#39;HTTPStatusCode&#39;] != 200:
+              print(&#34;cannot delete item: {0}&#34;.format(response))
+              return {&#34;statusCode&#34;: 500, &#34;body&#34;: &#34;Internal server error: {0}&#34;.format(response)}
+
+            return {&#34;statusCode&#34;: 200}
+</code></pre></div><p>Let&rsquo;s take a look at properties, that we have to define for all our Lambda functions:</p>
+<ul>
+<li><code>FunctionName</code> - name of the Lambda function</li>
+<li><code>Role</code> - permissions for the Lambda function</li>
+<li><code>Handler</code> - name of the function (in source code), that will be called when Lambda will be executed</li>
+<li><code>Runtime</code> - defines runtime of the Lambda (programming language and it&rsquo;s version)</li>
+<li><code>Timeout</code> - max duration of the Lambda (in seconds)</li>
+<li><code>MemorySize</code> - describes, how powerfull will be the hardware (not only memory but also CPU), running your function</li>
+<li><code>Environment.Variables</code> - defines variables, that can be assigned in CloudFormation and used in code</li>
+<li><code>Code.ZipFile</code> - code of the Lambda function</li>
+</ul>
+<h3 id="endpoints">Endpoints</h3>
+<p>Exposing API to the world can be done through API Gateway service.</p>
+<p>Curently we can create Gateways in two ways:</p>
+<ul>
+<li>by using resource with type <code>AWS::ApiGateway::RestApi</code> (and few others from <code>AWS::ApiGateway::*</code> namespace), which allows detailed configuration of API Gateway</li>
+<li>by using resource with type <code>AWS::Serverless::Api</code>, which simplifies API Gateway creation to single resource</li>
+</ul>
+<p>Integrating Lambdas with API Gateway is quite easy and it looks something like this:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  UserAPIGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: !Sub &#39;users-api-gateway&#39;
+      StageName: &#39;api-demo&#39;
+      MethodSettings:
+        - HttpMethod: &#39;*&#39;
+          MetricsEnabled: true
+          ResourcePath: &#39;/*&#39;
+      DefinitionBody:
+        swagger: &#34;2.0&#34;
+        info:
+          version: &#34;2018-06-04T13:58:30Z&#34;
+          title:
+            Ref: AWS::StackName
+        paths:
+          /v1/users:
+            post:
+              x-amazon-apigateway-integration:
+                httpMethod: &#34;POST&#34;
+                type: &#34;aws_proxy&#34;
+                uri: !Sub &#39;arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${CreateUserLambda.Arn}/invocations&#39;
+          /v1/users/{userId}:
+            delete:
+              parameters:
+              - name: userId
+                in: path
+                required: true
+                type: string
+              x-amazon-apigateway-integration:
+                httpMethod: &#34;POST&#34;
+                type: &#34;aws_proxy&#34;
+                uri: !Sub &#39;arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${DeleteUserLambda.Arn}/invocations&#39;
+</code></pre></div><p>The most important part of this resource is the DefinitionBody, which comply with Open API (formerly Swagger).
+As you can see, every pair of path and http method is integrated with lambda function. Please be aware, that every such integration is done through POST method (<code>httpMethod: &quot;POST&quot;</code>).</p>
+<h3 id="permissions-1">Permissions</h3>
+<p>Each Lambda runs with it&rsquo;s IAM Role, in which we define, that it can use DynamoDB and CloudWatch (for logging), but there is no permission for API Gateway. This kind of permission is defined by resouce with type <code>AWS::Lambda::Permission</code> and it looks like this:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  CreateUserLambdaApiGatewayPermission:
+    DependsOn: [CreateUserLambda, UserAPIGateway]
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:invokeFunction
+      FunctionName: !GetAtt CreateUserLambda.Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub &#39;arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${UserAPIGateway}/*&#39;
+</code></pre></div>
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+      
+        © 2020
+      
+       Adrian Brzoza 
+    
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+    
+
+  </body>
+
+</html>
