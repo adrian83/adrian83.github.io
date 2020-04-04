@@ -62,17 +62,6 @@ apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubern
     
     <item>
       <title></title>
-      <link>https://adrian83.github.io/drafts/deploying_aws_vpc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/drafts/deploying_aws_vpc/</guid>
-      <description>[adrian@adrian-pc vpc-infrastructure]$ [adrian@adrian-pc vpc-infrastructure]$ aws cloudformation package &amp;ndash;template-file main.yml &amp;ndash;s3-bucket cloudformation-deployments-bucket &amp;ndash;output-template-file packaged.yml
-Successfully packaged artifacts and wrote output template to file packaged.yml. Execute the following command to deploy the packaged template aws cloudformation deploy &amp;ndash;template-file /home/data/work/projects/aws-samples/vpc-infrastructure/packaged.yml &amp;ndash;stack-name [adrian@adrian-pc vpc-infrastructure]$ aws cloudformation deploy &amp;ndash;template-file /home/data/work/projects/aws-samples/fargate/packaged.yml &amp;ndash;stack-name fargate-demo &amp;ndash;capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM
-Waiting for changeset to be created.. Waiting for stack create/update to complete Successfully created/updated stack - fargate-demo</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://adrian83.github.io/page/aws_architect/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
