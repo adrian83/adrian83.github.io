@@ -29,22 +29,11 @@ First let's look at the general command for running Docker containers:
 
 `$ docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]`
 
-In next steps we will go through few steps that will allow you to run your applications / scripts in an interactive way inside of docker container.
+In next steps we will go through few steps that will allow you to run your applications / scripts in an interactive way inside of the docker container.
 
 ##### Example
 
 Some time ago I was trying to run examples from Tensorflow tutorial. I've prepared virtual environment (with Virtualenv) but when downloading required dependecnies it occured that verion of python installed on my computer is unsopported by Tensorflow. I thought that updating (or downgrading in my case) python is too much. Fortunately Tensorflow team prepared Docker images that can be used to run scripts. The image is called `tensorflow/tensorflow`.
-
-<br/>
-
-Before running this code please be aware that this will download Docker image with size around 2,5GB
-```
-$ docker system df -v
-Images space usage:
-
-REPOSITORY              TAG      IMAGE ID       SIZE      SHARED SIZE   UNIQUE SIZE 
-tensorflow/tensorflow   latest   9bf93bf90865   2.469GB   64.19MB       2.405GB  
-```
 
 <br/>
 
@@ -61,39 +50,61 @@ result = tf.add(tensor1, tensor2)
 print(result)
 ```
 
-Now we can try to run this script by executing this command:
+<br/>
+
+Before running this code please be aware that this will download Docker image with size around 2,5GB
+```
+$ docker system df -v
+Images space usage:
+
+REPOSITORY              TAG      IMAGE ID       SIZE      SHARED SIZE   UNIQUE SIZE 
+tensorflow/tensorflow   latest   9bf93bf90865   2.469GB   64.19MB       2.405GB  
+```
+
+
+Now we can try to run this script by executing such command:
 
 `docker run tensorflow/tensorflow ./test_installation.py`
 
-But of course it will fail because file `test_installation.py` is on our local hard drive and not inside of docker container.
+But of course it will fail because the file `test_installation.py` is on our local hard drive and not inside of the docker container.
 
 ##### Read files from local hard drive
 
-Running scripts means that we have to mount directory with the script inside Docker container. For convinience we can also make this directory working directory. We can do that by adding two additional options:
+Running scripts means that we have to mount directory with the script inside the Docker container. For convinience we can also make this directory working directory. We can do that by adding two additional options:
 
-- `-v` - mounts current directory to `/tmp` directory inside docker container  
-- `-w` - setting working directory to `/tmp`  
+- `-v` - mounts current directory to specified directory inside docker container  
+- `-w` - setting specified directory as a working directory
 
-Now running this command: `docker run -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py` should work but we can make two more improvement.
+Now our command looks like this:
+
+`docker run -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py` 
+
+This version should work, but we can make two more improvement.
 
 ##### Interactive
 
-Probably in most cases we would like to see what is printed on our terminal. To achieve this we can add two additional options:
+Probably in most cases we would like to see what is printed on our terminal. We can achieve this by adding `-it` option (actually those are two options `-i` and `-t`).
 
-- `-t`
-- `-i`
-    - `-it` - starts container in interactive mode (actually connection of `-i` and `-t`), in simple worlds it means that information from executed script will be printed on your terminal  
+Now our command looks like this:
+
+`docker run -it -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py`
+
+All nice but we can add one more improvement
+
 
 ##### Reusable
 
-    - `-rm` - cleans up the container and remove the file system  
+If you want to keep your container clean you can add one more additional option: `--rm`, which will remove file system when the container exits.
 
+Final version of our command looks like this:
 
 `docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py`
 
+
 ##### Result
 
-As a result I received some amount of logs and result of the executed script somewhere at the bottom of the output.
+After runing this file I received some amount of logs and result of the executed script somewhere at the bottom of the output.
+
 ```
 $ docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py
 2020-01-22 15:07:37.952597: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
