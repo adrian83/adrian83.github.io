@@ -47,7 +47,7 @@ Lets look at the definition of DynamoDB table:
 There are basically three important information in this definition: 
 
 - name of the table 
-- billing mode (i want to pay only for what i use)
+- billing mode (we will pay only for what we use)
 - key definition (every element in `KeySchema` needs to be defined in `AttributeDefinitions`)
 
 ### Permissions
@@ -97,13 +97,17 @@ This resource contains information about:
 
 Writing lambda code can be done in almost any programming language thanks to possibility of defining [Custom AWS Lambda Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html). However if you want to interact with other AWS services, it’s much easer to write code in language, that have [official AWS SDK](https://aws.amazon.com/tools/).
 
+Curently we can create Lambdas in two ways:
+- by using resource with type `AWS::Lambda::Function` (and few others from `AWS::Lambda::*` namespace), which allows detailed configuration of Lambda but require additional work with binding them to the triggers.
+- by using resource with type `AWS::Serverless::Function`, which simplifies Lambda creation to single resource which contains event definition 
+
 If the code executed by Lambda will be rather short, you can decide to inline it inside your CloudFormation script. 
 
 Let's look at sample lambda definitions:
 
 ```
   CreateUserLambda:
-    Type: "AWS::Lambda::Function"
+    Type: AWS::Serverless::Function
     Properties:
       FunctionName: 'user-create'
       Role: !GetAtt UserLambdaRole.Arn 
@@ -114,8 +118,15 @@ Let's look at sample lambda definitions:
       Environment:
         Variables:
           USERS_TABLE_NAME: !Ref UsersDynamoDBTable
-      Code:
-        ZipFile: |
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Method: post
+            Path: /v1/users
+            RestApiId: 
+              Ref: UserAPIGateway
+      InlineCode: |
           from __future__ import print_function
           import boto3
           import json
@@ -146,16 +157,11 @@ Let's look at sample lambda definitions:
               print("cannot put item: {0}".format(response))
               return {"statusCode": 500, "body": "Internal server error: {0}".format(response)}
 
-            user = {'id': user_id, 'firstName': first_name, 'lastName': last_name}
-
-            return {
-              "statusCode": 201, 
-              "body": json.dumps(user)
-            }
+            return {"statusCode": 201, "body": json.dumps({'id': user_id, 'firstName': first_name, 'lastName': last_name})}
 
 
   DeleteUserLambda:
-    Type: "AWS::Lambda::Function"
+    Type: AWS::Serverless::Function
     Properties:
       FunctionName: 'user-delete'
       Role: !GetAtt UserLambdaRole.Arn 
@@ -166,8 +172,15 @@ Let's look at sample lambda definitions:
       Environment:
         Variables:
           USERS_TABLE_NAME: !Ref UsersDynamoDBTable
-      Code:
-        ZipFile: |
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Method: delete
+            Path: /v1/users/{userId}
+            RestApiId: 
+              Ref: UserAPIGateway
+      InlineCode: |
           from __future__ import print_function
           import boto3
           import os
@@ -200,70 +213,25 @@ Let's take a look at properties, that we have to define for all our Lambda funct
 - `Timeout` - max duration of the Lambda (in seconds)
 - `MemorySize` - describes, how powerfull will be the hardware (not only memory but also CPU), running your function
 - `Environment.Variables` - defines variables, that can be assigned in CloudFormation and used in code
-- `Code.ZipFile` - code of the Lambda function
+- `Events` - events that will trigger this lambda, in these cases they are events from API Gateway 
+- `InlineCode` - code of the Lambda function
 
 ### Endpoints
 
 Exposing API to the world can be done through API Gateway service.
 
-Curently we can create Gateways in two ways: 
-
+Similar as with Lambdas we can create Gateways in two ways: 
 - by using resource with type `AWS::ApiGateway::RestApi` (and few others from `AWS::ApiGateway::*` namespace), which allows detailed configuration of API Gateway
 - by using resource with type `AWS::Serverless::Api`, which simplifies API Gateway creation to single resource
 
-Integrating Lambdas with API Gateway is quite easy and it looks something like this:
+Basic definition of API Gateway looks like this:
 
 ```
   UserAPIGateway:
     Type: AWS::Serverless::Api
     Properties:
-      Name: !Sub 'users-api-gateway'
+      Name: 'users-api-gateway'
       StageName: 'api-demo'
-      MethodSettings:
-        - HttpMethod: '*'
-          MetricsEnabled: true
-          ResourcePath: '/*'
-      DefinitionBody:
-        swagger: "2.0"
-        info:
-          version: "2018-06-04T13:58:30Z"
-          title:
-            Ref: AWS::StackName
-        paths:
-          /v1/users:
-            post:
-              x-amazon-apigateway-integration:
-                httpMethod: "POST"
-                type: "aws_proxy"
-                uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${CreateUserLambda.Arn}/invocations'
-          /v1/users/{userId}:
-            delete:
-              parameters:
-              - name: userId
-                in: path
-                required: true
-                type: string
-              x-amazon-apigateway-integration:
-                httpMethod: "POST"
-                type: "aws_proxy"
-                uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${DeleteUserLambda.Arn}/invocations'
 ```
 
-The most important part of this resource is the DefinitionBody, which comply with Open API (formerly Swagger).
-As you can see, every pair of path and http method is integrated with lambda function. Please be aware, that every such integration is done through POST method (`httpMethod: "POST"`).
-
-### Permissions
-
-Each Lambda runs with it's IAM Role, in which we define, that it can use DynamoDB and CloudWatch (for logging), but there is no permission for API Gateway. This kind of permission is defined by resouce with type `AWS::Lambda::Permission` and it looks like this:
-
-
-```
-  CreateUserLambdaApiGatewayPermission:
-    DependsOn: [CreateUserLambda, UserAPIGateway]
-    Type: AWS::Lambda::Permission
-    Properties:
-      Action: lambda:invokeFunction
-      FunctionName: !GetAtt CreateUserLambda.Arn
-      Principal: apigateway.amazonaws.com
-      SourceArn: !Sub 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${UserAPIGateway}/*'
-```
+The most important part of this resource is not visible because all bindings between this resource and Lambdas are difined on the their side.
