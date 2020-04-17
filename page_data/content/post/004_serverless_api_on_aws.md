@@ -234,4 +234,4 @@ Basic definition of API Gateway looks like this:
       StageName: 'api-demo'
 ```
 
-The most important part of this resource is not visible because all bindings between this resource and Lambdas are difined on the their side.
+This definition can be so simple because all bindings between this resource and Lambdas are difined on the their side.

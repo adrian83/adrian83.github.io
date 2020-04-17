@@ -17,27 +17,26 @@ tags:
 
 ##### Basics
 
-If you ever saw the Docker tutorial you probably saw something like that:
+If you ever saw the Docker tutorial you've probably also saw something like this:
 
 `docker run alpine echo 'hello world'`
 
 It prints 'hello world' somewhere at the end of the logged text.
-
-In similar way we can use other containers to execute code inside of them.
+In similar way we can use other containers to execute code inside of them.  
 
 First let's look at the general command for running Docker containers:  
 
 `$ docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]`
 
-In next steps we will go through few steps that will allow you to run your applications / scripts in an interactive way inside of the docker container.
+Following post presents few steps that will allow you to run your applications / scripts in an interactive way inside of the docker container.
 
 ##### Example
 
-Some time ago I was trying to run examples from Tensorflow tutorial. I've prepared virtual environment (with Virtualenv) but when downloading required dependecnies it occured that verion of python installed on my computer is unsopported by Tensorflow. I thought that updating (or downgrading in my case) python is too much. Fortunately Tensorflow team prepared Docker images that can be used to run scripts. The image is called `tensorflow/tensorflow`.
+Some time ago I was trying to run examples from Tensorflow tutorial. I've prepared virtual environment (with Virtualenv) but when downloading required dependecnies it occured that my python installation is unsopported by Tensorflow. I thought that upgrading (or downgrading in my case) python is too much trouble. Fortunately Tensorflow team prepared Docker images that can be used to run scripts. The image is called `tensorflow/tensorflow`.
 
 <br/>
 
-Testing Tensorflow installation (content of `test_installation.py`) can be anything that is using Tensorflow. In my case it is something like this:
+Testing Tensorflow installation (saved as `test_installation.py` file) can be anything that is using Tensorflow. In my case it is something like this:
 
 ```
 import tensorflow as tf
@@ -66,13 +65,21 @@ Now we can try to run this script by executing such command:
 
 `docker run tensorflow/tensorflow ./test_installation.py`
 
-But of course it will fail because the file `test_installation.py` is on our local hard drive and not inside of the docker container.
+It failed. I know. It's because the file `test_installation.py` is on our local hard drive and not inside of the docker container.
 
-##### Read files from local hard drive
+##### Copy files into Docker container
 
-Running scripts means that we have to mount directory with the script inside the Docker container. For convinience we can also make this directory working directory. We can do that by adding two additional options:
+The easiest possible fix to this problem is to copy file into the Docker container and run it.
 
-- `-v` - mounts current directory to specified directory inside docker container  
+1. Run docker container in detached mode (`-d` option), which means that it will run until stopped, by executing: `docker run -d --name=tensorflow tensorflow/tensorflow`
+2. Copy script: `docker cp ./test_installation.py tensorflow:/test.py`
+3. Run it: `docker exec tensorflow python /test.py`
+
+##### Mount whole directory into Docker container
+
+Running scripts means that we have to mount directory with the script inside the Docker container. For convinience we can also make this directory working directory. We can do that by adding two options:
+
+- `-v` - mounts specified directory to given path inside docker container  
 - `-w` - setting specified directory as a working directory
 
 Now our command looks like this:
@@ -83,7 +90,7 @@ This version should work, but we can make two more improvement.
 
 ##### Interactive
 
-Probably in most cases we would like to see what is printed on our terminal. We can achieve this by adding `-it` option (actually those are two options `-i` and `-t`).
+Probably in most cases we would like to tell Docker to redirect its terminal content to our terminal. We can achieve this by adding `-it` option (actually those are two options `-i` and `-t`).
 
 Now our command looks like this:
 
