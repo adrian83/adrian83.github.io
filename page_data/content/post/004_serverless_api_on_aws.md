@@ -24,9 +24,13 @@ tags:
 
 The full source code with instructions, how to run and test it, can be found [here](https://github.com/adrian83/aws-samples/tree/master/004-serverless-api-demo).
 
+### Infrastructure as a Code
+
+Code presented in this post is defined in single yaml file. Both infrastructure (database, security roles, lambda functions and API) and logic (code executed by lambda functions) is defined in CloudFormation. Creating Serverless applications in CloudFormation became bit simpler since AWS realised set of resources under `AWS::Serverless::*` namespace. Most of resources from that namespace have equivalent in standard CloudFormation resources. For example, used in this post, `AWS::Serverless::Function` is just `AWS::Lambda::Function` with some improvements, or also used `AWS::Serverless::Api` which simplifies creation of API Gateways (by creating `AWS::ApiGateway::RestApi` and few other resources from `AWS::ApiGateway::*` resource). Of course as usually is such situations using resources from `AWS::Serverless::*` allows you to build infrastructure quicker and on the other hand using standard CloudFormation resources gives you more configuration options.
+
 ### Database
 
-Since we are building serverless application, it is important to choose proper Database. The most important requirements when choosing Database should be: no servers to manage and scaling regarding the traffic. DynamoDB fulfills both of thoses requirements, and thus it makes perfect sense to use it.
+Since we are building serverless application, it is important to choose proper Database. We definitely need database, that will scale regarding the traffic, and also we don't want to manage any server. DynamoDB fulfills both of thoses requirements, and thus it makes perfect sense to use it.
 
 Lets look at the definition of DynamoDB table:
 
@@ -93,13 +97,11 @@ This resource contains information about:
   - first one allows to execute every operation on DynamoDB table defined previously   
   - second one allows to write logs into CloudWatch service  
 
+
+
 ### Functions
 
 Writing lambda code can be done in almost any programming language thanks to possibility of defining [Custom AWS Lambda Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html). However if you want to interact with other AWS services, it’s much easer to write code in language, that have [official AWS SDK](https://aws.amazon.com/tools/).
-
-Curently we can create Lambdas in two ways:
-- by using resource with type `AWS::Lambda::Function` (and few others from `AWS::Lambda::*` namespace), which allows detailed configuration of Lambda but require additional work with binding them to the triggers.
-- by using resource with type `AWS::Serverless::Function`, which simplifies Lambda creation to single resource which contains event definition 
 
 If the code executed by Lambda will be rather short, you can decide to inline it inside your CloudFormation script. 
 
@@ -219,10 +221,6 @@ Let's take a look at properties, that we have to define for all our Lambda funct
 ### Endpoints
 
 Exposing API to the world can be done through API Gateway service.
-
-Similar as with Lambdas we can create Gateways in two ways: 
-- by using resource with type `AWS::ApiGateway::RestApi` (and few others from `AWS::ApiGateway::*` namespace), which allows detailed configuration of API Gateway
-- by using resource with type `AWS::Serverless::Api`, which simplifies API Gateway creation to single resource
 
 Basic definition of API Gateway looks like this:
 
