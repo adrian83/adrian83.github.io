@@ -26,7 +26,7 @@ The full source code with instructions, how to run and test it, can be found [he
 
 ### Infrastructure as a Code
 
-Code presented in this post is defined in single yaml file. Both infrastructure (database, security roles, lambda functions and API) and logic (code executed by lambda functions) is defined in CloudFormation. Creating Serverless applications in CloudFormation became bit simpler since AWS realised set of resources under `AWS::Serverless::*` namespace. Most of resources from that namespace have equivalent in standard CloudFormation resources. For example, used in this post, `AWS::Serverless::Function` is just `AWS::Lambda::Function` with some improvements, or also used `AWS::Serverless::Api` which simplifies creation of API Gateways (by creating `AWS::ApiGateway::RestApi` and few other resources from `AWS::ApiGateway::*` resource). Of course as usually is such situations using resources from `AWS::Serverless::*` allows you to build infrastructure quicker and on the other hand using standard CloudFormation resources gives you more configuration options.
+Defining Serverless applications in CloudFormation became a bit simpler since AWS realised set of resources under `AWS::Serverless::*` namespace. In fact code presented in this post is defined in single yaml file. Both infrastructure (database, security roles, lambda functions and API gateway) and logic (code executed by lambda functions) is defined in CloudFormation. Most of resources from that namespace have equivalent in standard CloudFormation resources. For example, used in this post, `AWS::Serverless::Function` is just `AWS::Lambda::Function` with some improvements, or also used `AWS::Serverless::Api` which simplifies creation of API Gateways (by creating `AWS::ApiGateway::RestApi` and few other resources from `AWS::ApiGateway::*` resource). Of course as usually is such situations using resources from `AWS::Serverless::*` allows you to build infrastructure quicker and on the other hand using standard CloudFormation resources gives you more configuration options.
 
 ### Database
 
@@ -54,50 +54,6 @@ There are basically three important information in this definition:
 - billing mode (we will pay only for what we use)
 - key definition (every element in `KeySchema` needs to be defined in `AttributeDefinitions`)
 
-### Permissions
-
-Before we go to the Lambda Functions, let's look at permissions (IAM Role), that we need to add to those functions, so that they can access DynamoDB table defined above.
-
-```
-  UserLambdaRole:
-    DependsOn: UsersDynamoDBTable
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Statement:
-          - Effect: Allow
-            Action:
-            - 'sts:AssumeRole'
-            Principal:
-              Service:
-              - 'lambda.amazonaws.com'
-      Policies:
-        - PolicyName: 'users-dynamodb-policy'
-          PolicyDocument:
-            Statement:
-              - Effect: Allow
-                Action:
-                  - dynamodb:*
-                Resource:
-                    - !GetAtt UsersDynamoDBTable.Arn 
-        - PolicyName: 'users-logs-policy'
-          PolicyDocument:
-            Statement:
-              - Effect: Allow
-                Action:
-                  - logs:*
-                Resource:
-                  - "arn:aws:logs:*:*:*"
-```
-
-This resource contains information about: 
-
-- type of service ('lambda.amazonaws.com'), that can use (assume) this Role
-- policies which are bound to this role:
-  - first one allows to execute every operation on DynamoDB table defined previously   
-  - second one allows to write logs into CloudWatch service  
-
-
 
 ### Functions
 
@@ -108,15 +64,17 @@ If the code executed by Lambda will be rather short, you can decide to inline it
 Let's look at sample lambda definitions:
 
 ```
-  CreateUserLambda:
+CreateUserLambda:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: 'user-create'
-      Role: !GetAtt UserLambdaRole.Arn 
       Handler: index.lambda_handler
       Runtime: python3.6
       Timeout: 25
       MemorySize: 128
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName: !Ref UsersDynamoDBTable
       Environment:
         Variables:
           USERS_TABLE_NAME: !Ref UsersDynamoDBTable
@@ -136,13 +94,13 @@ Let's look at sample lambda definitions:
           import uuid
 
           users_table = os.environ['USERS_TABLE_NAME']
+
           dynamodb_client = boto3.client('dynamodb')
 
           def lambda_handler(event, context):
             print("event: {0}".format(event))
 
             body = json.loads(event['body'])
-
             if 'firstName' not in body or 'lastName' not in body:
               print("cannot persist user, invalid data: {0}".format(body))
               return {"statusCode": 400, "body": "Invalid input"}
@@ -166,11 +124,13 @@ Let's look at sample lambda definitions:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: 'user-delete'
-      Role: !GetAtt UserLambdaRole.Arn 
       Handler: index.lambda_handler
       Runtime: python3.6
       Timeout: 25
       MemorySize: 128
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName: !Ref UsersDynamoDBTable
       Environment:
         Variables:
           USERS_TABLE_NAME: !Ref UsersDynamoDBTable
@@ -188,6 +148,7 @@ Let's look at sample lambda definitions:
           import os
 
           users_table = os.environ['USERS_TABLE_NAME']
+
           dynamodb_client = boto3.client('dynamodb')
 
           def lambda_handler(event, context):
@@ -206,19 +167,19 @@ Let's look at sample lambda definitions:
             return {"statusCode": 200}
 ```
 
-Let's take a look at properties, that we have to define for all our Lambda functions:
+Let's take a look at few most important properties:
 
 - `FunctionName` - name of the Lambda function
-- `Role` - permissions for the Lambda function
 - `Handler` - name of the function (in source code), that will be called when Lambda will be executed
 - `Runtime` - defines runtime of the Lambda (programming language and it's version)
 - `Timeout` - max duration of the Lambda (in seconds)
 - `MemorySize` - describes, how powerfull will be the hardware (not only memory but also CPU), running your function
+- `Policies` - describe security policies, in this cases functions can execute CRUD operations on created previously DynamoDB table
 - `Environment.Variables` - defines variables, that can be assigned in CloudFormation and used in code
 - `Events` - events that will trigger this lambda, in these cases they are events from API Gateway 
 - `InlineCode` - code of the Lambda function
 
-### Endpoints
+### API Gateway
 
 Exposing API to the world can be done through API Gateway service.
 
@@ -232,4 +193,10 @@ Basic definition of API Gateway looks like this:
       StageName: 'api-demo'
 ```
 
-This definition can be so simple because all bindings between this resource and Lambdas are difined on the their side.
+### Summary
+
+As you can see knowing three types of Cloudformation resources is enough to create simple CRUD application. Thanks to resources from `AWS::Serverless::*` we dont have to define a few resources. For example:
+1. Defining `Policies` in `AWS::Serverless::Function` frees us from defining IAM Role (`AWS::IAM::Role`) 
+2. Defining `Events.Api` in `AWS::Serverless::Function` frees us from defining integration on Api Gateway as well as permission for API Gateway (`AWS::Lambda::Permission`)
+3. Defining `StageName` in `AWS::Serverless::Api` frees us from defining `AWS::ApiGateway::Stage` 
+
