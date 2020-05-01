@@ -6,7 +6,7 @@
     <description>Recent content on adrian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 16 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adrian83.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,18 @@
       <guid>https://adrian83.github.io/page/about/</guid>
       <description>Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner.
 Certified AWS Developer (Associate) and Solution Architect (Associate)</description>
+    </item>
+    
+    <item>
+      <title>Run code in Docker container</title>
+      <link>https://adrian83.github.io/post/003_run_code_in_docker_container/</link>
+      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/post/003_run_code_in_docker_container/</guid>
+      <description>Running your code inside of Docker container can save you from installing, sometimes very complex, tree of dependencies on your local computer. Introduction Following post presents a few steps, that will allow you to run your applications / scripts in an interactive way inside the Docker container.
+First let&amp;rsquo;s look at the general command for running Docker containers:
+docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+Using this commmand we can run our first example which in this case is echo command:</description>
     </item>
     
     <item>

@@ -1,7 +1,7 @@
 ---
 title: Run code in Docker container
 date: 2020-04-27
-draft: true
+draft: false
 categories:
 - docker
 - python

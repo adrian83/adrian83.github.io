@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Adrian Brzoza">
+    <meta name="description" content="Adrian Brzoza&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Run code in Docker container"/>
+<meta name="twitter:description" content="Running your code inside of Docker container can save you from installing, sometimes very complex, tree of dependencies on your local computer. Introduction Following post presents a few steps, that will allow you to run your applications / scripts in an interactive way inside the Docker container.
+First let&rsquo;s look at the general command for running Docker containers:
+docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+Using this commmand we can run our first example which in this case is echo command:"/>
+
+    <meta property="og:title" content="Run code in Docker container" />
+<meta property="og:description" content="Running your code inside of Docker container can save you from installing, sometimes very complex, tree of dependencies on your local computer. Introduction Following post presents a few steps, that will allow you to run your applications / scripts in an interactive way inside the Docker container.
+First let&rsquo;s look at the general command for running Docker containers:
+docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+Using this commmand we can run our first example which in this case is echo command:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adrian83.github.io/post/003_run_code_in_docker_container/" />
+<meta property="article:published_time" content="2020-04-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-27T00:00:00+00:00" />
+
+
+    
+      <base href="https://adrian83.github.io/post/003_run_code_in_docker_container/">
+    
+    <title>
+  Run code in Docker container · adrian
+</title>
+
+    
+      <link rel="canonical" href="https://adrian83.github.io/post/003_run_code_in_docker_container/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://adrian83.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.69.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://adrian83.github.io/">
+      adrian
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/post/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/tags/">Tags</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/page/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Run code in Docker container</h1>
+    </header>
+
+    <h3 id="running-your-code-inside-of-docker-container-can-save-you-from-installing-sometimes-very-complex-tree-of-dependencies-on-your-local-computer">Running your code inside of Docker container can save you from installing, sometimes very complex, tree of dependencies on your local computer.</h3>
+<h5 id="introduction">Introduction</h5>
+<p>Following post presents a few steps, that will allow you to run your applications / scripts in an interactive way inside the Docker container.</p>
+<p>First let&rsquo;s look at the general command for running Docker containers:</p>
+<p><code>docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]</code></p>
+<p>Using this commmand we can run our first example which in this case is <code>echo</code> command:</p>
+<p><code>docker run alpine echo 'hello world'</code></p>
+<p>It prints <code>hello world</code> somewhere at the end of the logged text.
+In similar way we can use other containers to execute our code inside of them.</p>
+<h5 id="problem">Problem</h5>
+<p>Some time ago I was trying to run examples from Tensorflow tutorial. To avoid poluting my operating system, I&rsquo;ve prepared virtual environment (with Virtualenv), to which I wanted to download required dependecnies. Unfortunately it turned out, that my python installation is unsupported by Tensorflow. I thought, that upgrading (or downgrading in my case) python is just too much trouble. Fortunately Tensorflow team prepared Docker images, that can be used to run scripts. The image is called <code>tensorflow/tensorflow</code>.</p>
+<!-- raw HTML omitted -->
+<p>Let&rsquo;s assume, we have a python script, which uses Tensorflow, that we want to run inside Docker container. We can call it <code>test_installation.py</code> and fill it with such content:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import tensorflow as tf
+
+tensor1 = tf.convert_to_tensor([[1, 2], [3, 4]], dtype = tf.int32)
+tensor2 = tf.convert_to_tensor([[2, 3], [4, 5]], dtype = tf.int32)
+
+result = tf.add(tensor1, tensor2)
+
+print(result)
+</code></pre></div><!-- raw HTML omitted -->
+<p>Before running following commands please be aware, that it will download Docker image with size around 2,5GB.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ docker system df -v
+Images space usage:
+
+REPOSITORY              TAG      IMAGE ID       SIZE      SHARED SIZE   UNIQUE SIZE 
+tensorflow/tensorflow   latest   9bf93bf90865   2.469GB   64.19MB       2.405GB  
+</code></pre></div><p>Now we can try to run this script, by executing such command:</p>
+<p><code>docker run tensorflow/tensorflow ./test_installation.py</code></p>
+<p>Don&rsquo;t expect too much. It will fail. It&rsquo;s because, the file <code>test_installation.py</code> is on our local hard drive, and not inside the docker container.</p>
+<h5 id="mount-whole-directory-into-docker-container">Mount whole directory into Docker container</h5>
+<p>Easiest way to allow Docker to access our files is to mount directory inside the Docker container. For convinience we can also make it our working directory. We can do that, by adding two options:</p>
+<ul>
+<li><code>-v</code> - mounts specified directory to given path inside docker container</li>
+<li><code>-w</code> - setting specified directory as a working directory</li>
+</ul>
+<p>Now our command looks like this:</p>
+<p><code>docker run -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py</code></p>
+<p>This version should work, but we can make two more improvement.</p>
+<h5 id="interactive">Interactive</h5>
+<p>Probably in most cases we would like to tell Docker to redirect its terminal content to our terminal. We can achieve this by adding <code>-it</code> option (actually those are two options <code>-i</code> and <code>-t</code>).</p>
+<p>Now our command looks like this:</p>
+<p><code>docker run -it -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py</code></p>
+<p>We are almost done, but we can add one more improvement.</p>
+<h5 id="reusable">Reusable</h5>
+<p>If you want to keep your container clean, you can add one more additional option: <code>--rm</code>, which will remove file system when the container exits.</p>
+<p>Final version of our command looks like this:</p>
+<p><code>docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./test_installation.py</code></p>
+<h5 id="result">Result</h5>
+<p>After running this file I received some amount of logs and result of the executed script somewhere at the bottom of the output.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">2020-04-27 18:50:49.603913: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library &#39;libnvinfer.so.6&#39;; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-04-27 18:50:49.604005: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library &#39;libnvinfer_plugin.so.6&#39;; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-04-27 18:50:49.604014: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-04-27 18:50:50.016786: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-04-27 18:50:50.016819: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-04-27 18:50:50.016849: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (bd0bde99430b): /proc/driver/nvidia/version does not exist
+2020-04-27 18:50:50.017077: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-04-27 18:50:50.036082: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3301490000 Hz
+2020-04-27 18:50:50.036482: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5607a955a160 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-04-27 18:50:50.036501: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+tf.Tensor(
+[[3 5]
+ [7 9]], shape=(2, 2), dtype=int32)
+</code></pre></div><h5 id="different-aproach---copy-files-into-docker-container">Different aproach - copy files into Docker container</h5>
+<p>Sometimes we want to execute code inside long running (with <code>-d</code> option) Docker container (ie Cassandra). In such case we need to copy file into the running Docker container and run it.</p>
+<ol>
+<li>Run docker container in detached mode (which means that it will run until stopped), by executing: <code>docker run -d -p 9042:9042 --name=cassandra_test cassandra:latest</code></li>
+<li>Copy file, you want to execute: <code>docker cp cassandra.cql cassandra_test:/schema.cql</code></li>
+<li>Use copied file: <code>docker exec cassandra_test cqlsh -f /schema.cql</code></li>
+</ol>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+      
+        © 2020
+      
+       Adrian Brzoza 
+    
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+    
+
+  </body>
+
+</html>
