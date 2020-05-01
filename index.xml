@@ -34,6 +34,16 @@ Using this commmand we can run our first example which in this case is echo comm
     </item>
     
     <item>
+      <title>Building Serverless API on AWS</title>
+      <link>https://adrian83.github.io/post/004_serverless_api_on_aws/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/post/004_serverless_api_on_aws/</guid>
+      <description>Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management. The full source code with instructions, how to run and test it, can be found here.
+Infrastructure as a Code Knowledge of programming language and few CloudFormation resources is all, that you need to build Serverless application. In fact both infrastructure (database, lambda functions and API gateway), and logic (code executed by lambda functions), from this example, are defined in single CloudFormation file.</description>
+    </item>
+    
+    <item>
       <title>Go (Golang) and JSON</title>
       <link>https://adrian83.github.io/post/002_go_and_json/</link>
       <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>

@@ -12,11 +12,11 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Building Serverless API on AWS"/>
 <meta name="twitter:description" content="Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management. The full source code with instructions, how to run and test it, can be found here.
-Database Since we are building serverless application, it is important to choose proper Database. The most important requirements when choosing Database should be: no servers to manage and scaling regarding the traffic."/>
+Infrastructure as a Code Knowledge of programming language and few CloudFormation resources is all, that you need to build Serverless application. In fact both infrastructure (database, lambda functions and API gateway), and logic (code executed by lambda functions), from this example, are defined in single CloudFormation file."/>
 
     <meta property="og:title" content="Building Serverless API on AWS" />
 <meta property="og:description" content="Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management. The full source code with instructions, how to run and test it, can be found here.
-Database Since we are building serverless application, it is important to choose proper Database. The most important requirements when choosing Database should be: no servers to manage and scaling regarding the traffic." />
+Infrastructure as a Code Knowledge of programming language and few CloudFormation resources is all, that you need to build Serverless application. In fact both infrastructure (database, lambda functions and API gateway), and logic (code executed by lambda functions), from this example, are defined in single CloudFormation file." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adrian83.github.io/post/004_serverless_api_on_aws/" />
 <meta property="article:published_time" content="2020-03-15T00:00:00+00:00" />
@@ -57,7 +57,7 @@ Database Since we are building serverless application, it is important to choose
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="generator" content="Hugo 0.69.1" />
   </head>
 
   
@@ -105,8 +105,11 @@ Database Since we are building serverless application, it is important to choose
 
     <h3 id="writing-serverless-applications-on-aws-can-be-really-easy-below-you-can-find-description-of-how-to-build-simplified-crud-application-for-user-management">Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management.</h3>
 <p>The full source code with instructions, how to run and test it, can be found <a href="https://github.com/adrian83/aws-samples/tree/master/004-serverless-api-demo">here</a>.</p>
+<h3 id="infrastructure-as-a-code">Infrastructure as a Code</h3>
+<p>Knowledge of programming language and few CloudFormation resources is all, that you need to build Serverless application. In fact both infrastructure (database, lambda functions and API gateway), and logic (code executed by lambda functions), from this example, are defined in single CloudFormation file.
+Especially for building Serverless application AWS realised set of resources under <code>AWS::Serverless::*</code> namespace. By using these resources (like <code>AWS::Serverless::Function</code> or <code>AWS::Serverless::Api</code>) you can start building your application faster, and if you need more configuration options, you can always switch to standart ones (like <code>AWS::Lambda::Function</code> or <code>AWS::ApiGateway::RestApi</code>).</p>
 <h3 id="database">Database</h3>
-<p>Since we are building serverless application, it is important to choose proper Database. The most important requirements when choosing Database should be: no servers to manage and scaling regarding the traffic. DynamoDB fulfills both of thoses requirements, and thus it makes perfect sense to use it.</p>
+<p>Since we are building serverless application, it is important to choose proper Database. We definitely need database, that will scale regarding the traffic, and also we don&rsquo;t want to manage any server. DynamoDB fulfills both of thoses requirements, and thus it makes perfect sense to use it.</p>
 <p>Lets look at the definition of DynamoDB table:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  UsersDynamoDBTable:
     Type: &#39;AWS::DynamoDB::Table&#39;
@@ -122,68 +125,36 @@ Database Since we are building serverless application, it is important to choose
 </code></pre></div><p>There are basically three important information in this definition:</p>
 <ul>
 <li>name of the table</li>
-<li>billing mode (i want to pay only for what i use)</li>
+<li>billing mode (we will pay only for what we use)</li>
 <li>key definition (every element in <code>KeySchema</code> needs to be defined in <code>AttributeDefinitions</code>)</li>
-</ul>
-<h3 id="permissions">Permissions</h3>
-<p>Before we go to the Lambda Functions, let&rsquo;s look at permissions (IAM Role), that we need to add to those functions, so that they can access DynamoDB table defined above.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  UserLambdaRole:
-    DependsOn: UsersDynamoDBTable
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Statement:
-          - Effect: Allow
-            Action:
-            - &#39;sts:AssumeRole&#39;
-            Principal:
-              Service:
-              - &#39;lambda.amazonaws.com&#39;
-      Policies:
-        - PolicyName: &#39;users-dynamodb-policy&#39;
-          PolicyDocument:
-            Statement:
-              - Effect: Allow
-                Action:
-                  - dynamodb:*
-                Resource:
-                    - !GetAtt UsersDynamoDBTable.Arn 
-        - PolicyName: &#39;users-logs-policy&#39;
-          PolicyDocument:
-            Statement:
-              - Effect: Allow
-                Action:
-                  - logs:*
-                Resource:
-                  - &#34;arn:aws:logs:*:*:*&#34;
-</code></pre></div><p>This resource contains information about:</p>
-<ul>
-<li>type of service (&lsquo;lambda.amazonaws.com&rsquo;), that can use (assume) this Role</li>
-<li>policies which are bound to this role:
-<ul>
-<li>first one allows to execute every operation on DynamoDB table defined previously</li>
-<li>second one allows to write logs into CloudWatch service</li>
-</ul>
-</li>
 </ul>
 <h3 id="functions">Functions</h3>
 <p>Writing lambda code can be done in almost any programming language thanks to possibility of defining <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html">Custom AWS Lambda Runtimes</a>. However if you want to interact with other AWS services, it’s much easer to write code in language, that have <a href="https://aws.amazon.com/tools/">official AWS SDK</a>.</p>
 <p>If the code executed by Lambda will be rather short, you can decide to inline it inside your CloudFormation script.</p>
-<p>Let&rsquo;s look at sample lambda definitions:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  CreateUserLambda:
-    Type: &#34;AWS::Lambda::Function&#34;
+<p>Let&rsquo;s look at sample Lambda definitions:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">CreateUserLambda:
+    Type: AWS::Serverless::Function
     Properties:
       FunctionName: &#39;user-create&#39;
-      Role: !GetAtt UserLambdaRole.Arn 
       Handler: index.lambda_handler
       Runtime: python3.6
       Timeout: 25
       MemorySize: 128
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName: !Ref UsersDynamoDBTable
       Environment:
         Variables:
           USERS_TABLE_NAME: !Ref UsersDynamoDBTable
-      Code:
-        ZipFile: |
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Method: post
+            Path: /v1/users
+            RestApiId: 
+              Ref: UserAPIGateway
+      InlineCode: |
           from __future__ import print_function
           import boto3
           import json
@@ -191,13 +162,13 @@ Database Since we are building serverless application, it is important to choose
           import uuid
 
           users_table = os.environ[&#39;USERS_TABLE_NAME&#39;]
+
           dynamodb_client = boto3.client(&#39;dynamodb&#39;)
 
           def lambda_handler(event, context):
             print(&#34;event: {0}&#34;.format(event))
 
             body = json.loads(event[&#39;body&#39;])
-
             if &#39;firstName&#39; not in body or &#39;lastName&#39; not in body:
               print(&#34;cannot persist user, invalid data: {0}&#34;.format(body))
               return {&#34;statusCode&#34;: 400, &#34;body&#34;: &#34;Invalid input&#34;}
@@ -214,33 +185,38 @@ Database Since we are building serverless application, it is important to choose
               print(&#34;cannot put item: {0}&#34;.format(response))
               return {&#34;statusCode&#34;: 500, &#34;body&#34;: &#34;Internal server error: {0}&#34;.format(response)}
 
-            user = {&#39;id&#39;: user_id, &#39;firstName&#39;: first_name, &#39;lastName&#39;: last_name}
-
-            return {
-              &#34;statusCode&#34;: 201, 
-              &#34;body&#34;: json.dumps(user)
-            }
+            return {&#34;statusCode&#34;: 201, &#34;body&#34;: json.dumps({&#39;id&#39;: user_id, &#39;firstName&#39;: first_name, &#39;lastName&#39;: last_name})}
 
 
   DeleteUserLambda:
-    Type: &#34;AWS::Lambda::Function&#34;
+    Type: AWS::Serverless::Function
     Properties:
       FunctionName: &#39;user-delete&#39;
-      Role: !GetAtt UserLambdaRole.Arn 
       Handler: index.lambda_handler
       Runtime: python3.6
       Timeout: 25
       MemorySize: 128
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName: !Ref UsersDynamoDBTable
       Environment:
         Variables:
           USERS_TABLE_NAME: !Ref UsersDynamoDBTable
-      Code:
-        ZipFile: |
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Method: delete
+            Path: /v1/users/{userId}
+            RestApiId: 
+              Ref: UserAPIGateway
+      InlineCode: |
           from __future__ import print_function
           import boto3
           import os
 
           users_table = os.environ[&#39;USERS_TABLE_NAME&#39;]
+
           dynamodb_client = boto3.client(&#39;dynamodb&#39;)
 
           def lambda_handler(event, context):
@@ -257,71 +233,34 @@ Database Since we are building serverless application, it is important to choose
               return {&#34;statusCode&#34;: 500, &#34;body&#34;: &#34;Internal server error: {0}&#34;.format(response)}
 
             return {&#34;statusCode&#34;: 200}
-</code></pre></div><p>Let&rsquo;s take a look at properties, that we have to define for all our Lambda functions:</p>
+</code></pre></div><p>Let&rsquo;s take a look at few most important properties:</p>
 <ul>
 <li><code>FunctionName</code> - name of the Lambda function</li>
-<li><code>Role</code> - permissions for the Lambda function</li>
 <li><code>Handler</code> - name of the function (in source code), that will be called when Lambda will be executed</li>
 <li><code>Runtime</code> - defines runtime of the Lambda (programming language and it&rsquo;s version)</li>
 <li><code>Timeout</code> - max duration of the Lambda (in seconds)</li>
 <li><code>MemorySize</code> - describes, how powerfull will be the hardware (not only memory but also CPU), running your function</li>
+<li><code>Policies</code> - describe security policies, in this cases functions can execute CRUD operations on created previously DynamoDB table</li>
 <li><code>Environment.Variables</code> - defines variables, that can be assigned in CloudFormation and used in code</li>
-<li><code>Code.ZipFile</code> - code of the Lambda function</li>
+<li><code>Events</code> - events that will trigger this lambda, in these cases they are events from API Gateway</li>
+<li><code>InlineCode</code> - code of the Lambda function</li>
 </ul>
-<h3 id="endpoints">Endpoints</h3>
+<h3 id="api-gateway">API Gateway</h3>
 <p>Exposing API to the world can be done through API Gateway service.</p>
-<p>Curently we can create Gateways in two ways:</p>
-<ul>
-<li>by using resource with type <code>AWS::ApiGateway::RestApi</code> (and few others from <code>AWS::ApiGateway::*</code> namespace), which allows detailed configuration of API Gateway</li>
-<li>by using resource with type <code>AWS::Serverless::Api</code>, which simplifies API Gateway creation to single resource</li>
-</ul>
-<p>Integrating Lambdas with API Gateway is quite easy and it looks something like this:</p>
+<p>Basic definition of API Gateway looks like this:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  UserAPIGateway:
     Type: AWS::Serverless::Api
     Properties:
-      Name: !Sub &#39;users-api-gateway&#39;
+      Name: &#39;users-api-gateway&#39;
       StageName: &#39;api-demo&#39;
-      MethodSettings:
-        - HttpMethod: &#39;*&#39;
-          MetricsEnabled: true
-          ResourcePath: &#39;/*&#39;
-      DefinitionBody:
-        swagger: &#34;2.0&#34;
-        info:
-          version: &#34;2018-06-04T13:58:30Z&#34;
-          title:
-            Ref: AWS::StackName
-        paths:
-          /v1/users:
-            post:
-              x-amazon-apigateway-integration:
-                httpMethod: &#34;POST&#34;
-                type: &#34;aws_proxy&#34;
-                uri: !Sub &#39;arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${CreateUserLambda.Arn}/invocations&#39;
-          /v1/users/{userId}:
-            delete:
-              parameters:
-              - name: userId
-                in: path
-                required: true
-                type: string
-              x-amazon-apigateway-integration:
-                httpMethod: &#34;POST&#34;
-                type: &#34;aws_proxy&#34;
-                uri: !Sub &#39;arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${DeleteUserLambda.Arn}/invocations&#39;
-</code></pre></div><p>The most important part of this resource is the DefinitionBody, which comply with Open API (formerly Swagger).
-As you can see, every pair of path and http method is integrated with lambda function. Please be aware, that every such integration is done through POST method (<code>httpMethod: &quot;POST&quot;</code>).</p>
-<h3 id="permissions-1">Permissions</h3>
-<p>Each Lambda runs with it&rsquo;s IAM Role, in which we define, that it can use DynamoDB and CloudWatch (for logging), but there is no permission for API Gateway. This kind of permission is defined by resouce with type <code>AWS::Lambda::Permission</code> and it looks like this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  CreateUserLambdaApiGatewayPermission:
-    DependsOn: [CreateUserLambda, UserAPIGateway]
-    Type: AWS::Lambda::Permission
-    Properties:
-      Action: lambda:invokeFunction
-      FunctionName: !GetAtt CreateUserLambda.Arn
-      Principal: apigateway.amazonaws.com
-      SourceArn: !Sub &#39;arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${UserAPIGateway}/*&#39;
-</code></pre></div>
+</code></pre></div><h3 id="summary">Summary</h3>
+<p>As you can see knowing three types of CloudFormation resources is enough to create simple CRUD application. Thanks to resources from <code>AWS::Serverless::*</code> we don&rsquo;t have to define a few more resources. For example:</p>
+<ol>
+<li>Defining <code>Policies</code> in <code>AWS::Serverless::Function</code> frees us from defining IAM Role (<code>AWS::IAM::Role</code>)</li>
+<li>Defining <code>Events.Api</code> in <code>AWS::Serverless::Function</code> frees us from defining integration on API Gateway, as well as permission for API Gateway (<code>AWS::Lambda::Permission</code>)</li>
+<li>Defining <code>StageName</code> in <code>AWS::Serverless::Api</code> frees us from defining <code>AWS::ApiGateway::Stage</code></li>
+</ol>
+
   </article>
 </section>
 

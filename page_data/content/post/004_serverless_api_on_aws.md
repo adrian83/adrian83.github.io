@@ -1,7 +1,7 @@
 ---
 title: Building Serverless API on AWS
 date: 2020-03-15
-draft: true
+draft: false
 categories:
 - aws
 - python
@@ -26,7 +26,9 @@ The full source code with instructions, how to run and test it, can be found [he
 
 ### Infrastructure as a Code
 
-Defining Serverless applications in CloudFormation became a bit simpler since AWS realised set of resources under `AWS::Serverless::*` namespace. In fact code presented in this post is defined in single yaml file. Both infrastructure (database, security roles, lambda functions and API gateway) and logic (code executed by lambda functions) is defined in CloudFormation. Most of resources from that namespace have equivalent in standard CloudFormation resources. For example, used in this post, `AWS::Serverless::Function` is just `AWS::Lambda::Function` with some improvements, or also used `AWS::Serverless::Api` which simplifies creation of API Gateways (by creating `AWS::ApiGateway::RestApi` and few other resources from `AWS::ApiGateway::*` resource). Of course as usually is such situations using resources from `AWS::Serverless::*` allows you to build infrastructure quicker and on the other hand using standard CloudFormation resources gives you more configuration options.
+Knowledge of programming language and few CloudFormation resources is all, that you need to build Serverless application. In fact both infrastructure (database, lambda functions and API gateway), and logic (code executed by lambda functions), from this example, are defined in single CloudFormation file.
+Especially for building Serverless application AWS realised set of resources under `AWS::Serverless::*` namespace. By using these resources (like `AWS::Serverless::Function` or `AWS::Serverless::Api`) you can start building your application faster, and if you need more configuration options, you can always switch to standart ones (like `AWS::Lambda::Function` or `AWS::ApiGateway::RestApi`).
+
 
 ### Database
 
@@ -61,7 +63,7 @@ Writing lambda code can be done in almost any programming language thanks to pos
 
 If the code executed by Lambda will be rather short, you can decide to inline it inside your CloudFormation script. 
 
-Let's look at sample lambda definitions:
+Let's look at sample Lambda definitions:
 
 ```
 CreateUserLambda:
@@ -195,8 +197,8 @@ Basic definition of API Gateway looks like this:
 
 ### Summary
 
-As you can see knowing three types of Cloudformation resources is enough to create simple CRUD application. Thanks to resources from `AWS::Serverless::*` we dont have to define a few resources. For example:
+As you can see knowing three types of CloudFormation resources is enough to create simple CRUD application. Thanks to resources from `AWS::Serverless::*` we don't have to define a few more resources. For example:
 1. Defining `Policies` in `AWS::Serverless::Function` frees us from defining IAM Role (`AWS::IAM::Role`) 
-2. Defining `Events.Api` in `AWS::Serverless::Function` frees us from defining integration on API Gateway as well as permission for API Gateway (`AWS::Lambda::Permission`)
+2. Defining `Events.Api` in `AWS::Serverless::Function` frees us from defining integration on API Gateway, as well as permission for API Gateway (`AWS::Lambda::Permission`)
 3. Defining `StageName` in `AWS::Serverless::Api` frees us from defining `AWS::ApiGateway::Stage` 
 

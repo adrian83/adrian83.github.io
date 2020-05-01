@@ -18,7 +18,7 @@
       
       <guid>https://adrian83.github.io/post/004_serverless_api_on_aws/</guid>
       <description>Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management. The full source code with instructions, how to run and test it, can be found here.
-Database Since we are building serverless application, it is important to choose proper Database. The most important requirements when choosing Database should be: no servers to manage and scaling regarding the traffic.</description>
+Infrastructure as a Code Knowledge of programming language and few CloudFormation resources is all, that you need to build Serverless application. In fact both infrastructure (database, lambda functions and API gateway), and logic (code executed by lambda functions), from this example, are defined in single CloudFormation file.</description>
     </item>
     
   </channel>
