@@ -1,7 +1,7 @@
 ---
 title: Building Serverless API on AWS
 date: 2020-03-15
-draft: false
+draft: true
 categories:
 - aws
 - python
@@ -197,6 +197,6 @@ Basic definition of API Gateway looks like this:
 
 As you can see knowing three types of Cloudformation resources is enough to create simple CRUD application. Thanks to resources from `AWS::Serverless::*` we dont have to define a few resources. For example:
 1. Defining `Policies` in `AWS::Serverless::Function` frees us from defining IAM Role (`AWS::IAM::Role`) 
-2. Defining `Events.Api` in `AWS::Serverless::Function` frees us from defining integration on Api Gateway as well as permission for API Gateway (`AWS::Lambda::Permission`)
+2. Defining `Events.Api` in `AWS::Serverless::Function` frees us from defining integration on API Gateway as well as permission for API Gateway (`AWS::Lambda::Permission`)
 3. Defining `StageName` in `AWS::Serverless::Api` frees us from defining `AWS::ApiGateway::Stage` 
 
