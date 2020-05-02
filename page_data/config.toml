@@ -18,7 +18,7 @@ disqusShortname = "yourdiscussshortname"
     info = "Software Engineer"
     description = "Adrian Brzoza's personal website"
     keywords = "blog,developer,personal"
-    avatarurl = "https://adrian83.github.io/data/photo.jpg"
+    avatarurl = "/images/avatar.jpg"
 
     favicon_32 = "https://github.githubassets.com/favicon.ico"
     favicon_16 = "https://github.githubassets.com/favicon.ico"
