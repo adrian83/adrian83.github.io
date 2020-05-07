@@ -1,5 +1,5 @@
 ---
-title: Python decorators
+title: Decorators in Python
 date: 2020-04-10
 draft: true
 categories:
@@ -10,12 +10,36 @@ tags:
 - decorators
 ---
 
-### Python decorators
+### Decorators in Python are very powerful and elegant way to wrap functions and classes, modify it's arguments, returned value or block wrapped function from invocation.
+
+In this post we will see how to create decorators implemented as functions as well as classes. We will see that also decorators can have parameters and we will see results of using multiple decorators on single function.
 
 
+Before we go to decorators let's see code that will be used in every example.
+First function will be used in every decorator presented below and it will print name of decorated function / class and it's arguments.
+Second one is a function on which we will test every created decorator.
+
+```
+import types
+import time
+
+info_format = "Executing '{0}' with *args: {1} and **kwargs: {2}"
+
+def func_invocation_info(call, *args, **kwargs):
+    name = (call if isinstance(call, types.FunctionType) else call.__class__).__name__
+    argsStr = ", ".join(args)
+    kwargsStr = ", ".join(["{0}={1}".format(k, v) for k, v in kwargs.items()])
+    return info_format.format(name, argsStr, kwargsStr)
 
 
-
+def introduce(first_name, last_name, **info):
+    print("PERSONAL DATA:")
+    print("First name: {0}".format(first_name))
+    print("Last name: {0}".format(last_name))
+    for key, value in info.items():
+        print("{0}: {1}".format(key, value))
+    print("")
+```
 
 #### Python decorators implemented as functions
 
@@ -47,6 +71,18 @@ Last name: Shakespeare
 Father: John Shakespeare
 Mother: Mary Arden
 ```
+
+The code above can be also written as:
+```
+introduce_ex1 = log(introduce_ex1)
+introduce_ex1("William", "Shakespeare", Father="John Shakespeare",
+            Mother="Mary Arden")
+```
+
+The `log` function (our decorator) accepts function and returns function (`wrapper`) which is ready for accepting arguments.
+Invocation of that wrapped function first prints info about wrapped function, and then executes it. 
+
+
 
 ##### Decorator with it's own parameters
 ```
