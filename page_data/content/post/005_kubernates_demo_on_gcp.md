@@ -1,5 +1,5 @@
 ---
-title: Kubernates demo on gcp
+title: Kubernates demo on Google Cloud Platform
 date: 2020-04-10
 draft: true
 categories:
@@ -22,19 +22,34 @@ tags:
 
 The full source code with instructions, how to run and test it, can be found [here](https://github.com/adrian83/gcp-samples/tree/master/001-kubernetes-demo).
 
+Before you start make sure you meet the following requirements:
+1. You have [Google Cloud Platform](https://cloud.google.com/) account
+2. You have installed [Google Cloud Platform SDK](https://cloud.google.com/sdk)
+3. You have installed [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) 
 
 
-1. Sign in to GCP by executing: `gcloud auth login`
+After that we have to do some administation work:
+1. Sign in to GCP account by executing: `gcloud auth login`
+2. Run `gcloid init`
+3. Create new project by executing this command: `gcloud projects create <unique-project-id>`, in my case it will be: `gcloud projects create adrian-gcp-k8s-demo`
+4. [Enable billing for newly created project](https://support.google.com/googleapi/answer/6158867?hl=en)
+5. Enable required services for this project by executing this commands: `gcloud services enable deploymentmanager.googleapis.com` (for Deployment Manager service) and `gcloud services enable container.googleapis.com` (for Container service)
 
-2. Create new project
-New project can be created through web console or by executing this command: `gcloud projects create <unique-project-id>`, in my case it will be: `gcloud projects create adrian-gcp-k8s-demo`
 
-3. Make newly created project your main project
+gdfgdfgdf
+
+
+4. Sign in to GCP by executing: `gcloud auth login`
+
+5. Create new project by executing this command: `gcloud projects create <unique-project-id>`, in my case it will be: `gcloud projects create adrian-gcp-k8s-demo`
+
+6. Make newly created project your main project
 Run `gcloud config set project adrian-gcp-k8s-demo`.
 
 4. [Enable billing for newly created project](https://support.google.com/googleapi/answer/6158867?hl=en)
 
-5. Enable required services for this project
+5. Enable required services for this project by executing this command: `gcloud services enable deploymentmanager.googleapis.com`
+Enable Container service, by executing this command: `gcloud services enable container.googleapis.com`
 Enable Deployment Manager service, by executing this command: `gcloud services enable deploymentmanager.googleapis.com`
 Enable Container service, by executing this command: `gcloud services enable container.googleapis.com`
 
