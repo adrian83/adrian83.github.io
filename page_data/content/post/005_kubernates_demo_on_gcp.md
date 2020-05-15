@@ -36,39 +36,97 @@ After that we have to do some administation work:
 5. Enable required services for this project by executing this commands: `gcloud services enable deploymentmanager.googleapis.com` (for Deployment Manager service) and `gcloud services enable container.googleapis.com` (for Container service)
 
 
-gdfgdfgdf
+Now we are ready to deploy sample application. 
+We will start from creating an infrastructure. In GCP we can use Deployment Manager to build our infrastructure from code (file called `01-infrastructure.yml`). Actually our infrastructure is only one resource - Kubernetes Cluster. Mine is created in Finland but you should choose zone that is close to your location. Our cluster will contain 2 nodes.
+
+```
+resources:
+
+- name: k8s-demo-cluster
+  type: container.v1.cluster
+  properties:
+    zone: europe-north1-c      # Finland
+    cluster:
+      description: "k8s-demo cluster"
+      initialNodeCount: 2
+```
+
+Building our infrastructure will require executing such command:  
+`gcloud deployment-manager deployments create adrian-gcp-k8s-demo --config 01-infrastructure.yml` 
+
+After some time your Kubernetes cluster should be ready. 
+Now we can switch from using gcloud to kubectl. To do this execute this command:  
+`gcloud container clusters get-credentials k8s-demo-cluster --zone europe-north1-c`
+
+Lets start with deploying some pods in our cluster. 
+
+`02-echo-deployment.yml`
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-deployment
+  labels:
+    app: echo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: echo
+  template:
+    metadata:
+      labels:
+        app: echo
+    spec:
+      containers:
+      - name: echo
+        image: docker.io/adrianb83/echo:1.0.3
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "64Mi"
+            cpu: "250m"
+```
+
+I won't go into details which you can find [here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). The most important is that we are deloying two replicas of `docker.io/adrianb83/echo:1.0.3` docker image. You should also 
+
+`03-echo-service.yml`
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  type: NodePort
+  selector:
+    app: echo
+```
 
 
-4. Sign in to GCP by executing: `gcloud auth login`
 
-5. Create new project by executing this command: `gcloud projects create <unique-project-id>`, in my case it will be: `gcloud projects create adrian-gcp-k8s-demo`
+`04-echo-ingres.yml`
 
-6. Make newly created project your main project
-Run `gcloud config set project adrian-gcp-k8s-demo`.
+```
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: echo-ingress
+spec:
+  backend:
+    serviceName: echo
+    servicePort: 80
+```
 
-4. [Enable billing for newly created project](https://support.google.com/googleapi/answer/6158867?hl=en)
-
-5. Enable required services for this project by executing this command: `gcloud services enable deploymentmanager.googleapis.com`
-Enable Container service, by executing this command: `gcloud services enable container.googleapis.com`
-Enable Deployment Manager service, by executing this command: `gcloud services enable deploymentmanager.googleapis.com`
-Enable Container service, by executing this command: `gcloud services enable container.googleapis.com`
-
-6. Create (or update) project's infrastructure
-To create project, execute: gcloud deployment-manager deployments create adrian-gcp-k8s-demo --config 01-infrastructure.yml
-
-If you want to update existing infrastructure, execute: gcloud deployment-manager deployments update adrian-gcp-k8s-demo --config 01-infrastructure.yml
-
-7. Switch from using gloud to kubectl
-Get credentials from GCP, so that you can use your local kubectl to manage K8S cluster: `gcloud container clusters get-credentials k8s-demo-cluster --zone <zone-near-you>` in my case it's `gcloud container clusters get-credentials k8s-demo-cluster --zone europe-north1-c`
-
-8. Create deployment (pods)
-Execute: `kubectl apply -f 02-echo-deployment.yml`
-
-9. Create service (loadbalancer)
-Execute: `kubectl apply -f 03-echo-service.yml`
-
-10. Create ingres
-Execute: `kubectl apply -f 04-echo-ingres.yml`
-
-11. Clean up
-Remove deployment with Kubernetes cluster, by executing this command: `gcloud deployment-manager deployments delete adrian-gcp-k8s-demo`
+If you want to clean up you can remove GCP project or Deployment by executing: `gcloud deployment-manager deployments delete adrian-gcp-k8s-demo`
