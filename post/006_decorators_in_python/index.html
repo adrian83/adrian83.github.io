@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Adrian Brzoza">
+    <meta name="description" content="Adrian Brzoza&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Decorators in Python"/>
+<meta name="twitter:description" content="Decorators in Python are very powerful and elegant way to wrap functions and classes with custom code. In that code you can modify function arguments, returned values or ever block wrapped function from execution. Introduction In this post we will see, how to create decorators implemented as functions as well as classes. We will also see, that decorators themselves can have parameters and how multiple decorators behave on a single function."/>
+
+    <meta property="og:title" content="Decorators in Python" />
+<meta property="og:description" content="Decorators in Python are very powerful and elegant way to wrap functions and classes with custom code. In that code you can modify function arguments, returned values or ever block wrapped function from execution. Introduction In this post we will see, how to create decorators implemented as functions as well as classes. We will also see, that decorators themselves can have parameters and how multiple decorators behave on a single function." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adrian83.github.io/post/006_decorators_in_python/" />
+<meta property="article:published_time" content="2020-05-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-18T00:00:00+00:00" />
+
+
+    
+      <base href="https://adrian83.github.io/post/006_decorators_in_python/">
+    
+    <title>
+  Decorators in Python · adrian
+</title>
+
+    
+      <link rel="canonical" href="https://adrian83.github.io/post/006_decorators_in_python/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://adrian83.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.70.0" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://adrian83.github.io/">
+      adrian
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/post/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/tags/">Tags</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://adrian83.github.io/page/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Decorators in Python</h1>
+    </header>
+
+    <h3 id="decorators-in-python-are-very-powerful-and-elegant-way-to-wrap-functions-and-classes-with-custom-code-in-that-code-you-can-modify-function-arguments-returned-values-or-ever-block-wrapped-function-from-execution">Decorators in Python are very powerful and elegant way to wrap functions and classes with custom code. In that code you can modify function arguments, returned values or ever block wrapped function from execution.</h3>
+<h4 id="introduction">Introduction</h4>
+<p>In this post we will see, how to create decorators implemented as functions as well as classes. We will also see, that decorators themselves can have parameters and how multiple decorators behave on a single function.</p>
+<p>Before we go to decorators implementations let&rsquo;s see code, that will be used in every example.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import types
+import time
+
+info_format = &#34;Executing &#39;{0}&#39; with *args: {1} and **kwargs: {2}&#34;
+
+def func_invocation_info(call, *args, **kwargs):
+    name = (call if isinstance(call, types.FunctionType) else call.__class__).__name__
+    argsStr = &#34;, &#34;.join(args)
+    kwargsStr = &#34;, &#34;.join([&#34;{0}={1}&#34;.format(k, v) for k, v in kwargs.items()])
+    return info_format.format(name, argsStr, kwargsStr)
+
+
+def introduce(first_name, last_name, **info):
+    print(&#34;PERSONAL DATA:&#34;)
+    print(&#34;First name: {0}&#34;.format(first_name))
+    print(&#34;Last name: {0}&#34;.format(last_name))
+    for key, value in info.items():
+        print(&#34;{0}: {1}&#34;.format(key, value))
+    print(&#34;&#34;)
+</code></pre></div><p>First function will be used in every decorator presented below and it will print name of decorated function / class and it&rsquo;s arguments.
+Second one is a function, on which we will test every created decorator.</p>
+<h4 id="i-python-decorators-implemented-as-functions">I. Python decorators implemented as functions</h4>
+<p>If you know, what <a href="https://en.wikipedia.org/wiki/Higher-order_function">higher-order functions</a> and <a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">closures</a> are, you will quickly understand, how decorators work. Let’s see simple example.</p>
+<h5 id="1-decorator-without-its-own-parameters">1. Decorator without it&rsquo;s own parameters</h5>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def log(func):
+    def wrapper(*args, **kwargs):
+        print(func_invocation_info(func, *args, **kwargs))
+        return func(*args, **kwargs)
+    return wrapper
+
+
+@log
+def introduce_ex1(first_name, last_name, **info):
+    introduce(first_name, last_name, **info)
+
+
+introduce_ex1(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)
+</code></pre></div><p>Output:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Executing &#39;introduce_ex1&#39; with *args: William, Shakespeare and **kwargs: Father=John Shakespeare, Mother=Mary Arden
+PERSONAL DATA:
+First name: William
+Last name: Shakespeare
+Father: John Shakespeare
+Mother: Mary Arden
+</code></pre></div><p>The code above can be also written as:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">introduce_ex1 = log(introduce_ex1)
+introduce_ex1(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)
+</code></pre></div><h5 id="2-decorator-with-its-own-parameters">2. Decorator with it&rsquo;s own parameters</h5>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def log2(level, file_name):
+    def wrapper1(func):
+        def wrapper2(*args, **kwargs):
+            info = func_invocation_info(func, *args, **kwargs)
+            print(&#34;[{0}] [{1}] {2}&#34;.format(level, file_name, info))
+            return func(*args, **kwargs)
+        return wrapper2
+    return wrapper1
+
+
+@log2(&#34;INFO&#34;, &#34;decorator_func.py&#34;)
+def introduce_ex2(first_name, last_name, **info):
+    introduce(first_name, last_name, **info)
+
+
+introduce_ex2(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)
+</code></pre></div><p>Output:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[INFO] [decorator_func.py] Executing &#39;introduce_ex2&#39; with *args: William, Shakespeare and **kwargs: Father=John Shakespeare, Mother=Mary Arden
+PERSONAL DATA:
+First name: William
+Last name: Shakespeare
+Father: John Shakespeare
+Mother: Mary Arden
+</code></pre></div><p>The code above can be also written as:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">dec = log2(level, file_name)        #1
+introduce_ex2 = dec(introduce_ex2)
+introduce_ex2(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)
+</code></pre></div><p>Here we can see additional step (#1), which is creation of decorator with two parameters.</p>
+<h5 id="3-multiple-decorators-on-single-function--method">3. Multiple decorators on single function / method</h5>
+<p>Let&rsquo;s see, what will happen, when we use two decorators defined above on one function.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">@log2(&#34;INFO&#34;, &#34;decorator_func.py&#34;)
+@log
+def introduce_ex3(first_name, last_name, **info):
+    introduce(first_name, last_name, **info)
+</code></pre></div><p>Output:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[INFO] [decorator_func.py] Executing &#39;wrapper&#39; with *args: William, Shakespeare and **kwargs: Father=John Shakespeare, Mother=Mary Arden
+Executing &#39;introduce_ex3&#39; with *args: William, Shakespeare and **kwargs: Father=John Shakespeare, Mother=Mary Arden
+PERSONAL DATA:
+First name: William
+Last name: Shakespeare
+Father: John Shakespeare
+Mother: Mary Arden
+</code></pre></div><p>If you look at the output, you will see that first line generated by @log2 decorator prints <em>Executing &lsquo;wrapper&rsquo; with&hellip;</em> which means, that @log2 is actually decorating @log decorator.</p>
+<h4 id="ii-python-decorators-implemented-as-classes">II. Python decorators implemented as classes</h4>
+<p>Decorators can be also implemented as classes. Let&rsquo;s see simple example.</p>
+<h5 id="1-decorator-without-its-own-parameters-1">1. Decorator without it&rsquo;s own parameters</h5>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Log:
+
+    def __init__(self, func):
+        self.func = func
+
+    def __call__(self, *args, **kwargs):
+        print(func_invocation_info(self.func, *args, **kwargs))
+        return self.func(*args, **kwargs)
+
+
+@Log
+def introduce_1(first_name, last_name, **info):
+    introduce(first_name, last_name, **info)
+
+
+introduce_1(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)
+</code></pre></div><p>Output:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Executing &#39;introduce_ex1&#39; with *args: William, Shakespeare and **kwargs: Father=John Shakespeare, Mother=Mary Arden
+PERSONAL DATA:
+First name: William
+Last name: Shakespeare
+Father: John Shakespeare
+Mother: Mary Arden
+</code></pre></div><p>As you can see decorator class contains &lsquo;magic method&rsquo; called <code>__call__</code>, which allows class instances behave like functions.
+This way both types of decorators are actually very similar.</p>
+<p>The code above can be also written as:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">introduce_ex1 = Log(introduce_ex1)
+introduce_ex1(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)     # invocation of `__call__` method
+</code></pre></div><h5 id="2-decorator-with-its-own-parameters-1">2. Decorator with it&rsquo;s own parameters</h5>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Log2:
+
+    def __init__(self, level, file_name):
+        self.level = level
+        self.file_name = file_name
+
+    def __call__(self, func):
+        def wrapper(*args, **kwargs):
+            info = func_invocation_info(func, *args, **kwargs)
+            print(&#34;[{0}] [{1}] {2}&#34;.format(self.level, self.file_name, info))
+            return func(*args, **kwargs)
+        return wrapper
+
+
+@Log2(&#34;INFO&#34;, &#34;decorator_class.py&#34;)
+def introduce_ex2(first_name, last_name, **info):
+    introduce(first_name, last_name, **info)
+
+
+introduce_ex2(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)
+</code></pre></div><p>Output:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[INFO] [decorator_class.py] Executing &#39;introduce_ex2&#39; with *args: William, Shakespeare and **kwargs: Father=John Shakespeare, Mother=Mary Arden
+PERSONAL DATA:
+First name: William
+Last name: Shakespeare
+Father: John Shakespeare
+Mother: Mary Arden
+</code></pre></div><p>The code above can be also written as:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">dec = Log2(level, file_name)        #1
+introduce_ex2 = dec(introduce_ex2)
+introduce_ex2(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)
+</code></pre></div><p>Here we can see additional step (#1), which is creation of decorator with two parameters.</p>
+<h5 id="3-multiple-decorators-on-single-function--method-1">3. Multiple decorators on single function / method</h5>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">@Log2(&#34;INFO&#34;, &#34;decorator_class.py&#34;)
+@Log
+def introduce_ex3(first_name, last_name, **info):
+    introduce(first_name, last_name, **info)
+
+
+introduce_ex3(&#34;William&#34;, &#34;Shakespeare&#34;, Father=&#34;John Shakespeare&#34;,
+            Mother=&#34;Mary Arden&#34;)
+</code></pre></div><p>Output:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[INFO] [decorator_class.py] Executing &#39;Log&#39; with *args: William, Shakespeare and **kwargs: Father=John Shakespeare, Mother=Mary Arden
+Executing &#39;introduce_ex3&#39; with *args: William, Shakespeare and **kwargs: Father=John Shakespeare, Mother=Mary Arden
+PERSONAL DATA:
+First name: William
+Last name: Shakespeare
+Father: John Shakespeare
+Mother: Mary Arden
+</code></pre></div><p>Again, as in the corresponding example above (decorators implemeted as functions) we see, that @Log2 decorator is decorating @Log.</p>
+<h4 id="summary">Summary</h4>
+<p>As you can see, there are no big differences in how both types of decorators work, so you can follow your own preferences.</p>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+      
+        © 2020
+      
+       Adrian Brzoza 
+    
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+    
+
+  </body>
+
+</html>

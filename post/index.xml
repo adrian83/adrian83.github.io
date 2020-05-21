@@ -6,10 +6,19 @@
     <description>Recent content in Posts on adrian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 27 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adrian83.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Decorators in Python</title>
+      <link>https://adrian83.github.io/post/006_decorators_in_python/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/post/006_decorators_in_python/</guid>
+      <description>Decorators in Python are very powerful and elegant way to wrap functions and classes with custom code. In that code you can modify function arguments, returned values or ever block wrapped function from execution. Introduction In this post we will see, how to create decorators implemented as functions as well as classes. We will also see, that decorators themselves can have parameters and how multiple decorators behave on a single function.</description>
+    </item>
     
     <item>
       <title>Run code in Docker container</title>
@@ -39,7 +48,7 @@ Infrastructure as a Code Knowledge of programming language and few CloudFormatio
       <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/post/002_go_and_json/</guid>
-      <description>Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. The simplest cases are, when JSON and Go structures are very similar and can be mapped without any additional manipulations. Marshaling Go structures into JSON, when corresponding fields have compatible types.</description>
+      <description>Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. Introduction In this post we will see, how to marshal and unmarshal JSON into Go structures. We will see two most common cases where JSON and Go structures have compatible types and when the transformation is done by implementing custom logic.</description>
     </item>
     
     <item>

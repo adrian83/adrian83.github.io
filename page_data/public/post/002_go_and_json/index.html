@@ -11,10 +11,10 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go (Golang) and JSON"/>
-<meta name="twitter:description" content="Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. The simplest cases are, when JSON and Go structures are very similar and can be mapped without any additional manipulations. Marshaling Go structures into JSON, when corresponding fields have compatible types."/>
+<meta name="twitter:description" content="Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. Introduction In this post we will see, how to marshal and unmarshal JSON into Go structures. We will see two most common cases where JSON and Go structures have compatible types and when the transformation is done by implementing custom logic."/>
 
     <meta property="og:title" content="Go (Golang) and JSON" />
-<meta property="og:description" content="Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. The simplest cases are, when JSON and Go structures are very similar and can be mapped without any additional manipulations. Marshaling Go structures into JSON, when corresponding fields have compatible types." />
+<meta property="og:description" content="Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. Introduction In this post we will see, how to marshal and unmarshal JSON into Go structures. We will see two most common cases where JSON and Go structures have compatible types and when the transformation is done by implementing custom logic." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adrian83.github.io/post/002_go_and_json/" />
 <meta property="article:published_time" content="2020-01-16T00:00:00+00:00" />
@@ -55,7 +55,7 @@
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.69.1" />
+    <meta name="generator" content="Hugo 0.70.0" />
   </head>
 
   
@@ -102,8 +102,10 @@
     </header>
 
     <h3 id="transforming-data-structures-into-json-and-the-other-way-around-is-something-that-is-done-quite-often-when-creating-apis-below-you-can-find-a-few-in-my-opinion-most-frequent-transformations-to-and-from-json-written-in-go-programming-language">Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language.</h3>
-<h5 id="the-simplest-cases-are-when-json-and-go-structures-are-very-similar-and-can-be-mapped-without-any-additional-manipulations">The simplest cases are, when JSON and Go structures are very similar and can be mapped without any additional manipulations.</h5>
-<h6 id="marshaling-go-structures-into-json-when-corresponding-fields-have-compatible-types">Marshaling Go structures into JSON, when corresponding fields have compatible types.</h6>
+<h4 id="introduction">Introduction</h4>
+<p>In this post we will see, how to marshal and unmarshal JSON into Go structures. We will see two most common cases where JSON and Go structures have compatible types and when the transformation is done by implementing custom logic.</p>
+<h4 id="i-json-and-go-structures-are-similar-and-can-be-mapped-without-any-additional-manipulations">I. JSON and Go structures are similar and can be mapped without any additional manipulations.</h4>
+<h5 id="1-marshaling-go-structures-into-json-when-corresponding-fields-have-compatible-types">1. Marshaling Go structures into JSON, when corresponding fields have compatible types.</h5>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">package</span> main
 
 <span style="font-weight:bold">import</span> (
@@ -133,7 +135,7 @@
 }
 </code></pre></div><p>Output:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">{&#34;name&#34;:&#34;John&#34;,&#34;birthDate&#34;:&#34;1993-11-04T23:00:00Z&#34;}
-</code></pre></div><h6 id="unmarshalling-json-into-go-structures-when-corresponding-fields-have-compatible-types">Unmarshalling JSON into Go structures, when corresponding fields have compatible types.</h6>
+</code></pre></div><h5 id="2-unmarshalling-json-into-go-structures-when-corresponding-fields-have-compatible-types">2. Unmarshalling JSON into Go structures, when corresponding fields have compatible types.</h5>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">package</span> main
 
 <span style="font-weight:bold">import</span> (
@@ -160,8 +162,9 @@
 }
 </code></pre></div><p>Output:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">{John 1993-11-04 23:00:00 +0000 UTC}
-</code></pre></div><h5 id="a-bit-more-complex-case-is-when-we-have-two-incompatibe-sides-of-transformation-fortunately-we-can-implement-our-custom-marshalling--unmarshalling-by-adding-functions-marshaljson-byte-error-and-unmarshaljsondata-byte-error-to-go-structure">A bit more complex case is, when we have two incompatibe sides of transformation. Fortunately, we can implement our custom marshalling / unmarshalling by adding functions <code>MarshalJSON() ([]byte, error)</code> and <code>UnmarshalJSON(data []byte) error</code> to Go structure.</h5>
-<h6 id="marshalling-go-structures-into-json-with-custom-implementation">Marshalling Go structures into JSON with custom implementation.</h6>
+</code></pre></div><h4 id="ii-json-and-go-structures-are-incompatibe-and-transformation-code-needs-to-be-implemented">II. JSON and Go structures are incompatibe and transformation code needs to be implemented..</h4>
+<p>A bit more complex case is, when we have two incompatibe sides of transformation. Fortunately, we can implement our custom marshalling / unmarshalling by adding functions <code>MarshalJSON() ([]byte, error)</code> and <code>UnmarshalJSON(data []byte) error</code> to Go structure.</p>
+<h5 id="1-marshalling-go-structures-into-json-with-custom-implementation">1. Marshalling Go structures into JSON with custom implementation.</h5>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">package</span> main
 
 <span style="font-weight:bold">import</span> (
@@ -206,7 +209,7 @@
 }
 </code></pre></div><p>Output:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">{&#34;name&#34;:&#34;John&#34;,&#34;birthDate&#34;:&#34;1993-11-04&#34;}
-</code></pre></div><h6 id="unmarshalling-json-into-go-structures-with-custom-implementation">Unmarshalling JSON into Go structures with custom implementation.</h6>
+</code></pre></div><h5 id="2-unmarshalling-json-into-go-structures-with-custom-implementation">2. Unmarshalling JSON into Go structures with custom implementation.</h5>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">package</span> main
 
 <span style="font-weight:bold">import</span> (
