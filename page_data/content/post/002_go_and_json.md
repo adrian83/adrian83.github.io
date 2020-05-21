@@ -13,11 +13,13 @@ tags:
 
 ### Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language.
 
+#### Introduction
 
-##### The simplest cases are, when JSON and Go structures are very similar and can be mapped without any additional manipulations.
+In this post we will see, how to marshal and unmarshal JSON into Go structures. We will see two most common cases where JSON and Go structures have compatible types and when the transformation is done by implementing custom logic.
 
+#### I. JSON and Go structures are similar and can be mapped without any additional manipulations.
 
-###### Marshaling Go structures into JSON, when corresponding fields have compatible types.
+##### 1. Marshaling Go structures into JSON, when corresponding fields have compatible types.
 
 
 ```
@@ -56,7 +58,7 @@ Output:
 ```
 
 
-###### Unmarshalling JSON into Go structures, when corresponding fields have compatible types.
+##### 2. Unmarshalling JSON into Go structures, when corresponding fields have compatible types.
 
 ```
 package main
@@ -90,11 +92,12 @@ Output:
 {John 1993-11-04 23:00:00 +0000 UTC}
 ```
 
-##### A bit more complex case is, when we have two incompatibe sides of transformation. Fortunately, we can implement our custom marshalling / unmarshalling by adding functions `MarshalJSON() ([]byte, error)` and `UnmarshalJSON(data []byte) error` to Go structure.
+#### II. JSON and Go structures are incompatibe and transformation code needs to be implemented..
+
+A bit more complex case is, when we have two incompatibe sides of transformation. Fortunately, we can implement our custom marshalling / unmarshalling by adding functions `MarshalJSON() ([]byte, error)` and `UnmarshalJSON(data []byte) error` to Go structure.
 
 
-
-###### Marshalling Go structures into JSON with custom implementation.
+##### 1. Marshalling Go structures into JSON with custom implementation.
 
 ```
 package main
@@ -148,7 +151,7 @@ Output:
 
 
 
-###### Unmarshalling JSON into Go structures with custom implementation.
+##### 2. Unmarshalling JSON into Go structures with custom implementation.
 
 ```
 package main
