@@ -26,7 +26,8 @@ The full source code with instructions, how to run and test it, can be found [he
 
 ### Infrastructure as a Code
 
-Knowledge of programming language and few CloudFormation resources is all, that you need to build Serverless application. In fact both infrastructure (database, lambda functions and API gateway), and logic (code executed by lambda functions), from this example, are defined in single CloudFormation file.
+Knowledge of programming language and few CloudFormation resources is all, that you need to build simple Serverless application. First skill will be used to implement code executed by Lambda functions and the second to create infrastructure. Actually you can embed your logic into infrastructure and put it in single CloudFormation file. 
+
 Especially for building Serverless application AWS realised set of resources under `AWS::Serverless::*` namespace. By using these resources (like `AWS::Serverless::Function` or `AWS::Serverless::Api`) you can start building your application faster, and if you need more configuration options, you can always switch to standart ones (like `AWS::Lambda::Function` or `AWS::ApiGateway::RestApi`).
 
 
@@ -34,7 +35,7 @@ Especially for building Serverless application AWS realised set of resources und
 
 Since we are building serverless application, it is important to choose proper Database. We definitely need database, that will scale regarding the traffic, and also we don't want to manage any server. DynamoDB fulfills both of thoses requirements, and thus it makes perfect sense to use it.
 
-Lets look at the definition of DynamoDB table:
+Let's look at the definition of DynamoDB table:
 
 ```
   UsersDynamoDBTable:
