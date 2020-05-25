@@ -12,11 +12,11 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Building Serverless API on AWS"/>
 <meta name="twitter:description" content="Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management. The full source code with instructions, how to run and test it, can be found here.
-Infrastructure as a Code Knowledge of programming language and few CloudFormation resources is all, that you need to build Serverless application. In fact both infrastructure (database, lambda functions and API gateway), and logic (code executed by lambda functions), from this example, are defined in single CloudFormation file."/>
+Infrastructure as a Code Knowledge of programming language and few CloudFormation resources is all, that you need to build simple Serverless application. First skill will be used to implement code executed by Lambda functions and the second to create infrastructure."/>
 
     <meta property="og:title" content="Building Serverless API on AWS" />
 <meta property="og:description" content="Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management. The full source code with instructions, how to run and test it, can be found here.
-Infrastructure as a Code Knowledge of programming language and few CloudFormation resources is all, that you need to build Serverless application. In fact both infrastructure (database, lambda functions and API gateway), and logic (code executed by lambda functions), from this example, are defined in single CloudFormation file." />
+Infrastructure as a Code Knowledge of programming language and few CloudFormation resources is all, that you need to build simple Serverless application. First skill will be used to implement code executed by Lambda functions and the second to create infrastructure." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adrian83.github.io/post/004_serverless_api_on_aws/" />
 <meta property="article:published_time" content="2020-03-15T00:00:00+00:00" />
@@ -106,11 +106,11 @@ Infrastructure as a Code Knowledge of programming language and few CloudFormatio
     <h3 id="writing-serverless-applications-on-aws-can-be-really-easy-below-you-can-find-description-of-how-to-build-simplified-crud-application-for-user-management">Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management.</h3>
 <p>The full source code with instructions, how to run and test it, can be found <a href="https://github.com/adrian83/aws-samples/tree/master/004-serverless-api-demo">here</a>.</p>
 <h3 id="infrastructure-as-a-code">Infrastructure as a Code</h3>
-<p>Knowledge of programming language and few CloudFormation resources is all, that you need to build Serverless application. In fact both infrastructure (database, lambda functions and API gateway), and logic (code executed by lambda functions), from this example, are defined in single CloudFormation file.
-Especially for building Serverless application AWS realised set of resources under <code>AWS::Serverless::*</code> namespace. By using these resources (like <code>AWS::Serverless::Function</code> or <code>AWS::Serverless::Api</code>) you can start building your application faster, and if you need more configuration options, you can always switch to standart ones (like <code>AWS::Lambda::Function</code> or <code>AWS::ApiGateway::RestApi</code>).</p>
+<p>Knowledge of programming language and few CloudFormation resources is all, that you need to build simple Serverless application. First skill will be used to implement code executed by Lambda functions and the second to create infrastructure. Actually you can embed your logic into infrastructure and put it in single CloudFormation file.</p>
+<p>Especially for building Serverless application AWS realised set of resources under <code>AWS::Serverless::*</code> namespace. By using these resources (like <code>AWS::Serverless::Function</code> or <code>AWS::Serverless::Api</code>) you can start building your application faster, and if you need more configuration options, you can always switch to standart ones (like <code>AWS::Lambda::Function</code> or <code>AWS::ApiGateway::RestApi</code>).</p>
 <h3 id="database">Database</h3>
 <p>Since we are building serverless application, it is important to choose proper Database. We definitely need database, that will scale regarding the traffic, and also we don&rsquo;t want to manage any server. DynamoDB fulfills both of thoses requirements, and thus it makes perfect sense to use it.</p>
-<p>Lets look at the definition of DynamoDB table:</p>
+<p>Let&rsquo;s look at the definition of DynamoDB table:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  UsersDynamoDBTable:
     Type: &#39;AWS::DynamoDB::Table&#39;
     Properties:
