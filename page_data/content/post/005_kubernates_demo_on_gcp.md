@@ -1,7 +1,7 @@
 ---
 title: Kubernates demo on Google Cloud Platform
-date: 2020-05-25
-draft: true
+date: 2020-05-30
+draft: false
 categories:
 - google cloud platform
 - gcp
@@ -41,10 +41,7 @@ Below you can find list of properties, I used in this application. Adjust them t
 After that we have to do some administration work:
 1. Sign in to GCP account, by executing: `gcloud auth login`
 2. Create new project, by executing: `gcloud projects create adrian-gcp-k8s-demo`
-3. Set few `gcloud` properties: 
-  - `gcloud config set project adrian-gcp-k8s-demo`
-  - `gcloud config set region europe-north1`
-  - `gcloud config set zone europe-north1-c`
+3. Set newly created project as your main project, by executing: `gcloud config set project adrian-gcp-k8s-demo`
 4. [Enable billing for newly created project](https://support.google.com/googleapi/answer/6158867?hl=en)
 5. Enable required services for this project:
   - `gcloud services enable deploymentmanager.googleapis.com` (for Deployment Manager service) 
@@ -167,7 +164,7 @@ To deploy ingress, please run: `kubectl apply -f 04-echo-ingres.yml`
 
 #### Testing
 
-If you find newly created Ingress and it's IP address, you can past it into your browser and make few requests. Response will contain field `host` which should have one of two values corresponding to our replicas.
+After few minutes you should be able to find newly created Ingress and it's IP address. You can past it into your browser and make few requests. Response will contain field `host` which should have one of two values corresponding to our replicas.
 
 #### Cleaning
 
