@@ -10,10 +10,10 @@
     <meta name="keywords" content="blog,developer,personal">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Go (Golang) and JSON"/>
+<meta name="twitter:title" content="Go and JSON"/>
 <meta name="twitter:description" content="Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. Introduction In this post we will see, how to marshal and unmarshal JSON into Go structures. We will see two most common cases where JSON and Go structures have compatible types and when the transformation is done by implementing custom logic."/>
 
-    <meta property="og:title" content="Go (Golang) and JSON" />
+    <meta property="og:title" content="Go and JSON" />
 <meta property="og:description" content="Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. Introduction In this post we will see, how to marshal and unmarshal JSON into Go structures. We will see two most common cases where JSON and Go structures have compatible types and when the transformation is done by implementing custom logic." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adrian83.github.io/post/002_go_and_json/" />
@@ -25,7 +25,7 @@
       <base href="https://adrian83.github.io/post/002_go_and_json/">
     
     <title>
-  Go (Golang) and JSON · adrian
+  Go and JSON · adrian
 </title>
 
     
@@ -98,7 +98,7 @@
   <section class="container page">
   <article>
     <header>
-      <h1>Go (Golang) and JSON</h1>
+      <h1>Go and JSON</h1>
     </header>
 
     <h3 id="transforming-data-structures-into-json-and-the-other-way-around-is-something-that-is-done-quite-often-when-creating-apis-below-you-can-find-a-few-in-my-opinion-most-frequent-transformations-to-and-from-json-written-in-go-programming-language">Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language.</h3>
@@ -162,8 +162,8 @@
 }
 </code></pre></div><p>Output:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">{John 1993-11-04 23:00:00 +0000 UTC}
-</code></pre></div><h4 id="ii-json-and-go-structures-are-incompatibe-and-transformation-code-needs-to-be-implemented">II. JSON and Go structures are incompatibe and transformation code needs to be implemented..</h4>
-<p>A bit more complex case is, when we have two incompatibe sides of transformation. Fortunately, we can implement our custom marshalling / unmarshalling by adding functions <code>MarshalJSON() ([]byte, error)</code> and <code>UnmarshalJSON(data []byte) error</code> to Go structure.</p>
+</code></pre></div><h4 id="ii-json-and-go-structures-are-incompatible-and-transformation-code-needs-to-be-implemented">II. JSON and Go structures are incompatible and transformation code needs to be implemented..</h4>
+<p>A bit more complex case is, when we have two incompatible sides of transformation. Fortunately, we can implement our custom marshalling / unmarshalling by adding functions <code>MarshalJSON() ([]byte, error)</code> and <code>UnmarshalJSON(data []byte) error</code> to Go structure.</p>
 <h5 id="1-marshalling-go-structures-into-json-with-custom-implementation">1. Marshalling Go structures into JSON with custom implementation.</h5>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">package</span> main
 
