@@ -6,10 +6,73 @@
     <description>Recent content in Categories on adrian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 18 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adrian83.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>docker</title>
+      <link>https://adrian83.github.io/categories/docker/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gcp</title>
+      <link>https://adrian83.github.io/categories/gcp/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/categories/gcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>https://adrian83.github.io/categories/go/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/categories/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google cloud platform</title>
+      <link>https://adrian83.github.io/categories/google-cloud-platform/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/categories/google-cloud-platform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>k8s</title>
+      <link>https://adrian83.github.io/categories/k8s/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/categories/k8s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubectl</title>
+      <link>https://adrian83.github.io/categories/kubectl/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/categories/kubectl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://adrian83.github.io/categories/kubernetes/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/categories/kubernetes/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>decorators</title>
@@ -26,15 +89,6 @@
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://adrian83.github.io/categories/docker/</link>
-      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/categories/docker/</guid>
       <description></description>
     </item>
     
@@ -102,15 +156,6 @@
     </item>
     
     <item>
-      <title>Go</title>
-      <link>https://adrian83.github.io/categories/go/</link>
-      <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/categories/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>JSON</title>
       <link>https://adrian83.github.io/categories/json/</link>
       <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
@@ -125,24 +170,6 @@
       <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/categories/dashboard/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>k8s</title>
-      <link>https://adrian83.github.io/categories/k8s/</link>
-      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/categories/k8s/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://adrian83.github.io/categories/kubernetes/</link>
-      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/categories/kubernetes/</guid>
       <description></description>
     </item>
     

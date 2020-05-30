@@ -6,7 +6,7 @@
     <description>Recent content on adrian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 18 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adrian83.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,16 @@
       <guid>https://adrian83.github.io/page/about/</guid>
       <description>Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner.
 Certified AWS Developer (Associate) and Solution Architect (Associate)</description>
+    </item>
+    
+    <item>
+      <title>Kubernates demo on Google Cloud Platform</title>
+      <link>https://adrian83.github.io/post/005_kubernates_demo_on_gcp/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/post/005_kubernates_demo_on_gcp/</guid>
+      <description>After playing a bit with Minikube I wanted to build something on a real Kubernetes cluster. From few Kubernetes as a Service options I&amp;rsquo;ve chosen Google Kubernetes Engine available on Google Cloud Platform. Below you can see how to deploy web application in few simple steps. The full source code with instructions, how to run and test it, can be found here.
+Prerequisites Before you start make sure, you meet the following requirements:</description>
     </item>
     
     <item>

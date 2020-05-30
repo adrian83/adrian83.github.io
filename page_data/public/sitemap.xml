@@ -9,12 +9,97 @@
   
   <url>
     <loc>https://adrian83.github.io/</loc>
-    <lastmod>2020-05-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://adrian83.github.io/categories/</loc>
-    <lastmod>2020-05-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/tags/docker/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/categories/docker/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/tags/gcp/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/categories/gcp/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/tags/go/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/categories/go/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/tags/google-cloud-platform/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/categories/google-cloud-platform/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/tags/k8s/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/categories/k8s/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/tags/kubectl/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/categories/kubectl/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/post/005_kubernates_demo_on_gcp/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/tags/kubernetes/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/categories/kubernetes/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/post/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adrian83.github.io/tags/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -33,11 +118,6 @@
   </url>
   
   <url>
-    <loc>https://adrian83.github.io/post/</loc>
-    <lastmod>2020-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://adrian83.github.io/tags/python/</loc>
     <lastmod>2020-05-18T00:00:00+00:00</lastmod>
   </url>
@@ -45,21 +125,6 @@
   <url>
     <loc>https://adrian83.github.io/categories/python/</loc>
     <lastmod>2020-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/tags/</loc>
-    <lastmod>2020-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/tags/docker/</loc>
-    <lastmod>2020-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/categories/docker/</loc>
-    <lastmod>2020-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -143,16 +208,6 @@
   </url>
   
   <url>
-    <loc>https://adrian83.github.io/tags/go/</loc>
-    <lastmod>2020-01-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/categories/go/</loc>
-    <lastmod>2020-01-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://adrian83.github.io/post/002_go_and_json/</loc>
     <lastmod>2020-01-16T00:00:00+00:00</lastmod>
   </url>
@@ -174,26 +229,6 @@
   
   <url>
     <loc>https://adrian83.github.io/categories/dashboard/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/tags/k8s/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/categories/k8s/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/tags/kubernetes/</loc>
-    <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adrian83.github.io/categories/kubernetes/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
   </url>
   
