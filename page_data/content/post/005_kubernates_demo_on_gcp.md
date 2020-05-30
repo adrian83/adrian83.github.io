@@ -25,9 +25,9 @@ The full source code with instructions, how to run and test it, can be found [he
 #### Prerequisites
 
 Before you start make sure, you meet the following requirements:
-1. You have [Google Cloud Platform](https://cloud.google.com/) account
-2. You have installed [Google Cloud Platform SDK](https://cloud.google.com/sdk)
-3. You have installed [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) 
+1. Active [Google Cloud Platform](https://cloud.google.com/) account
+2. Installed [Google Cloud Platform SDK](https://cloud.google.com/sdk)
+3. Installed [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) 
 
 Below you can find list of properties, I used in this application. Adjust them to your needs and use them consistently in the following commands and configuration files. 
 1. Project id: `adrian-gcp-k8s-demo` 

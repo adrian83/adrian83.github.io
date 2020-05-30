@@ -1,5 +1,5 @@
 ---
-title: Go (Golang) and JSON   
+title: Go and JSON   
 date: 2020-01-16
 draft: false
 categories:
@@ -92,9 +92,9 @@ Output:
 {John 1993-11-04 23:00:00 +0000 UTC}
 ```
 
-#### II. JSON and Go structures are incompatibe and transformation code needs to be implemented..
+#### II. JSON and Go structures are incompatible and transformation code needs to be implemented..
 
-A bit more complex case is, when we have two incompatibe sides of transformation. Fortunately, we can implement our custom marshalling / unmarshalling by adding functions `MarshalJSON() ([]byte, error)` and `UnmarshalJSON(data []byte) error` to Go structure.
+A bit more complex case is, when we have two incompatible sides of transformation. Fortunately, we can implement our custom marshalling / unmarshalling by adding functions `MarshalJSON() ([]byte, error)` and `UnmarshalJSON(data []byte) error` to Go structure.
 
 
 ##### 1. Marshalling Go structures into JSON with custom implementation.

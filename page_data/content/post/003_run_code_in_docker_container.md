@@ -23,17 +23,17 @@ First let's look at the general command for running Docker containers:
 
 `docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]`
 
-Using this commmand we can run our first example which in this case is `echo` command:
+Using this command we can run our first example which in this case is `echo` command:
 
 `docker run alpine echo 'hello world'`
 
 It prints `hello world` somewhere at the end of the logged text.
-In similar way we can use other containers to execute our code inside of them.  
+In similar way we can use other containers to execute our code inside them.  
 
 
 ##### Problem
 
-Some time ago I was trying to run examples from Tensorflow tutorial. To avoid poluting my operating system, I've prepared virtual environment (with Virtualenv), to which I wanted to download required dependecnies. Unfortunately it turned out, that my python installation is unsupported by Tensorflow. I thought, that upgrading (or downgrading in my case) python is just too much trouble. Fortunately Tensorflow team prepared Docker images, that can be used to run scripts. The image is called `tensorflow/tensorflow`.
+Some time ago I was trying to run examples from Tensorflow tutorial. To avoid polluting my operating system, I've prepared virtual environment (with Virtualenv), to which I wanted to download required dependencies. Unfortunately it turned out, that my python installation is unsupported by Tensorflow. I thought, that upgrading (or downgrading in my case) python is just too much trouble. Fortunately Tensorflow team prepared Docker images, that can be used to run scripts. The image is called `tensorflow/tensorflow`.
 
 <br/>
 
@@ -71,7 +71,7 @@ Don't expect too much. It will fail. It's because, the file `test_installation.p
 
 ##### Mount whole directory into Docker container
 
-Easiest way to allow Docker to access our files is to mount directory inside the Docker container. For convinience we can also make it our working directory. We can do that, by adding two options:
+The easiest way to allow Docker to access our files is to mount directory inside the Docker container. For convenience, we can also make it our working directory. We can do that, by adding two options:
 
 - `-v` - mounts specified directory to given path inside docker container  
 - `-w` - setting specified directory as a working directory
@@ -123,9 +123,9 @@ tf.Tensor(
  [7 9]], shape=(2, 2), dtype=int32)
 ```
 
-##### Different aproach - copy files into Docker container
+##### Different approach - copy files into Docker container
 
-Sometimes we want to execute code inside long running (with `-d` option) Docker container (ie Cassandra). In such case we need to copy file into the running Docker container and run it.
+Sometimes we want to execute code inside long-running (with `-d` option) Docker container (ie Cassandra). In such case we need to copy file into the running Docker container and run it.
 
 1. Run docker container in detached mode (which means that it will run until stopped), by executing: `docker run -d -p 9042:9042 --name=cassandra_test cassandra:latest`
 2. Copy file, you want to execute: `docker cp cassandra.cql cassandra_test:/schema.cql`
