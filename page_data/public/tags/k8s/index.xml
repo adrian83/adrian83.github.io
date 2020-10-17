@@ -6,11 +6,7 @@
     <description>Recent content in k8s on adrian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://adrian83.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://adrian83.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernates demo on Google Cloud Platform</title>
       <link>https://adrian83.github.io/post/005_kubernates_demo_on_gcp/</link>

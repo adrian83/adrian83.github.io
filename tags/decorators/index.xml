@@ -6,11 +6,7 @@
     <description>Recent content in decorators on adrian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 18 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://adrian83.github.io/tags/decorators/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 18 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://adrian83.github.io/tags/decorators/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Decorators in Python</title>
       <link>https://adrian83.github.io/post/006_decorators_in_python/</link>
