@@ -14,13 +14,13 @@
 <meta name="twitter:description" content="Running your code inside of Docker container can save you from installing, sometimes very complex, tree of dependencies on your local computer. Introduction Following post presents a few steps, that will allow you to run your applications / scripts in an interactive way inside the Docker container.
 First let&rsquo;s look at the general command for running Docker containers:
 docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
-Using this commmand we can run our first example which in this case is echo command:"/>
+Using this command we can run our first example which in this case is echo command:"/>
 
     <meta property="og:title" content="Run code in Docker container" />
 <meta property="og:description" content="Running your code inside of Docker container can save you from installing, sometimes very complex, tree of dependencies on your local computer. Introduction Following post presents a few steps, that will allow you to run your applications / scripts in an interactive way inside the Docker container.
 First let&rsquo;s look at the general command for running Docker containers:
 docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
-Using this commmand we can run our first example which in this case is echo command:" />
+Using this command we can run our first example which in this case is echo command:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adrian83.github.io/post/003_run_code_in_docker_container/" />
 <meta property="article:published_time" content="2020-04-27T00:00:00+00:00" />
@@ -112,12 +112,12 @@ Using this commmand we can run our first example which in this case is echo comm
 <p>Following post presents a few steps, that will allow you to run your applications / scripts in an interactive way inside the Docker container.</p>
 <p>First let&rsquo;s look at the general command for running Docker containers:</p>
 <p><code>docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]</code></p>
-<p>Using this commmand we can run our first example which in this case is <code>echo</code> command:</p>
+<p>Using this command we can run our first example which in this case is <code>echo</code> command:</p>
 <p><code>docker run alpine echo 'hello world'</code></p>
 <p>It prints <code>hello world</code> somewhere at the end of the logged text.
-In similar way we can use other containers to execute our code inside of them.</p>
+In similar way we can use other containers to execute our code inside them.</p>
 <h5 id="problem">Problem</h5>
-<p>Some time ago I was trying to run examples from Tensorflow tutorial. To avoid poluting my operating system, I&rsquo;ve prepared virtual environment (with Virtualenv), to which I wanted to download required dependecnies. Unfortunately it turned out, that my python installation is unsupported by Tensorflow. I thought, that upgrading (or downgrading in my case) python is just too much trouble. Fortunately Tensorflow team prepared Docker images, that can be used to run scripts. The image is called <code>tensorflow/tensorflow</code>.</p>
+<p>Some time ago I was trying to run examples from Tensorflow tutorial. To avoid polluting my operating system, I&rsquo;ve prepared virtual environment (with Virtualenv), to which I wanted to download required dependencies. Unfortunately it turned out, that my python installation is unsupported by Tensorflow. I thought, that upgrading (or downgrading in my case) python is just too much trouble. Fortunately Tensorflow team prepared Docker images, that can be used to run scripts. The image is called <code>tensorflow/tensorflow</code>.</p>
 <!-- raw HTML omitted -->
 <p>Let&rsquo;s assume, we have a python script, which uses Tensorflow, that we want to run inside Docker container. We can call it <code>test_installation.py</code> and fill it with such content:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import tensorflow as tf
@@ -139,7 +139,7 @@ tensorflow/tensorflow   latest   9bf93bf90865   2.469GB   64.19MB       2.405GB
 <p><code>docker run tensorflow/tensorflow ./test_installation.py</code></p>
 <p>Don&rsquo;t expect too much. It will fail. It&rsquo;s because, the file <code>test_installation.py</code> is on our local hard drive, and not inside the docker container.</p>
 <h5 id="mount-whole-directory-into-docker-container">Mount whole directory into Docker container</h5>
-<p>Easiest way to allow Docker to access our files is to mount directory inside the Docker container. For convinience we can also make it our working directory. We can do that, by adding two options:</p>
+<p>The easiest way to allow Docker to access our files is to mount directory inside the Docker container. For convenience, we can also make it our working directory. We can do that, by adding two options:</p>
 <ul>
 <li><code>-v</code> - mounts specified directory to given path inside docker container</li>
 <li><code>-w</code> - setting specified directory as a working directory</li>
@@ -171,8 +171,8 @@ tensorflow/tensorflow   latest   9bf93bf90865   2.469GB   64.19MB       2.405GB
 tf.Tensor(
 [[3 5]
  [7 9]], shape=(2, 2), dtype=int32)
-</code></pre></div><h5 id="different-aproach---copy-files-into-docker-container">Different aproach - copy files into Docker container</h5>
-<p>Sometimes we want to execute code inside long running (with <code>-d</code> option) Docker container (ie Cassandra). In such case we need to copy file into the running Docker container and run it.</p>
+</code></pre></div><h5 id="different-approach---copy-files-into-docker-container">Different approach - copy files into Docker container</h5>
+<p>Sometimes we want to execute code inside long-running (with <code>-d</code> option) Docker container (ie Cassandra). In such case we need to copy file into the running Docker container and run it.</p>
 <ol>
 <li>Run docker container in detached mode (which means that it will run until stopped), by executing: <code>docker run -d -p 9042:9042 --name=cassandra_test cassandra:latest</code></li>
 <li>Copy file, you want to execute: <code>docker cp cassandra.cql cassandra_test:/schema.cql</code></li>

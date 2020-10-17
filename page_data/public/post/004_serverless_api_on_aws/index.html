@@ -107,9 +107,9 @@ Infrastructure as a Code Knowledge of programming language and few CloudFormatio
 <p>The full source code with instructions, how to run and test it, can be found <a href="https://github.com/adrian83/aws-samples/tree/master/004-serverless-api-demo">here</a>.</p>
 <h3 id="infrastructure-as-a-code">Infrastructure as a Code</h3>
 <p>Knowledge of programming language and few CloudFormation resources is all, that you need to build simple Serverless application. First skill will be used to implement code executed by Lambda functions and the second to create infrastructure. Actually you can embed your logic into infrastructure and put it in single CloudFormation file.</p>
-<p>Especially for building Serverless application AWS realised set of resources under <code>AWS::Serverless::*</code> namespace. By using these resources (like <code>AWS::Serverless::Function</code> or <code>AWS::Serverless::Api</code>) you can start building your application faster, and if you need more configuration options, you can always switch to standart ones (like <code>AWS::Lambda::Function</code> or <code>AWS::ApiGateway::RestApi</code>).</p>
+<p>Especially for building Serverless application AWS released set of resources under <code>AWS::Serverless::*</code> namespace. By using these resources (like <code>AWS::Serverless::Function</code> or <code>AWS::Serverless::Api</code>) you can start building your application faster, and if you need more configuration options, you can always switch to standard ones (like <code>AWS::Lambda::Function</code> or <code>AWS::ApiGateway::RestApi</code>).</p>
 <h3 id="database">Database</h3>
-<p>Since we are building serverless application, it is important to choose proper Database. We definitely need database, that will scale regarding the traffic, and also we don&rsquo;t want to manage any server. DynamoDB fulfills both of thoses requirements, and thus it makes perfect sense to use it.</p>
+<p>Since we are building serverless application, it is important to choose proper Database. We definitely need database, that will scale regarding the traffic, and also we don&rsquo;t want to manage any server. DynamoDB fulfills both of those requirements, and thus it makes perfect sense to use it.</p>
 <p>Let&rsquo;s look at the definition of DynamoDB table:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  UsersDynamoDBTable:
     Type: &#39;AWS::DynamoDB::Table&#39;
@@ -129,7 +129,7 @@ Infrastructure as a Code Knowledge of programming language and few CloudFormatio
 <li>key definition (every element in <code>KeySchema</code> needs to be defined in <code>AttributeDefinitions</code>)</li>
 </ul>
 <h3 id="functions">Functions</h3>
-<p>Writing lambda code can be done in almost any programming language thanks to possibility of defining <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html">Custom AWS Lambda Runtimes</a>. However if you want to interact with other AWS services, it’s much easer to write code in language, that have <a href="https://aws.amazon.com/tools/">official AWS SDK</a>.</p>
+<p>Writing lambda code can be done in almost any programming language thanks to possibility of defining <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html">Custom AWS Lambda Runtimes</a>. However, if you want to interact with other AWS services, it’s much easier to write code in language, that have <a href="https://aws.amazon.com/tools/">official AWS SDK</a>.</p>
 <p>If the code executed by Lambda will be rather short, you can decide to inline it inside your CloudFormation script.</p>
 <p>Let&rsquo;s look at sample Lambda definitions:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">CreateUserLambda:
@@ -239,7 +239,7 @@ Infrastructure as a Code Knowledge of programming language and few CloudFormatio
 <li><code>Handler</code> - name of the function (in source code), that will be called when Lambda will be executed</li>
 <li><code>Runtime</code> - defines runtime of the Lambda (programming language and it&rsquo;s version)</li>
 <li><code>Timeout</code> - max duration of the Lambda (in seconds)</li>
-<li><code>MemorySize</code> - describes, how powerfull will be the hardware (not only memory but also CPU), running your function</li>
+<li><code>MemorySize</code> - describes, how powerful will be the hardware (not only memory but also CPU), running your function</li>
 <li><code>Policies</code> - describe security policies, in this cases functions can execute CRUD operations on created previously DynamoDB table</li>
 <li><code>Environment.Variables</code> - defines variables, that can be assigned in CloudFormation and used in code</li>
 <li><code>Events</code> - events that will trigger this lambda, in these cases they are events from API Gateway</li>

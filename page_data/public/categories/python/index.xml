@@ -29,7 +29,7 @@
       <description>Running your code inside of Docker container can save you from installing, sometimes very complex, tree of dependencies on your local computer. Introduction Following post presents a few steps, that will allow you to run your applications / scripts in an interactive way inside the Docker container.
 First let&amp;rsquo;s look at the general command for running Docker containers:
 docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
-Using this commmand we can run our first example which in this case is echo command:</description>
+Using this command we can run our first example which in this case is echo command:</description>
     </item>
     
     <item>

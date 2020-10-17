@@ -28,12 +28,12 @@ The full source code with instructions, how to run and test it, can be found [he
 
 Knowledge of programming language and few CloudFormation resources is all, that you need to build simple Serverless application. First skill will be used to implement code executed by Lambda functions and the second to create infrastructure. Actually you can embed your logic into infrastructure and put it in single CloudFormation file. 
 
-Especially for building Serverless application AWS realised set of resources under `AWS::Serverless::*` namespace. By using these resources (like `AWS::Serverless::Function` or `AWS::Serverless::Api`) you can start building your application faster, and if you need more configuration options, you can always switch to standart ones (like `AWS::Lambda::Function` or `AWS::ApiGateway::RestApi`).
+Especially for building Serverless application AWS released set of resources under `AWS::Serverless::*` namespace. By using these resources (like `AWS::Serverless::Function` or `AWS::Serverless::Api`) you can start building your application faster, and if you need more configuration options, you can always switch to standard ones (like `AWS::Lambda::Function` or `AWS::ApiGateway::RestApi`).
 
 
 ### Database
 
-Since we are building serverless application, it is important to choose proper Database. We definitely need database, that will scale regarding the traffic, and also we don't want to manage any server. DynamoDB fulfills both of thoses requirements, and thus it makes perfect sense to use it.
+Since we are building serverless application, it is important to choose proper Database. We definitely need database, that will scale regarding the traffic, and also we don't want to manage any server. DynamoDB fulfills both of those requirements, and thus it makes perfect sense to use it.
 
 Let's look at the definition of DynamoDB table:
 
@@ -60,7 +60,7 @@ There are basically three important information in this definition:
 
 ### Functions
 
-Writing lambda code can be done in almost any programming language thanks to possibility of defining [Custom AWS Lambda Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html). However if you want to interact with other AWS services, it’s much easer to write code in language, that have [official AWS SDK](https://aws.amazon.com/tools/).
+Writing lambda code can be done in almost any programming language thanks to possibility of defining [Custom AWS Lambda Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html). However, if you want to interact with other AWS services, it’s much easier to write code in language, that have [official AWS SDK](https://aws.amazon.com/tools/).
 
 If the code executed by Lambda will be rather short, you can decide to inline it inside your CloudFormation script. 
 
@@ -176,7 +176,7 @@ Let's take a look at few most important properties:
 - `Handler` - name of the function (in source code), that will be called when Lambda will be executed
 - `Runtime` - defines runtime of the Lambda (programming language and it's version)
 - `Timeout` - max duration of the Lambda (in seconds)
-- `MemorySize` - describes, how powerfull will be the hardware (not only memory but also CPU), running your function
+- `MemorySize` - describes, how powerful will be the hardware (not only memory but also CPU), running your function
 - `Policies` - describe security policies, in this cases functions can execute CRUD operations on created previously DynamoDB table
 - `Environment.Variables` - defines variables, that can be assigned in CloudFormation and used in code
 - `Events` - events that will trigger this lambda, in these cases they are events from API Gateway 

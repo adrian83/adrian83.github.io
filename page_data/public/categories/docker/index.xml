@@ -6,10 +6,20 @@
     <description>Recent content in docker on adrian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 27 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://adrian83.github.io/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernates demo on Google Cloud Platform</title>
+      <link>https://adrian83.github.io/post/005_kubernates_demo_on_gcp/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adrian83.github.io/post/005_kubernates_demo_on_gcp/</guid>
+      <description>After playing a bit with Minikube I wanted to build something on a real Kubernetes cluster. From few Kubernetes as a Service options I&amp;rsquo;ve chosen Google Kubernetes Engine available on Google Cloud Platform. Below you can see how to deploy web application in few simple steps. The full source code with instructions, how to run and test it, can be found here.
+Prerequisites Before you start make sure, you meet the following requirements:</description>
+    </item>
     
     <item>
       <title>Run code in Docker container</title>
@@ -20,7 +30,7 @@
       <description>Running your code inside of Docker container can save you from installing, sometimes very complex, tree of dependencies on your local computer. Introduction Following post presents a few steps, that will allow you to run your applications / scripts in an interactive way inside the Docker container.
 First let&amp;rsquo;s look at the general command for running Docker containers:
 docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
-Using this commmand we can run our first example which in this case is echo command:</description>
+Using this command we can run our first example which in this case is echo command:</description>
     </item>
     
   </channel>
