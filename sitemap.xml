@@ -1,370 +1,216 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://adrian83.github.io/page/about/</loc>
     <lastmod>2019-04-23T17:48:02+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/aws/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/aws/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/boto3/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/boto3/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/post/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/python/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/python/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/post/009_removing_versioned_object_from_s3/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/s3/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/s3/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/</loc>
     <lastmod>2020-10-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/docker/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/docker/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/gcp/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/gcp/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/google-cloud-platform/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/google-cloud-platform/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/k8s/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/k8s/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/kubectl/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/kubectl/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/post/005_kubernates_demo_on_gcp/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/kubernetes/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/kubernetes/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/decorators/</loc>
     <lastmod>2020-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/decorators/</loc>
     <lastmod>2020-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/post/006_decorators_in_python/</loc>
     <lastmod>2020-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/post/003_run_code_in_docker_container/</loc>
     <lastmod>2020-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/tensorflow/</loc>
     <lastmod>2020-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/tensorflow/</loc>
     <lastmod>2020-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/api-gateway/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/api-gateway/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/post/004_serverless_api_on_aws/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/cloudformation/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/cloudformation/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/dynamodb/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/dynamodb/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/lambda/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/lambda/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/serverless/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/serverless/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/go/</loc>
     <lastmod>2020-01-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/go/</loc>
     <lastmod>2020-01-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/post/002_go_and_json/</loc>
     <lastmod>2020-01-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/json/</loc>
     <lastmod>2020-01-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/json/</loc>
     <lastmod>2020-01-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/dashboard/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/dashboard/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/minikube/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/categories/minikube/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/post/001_minikube-dashboard/</loc>
     <lastmod>2019-12-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/post/000_test/</loc>
     <lastmod>2019-11-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/tags/test/</loc>
     <lastmod>2019-11-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/</loc>
     <lastmod>2019-04-23T17:48:02+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/001_iam/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/002_s3/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/003_ec2/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/004_ebs/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/005_autoscaling/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/006_elb/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/007_cloudwatch/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/008_vpc/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/009_rds/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/010_dynamodb/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/011_aurora/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/012_redshift/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/900_exam/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/whitepaper_fault_tolerant_apps/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/whitepaper_hosting_webapps/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/whitepaper_storage/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/aws_architect/whitepaper_storage_options/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/gcp_developer/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://adrian83.github.io/page/gcp_developer/001_guide_1/</loc>
   </url>
-  
 </urlset>
