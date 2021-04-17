@@ -14,10 +14,6 @@ Father of two adorable children. Programming enthusiast. Backend developer with 
 Certified AWS Developer (Associate) and Solution Architect (Associate)
 
 
-[![AWS Certified Developer – Associate](/images/aws-certified-developer-associate.png)](https://www.credly.com/badges/f849a4fb-ad76-4418-9ba1-58426e53d363/public_url) 
-
-
-
-[![AWS Certified Solutions Architect – Associate](/images/aws-certified-solutions-architect-associate.png)](https://www.credly.com/badges/a2a64ee7-dd10-4f43-971e-52f64d54ed1d/public_url)
+[![AWS Certified Developer – Associate](/images/aws-certified-developer-associate.png)](https://www.credly.com/badges/f849a4fb-ad76-4418-9ba1-58426e53d363/public_url) [![AWS Certified Solutions Architect – Associate](/images/aws-certified-solutions-architect-associate.png)](https://www.credly.com/badges/a2a64ee7-dd10-4f43-971e-52f64d54ed1d/public_url)
 
 
