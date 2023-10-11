@@ -23,9 +23,8 @@ First we have to define user, that will have permission to access Dashboard. For
 apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubernetes-dashboard Next we need to bind previously defined user to role, which will allow accessing dashboard." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adrian83.github.io/post/001_minikube-dashboard/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-12-22T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2019-12-22T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2019-12-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-22T00:00:00+00:00" />
 
 
     
@@ -62,7 +61,7 @@ apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubern
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="generator" content="Hugo 0.119.0">
   </head>
 
   
@@ -79,14 +78,6 @@ apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubern
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
       
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://adrian83.github.io/post/">Blog</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://adrian83.github.io/tags/">Tags</a>
-          </li>
         
           <li class="navigation-item">
             <a class="navigation-link" href="https://adrian83.github.io/page/about/">About</a>
@@ -112,25 +103,25 @@ apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubern
 <p>Make sure your Minikube cluster is started by running <code>minikube status</code>.<br>
 If it is not running start it with <code>minikube start</code>.</p>
 <p>First we have to define user, that will have permission to access Dashboard. For that create file <code>dashboard-adminuser.yaml</code> with content:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: admin-user
-  namespace: kubernetes-dashboard
-</code></pre></div><p>Next we need to bind previously defined user to role, which will allow accessing dashboard. For that create file <code>dashboard-clusterrolebinding.yaml</code> with content:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: admin-user
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: admin-user
-  namespace: kubernetes-dashboard
-</code></pre></div><p>Apply both files by executing:<br>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>kind: ServiceAccount
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: admin-user
+</span></span><span style="display:flex;"><span>  namespace: kubernetes-dashboard
+</span></span></code></pre></div><p>Next we need to bind previously defined user to role, which will allow accessing dashboard. For that create file <code>dashboard-clusterrolebinding.yaml</code> with content:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>apiVersion: rbac.authorization.k8s.io/v1
+</span></span><span style="display:flex;"><span>kind: ClusterRoleBinding
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: admin-user
+</span></span><span style="display:flex;"><span>roleRef:
+</span></span><span style="display:flex;"><span>  apiGroup: rbac.authorization.k8s.io
+</span></span><span style="display:flex;"><span>  kind: ClusterRole
+</span></span><span style="display:flex;"><span>  name: cluster-admin
+</span></span><span style="display:flex;"><span>subjects:
+</span></span><span style="display:flex;"><span>- kind: ServiceAccount
+</span></span><span style="display:flex;"><span>  name: admin-user
+</span></span><span style="display:flex;"><span>  namespace: kubernetes-dashboard
+</span></span></code></pre></div><p>Apply both files by executing:<br>
 <code>kubectl apply -f dashboard-adminuser.yaml</code><br>
 <code>kubectl apply -f dashboard-clusterrolebinding.yaml</code></p>
 <p>Install Dashboard:<br>
@@ -154,7 +145,7 @@ subjects:
     
     
       
-        © 2021
+        © 2023
       
        Adrian Brzoza 
     

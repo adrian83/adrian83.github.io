@@ -63,20 +63,16 @@ def printMenu():
 
 
 
+
 if len(sys.argv) < 2:
     printMenu()
-
-if sys.argv[1] == "menu":
+elif sys.argv[1] == "menu":
     printMenu()
-
-if sys.argv[1] == "clean":
+elif sys.argv[1] == "clean":
     clean()
-
-if sys.argv[1] == "build":
+elif sys.argv[1] == "build":
     build()
-
-if sys.argv[1] == "deploy":
+elif sys.argv[1] == "deploy":
     deploy()
-
-if sys.argv[1] == "all":
+elif sys.argv[1] == "all":
     all()

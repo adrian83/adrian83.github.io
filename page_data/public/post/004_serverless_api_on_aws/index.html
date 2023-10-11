@@ -19,9 +19,8 @@ Infrastructure as a Code Knowledge of programming language and few CloudFormatio
 Infrastructure as a Code Knowledge of programming language and few CloudFormation resources is all, that you need to build simple Serverless application. First skill will be used to implement code executed by Lambda functions and the second to create infrastructure." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adrian83.github.io/post/004_serverless_api_on_aws/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-03-15T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-03-15T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2020-03-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-15T00:00:00+00:00" />
 
 
     
@@ -58,7 +57,7 @@ Infrastructure as a Code Knowledge of programming language and few CloudFormatio
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="generator" content="Hugo 0.119.0">
   </head>
 
   
@@ -75,14 +74,6 @@ Infrastructure as a Code Knowledge of programming language and few CloudFormatio
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
       
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://adrian83.github.io/post/">Blog</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://adrian83.github.io/tags/">Tags</a>
-          </li>
         
           <li class="navigation-item">
             <a class="navigation-link" href="https://adrian83.github.io/page/about/">About</a>
@@ -112,18 +103,18 @@ Infrastructure as a Code Knowledge of programming language and few CloudFormatio
 <h3 id="database">Database</h3>
 <p>Since we are building serverless application, it is important to choose proper Database. We definitely need database, that will scale regarding the traffic, and also we don&rsquo;t want to manage any server. DynamoDB fulfills both of those requirements, and thus it makes perfect sense to use it.</p>
 <p>Let&rsquo;s look at the definition of DynamoDB table:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  UsersDynamoDBTable:
-    Type: &#39;AWS::DynamoDB::Table&#39;
-    Properties:
-      TableName: &#39;users&#39;
-      BillingMode: &#39;PAY_PER_REQUEST&#39;
-      AttributeDefinitions:
-        - AttributeName: &#39;id&#39;
-          AttributeType: &#39;S&#39;
-      KeySchema:
-        - AttributeName: &#39;id&#39;
-          KeyType: &#39;HASH&#39;
-</code></pre></div><p>There are basically three important information in this definition:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>  UsersDynamoDBTable:
+</span></span><span style="display:flex;"><span>    Type: &#39;AWS::DynamoDB::Table&#39;
+</span></span><span style="display:flex;"><span>    Properties:
+</span></span><span style="display:flex;"><span>      TableName: &#39;users&#39;
+</span></span><span style="display:flex;"><span>      BillingMode: &#39;PAY_PER_REQUEST&#39;
+</span></span><span style="display:flex;"><span>      AttributeDefinitions:
+</span></span><span style="display:flex;"><span>        - AttributeName: &#39;id&#39;
+</span></span><span style="display:flex;"><span>          AttributeType: &#39;S&#39;
+</span></span><span style="display:flex;"><span>      KeySchema:
+</span></span><span style="display:flex;"><span>        - AttributeName: &#39;id&#39;
+</span></span><span style="display:flex;"><span>          KeyType: &#39;HASH&#39;
+</span></span></code></pre></div><p>There are basically three important information in this definition:</p>
 <ul>
 <li>name of the table</li>
 <li>billing mode (we will pay only for what we use)</li>
@@ -133,108 +124,108 @@ Infrastructure as a Code Knowledge of programming language and few CloudFormatio
 <p>Writing lambda code can be done in almost any programming language thanks to possibility of defining <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html">Custom AWS Lambda Runtimes</a>. However, if you want to interact with other AWS services, it’s much easier to write code in language, that have <a href="https://aws.amazon.com/tools/">official AWS SDK</a>.</p>
 <p>If the code executed by Lambda will be rather short, you can decide to inline it inside your CloudFormation script.</p>
 <p>Let&rsquo;s look at sample Lambda definitions:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">CreateUserLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: &#39;user-create&#39;
-      Handler: index.lambda_handler
-      Runtime: python3.6
-      Timeout: 25
-      MemorySize: 128
-      Policies:
-      - DynamoDBCrudPolicy:
-          TableName: !Ref UsersDynamoDBTable
-      Environment:
-        Variables:
-          USERS_TABLE_NAME: !Ref UsersDynamoDBTable
-      Events:
-        Api:
-          Type: Api
-          Properties:
-            Method: post
-            Path: /v1/users
-            RestApiId: 
-              Ref: UserAPIGateway
-      InlineCode: |
-          from __future__ import print_function
-          import boto3
-          import json
-          import os
-          import uuid
-
-          users_table = os.environ[&#39;USERS_TABLE_NAME&#39;]
-
-          dynamodb_client = boto3.client(&#39;dynamodb&#39;)
-
-          def lambda_handler(event, context):
-            print(&#34;event: {0}&#34;.format(event))
-
-            body = json.loads(event[&#39;body&#39;])
-            if &#39;firstName&#39; not in body or &#39;lastName&#39; not in body:
-              print(&#34;cannot persist user, invalid data: {0}&#34;.format(body))
-              return {&#34;statusCode&#34;: 400, &#34;body&#34;: &#34;Invalid input&#34;}
-
-            user_id = str(uuid.uuid4())
-            first_name = body[&#39;firstName&#39;]
-            last_name = body[&#39;lastName&#39;]
-
-            response = dynamodb_client.put_item(
-              TableName=users_table, 
-              Item={&#39;id&#39;: {&#39;S&#39;: user_id}, &#39;firstName&#39;: {&#39;S&#39;: first_name}, &#39;lastName&#39;: {&#39;S&#39;: last_name}})
-
-            if response[&#39;ResponseMetadata&#39;][&#39;HTTPStatusCode&#39;] != 200:
-              print(&#34;cannot put item: {0}&#34;.format(response))
-              return {&#34;statusCode&#34;: 500, &#34;body&#34;: &#34;Internal server error: {0}&#34;.format(response)}
-
-            return {&#34;statusCode&#34;: 201, &#34;body&#34;: json.dumps({&#39;id&#39;: user_id, &#39;firstName&#39;: first_name, &#39;lastName&#39;: last_name})}
-
-
-  DeleteUserLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: &#39;user-delete&#39;
-      Handler: index.lambda_handler
-      Runtime: python3.6
-      Timeout: 25
-      MemorySize: 128
-      Policies:
-      - DynamoDBCrudPolicy:
-          TableName: !Ref UsersDynamoDBTable
-      Environment:
-        Variables:
-          USERS_TABLE_NAME: !Ref UsersDynamoDBTable
-      Events:
-        Api:
-          Type: Api
-          Properties:
-            Method: delete
-            Path: /v1/users/{userId}
-            RestApiId: 
-              Ref: UserAPIGateway
-      InlineCode: |
-          from __future__ import print_function
-          import boto3
-          import os
-
-          users_table = os.environ[&#39;USERS_TABLE_NAME&#39;]
-
-          dynamodb_client = boto3.client(&#39;dynamodb&#39;)
-
-          def lambda_handler(event, context):
-            print(&#34;event: {0}&#34;.format(event))
-
-            user_id = event[&#39;pathParameters&#39;][&#39;userId&#39;]
-
-            response = dynamodb_client.delete_item(
-              TableName=users_table, 
-              Key={&#39;id&#39;: {&#39;S&#39;: user_id}})
-
-            if response[&#39;ResponseMetadata&#39;][&#39;HTTPStatusCode&#39;] != 200:
-              print(&#34;cannot delete item: {0}&#34;.format(response))
-              return {&#34;statusCode&#34;: 500, &#34;body&#34;: &#34;Internal server error: {0}&#34;.format(response)}
-
-            return {&#34;statusCode&#34;: 200}
-</code></pre></div><p>Let&rsquo;s take a look at few most important properties:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>CreateUserLambda:
+</span></span><span style="display:flex;"><span>    Type: AWS::Serverless::Function
+</span></span><span style="display:flex;"><span>    Properties:
+</span></span><span style="display:flex;"><span>      FunctionName: &#39;user-create&#39;
+</span></span><span style="display:flex;"><span>      Handler: index.lambda_handler
+</span></span><span style="display:flex;"><span>      Runtime: python3.6
+</span></span><span style="display:flex;"><span>      Timeout: 25
+</span></span><span style="display:flex;"><span>      MemorySize: 128
+</span></span><span style="display:flex;"><span>      Policies:
+</span></span><span style="display:flex;"><span>      - DynamoDBCrudPolicy:
+</span></span><span style="display:flex;"><span>          TableName: !Ref UsersDynamoDBTable
+</span></span><span style="display:flex;"><span>      Environment:
+</span></span><span style="display:flex;"><span>        Variables:
+</span></span><span style="display:flex;"><span>          USERS_TABLE_NAME: !Ref UsersDynamoDBTable
+</span></span><span style="display:flex;"><span>      Events:
+</span></span><span style="display:flex;"><span>        Api:
+</span></span><span style="display:flex;"><span>          Type: Api
+</span></span><span style="display:flex;"><span>          Properties:
+</span></span><span style="display:flex;"><span>            Method: post
+</span></span><span style="display:flex;"><span>            Path: /v1/users
+</span></span><span style="display:flex;"><span>            RestApiId: 
+</span></span><span style="display:flex;"><span>              Ref: UserAPIGateway
+</span></span><span style="display:flex;"><span>      InlineCode: |
+</span></span><span style="display:flex;"><span>          from __future__ import print_function
+</span></span><span style="display:flex;"><span>          import boto3
+</span></span><span style="display:flex;"><span>          import json
+</span></span><span style="display:flex;"><span>          import os
+</span></span><span style="display:flex;"><span>          import uuid
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          users_table = os.environ[&#39;USERS_TABLE_NAME&#39;]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          dynamodb_client = boto3.client(&#39;dynamodb&#39;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          def lambda_handler(event, context):
+</span></span><span style="display:flex;"><span>            print(&#34;event: {0}&#34;.format(event))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            body = json.loads(event[&#39;body&#39;])
+</span></span><span style="display:flex;"><span>            if &#39;firstName&#39; not in body or &#39;lastName&#39; not in body:
+</span></span><span style="display:flex;"><span>              print(&#34;cannot persist user, invalid data: {0}&#34;.format(body))
+</span></span><span style="display:flex;"><span>              return {&#34;statusCode&#34;: 400, &#34;body&#34;: &#34;Invalid input&#34;}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            user_id = str(uuid.uuid4())
+</span></span><span style="display:flex;"><span>            first_name = body[&#39;firstName&#39;]
+</span></span><span style="display:flex;"><span>            last_name = body[&#39;lastName&#39;]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            response = dynamodb_client.put_item(
+</span></span><span style="display:flex;"><span>              TableName=users_table, 
+</span></span><span style="display:flex;"><span>              Item={&#39;id&#39;: {&#39;S&#39;: user_id}, &#39;firstName&#39;: {&#39;S&#39;: first_name}, &#39;lastName&#39;: {&#39;S&#39;: last_name}})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            if response[&#39;ResponseMetadata&#39;][&#39;HTTPStatusCode&#39;] != 200:
+</span></span><span style="display:flex;"><span>              print(&#34;cannot put item: {0}&#34;.format(response))
+</span></span><span style="display:flex;"><span>              return {&#34;statusCode&#34;: 500, &#34;body&#34;: &#34;Internal server error: {0}&#34;.format(response)}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            return {&#34;statusCode&#34;: 201, &#34;body&#34;: json.dumps({&#39;id&#39;: user_id, &#39;firstName&#39;: first_name, &#39;lastName&#39;: last_name})}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  DeleteUserLambda:
+</span></span><span style="display:flex;"><span>    Type: AWS::Serverless::Function
+</span></span><span style="display:flex;"><span>    Properties:
+</span></span><span style="display:flex;"><span>      FunctionName: &#39;user-delete&#39;
+</span></span><span style="display:flex;"><span>      Handler: index.lambda_handler
+</span></span><span style="display:flex;"><span>      Runtime: python3.6
+</span></span><span style="display:flex;"><span>      Timeout: 25
+</span></span><span style="display:flex;"><span>      MemorySize: 128
+</span></span><span style="display:flex;"><span>      Policies:
+</span></span><span style="display:flex;"><span>      - DynamoDBCrudPolicy:
+</span></span><span style="display:flex;"><span>          TableName: !Ref UsersDynamoDBTable
+</span></span><span style="display:flex;"><span>      Environment:
+</span></span><span style="display:flex;"><span>        Variables:
+</span></span><span style="display:flex;"><span>          USERS_TABLE_NAME: !Ref UsersDynamoDBTable
+</span></span><span style="display:flex;"><span>      Events:
+</span></span><span style="display:flex;"><span>        Api:
+</span></span><span style="display:flex;"><span>          Type: Api
+</span></span><span style="display:flex;"><span>          Properties:
+</span></span><span style="display:flex;"><span>            Method: delete
+</span></span><span style="display:flex;"><span>            Path: /v1/users/{userId}
+</span></span><span style="display:flex;"><span>            RestApiId: 
+</span></span><span style="display:flex;"><span>              Ref: UserAPIGateway
+</span></span><span style="display:flex;"><span>      InlineCode: |
+</span></span><span style="display:flex;"><span>          from __future__ import print_function
+</span></span><span style="display:flex;"><span>          import boto3
+</span></span><span style="display:flex;"><span>          import os
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          users_table = os.environ[&#39;USERS_TABLE_NAME&#39;]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          dynamodb_client = boto3.client(&#39;dynamodb&#39;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          def lambda_handler(event, context):
+</span></span><span style="display:flex;"><span>            print(&#34;event: {0}&#34;.format(event))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            user_id = event[&#39;pathParameters&#39;][&#39;userId&#39;]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            response = dynamodb_client.delete_item(
+</span></span><span style="display:flex;"><span>              TableName=users_table, 
+</span></span><span style="display:flex;"><span>              Key={&#39;id&#39;: {&#39;S&#39;: user_id}})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            if response[&#39;ResponseMetadata&#39;][&#39;HTTPStatusCode&#39;] != 200:
+</span></span><span style="display:flex;"><span>              print(&#34;cannot delete item: {0}&#34;.format(response))
+</span></span><span style="display:flex;"><span>              return {&#34;statusCode&#34;: 500, &#34;body&#34;: &#34;Internal server error: {0}&#34;.format(response)}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            return {&#34;statusCode&#34;: 200}
+</span></span></code></pre></div><p>Let&rsquo;s take a look at few most important properties:</p>
 <ul>
 <li><code>FunctionName</code> - name of the Lambda function</li>
 <li><code>Handler</code> - name of the function (in source code), that will be called when Lambda will be executed</li>
@@ -249,12 +240,12 @@ Infrastructure as a Code Knowledge of programming language and few CloudFormatio
 <h3 id="api-gateway">API Gateway</h3>
 <p>Exposing API to the world can be done through API Gateway service.</p>
 <p>Basic definition of API Gateway looks like this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  UserAPIGateway:
-    Type: AWS::Serverless::Api
-    Properties:
-      Name: &#39;users-api-gateway&#39;
-      StageName: &#39;api-demo&#39;
-</code></pre></div><h3 id="summary">Summary</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>  UserAPIGateway:
+</span></span><span style="display:flex;"><span>    Type: AWS::Serverless::Api
+</span></span><span style="display:flex;"><span>    Properties:
+</span></span><span style="display:flex;"><span>      Name: &#39;users-api-gateway&#39;
+</span></span><span style="display:flex;"><span>      StageName: &#39;api-demo&#39;
+</span></span></code></pre></div><h3 id="summary">Summary</h3>
 <p>As you can see knowing three types of CloudFormation resources is enough to create simple CRUD application. Thanks to resources from <code>AWS::Serverless::*</code> we don&rsquo;t have to define a few more resources. For example:</p>
 <ol>
 <li>Defining <code>Policies</code> in <code>AWS::Serverless::Function</code> frees us from defining IAM Role (<code>AWS::IAM::Role</code>)</li>
@@ -273,7 +264,7 @@ Infrastructure as a Code Knowledge of programming language and few CloudFormatio
     
     
       
-        © 2021
+        © 2023
       
        Adrian Brzoza 
     

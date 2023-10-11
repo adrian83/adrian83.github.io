@@ -19,9 +19,8 @@ Prerequisites Before you start make sure, you meet the following requirements:"/
 Prerequisites Before you start make sure, you meet the following requirements:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://adrian83.github.io/post/005_kubernates_demo_on_gcp/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-05-30T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-05-30T00:00:00&#43;00:00" />
-
+<meta property="article:published_time" content="2020-05-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-30T00:00:00+00:00" />
 
 
     
@@ -58,7 +57,7 @@ Prerequisites Before you start make sure, you meet the following requirements:" 
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="https://github.githubassets.com/favicon.ico" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="generator" content="Hugo 0.119.0">
   </head>
 
   
@@ -75,14 +74,6 @@ Prerequisites Before you start make sure, you meet the following requirements:" 
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
       
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://adrian83.github.io/post/">Blog</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://adrian83.github.io/tags/">Tags</a>
-          </li>
         
           <li class="navigation-item">
             <a class="navigation-link" href="https://adrian83.github.io/page/about/">About</a>
@@ -136,16 +127,16 @@ Prerequisites Before you start make sure, you meet the following requirements:" 
 <h4 id="infrastructure">Infrastructure</h4>
 <p>Now we are ready to deploy sample application.
 We will start from defining our infrastructure. In GCP we can use Deployment Manager to build our infrastructure from code. Actually our infrastructure is only one resource - Kubernetes Cluster. Mine is created in Finland, but you should choose region, that is close to your location. Our cluster will contain 2 nodes.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">resources:
-
-- name: k8s-demo-cluster
-  type: container.v1.cluster
-  properties:
-    zone: europe-north1-c      # Finland
-    cluster:
-      description: &#34;k8s-demo cluster&#34;
-      initialNodeCount: 2
-</code></pre></div><p>Let&rsquo;s place this code in file called <code>01-infrastructure.yml</code> and build it, by executing such command:<br>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>resources:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- name: k8s-demo-cluster
+</span></span><span style="display:flex;"><span>  type: container.v1.cluster
+</span></span><span style="display:flex;"><span>  properties:
+</span></span><span style="display:flex;"><span>    zone: europe-north1-c      # Finland
+</span></span><span style="display:flex;"><span>    cluster:
+</span></span><span style="display:flex;"><span>      description: &#34;k8s-demo cluster&#34;
+</span></span><span style="display:flex;"><span>      initialNodeCount: 2
+</span></span></code></pre></div><p>Let&rsquo;s place this code in file called <code>01-infrastructure.yml</code> and build it, by executing such command:<br>
 <code>gcloud deployment-manager deployments create adrian-gcp-k8s-demo --config 01-infrastructure.yml</code></p>
 <p>Our Kubernetes Cluster runs on Google Cloud Platform, but since now we can forget for a while about GSP and concentrate on K8S cluster. Tool that is used to manage K8S clusters is called <code>kubectl</code> and since now we will use it.</p>
 <p>Let&rsquo;s authenticate kubectl to manage our K8S cluster on GCP, by executing:<br>
@@ -153,67 +144,67 @@ We will start from defining our infrastructure. In GCP we can use Deployment Man
 <p>Now every <code>kubectl</code> command will hit our cluster.</p>
 <h4 id="deployment-pods">Deployment (Pods)</h4>
 <p>Let&rsquo;s start from deploying sample application in form of a pod(s). To do this, let&rsquo;s create file <code>02-echo-deployment.yml</code> with following content:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: echo-deployment
-  labels:
-    app: echo
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: echo
-  template:
-    metadata:
-      labels:
-        app: echo
-    spec:
-      containers:
-      - name: echo
-        image: docker.io/adrianb83/echo:1.0.3
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        resources:
-          requests:
-            memory: &#34;64Mi&#34;
-            cpu: &#34;250m&#34;
-          limits:
-            memory: &#34;64Mi&#34;
-            cpu: &#34;250m&#34;
-</code></pre></div><p>I won&rsquo;t go into details about <code>Deployment</code> type which you can find <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">here</a>. The most important is, that we&rsquo;re deploying two replicas of <code>docker.io/adrianb83/echo:1.0.3</code> docker image. This image starts http server and returns data contained with request, such as headers, host name and body. We need to remember, that all deployed images should return status <code>OK</code> (200) under its root path.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>apiVersion: apps/v1
+</span></span><span style="display:flex;"><span>kind: Deployment
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: echo-deployment
+</span></span><span style="display:flex;"><span>  labels:
+</span></span><span style="display:flex;"><span>    app: echo
+</span></span><span style="display:flex;"><span>spec:
+</span></span><span style="display:flex;"><span>  replicas: 2
+</span></span><span style="display:flex;"><span>  selector:
+</span></span><span style="display:flex;"><span>    matchLabels:
+</span></span><span style="display:flex;"><span>      app: echo
+</span></span><span style="display:flex;"><span>  template:
+</span></span><span style="display:flex;"><span>    metadata:
+</span></span><span style="display:flex;"><span>      labels:
+</span></span><span style="display:flex;"><span>        app: echo
+</span></span><span style="display:flex;"><span>    spec:
+</span></span><span style="display:flex;"><span>      containers:
+</span></span><span style="display:flex;"><span>      - name: echo
+</span></span><span style="display:flex;"><span>        image: docker.io/adrianb83/echo:1.0.3
+</span></span><span style="display:flex;"><span>        ports:
+</span></span><span style="display:flex;"><span>        - containerPort: 8080
+</span></span><span style="display:flex;"><span>          protocol: TCP
+</span></span><span style="display:flex;"><span>        resources:
+</span></span><span style="display:flex;"><span>          requests:
+</span></span><span style="display:flex;"><span>            memory: &#34;64Mi&#34;
+</span></span><span style="display:flex;"><span>            cpu: &#34;250m&#34;
+</span></span><span style="display:flex;"><span>          limits:
+</span></span><span style="display:flex;"><span>            memory: &#34;64Mi&#34;
+</span></span><span style="display:flex;"><span>            cpu: &#34;250m&#34;
+</span></span></code></pre></div><p>I won&rsquo;t go into details about <code>Deployment</code> type which you can find <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">here</a>. The most important is, that we&rsquo;re deploying two replicas of <code>docker.io/adrianb83/echo:1.0.3</code> docker image. This image starts http server and returns data contained with request, such as headers, host name and body. We need to remember, that all deployed images should return status <code>OK</code> (200) under its root path.</p>
 <p>To deploy pods, please run: <code>kubectl apply -f 02-echo-deployment.yml</code></p>
 <h4 id="service">Service</h4>
 <p>If we have running pods, we need a way to expose them as a network service. To do this, we need to deploy <code>Service</code>.</p>
 <p>Let&rsquo;s create file <code>03-echo-service.yml</code> with following content:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">apiVersion: v1
-kind: Service
-metadata:
-  name: echo
-  namespace: default
-spec:
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 8080
-  type: NodePort
-  selector:
-    app: echo
-</code></pre></div><p>Again, if you need details about Kubernetes Services, take a look <a href="https://kubernetes.io/docs/concepts/services-networking/service/">here</a>. The most important is that this Service will reroute traffic from port 80 to port 8080 on target pods and that it will use Pods that match give selector (so Pods defined above).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>kind: Service
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: echo
+</span></span><span style="display:flex;"><span>  namespace: default
+</span></span><span style="display:flex;"><span>spec:
+</span></span><span style="display:flex;"><span>  ports:
+</span></span><span style="display:flex;"><span>  - port: 80
+</span></span><span style="display:flex;"><span>    protocol: TCP
+</span></span><span style="display:flex;"><span>    targetPort: 8080
+</span></span><span style="display:flex;"><span>  type: NodePort
+</span></span><span style="display:flex;"><span>  selector:
+</span></span><span style="display:flex;"><span>    app: echo
+</span></span></code></pre></div><p>Again, if you need details about Kubernetes Services, take a look <a href="https://kubernetes.io/docs/concepts/services-networking/service/">here</a>. The most important is that this Service will reroute traffic from port 80 to port 8080 on target pods and that it will use Pods that match give selector (so Pods defined above).</p>
 <p>To deploy Service, please run: <code>kubectl apply -f 03-echo-service.yml</code></p>
 <h4 id="ingress">Ingress</h4>
 <p>Now we should have running Service, but it is available only from our cluster. To make it visible from the internet, we need an Ingress.</p>
 <p>Let&rsquo;s create file <code>04-echo-ingres.yml</code> with following content:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: echo-ingress
-spec:
-  backend:
-    serviceName: echo
-    servicePort: 80
-</code></pre></div><p>Again, if you need details about Kubernetes Ingress, take a look <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">here</a>. The most important is, that this ingress reroutes traffic to our service (defined above) on port 80 so exactly, as we wanted.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>apiVersion: extensions/v1beta1
+</span></span><span style="display:flex;"><span>kind: Ingress
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: echo-ingress
+</span></span><span style="display:flex;"><span>spec:
+</span></span><span style="display:flex;"><span>  backend:
+</span></span><span style="display:flex;"><span>    serviceName: echo
+</span></span><span style="display:flex;"><span>    servicePort: 80
+</span></span></code></pre></div><p>Again, if you need details about Kubernetes Ingress, take a look <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">here</a>. The most important is, that this ingress reroutes traffic to our service (defined above) on port 80 so exactly, as we wanted.</p>
 <p>To deploy ingress, please run: <code>kubectl apply -f 04-echo-ingres.yml</code></p>
 <h4 id="testing">Testing</h4>
 <p>After few minutes you should be able to find newly created Ingress and it&rsquo;s IP address. You can past it into your browser and make few requests. Response will contain field <code>host</code> which should have one of two values corresponding to our replicas.</p>
@@ -231,7 +222,7 @@ spec:
     
     
       
-        © 2021
+        © 2023
       
        Adrian Brzoza 
     

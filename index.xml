@@ -13,8 +13,7 @@
       <pubDate>Tue, 23 Apr 2019 17:48:02 +0200</pubDate>
       
       <guid>https://adrian83.github.io/page/about/</guid>
-      <description>Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner.
-Certified AWS Developer (Associate) and Solution Architect (Associate)</description>
+      <description>Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner.</description>
     </item>
     
     <item>
@@ -104,7 +103,7 @@ apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubern
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/aws_architect/</guid>
-      <description>AWS Certified Solutions Architect - Professional Exam guide WHITEPAPERS  AWS Storage Services Overview - A Look at Storage Services Offered by AWS Web Application Hosting in the AWS Cloud Storage Options in the AWS Cloud Building Fault-Tolerant Applications on AWS  Core Services:  IAM S3 EC2 EBS Auto Scaling ELB Cloudwatch VPC RDS DynamoDB Aurora Redshift  </description>
+      <description>AWS Certified Solutions Architect - Professional Exam guide WHITEPAPERS AWS Storage Services Overview - A Look at Storage Services Offered by AWS Web Application Hosting in the AWS Cloud Storage Options in the AWS Cloud Building Fault-Tolerant Applications on AWS Core Services: IAM S3 EC2 EBS Auto Scaling ELB Cloudwatch VPC RDS DynamoDB Aurora Redshift </description>
     </item>
     
     <item>
@@ -115,7 +114,7 @@ apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubern
       <guid>https://adrian83.github.io/page/aws_architect/001_iam/</guid>
       <description>IAM Documentation Menu S3 &amp;raquo;
 Best practices:
- Lock away your AWS Account Root Access Keys. Create individual IAM Users. Configure strong pasword policy for your users. Rotate credentials regularly. Remove unnecessary credentials. Enable Multi-Factor Authentication (MFA) for priviliged users. Use Groups to assign permissions to IAM Users. Use AWS Defined Policies to assign permissions whenever possible. Use Policy Conditions for Extra security. Grant least privilige. Use Access Levels to Review IAM Permissions.</description>
+Lock away your AWS Account Root Access Keys. Create individual IAM Users. Configure strong pasword policy for your users. Rotate credentials regularly. Remove unnecessary credentials. Enable Multi-Factor Authentication (MFA) for priviliged users. Use Groups to assign permissions to IAM Users. Use AWS Defined Policies to assign permissions whenever possible. Use Policy Conditions for Extra security. Grant least privilige. Use Access Levels to Review IAM Permissions.</description>
     </item>
     
     <item>
@@ -126,9 +125,9 @@ Best practices:
       <guid>https://adrian83.github.io/page/aws_architect/002_s3/</guid>
       <description>S3 &amp;laquo; IAM Menu EC2 &amp;raquo;
 Whitepaper Main features:
- Durability (99.999999999%) Availability (99.99%) Scalability Reliability Fast Inexpensiv Secure Flexible Storage Management Easy interface for data Easy integration  Use cases:
- Data backup Data archiving Disaster recovery  TODO: Review S3 documentation Recap:
- Cross-Region Replication Storage classes Bucket policy and access controll list Events Logging  Types of Cloud Storage There are three types of cloud storage: Object, File, and Block.</description>
+Durability (99.999999999%) Availability (99.99%) Scalability Reliability Fast Inexpensiv Secure Flexible Storage Management Easy interface for data Easy integration Use cases:
+Data backup Data archiving Disaster recovery TODO: Review S3 documentation Recap:
+Cross-Region Replication Storage classes Bucket policy and access controll list Events Logging Types of Cloud Storage There are three types of cloud storage: Object, File, and Block. Each offers their own unique advantages.</description>
     </item>
     
     <item>
@@ -139,7 +138,7 @@ Whitepaper Main features:
       <guid>https://adrian83.github.io/page/aws_architect/003_ec2/</guid>
       <description>EC2 (Elastic Compute Cloud) &amp;laquo; S3 Menu EBS &amp;raquo;
 Purchase options:
- On demand Spot Reserved Scheduled  Dedicated host - ?
+On demand Spot Reserved Scheduled Dedicated host - ?
 Dedicated instance - ?
 Instance store - ?
 Key pair - ?
@@ -157,7 +156,7 @@ AMI - ?
       <description>EBS (Elastic Block Store) &amp;laquo; EC2 Menu Auto Scaling &amp;raquo;
 EBS is a persisten block storage volumes which can be used (attached) by EC2. Volumes can be detached and attached between EC2 instances.
 Volumes:
- Magnetic HDD - throughput optimized General purpose SSD - IO (read / write) optimized, max iops per volume is 16 000 Provisioned IOPS SSD - low latency, high throughput, max iops per volume is 64 000  Snapshot is a point in time backup (stored in s3) of the data from EBS volume.</description>
+Magnetic HDD - throughput optimized General purpose SSD - IO (read / write) optimized, max iops per volume is 16 000 Provisioned IOPS SSD - low latency, high throughput, max iops per volume is 64 000 Snapshot is a point in time backup (stored in s3) of the data from EBS volume.</description>
     </item>
     
     <item>
@@ -169,7 +168,7 @@ Volumes:
       <description>Auto Scaling &amp;laquo; EBS Menu ELB &amp;raquo;
 AWS Auto Scaling monitors your applications and automatically adjusts capacity to maintain steady, predictable performance at the lowest possible cost.
 Components:
- Launch Configuration Auto Scaling Group Scaling Options  Termination logic:
+Launch Configuration Auto Scaling Group Scaling Options Termination logic:
 &amp;laquo; EBS Menu ELB &amp;raquo;</description>
     </item>
     
@@ -250,7 +249,7 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolate
       
       <guid>https://adrian83.github.io/page/aws_architect/900_exam/</guid>
       <description>Exam Guide &amp;laquo; Back
-   Domain % of Examination     1. Design for Organizational Complexity 12.5%   2. Design for New Solutions 31%   3. Migration Planning 15%   4. Cost Control 12.5%   5. Continuous Improvement for Existing Solutions 29%   TOTAL 100%     Tutorial: Delegate Access Across AWS Accounts Using IAM Roles (User Guide) How to Enable Cross-Account Access to the AWS Management Console (AWS Security Blog) Providing Access to an IAM User in Another AWS Account That You Own (User Guide) Securely Accessing Customer AWS Accounts with Cross-Account IAM Roles (AWS Partner Network (APN) Blog)   AWS Single VPC Design (AWS Answers) One to Many: Evolving VPC Design (AWS Architecture Blog) Building a Modular and Scalable Virtual Network Architecture with Amazon VPC (VPC Quick Start)   AWS Multi-Account Security Strategy Managing AWS resources across multiple accounts and Regions using AWS Systems Manager Automation AWS Multiple Account Billing Strategy (AWS Answers)  </description>
+Domain % of Examination 1. Design for Organizational Complexity 12.5% 2. Design for New Solutions 31% 3. Migration Planning 15% 4. Cost Control 12.5% 5. Continuous Improvement for Existing Solutions 29% TOTAL 100% #### Domain 1: Design for Organizational Complexity ##### 1.1. Determine cross-account authentication and access strategy for complex organizations (for example, an organization with varying compliance requirements, multiple business units, and varying scalability requirements). Tutorial: Delegate Access Across AWS Accounts Using IAM Roles (User Guide) How to Enable Cross-Account Access to the AWS Management Console (AWS Security Blog) Providing Access to an IAM User in Another AWS Account That You Own (User Guide) Securely Accessing Customer AWS Accounts with Cross-Account IAM Roles (AWS Partner Network (APN) Blog) ##### 1.</description>
     </item>
     
     <item>
@@ -273,7 +272,7 @@ Introduction </description>
       <description>Web Application Hosting in the AWS Cloud Official documentation
 Back to main page
 An AWS Cloud Architecture for Web Hosting The following figure provides another look at that classic web application architecture and how it can leverage the AWS Cloud computing infrastructure.
- Load Balancing with Elastic Load Balancing (ELB)/Application Load Balancer (ALB) – Allows you to spread load across multiple Availability Zones and Amazon EC2 Auto Scaling groups for redundancy and decoupling of services.</description>
+Load Balancing with Elastic Load Balancing (ELB)/Application Load Balancer (ALB) – Allows you to spread load across multiple Availability Zones and Amazon EC2 Auto Scaling groups for redundancy and decoupling of services.</description>
     </item>
     
     <item>
@@ -285,7 +284,7 @@ An AWS Cloud Architecture for Web Hosting The following figure provides another 
       <description>AWS Storage Services Overview Official documentation
 Back to main page
 A Look at Storage Services Offered by AWS Amazon Web Services (AWS) provides low-cost data storage with high durability and availability. AWS offers storage choices for backup, archiving, and disaster recovery use cases and provides block, file, and object storage. In this whitepaper, we examine the following AWS Cloud storage services and features.
-   Type Description     Amazon Simple Storage Service (Amazon S3) A service that provides scalable and highly durable object storage in the cloud.</description>
+Type Description Amazon Simple Storage Service (Amazon S3) A service that provides scalable and highly durable object storage in the cloud.</description>
     </item>
     
     <item>
@@ -305,7 +304,7 @@ Introduction </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/gcp_developer/</guid>
-      <description>Professional Cloud Developer Documentation  Designing highly scalable, available, and reliable cloud-native applications  </description>
+      <description>Professional Cloud Developer Documentation Designing highly scalable, available, and reliable cloud-native applications </description>
     </item>
     
     <item>
@@ -314,7 +313,7 @@ Introduction </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://adrian83.github.io/page/gcp_developer/001_guide_1/</guid>
-      <description>1. Designing highly scalable, available, and reliable cloud-native applications  Designing performant applications and APIs. Considerations include:   Infrastructure as a Service vs. Container as a Service vs. Platform as a Service (e.g., autoscaling implications) Portability vs. platform-specific design Evaluating different services and technologies Operating system versions and base runtimes of services Geographic distribution of Google Cloud services Microservices Defining a key structure for high write applications using Cloud Storage, Cloud Bigtable, Cloud Spanner, or Cloud SQL Session management Deploying and securing an API with cloud endpoints Loosely coupled applications using asynchronous Cloud Pub/Sub events Health checks Google-recommended practices and documentation  Designing secure applications.</description>
+      <description>1. Designing highly scalable, available, and reliable cloud-native applications Designing performant applications and APIs. Considerations include: Infrastructure as a Service vs. Container as a Service vs. Platform as a Service (e.g., autoscaling implications) Portability vs. platform-specific design Evaluating different services and technologies Operating system versions and base runtimes of services Geographic distribution of Google Cloud services Microservices Defining a key structure for high write applications using Cloud Storage, Cloud Bigtable, Cloud Spanner, or Cloud SQL Session management Deploying and securing an API with cloud endpoints Loosely coupled applications using asynchronous Cloud Pub/Sub events Health checks Google-recommended practices and documentation Designing secure applications.</description>
     </item>
     
   </channel>

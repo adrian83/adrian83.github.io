@@ -18,7 +18,7 @@ disqusShortname = "yourdiscussshortname"
     info = "Software Engineer"
     description = "Adrian Brzoza's personal website"
     keywords = "blog,developer,personal"
-    avatarurl = "/images/avatar.jpg"
+    avatarurl = "/images/avatar.jpeg"
 
     favicon_32 = "https://github.githubassets.com/favicon.ico"
     favicon_16 = "https://github.githubassets.com/favicon.ico"
@@ -44,18 +44,16 @@ disqusShortname = "yourdiscussshortname"
     icon = "fab fa-linkedin fa-2x"
     weight = 2
     url = "https://linkedin.com/in/adrianbrzoza"
-[[params.social]]
-    name = "Twitter"
-    icon = "fab fa-twitter fa-2x"
-    weight = 3
-    url = "https://twitter.com/adrianb1983/"
 
 # Menu links
-[[menu.main]]
-    name = "Blog"
-    weight = 1
-    url  = "/post/"
-[[menu.main]]
-    name = "Tags"
-    weight = 1
-    url  = "/tags/"
+#[[menu.main]]
+#    name = "Blog"
+#    weight = 1
+#    url  = "/post/"
+#[[menu.main]]
+#    name = "Tags"
+#    weight = 1
+#    url  = "/tags/"
+
+[markup.goldmark.renderer]
+unsafe = true
