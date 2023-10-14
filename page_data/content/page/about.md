@@ -9,7 +9,15 @@ hidden: true
 ---
 
 
-Father of two adorable children. Programming enthusiast. Backend developer with several years of commercial experience. Lifelong learner.
+I'm a software developer with expertise in Java, Python, and Go. My mainstay is Java, where I've crafted robust, scalable applications. I'm also well-versed in Python and Go, allowing me to adapt to various projects and challenges.
+
+In recent years, I've immersed myself in AWS, earning the AWS Solutions Architect Professional certification. This certifies my ability to design complex, efficient cloud solutions. I take pride in my ability to architect solutions that optimize resource usage, enhance performance, and ensure top-notch security.
+
+I'm known for my team-oriented approach and am an easy-going collaborator. I'm a firm believer that great results come from open communication and teamwork when tackling complex problems.
+
+I have a deep passion for continuous learning. Staying updated with the latest industry trends and technologies drives me to excel in the ever-evolving tech world.
+
+<br/>
 
 
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="f849a4fb-ad76-4418-9ba1-58426e53d363" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
