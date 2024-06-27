@@ -1,59 +1,34 @@
-baseurl = "https://adrian83.github.io/"
-title = "adrian"
-theme = "hugo-coder"
-languagecode = "en"
-defaultcontentlanguage = "en"
-
-paginate = 20
-canonifyurls = true
-
-pygmentsstyle = "bw"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
-
-disqusShortname = "yourdiscussshortname"
+copyright = "©Adrian"
+defaultContentLanguage = "en"
+disableKinds = ["taxonomy", "term"]
+enableRobotsTXT = true
+languageCode = "en"
+timeZone = "Europe/Warsaw"
+timeout = "120s"
+title = "Gallery"
+theme = "gallery"
 
 [params]
-    author = "Adrian Brzoza"
-    info = "Software Engineer"
-    description = "Adrian Brzoza's personal website"
-    keywords = "blog,developer,personal"
-    avatarurl = "/images/avatar.jpg"
+  defaultTheme = "dark"
+  description = "Example site for hugo-theme-gallery"
+  title = "My Gallery"
 
-    favicon_32 = "https://github.githubassets.com/favicon.ico"
-    favicon_16 = "https://github.githubassets.com/favicon.ico"
+  [params.socialIcons]
+    github = "https://github.com/adrian83"
+    linkedin = "https://www.linkedin.com/in/adrianbrzoza/"
 
-    footercontent = ""
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML"]
+  section = ["HTML"]
 
-    hidecredits = false
-    hidecopyright = false
-
-    rtl = false
-
-    math = true
-    custom_css = []
-
-# Social links
-[[params.social]]
-    name = "Github"
-    icon = "fab fa-github fa-2x"
-    weight = 1
-    url = "https://github.com/adrian83/"
-[[params.social]]
-    name = "Linkedin"
-    icon = "fab fa-linkedin fa-2x"
-    weight = 2
-    url = "https://linkedin.com/in/adrianbrzoza"
-
-# Menu links
-#[[menu.main]]
-#    name = "Blog"
-#    weight = 1
-#    url  = "/post/"
-#[[menu.main]]
-#    name = "Tags"
-#    weight = 1
-#    url  = "/tags/"
+[imaging]
+  quality = 75
+  resampleFilter = "CatmullRom"
+  [imaging.exif]
+    disableDate = false
+    disableLatLong = true
+    includeFields = "ImageDescription|Orientation"
 
 [markup.goldmark.renderer]
 unsafe = true

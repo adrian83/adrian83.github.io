@@ -1,321 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>adrian</title>
-    <link>https://adrian83.github.io/</link>
-    <description>Recent content on adrian</description>
+    <title>Photos on Gallery</title>
+    <link>/</link>
+    <description>Recent content in Photos on Gallery</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 15 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://adrian83.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>©Adrian</copyright><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>About</title>
-      <link>https://adrian83.github.io/page/about/</link>
-      <pubDate>Tue, 23 Apr 2019 17:48:02 +0200</pubDate>
-      
-      <guid>https://adrian83.github.io/page/about/</guid>
-      <description>I&amp;rsquo;m a software developer with expertise in Java, Python, and Go. My mainstay is Java, where I&amp;rsquo;ve crafted robust, scalable applications. I&amp;rsquo;m also well-versed in Python and Go, allowing me to adapt to various projects and challenges.
-In recent years, I&amp;rsquo;ve immersed myself in AWS, earning the AWS Solutions Architect Professional certification. This certifies my ability to design complex, efficient cloud solutions. I take pride in my ability to architect solutions that optimize resource usage, enhance performance, and ensure top-notch security.</description>
-    </item>
-    
-    <item>
-      <title>Removing versioned object from AWS S3</title>
-      <link>https://adrian83.github.io/post/009_removing_versioned_object_from_s3/</link>
-      <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/post/009_removing_versioned_object_from_s3/</guid>
-      <description>Always, when I try to remove versioned object from S3 bucket, I wonder, why there is no possibility to do this from AWS console. If you, similary as I, wasted too much time to remove versioned objects from S3, you probably have prepared script for doing this. If not, you can use this simple Python script.
-import boto3 import sys maxVersions = 30 versionsLabel = &amp;#34;Versions&amp;#34; versionIdLabel = &amp;#34;VersionId&amp;#34; nextVersionIdMarkerLabel = &amp;#34;NextVersionIdMarker&amp;#34; bucket = sys.</description>
-    </item>
-    
-    <item>
-      <title>Kubernates demo on Google Cloud Platform</title>
-      <link>https://adrian83.github.io/post/005_kubernates_demo_on_gcp/</link>
-      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/post/005_kubernates_demo_on_gcp/</guid>
-      <description>After playing a bit with Minikube I wanted to build something on a real Kubernetes cluster. From few Kubernetes as a Service options I&amp;rsquo;ve chosen Google Kubernetes Engine available on Google Cloud Platform. Below you can see how to deploy web application in few simple steps. The full source code with instructions, how to run and test it, can be found here.
-Prerequisites Before you start make sure, you meet the following requirements:</description>
-    </item>
-    
-    <item>
-      <title>Decorators in Python</title>
-      <link>https://adrian83.github.io/post/006_decorators_in_python/</link>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/post/006_decorators_in_python/</guid>
-      <description>Decorators in Python are very powerful and elegant way to wrap functions and classes with custom code. In that code you can modify function arguments, returned values or ever block wrapped function from execution. Introduction In this post we will see, how to create decorators implemented as functions as well as classes. We will also see, that decorators themselves can have parameters and how multiple decorators behave on a single function.</description>
-    </item>
-    
-    <item>
-      <title>Run code in Docker container</title>
-      <link>https://adrian83.github.io/post/003_run_code_in_docker_container/</link>
-      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/post/003_run_code_in_docker_container/</guid>
-      <description>Running your code inside of Docker container can save you from installing, sometimes very complex, tree of dependencies on your local computer. Introduction Following post presents a few steps, that will allow you to run your applications / scripts in an interactive way inside the Docker container.
-First let&amp;rsquo;s look at the general command for running Docker containers:
-docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
-Using this command we can run our first example which in this case is echo command:</description>
-    </item>
-    
-    <item>
-      <title>Building Serverless API on AWS</title>
-      <link>https://adrian83.github.io/post/004_serverless_api_on_aws/</link>
-      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/post/004_serverless_api_on_aws/</guid>
-      <description>Writing serverless applications on AWS can be really easy. Below you can find description of how to build simplified CRUD application for user management. The full source code with instructions, how to run and test it, can be found here.
-Infrastructure as a Code Knowledge of programming language and few CloudFormation resources is all, that you need to build simple Serverless application. First skill will be used to implement code executed by Lambda functions and the second to create infrastructure.</description>
-    </item>
-    
-    <item>
-      <title>Go and JSON</title>
-      <link>https://adrian83.github.io/post/002_go_and_json/</link>
-      <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/post/002_go_and_json/</guid>
-      <description>Transforming data structures into JSON and the other way around is something, that is done quite often when creating APIs. Below you can find a few, in my opinion, most frequent transformations to and from JSON written in Go programming language. Introduction In this post we will see, how to marshal and unmarshal JSON into Go structures. We will see two most common cases where JSON and Go structures have compatible types and when the transformation is done by implementing custom logic.</description>
-    </item>
-    
-    <item>
-      <title>Running Dashboard in Minikube</title>
-      <link>https://adrian83.github.io/post/001_minikube-dashboard/</link>
-      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/post/001_minikube-dashboard/</guid>
-      <description>To install and access Kubernetes Web UI (called Dashboard), you need to go through few simple steps. Make sure your Minikube cluster is started by running minikube status.
-If it is not running start it with minikube start.
-First we have to define user, that will have permission to access Dashboard. For that create file dashboard-adminuser.yaml with content:
-apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubernetes-dashboard Next we need to bind previously defined user to role, which will allow accessing dashboard.</description>
-    </item>
-    
-    <item>
-      <title>Just a test</title>
-      <link>https://adrian83.github.io/post/000_test/</link>
-      <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/post/000_test/</guid>
-      <description>TEST </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/</link>
+      <title>Łysica - 2021-07-28</title>
+      <link>/gory_swietokrzyskie/lysica/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/</guid>
-      <description>AWS Certified Solutions Architect - Professional Exam guide WHITEPAPERS AWS Storage Services Overview - A Look at Storage Services Offered by AWS Web Application Hosting in the AWS Cloud Storage Options in the AWS Cloud Building Fault-Tolerant Applications on AWS Core Services: IAM S3 EC2 EBS Auto Scaling ELB Cloudwatch VPC RDS DynamoDB Aurora Redshift </description>
-    </item>
-    
+      <guid>/gory_swietokrzyskie/lysica/</guid><media:content url="/gory_swietokrzyskie/lysica/IMG_20210728_161752934_HDR_hu440683e032bf762e733a66d699c1e872_7485201_900x600_fill_q75_catmullrom_smart1.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/gory_swietokrzyskie/lysica/IMG_20210728_161752934_HDR_hu440683e032bf762e733a66d699c1e872_7485201_900x600_fill_q75_catmullrom_smart1.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Łysicę&lt;/p&gt;
+        </description></item>
     <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/001_iam/</link>
+      <title>Ślęża - 2021-09-19</title>
+      <link>/masyw_slezy/sleza/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/001_iam/</guid>
-      <description>IAM Documentation Menu S3 &amp;raquo;
-Best practices:
-Lock away your AWS Account Root Access Keys. Create individual IAM Users. Configure strong pasword policy for your users. Rotate credentials regularly. Remove unnecessary credentials. Enable Multi-Factor Authentication (MFA) for priviliged users. Use Groups to assign permissions to IAM Users. Use AWS Defined Policies to assign permissions whenever possible. Use Policy Conditions for Extra security. Grant least privilige. Use Access Levels to Review IAM Permissions.</description>
-    </item>
-    
+      <guid>/masyw_slezy/sleza/</guid><media:content url="/masyw_slezy/sleza/IMG_20210919_110853683_huf071f3e3264696a3efe8a9eed7227a73_7861722_900x600_fill_q75_catmullrom_smart1.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/masyw_slezy/sleza/IMG_20210919_110853683_huf071f3e3264696a3efe8a9eed7227a73_7861722_900x600_fill_q75_catmullrom_smart1.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Ślężę&lt;/p&gt;
+        </description></item>
     <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/002_s3/</link>
+      <title>Szczeliniec Wielki - 2022-09-29</title>
+      <link>/gory_stolowe/szczeliniec_wielki/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/002_s3/</guid>
-      <description>S3 &amp;laquo; IAM Menu EC2 &amp;raquo;
-Whitepaper Main features:
-Durability (99.999999999%) Availability (99.99%) Scalability Reliability Fast Inexpensiv Secure Flexible Storage Management Easy interface for data Easy integration Use cases:
-Data backup Data archiving Disaster recovery TODO: Review S3 documentation Recap:
-Cross-Region Replication Storage classes Bucket policy and access controll list Events Logging Types of Cloud Storage There are three types of cloud storage: Object, File, and Block. Each offers their own unique advantages.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/003_ec2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/003_ec2/</guid>
-      <description>EC2 (Elastic Compute Cloud) &amp;laquo; S3 Menu EBS &amp;raquo;
-Purchase options:
-On demand Spot Reserved Scheduled Dedicated host - ?
-Dedicated instance - ?
-Instance store - ?
-Key pair - ?
-Elastic IP address - ?
-AMI - ?
-&amp;laquo; S3 Menu EBS &amp;raquo;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/004_ebs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/004_ebs/</guid>
-      <description>EBS (Elastic Block Store) &amp;laquo; EC2 Menu Auto Scaling &amp;raquo;
-EBS is a persisten block storage volumes which can be used (attached) by EC2. Volumes can be detached and attached between EC2 instances.
-Volumes:
-Magnetic HDD - throughput optimized General purpose SSD - IO (read / write) optimized, max iops per volume is 16 000 Provisioned IOPS SSD - low latency, high throughput, max iops per volume is 64 000 Snapshot is a point in time backup (stored in s3) of the data from EBS volume.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/005_autoscaling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/005_autoscaling/</guid>
-      <description>Auto Scaling &amp;laquo; EBS Menu ELB &amp;raquo;
-AWS Auto Scaling monitors your applications and automatically adjusts capacity to maintain steady, predictable performance at the lowest possible cost.
-Components:
-Launch Configuration Auto Scaling Group Scaling Options Termination logic:
-&amp;laquo; EBS Menu ELB &amp;raquo;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/006_elb/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/006_elb/</guid>
-      <description>ELB (Elastic Load Balancing) &amp;laquo; Auto Scaling Menu Cloudwatch &amp;raquo;
-Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/007_cloudwatch/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/007_cloudwatch/</guid>
-      <description>Cloudwatch &amp;laquo; ELB Menu VPC &amp;raquo;
-Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It can handle the varying load of your application traffic in a single Availability Zone or across multiple Availability Zones. Elastic Load Balancing offers three types of load balancers that all feature the high availability, automatic scaling, and robust security necessary to make your applications fault tolerant.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/008_vpc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/008_vpc/</guid>
-      <description>VPC (Virtual Private Cloud) Documentation &amp;laquo; Cloudwatch Menu RDS &amp;raquo;
-Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 in your VPC for secure and easy access to resources and applications.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/009_rds/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/009_rds/</guid>
-      <description>RDS (Relational Database Service) Documentation &amp;laquo; VPC Menu DynamoDB &amp;raquo;
-&amp;laquo; VPC Menu DynamoDB &amp;raquo;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/010_dynamodb/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/010_dynamodb/</guid>
-      <description>DynamoDB Documentation &amp;laquo; RDS Menu Aurora &amp;raquo;
-&amp;laquo; RDS Menu Aurora &amp;raquo;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/011_aurora/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/011_aurora/</guid>
-      <description>Aurora Documentation &amp;laquo; DynamoDB Menu RedShift &amp;raquo;
-&amp;laquo; DynamoDB Menu RedShift &amp;raquo;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/012_redshift/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/012_redshift/</guid>
-      <description>RedShift Documentation 1 Documentation 2 &amp;laquo; Aurora Menu ?? &amp;raquo;
-&amp;laquo; Aurora Menu ?? &amp;raquo;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/900_exam/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/900_exam/</guid>
-      <description>Exam Guide &amp;laquo; Back
-Domain % of Examination 1. Design for Organizational Complexity 12.5% 2. Design for New Solutions 31% 3. Migration Planning 15% 4. Cost Control 12.5% 5. Continuous Improvement for Existing Solutions 29% TOTAL 100% #### Domain 1: Design for Organizational Complexity ##### 1.1. Determine cross-account authentication and access strategy for complex organizations (for example, an organization with varying compliance requirements, multiple business units, and varying scalability requirements). Tutorial: Delegate Access Across AWS Accounts Using IAM Roles (User Guide) How to Enable Cross-Account Access to the AWS Management Console (AWS Security Blog) Providing Access to an IAM User in Another AWS Account That You Own (User Guide) Securely Accessing Customer AWS Accounts with Cross-Account IAM Roles (AWS Partner Network (APN) Blog) ##### 1.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/whitepaper_fault_tolerant_apps/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/whitepaper_fault_tolerant_apps/</guid>
-      <description>Building Fault-Tolerant Applications on AWS Official documentation
-Back to main page
-Introduction </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/whitepaper_hosting_webapps/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/whitepaper_hosting_webapps/</guid>
-      <description>Web Application Hosting in the AWS Cloud Official documentation
-Back to main page
-An AWS Cloud Architecture for Web Hosting The following figure provides another look at that classic web application architecture and how it can leverage the AWS Cloud computing infrastructure.
-Load Balancing with Elastic Load Balancing (ELB)/Application Load Balancer (ALB) – Allows you to spread load across multiple Availability Zones and Amazon EC2 Auto Scaling groups for redundancy and decoupling of services.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/whitepaper_storage/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/whitepaper_storage/</guid>
-      <description>AWS Storage Services Overview Official documentation
-Back to main page
-A Look at Storage Services Offered by AWS Amazon Web Services (AWS) provides low-cost data storage with high durability and availability. AWS offers storage choices for backup, archiving, and disaster recovery use cases and provides block, file, and object storage. In this whitepaper, we examine the following AWS Cloud storage services and features.
-Type Description Amazon Simple Storage Service (Amazon S3) A service that provides scalable and highly durable object storage in the cloud.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/aws_architect/whitepaper_storage_options/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/aws_architect/whitepaper_storage_options/</guid>
-      <description>Storage Options in the AWS Cloud Official documentation
-Back to main page
-Introduction </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/gcp_developer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/gcp_developer/</guid>
-      <description>Professional Cloud Developer Documentation Designing highly scalable, available, and reliable cloud-native applications </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://adrian83.github.io/page/gcp_developer/001_guide_1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://adrian83.github.io/page/gcp_developer/001_guide_1/</guid>
-      <description>1. Designing highly scalable, available, and reliable cloud-native applications Designing performant applications and APIs. Considerations include: Infrastructure as a Service vs. Container as a Service vs. Platform as a Service (e.g., autoscaling implications) Portability vs. platform-specific design Evaluating different services and technologies Operating system versions and base runtimes of services Geographic distribution of Google Cloud services Microservices Defining a key structure for high write applications using Cloud Storage, Cloud Bigtable, Cloud Spanner, or Cloud SQL Session management Deploying and securing an API with cloud endpoints Loosely coupled applications using asynchronous Cloud Pub/Sub events Health checks Google-recommended practices and documentation Designing secure applications.</description>
-    </item>
-    
+      <guid>/gory_stolowe/szczeliniec_wielki/</guid><media:content url="/gory_stolowe/szczeliniec_wielki/IMG_20220929_121718586_HDR_hua325224f330c2cdb3ffcd046f46d3c43_6939916_900x600_fill_q75_catmullrom_smart1.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/gory_stolowe/szczeliniec_wielki/IMG_20220929_121718586_HDR_hua325224f330c2cdb3ffcd046f46d3c43_6939916_900x600_fill_q75_catmullrom_smart1.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Szczeliniec Wielki&lt;/p&gt;
+        </description></item>
   </channel>
 </rss>
