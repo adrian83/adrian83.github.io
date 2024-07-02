@@ -1,4 +1,0 @@
-[submodule "page_data/themes/gallery"]
-	path = page_data/themes/gallery
-	url = https://github.com/nicokaiser/hugo-theme-gallery.git
-
