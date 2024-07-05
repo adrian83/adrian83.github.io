@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/gory_swietokrzyskie/checiny/</loc>
+  </url><url>
     <loc>/gory_stolowe/</loc>
   </url><url>
     <loc>/gory_swietokrzyskie/</loc>
@@ -10,7 +12,11 @@
   </url><url>
     <loc>/masyw_slezy/</loc>
   </url><url>
+    <loc>/masyw_snieznika/</loc>
+  </url><url>
     <loc>/masyw_slezy/sleza/</loc>
+  </url><url>
+    <loc>/masyw_snieznika/snieznik/</loc>
   </url><url>
     <loc>/gory_stolowe/szczeliniec_wielki/</loc>
   </url><url>
