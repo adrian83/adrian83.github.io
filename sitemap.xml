@@ -2,11 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/gory_opawskie/biskupia_kopa/</loc>
+  </url><url>
     <loc>/gory_swietokrzyskie/checiny/</loc>
+  </url><url>
+    <loc>/gory_walbrzyskie/chelmiec/</loc>
   </url><url>
     <loc>/gory_bialskie/</loc>
   </url><url>
     <loc>/gory_kamienne/</loc>
+  </url><url>
+    <loc>/gory_opawskie/</loc>
   </url><url>
     <loc>/gory_orlickie/</loc>
   </url><url>
@@ -15,6 +21,8 @@
     <loc>/gory_stolowe/</loc>
   </url><url>
     <loc>/gory_swietokrzyskie/</loc>
+  </url><url>
+    <loc>/gory_walbrzyskie/</loc>
   </url><url>
     <loc>/gory_zlote/</loc>
   </url><url>
