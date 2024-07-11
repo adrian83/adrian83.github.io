@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/beskid_maly/</loc>
+  </url><url>
+    <loc>/baskid_slaski/</loc>
+  </url><url>
     <loc>/gory_opawskie/biskupia_kopa/</loc>
   </url><url>
     <loc>/gory_swietokrzyskie/checiny/</loc>
@@ -26,7 +30,13 @@
   </url><url>
     <loc>/gory_zlote/</loc>
   </url><url>
+    <loc>/karkonosze/</loc>
+  </url><url>
+    <loc>/karkonosze/kopa/</loc>
+  </url><url>
     <loc>/gory_zlote/kowadlo/</loc>
+  </url><url>
+    <loc>/gory_swietokrzyskie/swiety_krzyz/</loc>
   </url><url>
     <loc>/gory_swietokrzyskie/lysica/</loc>
   </url><url>
@@ -38,7 +48,13 @@
   </url><url>
     <loc>/gory_bialskie/rudawiec/</loc>
   </url><url>
+    <loc>/beskid_maly/czupel/</loc>
+  </url><url>
+    <loc>/baskid_slaski/skrzyczne/</loc>
+  </url><url>
     <loc>/masyw_slezy/sleza/</loc>
+  </url><url>
+    <loc>/karkonosze/sniezka/</loc>
   </url><url>
     <loc>/masyw_snieznika/snieznik/</loc>
   </url><url>
