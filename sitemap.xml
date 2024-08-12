@@ -2,15 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/beskid_zywiecki/babia_gora/</loc>
+  </url><url>
     <loc>/beskid_maly/</loc>
   </url><url>
     <loc>/baskid_slaski/</loc>
+  </url><url>
+    <loc>/beskid_zywiecki/</loc>
   </url><url>
     <loc>/gory_opawskie/biskupia_kopa/</loc>
   </url><url>
     <loc>/gory_swietokrzyskie/checiny/</loc>
   </url><url>
     <loc>/gory_walbrzyskie/chelmiec/</loc>
+  </url><url>
+    <loc>/beskid_maly/czupel/</loc>
+  </url><url>
+    <loc>/gorce/</loc>
   </url><url>
     <loc>/gory_bialskie/</loc>
   </url><url>
@@ -48,8 +56,6 @@
   </url><url>
     <loc>/gory_bialskie/rudawiec/</loc>
   </url><url>
-    <loc>/beskid_maly/czupel/</loc>
-  </url><url>
     <loc>/baskid_slaski/skrzyczne/</loc>
   </url><url>
     <loc>/masyw_slezy/sleza/</loc>
@@ -59,6 +65,8 @@
     <loc>/masyw_snieznika/snieznik/</loc>
   </url><url>
     <loc>/gory_stolowe/szczeliniec_wielki/</loc>
+  </url><url>
+    <loc>/gorce/turbacz/</loc>
   </url><url>
     <loc>/gory_kamienne/waligora/</loc>
   </url><url>
