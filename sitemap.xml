@@ -14,8 +14,6 @@
   </url><url>
     <loc>/gory_walbrzyskie/borowa/</loc>
   </url><url>
-    <loc>/gory_swietokrzyskie/checiny/</loc>
-  </url><url>
     <loc>/gory_walbrzyskie/chelmiec/</loc>
   </url><url>
     <loc>/beskid_maly/czupel/</loc>
@@ -42,11 +40,17 @@
   </url><url>
     <loc>/gory_stolowe/</loc>
   </url><url>
-    <loc>/gory_swietokrzyskie/</loc>
+    <loc>/gory_swietokrzyskie_lysogory/</loc>
+  </url><url>
+    <loc>/gory_swietokrzyskie_lysogory/lysa_gora/</loc>
+  </url><url>
+    <loc>/gory_swietokrzyskie_lysogory/lysica/</loc>
+  </url><url>
+    <loc>/gory_swietokrzyskie_pasmo_checinskie/</loc>
+  </url><url>
+    <loc>/gory_swietokrzyskie_pasmo_checinskie/gora_zamkowa/</loc>
   </url><url>
     <loc>/gory_walbrzyskie/</loc>
-  </url><url>
-    <loc>/gory_zlote/</loc>
   </url><url>
     <loc>/gory_bystrzyckie/jagodna/</loc>
   </url><url>
@@ -55,12 +59,6 @@
     <loc>/gory_bardzkie/klodzka_gora/</loc>
   </url><url>
     <loc>/karkonosze/kopa/</loc>
-  </url><url>
-    <loc>/gory_zlote/kowadlo/</loc>
-  </url><url>
-    <loc>/gory_swietokrzyskie/swiety_krzyz/</loc>
-  </url><url>
-    <loc>/gory_swietokrzyskie/lysica/</loc>
   </url><url>
     <loc>/masyw_slezy/</loc>
   </url><url>
@@ -85,6 +83,12 @@
     <loc>/masyw_snieznika/snieznik/</loc>
   </url><url>
     <loc>/rudawy_janowickie/sokolik_duzy/</loc>
+  </url><url>
+    <loc>/sudety_gory_zlote/</loc>
+  </url><url>
+    <loc>/sudety_gory_zlote/smrek/</loc>
+  </url><url>
+    <loc>/sudety_gory_zlote/kowadlo/</loc>
   </url><url>
     <loc>/gory_stolowe/szczeliniec_wielki/</loc>
   </url><url>
