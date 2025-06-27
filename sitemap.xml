@@ -2,104 +2,108 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/beskid_zywiecki/babia_gora/</loc>
+    <loc>//localhost:1313/beskid_zywiecki/babia_gora/</loc>
   </url><url>
-    <loc>/beskid_maly/</loc>
+    <loc>//localhost:1313/beskid_maly/</loc>
   </url><url>
-    <loc>/baskid_slaski/</loc>
+    <loc>//localhost:1313/baskid_slaski/</loc>
   </url><url>
-    <loc>/beskid_zywiecki/</loc>
+    <loc>//localhost:1313/beskid_zywiecki/</loc>
   </url><url>
-    <loc>/gory_opawskie/biskupia_kopa/</loc>
+    <loc>//localhost:1313/gory_opawskie/biskupia_kopa/</loc>
   </url><url>
-    <loc>/gory_walbrzyskie/borowa/</loc>
+    <loc>//localhost:1313/gory_walbrzyskie/borowa/</loc>
   </url><url>
-    <loc>/gory_walbrzyskie/chelmiec/</loc>
+    <loc>//localhost:1313/gory_walbrzyskie/chelmiec/</loc>
   </url><url>
-    <loc>/beskid_maly/czupel/</loc>
+    <loc>//localhost:1313/beskid_maly/czupel/</loc>
   </url><url>
-    <loc>/gory_walbrzyskie/gora_zamkowa/</loc>
+    <loc>//localhost:1313/gory_walbrzyskie/gora_zamkowa/</loc>
   </url><url>
-    <loc>/gorce/</loc>
+    <loc>//localhost:1313/gorce/</loc>
   </url><url>
-    <loc>/gory_bardzkie/</loc>
+    <loc>//localhost:1313/gory_bardzkie/</loc>
   </url><url>
-    <loc>/gory_bialskie/</loc>
+    <loc>//localhost:1313/gory_bialskie/</loc>
   </url><url>
-    <loc>/gory_bystrzyckie/</loc>
+    <loc>//localhost:1313/gory_bystrzyckie/</loc>
   </url><url>
-    <loc>/gory_kaczawskie/</loc>
+    <loc>//localhost:1313/gory_kaczawskie/</loc>
   </url><url>
-    <loc>/gory_kamienne/</loc>
+    <loc>//localhost:1313/gory_kamienne/</loc>
   </url><url>
-    <loc>/gory_opawskie/</loc>
+    <loc>//localhost:1313/gory_opawskie/</loc>
   </url><url>
-    <loc>/gory_orlickie/</loc>
+    <loc>//localhost:1313/gory_orlickie/</loc>
   </url><url>
-    <loc>/gory_sowie/</loc>
+    <loc>//localhost:1313/gory_sowie/</loc>
   </url><url>
-    <loc>/gory_stolowe/</loc>
+    <loc>//localhost:1313/gory_stolowe/</loc>
   </url><url>
-    <loc>/gory_swietokrzyskie_lysogory/</loc>
+    <loc>//localhost:1313/gory_swietokrzyskie_lysogory/</loc>
   </url><url>
-    <loc>/gory_swietokrzyskie_lysogory/lysa_gora/</loc>
+    <loc>//localhost:1313/gory_swietokrzyskie_lysogory/lysa_gora/</loc>
   </url><url>
-    <loc>/gory_swietokrzyskie_lysogory/lysica/</loc>
+    <loc>//localhost:1313/gory_swietokrzyskie_lysogory/lysica/</loc>
   </url><url>
-    <loc>/gory_swietokrzyskie_pasmo_checinskie/</loc>
+    <loc>//localhost:1313/gory_swietokrzyskie_pasmo_checinskie/</loc>
   </url><url>
-    <loc>/gory_swietokrzyskie_pasmo_checinskie/gora_zamkowa/</loc>
+    <loc>//localhost:1313/gory_swietokrzyskie_pasmo_checinskie/gora_zamkowa/</loc>
   </url><url>
-    <loc>/gory_walbrzyskie/</loc>
+    <loc>//localhost:1313/gory_swietokrzyskie_pasmo_pokrzywianskie/</loc>
   </url><url>
-    <loc>/gory_bystrzyckie/jagodna/</loc>
+    <loc>//localhost:1313/gory_swietokrzyskie_pasmo_pokrzywianskie/gora_chelmowa/</loc>
   </url><url>
-    <loc>/karkonosze/</loc>
+    <loc>//localhost:1313/gory_walbrzyskie/</loc>
   </url><url>
-    <loc>/gory_bardzkie/klodzka_gora/</loc>
+    <loc>//localhost:1313/gory_bystrzyckie/jagodna/</loc>
   </url><url>
-    <loc>/karkonosze/kopa/</loc>
+    <loc>//localhost:1313/karkonosze/</loc>
   </url><url>
-    <loc>/masyw_slezy/</loc>
+    <loc>//localhost:1313/gory_bardzkie/klodzka_gora/</loc>
   </url><url>
-    <loc>/masyw_snieznika/</loc>
+    <loc>//localhost:1313/karkonosze/kopa/</loc>
   </url><url>
-    <loc>/gory_orlickie/orlica/</loc>
+    <loc>//localhost:1313/masyw_slezy/</loc>
   </url><url>
-    <loc>/gory_bialskie/rudawiec/</loc>
+    <loc>//localhost:1313/masyw_snieznika/</loc>
   </url><url>
-    <loc>/rudawy_janowickie/</loc>
+    <loc>//localhost:1313/gory_orlickie/orlica/</loc>
   </url><url>
-    <loc>/rudawy_janowickie/skalnik/</loc>
+    <loc>//localhost:1313/gory_bialskie/rudawiec/</loc>
   </url><url>
-    <loc>/gory_kaczawskie/skopiec/</loc>
+    <loc>//localhost:1313/rudawy_janowickie/</loc>
   </url><url>
-    <loc>/baskid_slaski/skrzyczne/</loc>
+    <loc>//localhost:1313/rudawy_janowickie/skalnik/</loc>
   </url><url>
-    <loc>/masyw_slezy/sleza/</loc>
+    <loc>//localhost:1313/gory_kaczawskie/skopiec/</loc>
   </url><url>
-    <loc>/karkonosze/sniezka/</loc>
+    <loc>//localhost:1313/baskid_slaski/skrzyczne/</loc>
   </url><url>
-    <loc>/masyw_snieznika/snieznik/</loc>
+    <loc>//localhost:1313/masyw_slezy/sleza/</loc>
   </url><url>
-    <loc>/rudawy_janowickie/sokolik_duzy/</loc>
+    <loc>//localhost:1313/karkonosze/sniezka/</loc>
   </url><url>
-    <loc>/sudety_gory_zlote/</loc>
+    <loc>//localhost:1313/masyw_snieznika/snieznik/</loc>
   </url><url>
-    <loc>/sudety_gory_zlote/smrek/</loc>
+    <loc>//localhost:1313/rudawy_janowickie/sokolik_duzy/</loc>
   </url><url>
-    <loc>/sudety_gory_zlote/kowadlo/</loc>
+    <loc>//localhost:1313/sudety_gory_zlote/</loc>
   </url><url>
-    <loc>/gory_stolowe/szczeliniec_wielki/</loc>
+    <loc>//localhost:1313/sudety_gory_zlote/smrek/</loc>
   </url><url>
-    <loc>/gorce/turbacz/</loc>
+    <loc>//localhost:1313/sudety_gory_zlote/kowadlo/</loc>
   </url><url>
-    <loc>/gory_kamienne/waligora/</loc>
+    <loc>//localhost:1313/gory_stolowe/szczeliniec_wielki/</loc>
   </url><url>
-    <loc>/gory_sowie/wielka_sowa/</loc>
+    <loc>//localhost:1313/gorce/turbacz/</loc>
   </url><url>
-    <loc>/about/</loc>
+    <loc>//localhost:1313/gory_kamienne/waligora/</loc>
   </url><url>
-    <loc>/</loc>
+    <loc>//localhost:1313/gory_sowie/wielka_sowa/</loc>
+  </url><url>
+    <loc>//localhost:1313/about/</loc>
+  </url><url>
+    <loc>//localhost:1313/</loc>
   </url>
 </urlset>
