@@ -2,289 +2,309 @@
 <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Photos on Gallery</title>
-    <link>//localhost:1313/</link>
+    <link>/</link>
     <description>Recent content in Photos on Gallery</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>©Adrian</copyright><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>©Adrian</copyright><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Babia Góra - 2024-08-10</title>
-      <link>//localhost:1313/beskid_zywiecki/babia_gora/</link>
+      <link>/beskid_zywiecki/babia_gora/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/beskid_zywiecki/babia_gora/</guid>
-        <media:content url="//localhost:1313/beskid_zywiecki/babia_gora/IMG_20240810_102418032_hu_e771d30a98f7f5da.jpg" type="image/jpeg"/>
+      <guid>/beskid_zywiecki/babia_gora/</guid>
+        <media:content url="/beskid_zywiecki/babia_gora/IMG_20240810_102418032_hu_e771d30a98f7f5da.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/beskid_zywiecki/babia_gora/IMG_20240810_102418032_hu_e771d30a98f7f5da.jpg&quot; /&gt;
+          &lt;img src=&quot;/beskid_zywiecki/babia_gora/IMG_20240810_102418032_hu_e771d30a98f7f5da.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Babią Górę&lt;/p&gt;
         </description></item>
     <item>
       <title>Biskupia Kopa - 2024-04-28</title>
-      <link>//localhost:1313/gory_opawskie/biskupia_kopa/</link>
+      <link>/gory_opawskie/biskupia_kopa/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_opawskie/biskupia_kopa/</guid>
-        <media:content url="//localhost:1313/gory_opawskie/biskupia_kopa/IMG_20240428_141938543_hu_9c43684cc4c28365.jpg" type="image/jpeg"/>
+      <guid>/gory_opawskie/biskupia_kopa/</guid>
+        <media:content url="/gory_opawskie/biskupia_kopa/IMG_20240428_141938543_hu_9c43684cc4c28365.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gory_opawskie/biskupia_kopa/IMG_20240428_141938543_hu_9c43684cc4c28365.jpg&quot; /&gt;
+          &lt;img src=&quot;/gory_opawskie/biskupia_kopa/IMG_20240428_141938543_hu_9c43684cc4c28365.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Biskupią Kopę&lt;/p&gt;
         </description></item>
     <item>
-      <title>Borowa - 2023-03-29</title>
-      <link>//localhost:1313/gory_walbrzyskie/borowa/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_walbrzyskie/borowa/</guid>
-        <media:content url="//localhost:1313/gory_walbrzyskie/borowa/IMG_20250329_122920869_HDR_hu_3b5799b8e31a37c5.jpg" type="image/jpeg"/>
-        <description>
-          &lt;img src=&quot;//localhost:1313/gory_walbrzyskie/borowa/IMG_20250329_122920869_HDR_hu_3b5799b8e31a37c5.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wejścia na Borową&lt;/p&gt;
-        </description></item>
-    <item>
-      <title>Chełmiec - 2024-02-18</title>
-      <link>//localhost:1313/gory_walbrzyskie/chelmiec/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_walbrzyskie/chelmiec/</guid>
-        <media:content url="//localhost:1313/gory_walbrzyskie/chelmiec/IMG_20240218_144807773_HDR_hu_ea82788a25d27e79.jpg" type="image/jpeg"/>
-        <description>
-          &lt;img src=&quot;//localhost:1313/gory_walbrzyskie/chelmiec/IMG_20240218_144807773_HDR_hu_ea82788a25d27e79.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wejścia na Chełmiec&lt;/p&gt;
-        </description></item>
-    <item>
       <title>Czupel - 2024-06-29</title>
-      <link>//localhost:1313/beskid_maly/czupel/</link>
+      <link>/beskid_maly/czupel/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/beskid_maly/czupel/</guid>
-        <media:content url="//localhost:1313/beskid_maly/czupel/IMG_20240629_110601239_HDR_hu_7c3ee14cb4bee736.jpg" type="image/jpeg"/>
+      <guid>/beskid_maly/czupel/</guid>
+        <media:content url="/beskid_maly/czupel/IMG_20240629_110601239_HDR_hu_7c3ee14cb4bee736.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/beskid_maly/czupel/IMG_20240629_110601239_HDR_hu_7c3ee14cb4bee736.jpg&quot; /&gt;
+          &lt;img src=&quot;/beskid_maly/czupel/IMG_20240629_110601239_HDR_hu_7c3ee14cb4bee736.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Czypel&lt;/p&gt;
         </description></item>
     <item>
-      <title>Góra Zamkowa - 2023-03-02</title>
-      <link>//localhost:1313/gory_walbrzyskie/gora_zamkowa/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_walbrzyskie/gora_zamkowa/</guid>
-        <media:content url="//localhost:1313/gory_walbrzyskie/gora_zamkowa/IMG_20250302_121349638_HDR_hu_137b6c4176dafed3.jpg" type="image/jpeg"/>
-        <description>
-          &lt;img src=&quot;//localhost:1313/gory_walbrzyskie/gora_zamkowa/IMG_20250302_121349638_HDR_hu_137b6c4176dafed3.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wejścia na górę Zamkową&lt;/p&gt;
-        </description></item>
-    <item>
       <title>Góry Świętokrzyskie / Łysogóry / Łysa Góra / 2023-12-30</title>
-      <link>//localhost:1313/gory_swietokrzyskie_lysogory/lysa_gora/</link>
+      <link>/gory_swietokrzyskie_lysogory/lysa_gora_2023_12_30/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_swietokrzyskie_lysogory/lysa_gora/</guid>
-        <media:content url="//localhost:1313/gory_swietokrzyskie_lysogory/lysa_gora/IMG_20231230_130727673_hu_31b7f2e23324f6d.jpg" type="image/jpeg"/>
+      <guid>/gory_swietokrzyskie_lysogory/lysa_gora_2023_12_30/</guid>
+        <media:content url="/gory_swietokrzyskie_lysogory/lysa_gora_2023_12_30/IMG_20231230_130727673_hu_31b7f2e23324f6d.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gory_swietokrzyskie_lysogory/lysa_gora/IMG_20231230_130727673_hu_31b7f2e23324f6d.jpg&quot; /&gt;
+          &lt;img src=&quot;/gory_swietokrzyskie_lysogory/lysa_gora_2023_12_30/IMG_20231230_130727673_hu_31b7f2e23324f6d.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Łysą Górę&lt;/p&gt;
         </description></item>
     <item>
       <title>Góry Świętokrzyskie / Łysogóry / Łysica / 2021-07-28</title>
-      <link>//localhost:1313/gory_swietokrzyskie_lysogory/lysica/</link>
+      <link>/gory_swietokrzyskie_lysogory/lysica_2021_07_28/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_swietokrzyskie_lysogory/lysica/</guid>
-        <media:content url="//localhost:1313/gory_swietokrzyskie_lysogory/lysica/IMG_20210728_161752934_HDR_hu_9fae5db68d849ecb.jpg" type="image/jpeg"/>
+      <guid>/gory_swietokrzyskie_lysogory/lysica_2021_07_28/</guid>
+        <media:content url="/gory_swietokrzyskie_lysogory/lysica_2021_07_28/IMG_20210728_161752934_HDR_hu_9fae5db68d849ecb.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gory_swietokrzyskie_lysogory/lysica/IMG_20210728_161752934_HDR_hu_9fae5db68d849ecb.jpg&quot; /&gt;
+          &lt;img src=&quot;/gory_swietokrzyskie_lysogory/lysica_2021_07_28/IMG_20210728_161752934_HDR_hu_9fae5db68d849ecb.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Łysicę&lt;/p&gt;
         </description></item>
     <item>
       <title>Góry Świętokrzyskie / Pasmo Chęcińskie / Góra Zamkowa / 2023-07-25</title>
-      <link>//localhost:1313/gory_swietokrzyskie_pasmo_checinskie/gora_zamkowa/</link>
+      <link>/gory_swietokrzyskie_pasmo_checinskie/gora_zamkowa_2023_07_25/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_swietokrzyskie_pasmo_checinskie/gora_zamkowa/</guid>
-        <media:content url="//localhost:1313/gory_swietokrzyskie_pasmo_checinskie/gora_zamkowa/IMG_20230725_143117470_hu_b1eaa8f0e2736382.jpg" type="image/jpeg"/>
+      <guid>/gory_swietokrzyskie_pasmo_checinskie/gora_zamkowa_2023_07_25/</guid>
+        <media:content url="/gory_swietokrzyskie_pasmo_checinskie/gora_zamkowa_2023_07_25/IMG_20230725_143117470_hu_b1eaa8f0e2736382.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gory_swietokrzyskie_pasmo_checinskie/gora_zamkowa/IMG_20230725_143117470_hu_b1eaa8f0e2736382.jpg&quot; /&gt;
+          &lt;img src=&quot;/gory_swietokrzyskie_pasmo_checinskie/gora_zamkowa_2023_07_25/IMG_20230725_143117470_hu_b1eaa8f0e2736382.jpg&quot; /&gt;
           &lt;p&gt;Zwiedzanie zamku w Chęcinach&lt;/p&gt;
         </description></item>
     <item>
-      <title>Góry Świętokrzyskie / Pasmo Pokrzywiańskie / Góra Chełmowa / 2025-05-01</title>
-      <link>//localhost:1313/gory_swietokrzyskie_pasmo_pokrzywianskie/gora_chelmowa/</link>
+      <title>Góry Świętokrzyskie / Pasmo Jeleniowskie / Szczytniak / 2025-05-01</title>
+      <link>/gory_swietokrzyskie_pasmo_jeleniowskie/szczytniak_2025_05_01/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_swietokrzyskie_pasmo_pokrzywianskie/gora_chelmowa/</guid>
-        <media:content url="//localhost:1313/gory_swietokrzyskie_pasmo_pokrzywianskie/gora_chelmowa/IMG_20250501_102230358_HDR_hu_f311bb5dae9ee7f5.jpg" type="image/jpeg"/>
+      <guid>/gory_swietokrzyskie_pasmo_jeleniowskie/szczytniak_2025_05_01/</guid>
+        <media:content url="/gory_swietokrzyskie_pasmo_jeleniowskie/szczytniak_2025_05_01/IMG_20250501_115915253_HDR_hu_3b112da7a980de04.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gory_swietokrzyskie_pasmo_pokrzywianskie/gora_chelmowa/IMG_20250501_102230358_HDR_hu_f311bb5dae9ee7f5.jpg&quot; /&gt;
+          &lt;img src=&quot;/gory_swietokrzyskie_pasmo_jeleniowskie/szczytniak_2025_05_01/IMG_20250501_115915253_HDR_hu_3b112da7a980de04.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Szczytniak&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Góry Świętokrzyskie / Pasmo Pokrzywiańskie / Góra Chełmowa / 2025-05-01</title>
+      <link>/gory_swietokrzyskie_pasmo_pokrzywianskie/gora_chelmowa_2025_05_01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/gory_swietokrzyskie_pasmo_pokrzywianskie/gora_chelmowa_2025_05_01/</guid>
+        <media:content url="/gory_swietokrzyskie_pasmo_pokrzywianskie/gora_chelmowa_2025_05_01/IMG_20250501_102230358_HDR_hu_f311bb5dae9ee7f5.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/gory_swietokrzyskie_pasmo_pokrzywianskie/gora_chelmowa_2025_05_01/IMG_20250501_102230358_HDR_hu_f311bb5dae9ee7f5.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na górą Chełmową&lt;/p&gt;
         </description></item>
     <item>
       <title>Jagodna - 2024-09-01</title>
-      <link>//localhost:1313/gory_bystrzyckie/jagodna/</link>
+      <link>/gory_bystrzyckie/jagodna/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_bystrzyckie/jagodna/</guid>
-        <media:content url="//localhost:1313/gory_bystrzyckie/jagodna/IMG_20240831_141212217_HDR_hu_9562fb54293f59df.jpg" type="image/jpeg"/>
+      <guid>/gory_bystrzyckie/jagodna/</guid>
+        <media:content url="/gory_bystrzyckie/jagodna/IMG_20240831_141212217_HDR_hu_9562fb54293f59df.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gory_bystrzyckie/jagodna/IMG_20240831_141212217_HDR_hu_9562fb54293f59df.jpg&quot; /&gt;
+          &lt;img src=&quot;/gory_bystrzyckie/jagodna/IMG_20240831_141212217_HDR_hu_9562fb54293f59df.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Jagodną&lt;/p&gt;
         </description></item>
     <item>
       <title>Kłodzka Góra - 2024-09-01</title>
-      <link>//localhost:1313/gory_bardzkie/klodzka_gora/</link>
+      <link>/gory_bardzkie/klodzka_gora/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_bardzkie/klodzka_gora/</guid>
-        <media:content url="//localhost:1313/gory_bardzkie/klodzka_gora/IMG_20240831_104931370_hu_b6e4f112161acd7c.jpg" type="image/jpeg"/>
+      <guid>/gory_bardzkie/klodzka_gora/</guid>
+        <media:content url="/gory_bardzkie/klodzka_gora/IMG_20240831_104931370_hu_b6e4f112161acd7c.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gory_bardzkie/klodzka_gora/IMG_20240831_104931370_hu_b6e4f112161acd7c.jpg&quot; /&gt;
+          &lt;img src=&quot;/gory_bardzkie/klodzka_gora/IMG_20240831_104931370_hu_b6e4f112161acd7c.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Kłodzką Górę&lt;/p&gt;
         </description></item>
     <item>
       <title>Kopa - 2023-09-10</title>
-      <link>//localhost:1313/karkonosze/kopa/</link>
+      <link>/karkonosze/kopa/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/karkonosze/kopa/</guid>
-        <media:content url="//localhost:1313/karkonosze/kopa/IMG_20230910_122909972_hu_8b6dd9e19e58d74d.jpg" type="image/jpeg"/>
+      <guid>/karkonosze/kopa/</guid>
+        <media:content url="/karkonosze/kopa/IMG_20230910_122909972_hu_8b6dd9e19e58d74d.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/karkonosze/kopa/IMG_20230910_122909972_hu_8b6dd9e19e58d74d.jpg&quot; /&gt;
+          &lt;img src=&quot;/karkonosze/kopa/IMG_20230910_122909972_hu_8b6dd9e19e58d74d.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wjazdu na Kopę&lt;/p&gt;
         </description></item>
     <item>
-      <title>Orlica - 2023-09-24</title>
-      <link>//localhost:1313/gory_orlickie/orlica/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_orlickie/orlica/</guid>
-        <media:content url="//localhost:1313/gory_orlickie/orlica/IMG_20230924_123824677_HDR_hu_38efebf19729abb0.jpg" type="image/jpeg"/>
-        <description>
-          &lt;img src=&quot;//localhost:1313/gory_orlickie/orlica/IMG_20230924_123824677_HDR_hu_38efebf19729abb0.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wejścia na Orlicę&lt;/p&gt;
-        </description></item>
-    <item>
       <title>Rudawiec - 2023-10-07</title>
-      <link>//localhost:1313/gory_bialskie/rudawiec/</link>
+      <link>/gory_bialskie/rudawiec/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_bialskie/rudawiec/</guid>
-        <media:content url="//localhost:1313/gory_bialskie/rudawiec/IMG_20231007_123928164_HDR_hu_9016fa00aecead79.jpg" type="image/jpeg"/>
+      <guid>/gory_bialskie/rudawiec/</guid>
+        <media:content url="/gory_bialskie/rudawiec/IMG_20231007_123928164_HDR_hu_9016fa00aecead79.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gory_bialskie/rudawiec/IMG_20231007_123928164_HDR_hu_9016fa00aecead79.jpg&quot; /&gt;
+          &lt;img src=&quot;/gory_bialskie/rudawiec/IMG_20231007_123928164_HDR_hu_9016fa00aecead79.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Rudawiec&lt;/p&gt;
         </description></item>
     <item>
       <title>Skalnik - 2024-10-20</title>
-      <link>//localhost:1313/rudawy_janowickie/skalnik/</link>
+      <link>/rudawy_janowickie/skalnik/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/rudawy_janowickie/skalnik/</guid>
-        <media:content url="//localhost:1313/rudawy_janowickie/skalnik/IMG_20241020_104557836_HDR_hu_6fbd4ec28ca85ab.jpg" type="image/jpeg"/>
+      <guid>/rudawy_janowickie/skalnik/</guid>
+        <media:content url="/rudawy_janowickie/skalnik/IMG_20241020_104557836_HDR_hu_6fbd4ec28ca85ab.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/rudawy_janowickie/skalnik/IMG_20241020_104557836_HDR_hu_6fbd4ec28ca85ab.jpg&quot; /&gt;
+          &lt;img src=&quot;/rudawy_janowickie/skalnik/IMG_20241020_104557836_HDR_hu_6fbd4ec28ca85ab.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Skalnik&lt;/p&gt;
         </description></item>
     <item>
       <title>Skopiec - 2024-10-20</title>
-      <link>//localhost:1313/gory_kaczawskie/skopiec/</link>
+      <link>/gory_kaczawskie/skopiec/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_kaczawskie/skopiec/</guid>
-        <media:content url="//localhost:1313/gory_kaczawskie/skopiec/IMG_20241020_151557073_HDR_hu_5c063739367f9153.jpg" type="image/jpeg"/>
+      <guid>/gory_kaczawskie/skopiec/</guid>
+        <media:content url="/gory_kaczawskie/skopiec/IMG_20241020_151557073_HDR_hu_5c063739367f9153.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gory_kaczawskie/skopiec/IMG_20241020_151557073_HDR_hu_5c063739367f9153.jpg&quot; /&gt;
+          &lt;img src=&quot;/gory_kaczawskie/skopiec/IMG_20241020_151557073_HDR_hu_5c063739367f9153.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Skopiec&lt;/p&gt;
         </description></item>
     <item>
       <title>Skrzyczne - 2024-06-30</title>
-      <link>//localhost:1313/baskid_slaski/skrzyczne/</link>
+      <link>/baskid_slaski/skrzyczne/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/baskid_slaski/skrzyczne/</guid>
-        <media:content url="//localhost:1313/baskid_slaski/skrzyczne/IMG_20240630_115450451_hu_8dd099419efaa267.jpg" type="image/jpeg"/>
+      <guid>/baskid_slaski/skrzyczne/</guid>
+        <media:content url="/baskid_slaski/skrzyczne/IMG_20240630_115450451_hu_8dd099419efaa267.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/baskid_slaski/skrzyczne/IMG_20240630_115450451_hu_8dd099419efaa267.jpg&quot; /&gt;
+          &lt;img src=&quot;/baskid_slaski/skrzyczne/IMG_20240630_115450451_hu_8dd099419efaa267.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Skrzyczne&lt;/p&gt;
         </description></item>
     <item>
       <title>Ślęża - 2021-09-19</title>
-      <link>//localhost:1313/masyw_slezy/sleza/</link>
+      <link>/masyw_slezy/sleza/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/masyw_slezy/sleza/</guid>
-        <media:content url="//localhost:1313/masyw_slezy/sleza/IMG_20210919_110853683_hu_12f6e71d28285da6.jpg" type="image/jpeg"/>
+      <guid>/masyw_slezy/sleza/</guid>
+        <media:content url="/masyw_slezy/sleza/IMG_20210919_110853683_hu_12f6e71d28285da6.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/masyw_slezy/sleza/IMG_20210919_110853683_hu_12f6e71d28285da6.jpg&quot; /&gt;
+          &lt;img src=&quot;/masyw_slezy/sleza/IMG_20210919_110853683_hu_12f6e71d28285da6.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Ślężę&lt;/p&gt;
         </description></item>
     <item>
       <title>Śnieżka - 2023-09-02</title>
-      <link>//localhost:1313/karkonosze/sniezka/</link>
+      <link>/karkonosze/sniezka/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/karkonosze/sniezka/</guid>
-        <media:content url="//localhost:1313/karkonosze/sniezka/IMG_20230902_134602283_hu_3958bcbcbf22a18d.jpg" type="image/jpeg"/>
+      <guid>/karkonosze/sniezka/</guid>
+        <media:content url="/karkonosze/sniezka/IMG_20230902_134602283_hu_3958bcbcbf22a18d.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/karkonosze/sniezka/IMG_20230902_134602283_hu_3958bcbcbf22a18d.jpg&quot; /&gt;
+          &lt;img src=&quot;/karkonosze/sniezka/IMG_20230902_134602283_hu_3958bcbcbf22a18d.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Śnieżkę&lt;/p&gt;
         </description></item>
     <item>
       <title>Śnieżnik - 2023-08-20</title>
-      <link>//localhost:1313/masyw_snieznika/snieznik/</link>
+      <link>/masyw_snieznika/snieznik/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/masyw_snieznika/snieznik/</guid>
-        <media:content url="//localhost:1313/masyw_snieznika/snieznik/IMG_20230820_145122569_hu_8ff6d3c10bcce9a4.jpg" type="image/jpeg"/>
+      <guid>/masyw_snieznika/snieznik/</guid>
+        <media:content url="/masyw_snieznika/snieznik/IMG_20230820_145122569_hu_8ff6d3c10bcce9a4.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/masyw_snieznika/snieznik/IMG_20230820_145122569_hu_8ff6d3c10bcce9a4.jpg&quot; /&gt;
+          &lt;img src=&quot;/masyw_snieznika/snieznik/IMG_20230820_145122569_hu_8ff6d3c10bcce9a4.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Śnieżnik&lt;/p&gt;
         </description></item>
     <item>
       <title>Sokolik Duży - 2024-10-20</title>
-      <link>//localhost:1313/rudawy_janowickie/sokolik_duzy/</link>
+      <link>/rudawy_janowickie/sokolik_duzy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/rudawy_janowickie/sokolik_duzy/</guid>
-        <media:content url="//localhost:1313/rudawy_janowickie/sokolik_duzy/IMG_20241020_125906475_HDR_hu_c7be77ad04600b76.jpg" type="image/jpeg"/>
+      <guid>/rudawy_janowickie/sokolik_duzy/</guid>
+        <media:content url="/rudawy_janowickie/sokolik_duzy/IMG_20241020_125906475_HDR_hu_c7be77ad04600b76.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/rudawy_janowickie/sokolik_duzy/IMG_20241020_125906475_HDR_hu_c7be77ad04600b76.jpg&quot; /&gt;
+          &lt;img src=&quot;/rudawy_janowickie/sokolik_duzy/IMG_20241020_125906475_HDR_hu_c7be77ad04600b76.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Sokolik Duży&lt;/p&gt;
         </description></item>
     <item>
-      <title>Sudety / Góry Złote / Smerk / 2024-10-20</title>
-      <link>//localhost:1313/sudety_gory_zlote/smrek/</link>
+      <title>Sudety / Góry Orlickie / Orlica / 2023-09-24</title>
+      <link>/sudety_gory_orlickie/orlica_2023_09_24/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/sudety_gory_zlote/smrek/</guid>
-        <media:content url="//localhost:1313/sudety_gory_zlote/smrek/IMG_20250421_134642829_HDR_hu_d9446ddd811c597.jpg" type="image/jpeg"/>
+      <guid>/sudety_gory_orlickie/orlica_2023_09_24/</guid>
+        <media:content url="/sudety_gory_orlickie/orlica_2023_09_24/IMG_20230924_123824677_HDR_hu_38efebf19729abb0.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/sudety_gory_zlote/smrek/IMG_20250421_134642829_HDR_hu_d9446ddd811c597.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wejścia na Smrek&lt;/p&gt;
+          &lt;img src=&quot;/sudety_gory_orlickie/orlica_2023_09_24/IMG_20230924_123824677_HDR_hu_38efebf19729abb0.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Orlicę&lt;/p&gt;
         </description></item>
     <item>
-      <title>Sudety/ Góry Złote / Kowadło / 2023-10-07</title>
-      <link>//localhost:1313/sudety_gory_zlote/kowadlo/</link>
+      <title>Sudety / Góry Orlickie / Wielka Desztna / 2025-05-25</title>
+      <link>/sudety_gory_orlickie/wielka_desztna_205_05_25/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/sudety_gory_zlote/kowadlo/</guid>
-        <media:content url="//localhost:1313/sudety_gory_zlote/kowadlo/IMG_20231007_142647257_HDR_hu_310e66368db1f41a.jpg" type="image/jpeg"/>
+      <guid>/sudety_gory_orlickie/wielka_desztna_205_05_25/</guid>
+        <media:content url="/sudety_gory_orlickie/wielka_desztna_205_05_25/IMG_20250525_125105051_HDR_hu_e0dc2bc1ef054167.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/sudety_gory_zlote/kowadlo/IMG_20231007_142647257_HDR_hu_310e66368db1f41a.jpg&quot; /&gt;
+          &lt;img src=&quot;/sudety_gory_orlickie/wielka_desztna_205_05_25/IMG_20250525_125105051_HDR_hu_e0dc2bc1ef054167.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Wielką Desztnę&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sudety / Góry Wałbrzyskie / Borowa / 2023-03-29</title>
+      <link>/sudety_gory_walbrzyskie/borowa_2025_03_29/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_gory_walbrzyskie/borowa_2025_03_29/</guid>
+        <media:content url="/sudety_gory_walbrzyskie/borowa_2025_03_29/IMG_20250329_122920869_HDR_hu_3b5799b8e31a37c5.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_gory_walbrzyskie/borowa_2025_03_29/IMG_20250329_122920869_HDR_hu_3b5799b8e31a37c5.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Borową&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sudety / Góry Wałbrzyskie / Chełmiec / 2024-02-18</title>
+      <link>/sudety_gory_walbrzyskie/chelmiec_2024_02_18/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_gory_walbrzyskie/chelmiec_2024_02_18/</guid>
+        <media:content url="/sudety_gory_walbrzyskie/chelmiec_2024_02_18/IMG_20240218_144807773_HDR_hu_ea82788a25d27e79.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_gory_walbrzyskie/chelmiec_2024_02_18/IMG_20240218_144807773_HDR_hu_ea82788a25d27e79.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Chełmiec&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sudety / Góry Wałbrzyskie / Góra Zamkowa / 2023-03-02</title>
+      <link>/sudety_gory_walbrzyskie/gora_zamkowa_2025_03_02/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_gory_walbrzyskie/gora_zamkowa_2025_03_02/</guid>
+        <media:content url="/sudety_gory_walbrzyskie/gora_zamkowa_2025_03_02/IMG_20250302_121349638_HDR_hu_137b6c4176dafed3.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_gory_walbrzyskie/gora_zamkowa_2025_03_02/IMG_20250302_121349638_HDR_hu_137b6c4176dafed3.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na górę Zamkową&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sudety / Góry Złote / Kowadło / 2023-10-07</title>
+      <link>/sudety_gory_zlote/kowadlo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_gory_zlote/kowadlo/</guid>
+        <media:content url="/sudety_gory_zlote/kowadlo/IMG_20231007_142647257_HDR_hu_310e66368db1f41a.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_gory_zlote/kowadlo/IMG_20231007_142647257_HDR_hu_310e66368db1f41a.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Kowadło&lt;/p&gt;
         </description></item>
     <item>
-      <title>Szczeliniec Wielki - 2022-09-29</title>
-      <link>//localhost:1313/gory_stolowe/szczeliniec_wielki/</link>
+      <title>Sudety / Góry Złote / Smerk / 2024-10-20</title>
+      <link>/sudety_gory_zlote/smrek/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_stolowe/szczeliniec_wielki/</guid>
-        <media:content url="//localhost:1313/gory_stolowe/szczeliniec_wielki/IMG_20220929_121718586_HDR_hu_6eac6c5b57b02a82.jpg" type="image/jpeg"/>
+      <guid>/sudety_gory_zlote/smrek/</guid>
+        <media:content url="/sudety_gory_zlote/smrek/IMG_20250421_134642829_HDR_hu_d9446ddd811c597.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gory_stolowe/szczeliniec_wielki/IMG_20220929_121718586_HDR_hu_6eac6c5b57b02a82.jpg&quot; /&gt;
+          &lt;img src=&quot;/sudety_gory_zlote/smrek/IMG_20250421_134642829_HDR_hu_d9446ddd811c597.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Smrek&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Szczeliniec Wielki - 2022-09-29</title>
+      <link>/gory_stolowe/szczeliniec_wielki/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/gory_stolowe/szczeliniec_wielki/</guid>
+        <media:content url="/gory_stolowe/szczeliniec_wielki/IMG_20220929_121718586_HDR_hu_6eac6c5b57b02a82.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/gory_stolowe/szczeliniec_wielki/IMG_20220929_121718586_HDR_hu_6eac6c5b57b02a82.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Szczeliniec Wielki&lt;/p&gt;
         </description></item>
     <item>
       <title>Turbacz - 2024-08-11</title>
-      <link>//localhost:1313/gorce/turbacz/</link>
+      <link>/gorce/turbacz/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gorce/turbacz/</guid>
-        <media:content url="//localhost:1313/gorce/turbacz/IMG_20240811_102714464_hu_107bb02758826204.jpg" type="image/jpeg"/>
+      <guid>/gorce/turbacz/</guid>
+        <media:content url="/gorce/turbacz/IMG_20240811_102714464_hu_107bb02758826204.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gorce/turbacz/IMG_20240811_102714464_hu_107bb02758826204.jpg&quot; /&gt;
+          &lt;img src=&quot;/gorce/turbacz/IMG_20240811_102714464_hu_107bb02758826204.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Turbacz&lt;/p&gt;
         </description></item>
     <item>
       <title>Waligóra - 2024-03-16</title>
-      <link>//localhost:1313/gory_kamienne/waligora/</link>
+      <link>/gory_kamienne/waligora/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_kamienne/waligora/</guid>
-        <media:content url="//localhost:1313/gory_kamienne/waligora/IMG_20240316_134139880_hu_e85ad0d8ff19fe51.jpg" type="image/jpeg"/>
+      <guid>/gory_kamienne/waligora/</guid>
+        <media:content url="/gory_kamienne/waligora/IMG_20240316_134139880_hu_e85ad0d8ff19fe51.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gory_kamienne/waligora/IMG_20240316_134139880_hu_e85ad0d8ff19fe51.jpg&quot; /&gt;
+          &lt;img src=&quot;/gory_kamienne/waligora/IMG_20240316_134139880_hu_e85ad0d8ff19fe51.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Waligórę&lt;/p&gt;
         </description></item>
     <item>
       <title>Wielka Sowa - 2022-06-03</title>
-      <link>//localhost:1313/gory_sowie/wielka_sowa/</link>
+      <link>/gory_sowie/wielka_sowa/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/gory_sowie/wielka_sowa/</guid>
-        <media:content url="//localhost:1313/gory_sowie/wielka_sowa/IMG_20220603_105436602_hu_709466c90c42d509.jpg" type="image/jpeg"/>
+      <guid>/gory_sowie/wielka_sowa/</guid>
+        <media:content url="/gory_sowie/wielka_sowa/IMG_20220603_105436602_hu_709466c90c42d509.jpg" type="image/jpeg"/>
         <description>
-          &lt;img src=&quot;//localhost:1313/gory_sowie/wielka_sowa/IMG_20220603_105436602_hu_709466c90c42d509.jpg&quot; /&gt;
+          &lt;img src=&quot;/gory_sowie/wielka_sowa/IMG_20220603_105436602_hu_709466c90c42d509.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Wielką Sowę&lt;/p&gt;
         </description></item>
   </channel>
