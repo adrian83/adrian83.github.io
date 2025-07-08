@@ -158,16 +158,6 @@
           &lt;p&gt;Zdjęcia z wejścia na Skrzyczne&lt;/p&gt;
         </description></item>
     <item>
-      <title>Ślęża - 2021-09-19</title>
-      <link>/masyw_slezy/sleza/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/masyw_slezy/sleza/</guid>
-        <media:content url="/masyw_slezy/sleza/IMG_20210919_110853683_hu_12f6e71d28285da6.jpg" type="image/jpeg"/>
-        <description>
-          &lt;img src=&quot;/masyw_slezy/sleza/IMG_20210919_110853683_hu_12f6e71d28285da6.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wejścia na Ślężę&lt;/p&gt;
-        </description></item>
-    <item>
       <title>Śnieżka - 2023-09-02</title>
       <link>/karkonosze/sniezka/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -196,6 +186,16 @@
         <description>
           &lt;img src=&quot;/rudawy_janowickie/sokolik_duzy/IMG_20241020_125906475_HDR_hu_c7be77ad04600b76.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Sokolik Duży&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sudety / Góry Orlickie / Jeřáb / 2025-06-19</title>
+      <link>/sudety_gory_hanuszowickie/jerab_2025_06_19/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_gory_hanuszowickie/jerab_2025_06_19/</guid>
+        <media:content url="/sudety_gory_hanuszowickie/jerab_2025_06_19/IMG_20250619_141518486_HDR_hu_160b51f84c353611.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_gory_hanuszowickie/jerab_2025_06_19/IMG_20250619_141518486_HDR_hu_160b51f84c353611.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Jeřáb&lt;/p&gt;
         </description></item>
     <item>
       <title>Sudety / Góry Orlickie / Orlica / 2023-09-24</title>
@@ -266,6 +266,36 @@
         <description>
           &lt;img src=&quot;/sudety_gory_zlote/smrek/IMG_20250421_134642829_HDR_hu_d9446ddd811c597.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Smrek&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sudety / Masyw Ślęży / Ślęża / 2021-09-19</title>
+      <link>/sudety_masyw_slezy/sleza_2021_09_19/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_masyw_slezy/sleza_2021_09_19/</guid>
+        <media:content url="/sudety_masyw_slezy/sleza_2021_09_19/IMG_20210919_110853683_hu_12f6e71d28285da6.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_masyw_slezy/sleza_2021_09_19/IMG_20210919_110853683_hu_12f6e71d28285da6.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Ślężę&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sudety / Masyw Ślęży / Ślęża / 2025-07-06</title>
+      <link>/sudety_masyw_slezy/sleza_2025_07_05/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_masyw_slezy/sleza_2025_07_05/</guid>
+        <media:content url="/sudety_masyw_slezy/sleza_2025_07_05/IMG_20250706_135346885_HDR_hu_7970201a86d0b289.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_masyw_slezy/sleza_2025_07_05/IMG_20250706_135346885_HDR_hu_7970201a86d0b289.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Ślężę&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sudety / Wyżyna Zabrzeska / Lázek / 2025-06-19</title>
+      <link>/sudety_wyzyna_zabrzeska/lazek_2025_06_19/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_wyzyna_zabrzeska/lazek_2025_06_19/</guid>
+        <media:content url="/sudety_wyzyna_zabrzeska/lazek_2025_06_19/IMG_20250619_114624399_HDR_hu_eec81966b0f4d5a5.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_wyzyna_zabrzeska/lazek_2025_06_19/IMG_20250619_114624399_HDR_hu_eec81966b0f4d5a5.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Lázek&lt;/p&gt;
         </description></item>
     <item>
       <title>Szczeliniec Wielki - 2022-09-29</title>

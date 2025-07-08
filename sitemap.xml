@@ -58,8 +58,6 @@
   </url><url>
     <loc>/karkonosze/kopa/</loc>
   </url><url>
-    <loc>/masyw_slezy/</loc>
-  </url><url>
     <loc>/masyw_snieznika/</loc>
   </url><url>
     <loc>/gory_bialskie/rudawiec/</loc>
@@ -72,15 +70,17 @@
   </url><url>
     <loc>/baskid_slaski/skrzyczne/</loc>
   </url><url>
-    <loc>/masyw_slezy/sleza/</loc>
-  </url><url>
     <loc>/karkonosze/sniezka/</loc>
   </url><url>
     <loc>/masyw_snieznika/snieznik/</loc>
   </url><url>
     <loc>/rudawy_janowickie/sokolik_duzy/</loc>
   </url><url>
+    <loc>/sudety_gory_hanuszowickie/</loc>
+  </url><url>
     <loc>/sudety_gory_orlickie/</loc>
+  </url><url>
+    <loc>/sudety_gory_hanuszowickie/jerab_2025_06_19/</loc>
   </url><url>
     <loc>/sudety_gory_orlickie/orlica_2023_09_24/</loc>
   </url><url>
@@ -99,6 +99,16 @@
     <loc>/sudety_gory_zlote/kowadlo/</loc>
   </url><url>
     <loc>/sudety_gory_zlote/smrek/</loc>
+  </url><url>
+    <loc>/sudety_masyw_slezy/</loc>
+  </url><url>
+    <loc>/sudety_masyw_slezy/sleza_2021_09_19/</loc>
+  </url><url>
+    <loc>/sudety_masyw_slezy/sleza_2025_07_05/</loc>
+  </url><url>
+    <loc>/sudety_wyzyna_zabrzeska/</loc>
+  </url><url>
+    <loc>/sudety_wyzyna_zabrzeska/lazek_2025_06_19/</loc>
   </url><url>
     <loc>/gory_stolowe/szczeliniec_wielki/</loc>
   </url><url>
