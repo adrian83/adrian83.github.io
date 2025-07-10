@@ -4,15 +4,9 @@
   <url>
     <loc>/beskid_zywiecki/babia_gora/</loc>
   </url><url>
-    <loc>/beskid_maly/</loc>
-  </url><url>
-    <loc>/baskid_slaski/</loc>
-  </url><url>
     <loc>/beskid_zywiecki/</loc>
   </url><url>
     <loc>/gory_opawskie/biskupia_kopa/</loc>
-  </url><url>
-    <loc>/beskid_maly/czupel/</loc>
   </url><url>
     <loc>/gorce/</loc>
   </url><url>
@@ -52,29 +46,19 @@
   </url><url>
     <loc>/gory_bystrzyckie/jagodna/</loc>
   </url><url>
-    <loc>/karkonosze/</loc>
+    <loc>/karpaty_beskid_maly/</loc>
+  </url><url>
+    <loc>/karpaty_beskid_maly/czupel/</loc>
+  </url><url>
+    <loc>/karpaty_baskid_slaski/</loc>
+  </url><url>
+    <loc>/karpaty_baskid_slaski/skrzyczne/</loc>
   </url><url>
     <loc>/gory_bardzkie/klodzka_gora/</loc>
   </url><url>
-    <loc>/karkonosze/kopa/</loc>
-  </url><url>
-    <loc>/masyw_snieznika/</loc>
-  </url><url>
     <loc>/gory_bialskie/rudawiec/</loc>
   </url><url>
-    <loc>/rudawy_janowickie/</loc>
-  </url><url>
-    <loc>/rudawy_janowickie/skalnik/</loc>
-  </url><url>
     <loc>/gory_kaczawskie/skopiec/</loc>
-  </url><url>
-    <loc>/baskid_slaski/skrzyczne/</loc>
-  </url><url>
-    <loc>/karkonosze/sniezka/</loc>
-  </url><url>
-    <loc>/masyw_snieznika/snieznik/</loc>
-  </url><url>
-    <loc>/rudawy_janowickie/sokolik_duzy/</loc>
   </url><url>
     <loc>/sudety_gory_hanuszowickie/</loc>
   </url><url>
@@ -100,11 +84,27 @@
   </url><url>
     <loc>/sudety_gory_zlote/smrek/</loc>
   </url><url>
+    <loc>/sudety_karkonosze/</loc>
+  </url><url>
+    <loc>/sudety_karkonosze/kopa/</loc>
+  </url><url>
+    <loc>/sudety_karkonosze/sniezka/</loc>
+  </url><url>
     <loc>/sudety_masyw_slezy/</loc>
   </url><url>
     <loc>/sudety_masyw_slezy/sleza_2021_09_19/</loc>
   </url><url>
     <loc>/sudety_masyw_slezy/sleza_2025_07_05/</loc>
+  </url><url>
+    <loc>/sudety_masyw_snieznika/</loc>
+  </url><url>
+    <loc>/sudety_masyw_snieznika/snieznik/</loc>
+  </url><url>
+    <loc>/sudety_rudawy_janowickie/</loc>
+  </url><url>
+    <loc>/sudety_rudawy_janowickie/skalnik/</loc>
+  </url><url>
+    <loc>/sudety_rudawy_janowickie/sokolik_duzy/</loc>
   </url><url>
     <loc>/sudety_wyzyna_zabrzeska/</loc>
   </url><url>

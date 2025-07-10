@@ -28,16 +28,6 @@
           &lt;p&gt;Zdjęcia z wejścia na Biskupią Kopę&lt;/p&gt;
         </description></item>
     <item>
-      <title>Czupel - 2024-06-29</title>
-      <link>/beskid_maly/czupel/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/beskid_maly/czupel/</guid>
-        <media:content url="/beskid_maly/czupel/IMG_20240629_110601239_HDR_hu_7c3ee14cb4bee736.jpg" type="image/jpeg"/>
-        <description>
-          &lt;img src=&quot;/beskid_maly/czupel/IMG_20240629_110601239_HDR_hu_7c3ee14cb4bee736.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wejścia na Czypel&lt;/p&gt;
-        </description></item>
-    <item>
       <title>Góry Świętokrzyskie / Łysogóry / Łysa Góra / 2023-12-30</title>
       <link>/gory_swietokrzyskie_lysogory/lysa_gora_2023_12_30/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -98,6 +88,26 @@
           &lt;p&gt;Zdjęcia z wejścia na Jagodną&lt;/p&gt;
         </description></item>
     <item>
+      <title>Karpaty / Beskid Mały / Czupel / 2024-06-29</title>
+      <link>/karpaty_beskid_maly/czupel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/karpaty_beskid_maly/czupel/</guid>
+        <media:content url="/karpaty_beskid_maly/czupel/IMG_20240629_110601239_HDR_hu_7c3ee14cb4bee736.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/karpaty_beskid_maly/czupel/IMG_20240629_110601239_HDR_hu_7c3ee14cb4bee736.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Czupel&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Karpaty / Beskid Śląski / Skrzyczne / 2024-06-30</title>
+      <link>/karpaty_baskid_slaski/skrzyczne/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/karpaty_baskid_slaski/skrzyczne/</guid>
+        <media:content url="/karpaty_baskid_slaski/skrzyczne/IMG_20240630_115450451_hu_8dd099419efaa267.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/karpaty_baskid_slaski/skrzyczne/IMG_20240630_115450451_hu_8dd099419efaa267.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Skrzyczne&lt;/p&gt;
+        </description></item>
+    <item>
       <title>Kłodzka Góra - 2024-09-01</title>
       <link>/gory_bardzkie/klodzka_gora/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -106,16 +116,6 @@
         <description>
           &lt;img src=&quot;/gory_bardzkie/klodzka_gora/IMG_20240831_104931370_hu_b6e4f112161acd7c.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Kłodzką Górę&lt;/p&gt;
-        </description></item>
-    <item>
-      <title>Kopa - 2023-09-10</title>
-      <link>/karkonosze/kopa/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/karkonosze/kopa/</guid>
-        <media:content url="/karkonosze/kopa/IMG_20230910_122909972_hu_8b6dd9e19e58d74d.jpg" type="image/jpeg"/>
-        <description>
-          &lt;img src=&quot;/karkonosze/kopa/IMG_20230910_122909972_hu_8b6dd9e19e58d74d.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wjazdu na Kopę&lt;/p&gt;
         </description></item>
     <item>
       <title>Rudawiec - 2023-10-07</title>
@@ -128,16 +128,6 @@
           &lt;p&gt;Zdjęcia z wejścia na Rudawiec&lt;/p&gt;
         </description></item>
     <item>
-      <title>Skalnik - 2024-10-20</title>
-      <link>/rudawy_janowickie/skalnik/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/rudawy_janowickie/skalnik/</guid>
-        <media:content url="/rudawy_janowickie/skalnik/IMG_20241020_104557836_HDR_hu_6fbd4ec28ca85ab.jpg" type="image/jpeg"/>
-        <description>
-          &lt;img src=&quot;/rudawy_janowickie/skalnik/IMG_20241020_104557836_HDR_hu_6fbd4ec28ca85ab.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wejścia na Skalnik&lt;/p&gt;
-        </description></item>
-    <item>
       <title>Skopiec - 2024-10-20</title>
       <link>/gory_kaczawskie/skopiec/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -146,46 +136,6 @@
         <description>
           &lt;img src=&quot;/gory_kaczawskie/skopiec/IMG_20241020_151557073_HDR_hu_5c063739367f9153.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Skopiec&lt;/p&gt;
-        </description></item>
-    <item>
-      <title>Skrzyczne - 2024-06-30</title>
-      <link>/baskid_slaski/skrzyczne/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/baskid_slaski/skrzyczne/</guid>
-        <media:content url="/baskid_slaski/skrzyczne/IMG_20240630_115450451_hu_8dd099419efaa267.jpg" type="image/jpeg"/>
-        <description>
-          &lt;img src=&quot;/baskid_slaski/skrzyczne/IMG_20240630_115450451_hu_8dd099419efaa267.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wejścia na Skrzyczne&lt;/p&gt;
-        </description></item>
-    <item>
-      <title>Śnieżka - 2023-09-02</title>
-      <link>/karkonosze/sniezka/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/karkonosze/sniezka/</guid>
-        <media:content url="/karkonosze/sniezka/IMG_20230902_134602283_hu_3958bcbcbf22a18d.jpg" type="image/jpeg"/>
-        <description>
-          &lt;img src=&quot;/karkonosze/sniezka/IMG_20230902_134602283_hu_3958bcbcbf22a18d.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wejścia na Śnieżkę&lt;/p&gt;
-        </description></item>
-    <item>
-      <title>Śnieżnik - 2023-08-20</title>
-      <link>/masyw_snieznika/snieznik/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/masyw_snieznika/snieznik/</guid>
-        <media:content url="/masyw_snieznika/snieznik/IMG_20230820_145122569_hu_8ff6d3c10bcce9a4.jpg" type="image/jpeg"/>
-        <description>
-          &lt;img src=&quot;/masyw_snieznika/snieznik/IMG_20230820_145122569_hu_8ff6d3c10bcce9a4.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wejścia na Śnieżnik&lt;/p&gt;
-        </description></item>
-    <item>
-      <title>Sokolik Duży - 2024-10-20</title>
-      <link>/rudawy_janowickie/sokolik_duzy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/rudawy_janowickie/sokolik_duzy/</guid>
-        <media:content url="/rudawy_janowickie/sokolik_duzy/IMG_20241020_125906475_HDR_hu_c7be77ad04600b76.jpg" type="image/jpeg"/>
-        <description>
-          &lt;img src=&quot;/rudawy_janowickie/sokolik_duzy/IMG_20241020_125906475_HDR_hu_c7be77ad04600b76.jpg&quot; /&gt;
-          &lt;p&gt;Zdjęcia z wejścia na Sokolik Duży&lt;/p&gt;
         </description></item>
     <item>
       <title>Sudety / Góry Orlickie / Jeřáb / 2025-06-19</title>
@@ -268,6 +218,26 @@
           &lt;p&gt;Zdjęcia z wejścia na Smrek&lt;/p&gt;
         </description></item>
     <item>
+      <title>Sudety / Karkonosze / Kopa / 2023-09-10</title>
+      <link>/sudety_karkonosze/kopa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_karkonosze/kopa/</guid>
+        <media:content url="/sudety_karkonosze/kopa/IMG_20230910_122909972_hu_8b6dd9e19e58d74d.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_karkonosze/kopa/IMG_20230910_122909972_hu_8b6dd9e19e58d74d.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wjazdu na Kopę&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sudety / Karkonosze / Śnieżka / 2023-09-02</title>
+      <link>/sudety_karkonosze/sniezka/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_karkonosze/sniezka/</guid>
+        <media:content url="/sudety_karkonosze/sniezka/IMG_20230902_134602283_hu_3958bcbcbf22a18d.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_karkonosze/sniezka/IMG_20230902_134602283_hu_3958bcbcbf22a18d.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Śnieżkę&lt;/p&gt;
+        </description></item>
+    <item>
       <title>Sudety / Masyw Ślęży / Ślęża / 2021-09-19</title>
       <link>/sudety_masyw_slezy/sleza_2021_09_19/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -286,6 +256,36 @@
         <description>
           &lt;img src=&quot;/sudety_masyw_slezy/sleza_2025_07_05/IMG_20250706_135346885_HDR_hu_7970201a86d0b289.jpg&quot; /&gt;
           &lt;p&gt;Zdjęcia z wejścia na Ślężę&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sudety / Masyw Śnieżnika / Śnieżnik / 2023-08-20</title>
+      <link>/sudety_masyw_snieznika/snieznik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_masyw_snieznika/snieznik/</guid>
+        <media:content url="/sudety_masyw_snieznika/snieznik/IMG_20230820_145122569_hu_8ff6d3c10bcce9a4.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_masyw_snieznika/snieznik/IMG_20230820_145122569_hu_8ff6d3c10bcce9a4.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Śnieżnik&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sudety / Rudawy Janowickie / Skalnik / 2024-10-20</title>
+      <link>/sudety_rudawy_janowickie/skalnik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_rudawy_janowickie/skalnik/</guid>
+        <media:content url="/sudety_rudawy_janowickie/skalnik/IMG_20241020_104557836_HDR_hu_6fbd4ec28ca85ab.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_rudawy_janowickie/skalnik/IMG_20241020_104557836_HDR_hu_6fbd4ec28ca85ab.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Skalnik&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sudety / Rudawy Janowickie / Sokolik Duży / 2024-10-20</title>
+      <link>/sudety_rudawy_janowickie/sokolik_duzy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sudety_rudawy_janowickie/sokolik_duzy/</guid>
+        <media:content url="/sudety_rudawy_janowickie/sokolik_duzy/IMG_20241020_125906475_HDR_hu_c7be77ad04600b76.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;/sudety_rudawy_janowickie/sokolik_duzy/IMG_20241020_125906475_HDR_hu_c7be77ad04600b76.jpg&quot; /&gt;
+          &lt;p&gt;Zdjęcia z wejścia na Sokolik Duży&lt;/p&gt;
         </description></item>
     <item>
       <title>Sudety / Wyżyna Zabrzeska / Lázek / 2025-06-19</title>
