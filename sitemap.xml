@@ -2,30 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/beskid_zywiecki/babia_gora/</loc>
-  </url><url>
-    <loc>/beskid_zywiecki/</loc>
-  </url><url>
-    <loc>/gory_opawskie/biskupia_kopa/</loc>
-  </url><url>
-    <loc>/gorce/</loc>
-  </url><url>
-    <loc>/gory_bardzkie/</loc>
-  </url><url>
-    <loc>/gory_bialskie/</loc>
-  </url><url>
-    <loc>/gory_bystrzyckie/</loc>
-  </url><url>
-    <loc>/gory_kaczawskie/</loc>
-  </url><url>
-    <loc>/gory_kamienne/</loc>
-  </url><url>
-    <loc>/gory_opawskie/</loc>
-  </url><url>
-    <loc>/gory_sowie/</loc>
-  </url><url>
-    <loc>/gory_stolowe/</loc>
-  </url><url>
     <loc>/gory_swietokrzyskie_lysogory/</loc>
   </url><url>
     <loc>/gory_swietokrzyskie_lysogory/lysa_gora_2023_12_30/</loc>
@@ -44,8 +20,6 @@
   </url><url>
     <loc>/gory_swietokrzyskie_pasmo_pokrzywianskie/gora_chelmowa_2025_05_01/</loc>
   </url><url>
-    <loc>/gory_bystrzyckie/jagodna/</loc>
-  </url><url>
     <loc>/karpaty_beskid_maly/</loc>
   </url><url>
     <loc>/karpaty_beskid_maly/czupel/</loc>
@@ -54,21 +28,59 @@
   </url><url>
     <loc>/karpaty_baskid_slaski/skrzyczne/</loc>
   </url><url>
-    <loc>/gory_bardzkie/klodzka_gora/</loc>
+    <loc>/karpaty_beskid_zywiecki/</loc>
   </url><url>
-    <loc>/gory_bialskie/rudawiec/</loc>
+    <loc>/karpaty_beskid_zywiecki/babia_gora_2024_08_10/</loc>
   </url><url>
-    <loc>/gory_kaczawskie/skopiec/</loc>
+    <loc>/karpaty_gorce/</loc>
+  </url><url>
+    <loc>/karpaty_gorce/turbacz_2024_08_11/</loc>
+  </url><url>
+    <loc>/sudety_gory_bardzkie/</loc>
+  </url><url>
+    <loc>/sudety_gory_bardzkie/klodzka_gora_2024_08_31/</loc>
+  </url><url>
+    <loc>/sudety_gory_bialskie/</loc>
+  </url><url>
+    <loc>/sudety_gory_bialskie/rudawiec_2023_10_07/</loc>
+  </url><url>
+    <loc>/sudety_gory_bystrzyckie/</loc>
+  </url><url>
+    <loc>/sudety_gory_bystrzyckie/jagodna_2024_08_31/</loc>
   </url><url>
     <loc>/sudety_gory_hanuszowickie/</loc>
   </url><url>
-    <loc>/sudety_gory_orlickie/</loc>
-  </url><url>
     <loc>/sudety_gory_hanuszowickie/jerab_2025_06_19/</loc>
+  </url><url>
+    <loc>/sudety_gory_jastrzebie/</loc>
+  </url><url>
+    <loc>/sudety_gory_jastrzebie/zaltman_2025_08_09/</loc>
+  </url><url>
+    <loc>/sudety_gory_kaczawskie/</loc>
+  </url><url>
+    <loc>/sudety_gory_kaczawskie/skopiec_2024_10_20/</loc>
+  </url><url>
+    <loc>/sudety_gory_kamienne/</loc>
+  </url><url>
+    <loc>/sudety_gory_kamienne/waligora_2024_03_16/</loc>
+  </url><url>
+    <loc>/sudety_gory_opawskie/</loc>
+  </url><url>
+    <loc>/sudety_gory_opawskie/biskupia_kopa_2024_04_28/</loc>
+  </url><url>
+    <loc>/sudety_gory_orlickie/</loc>
   </url><url>
     <loc>/sudety_gory_orlickie/orlica_2023_09_24/</loc>
   </url><url>
     <loc>/sudety_gory_orlickie/wielka_desztna_205_05_25/</loc>
+  </url><url>
+    <loc>/sudety_gory_sowie/</loc>
+  </url><url>
+    <loc>/sudety_gory_sowie/wielka_sowa_2022_06_03/</loc>
+  </url><url>
+    <loc>/sudety_gory_stolowe/</loc>
+  </url><url>
+    <loc>/sudety_gory_stolowe/szczeliniec_wielki_2022_09_29/</loc>
   </url><url>
     <loc>/sudety_gory_walbrzyskie/</loc>
   </url><url>
@@ -109,14 +121,6 @@
     <loc>/sudety_wyzyna_zabrzeska/</loc>
   </url><url>
     <loc>/sudety_wyzyna_zabrzeska/lazek_2025_06_19/</loc>
-  </url><url>
-    <loc>/gory_stolowe/szczeliniec_wielki/</loc>
-  </url><url>
-    <loc>/gorce/turbacz/</loc>
-  </url><url>
-    <loc>/gory_kamienne/waligora/</loc>
-  </url><url>
-    <loc>/gory_sowie/wielka_sowa/</loc>
   </url><url>
     <loc>/about/</loc>
   </url><url>
